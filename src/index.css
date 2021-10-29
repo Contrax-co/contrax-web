@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.masthead {
+  height: 100vh;
+  min-height: 400px;
+  max-height: 550px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.home-background {
+  background-color: #184f90;
+}
+
+.home-image{
+  min-height: 430px;
+  max-height: 530px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('./images/bg-home-spaceman-and-dog.svg');
+}

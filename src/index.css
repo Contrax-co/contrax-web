@@ -14,9 +14,9 @@ code {
 
 
 .masthead {
-  height: 100vh;
+  /* height: 100vh; */
   min-height: 400px;
-  max-height: 550px;
+  /* max-height: 550px; */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -32,6 +32,8 @@ code {
   background-position: center;
   background-repeat: no-repeat;
   background-image: url('./images/bg-home-spaceman-and-dog.svg');
+  margin-bottom: 10px;
+  background-size: contain;
 }
 
 .pageHeader {

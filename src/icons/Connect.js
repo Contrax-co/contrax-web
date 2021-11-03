@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import * as colors from '@studio/theme/colors';
+import * as colors from '@colors';
 
 const Connect = (props) => {
   const { fill, ...remainingProps } = props;

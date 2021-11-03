@@ -1,6 +1,5 @@
 import React from 'react'
-import Button from './ui/button/Button'
-import { Button as Btn} from 'reactstrap';
+import Button from './button/Button'
 
 
 export default function banner() {
@@ -12,8 +11,7 @@ export default function banner() {
             <div className="col-lg-6 col-sm-12 mx-auto my-auto">
               <h1 className="text-white mt-sm-25">Contrax Wallet</h1>
               <p className="text-white"> The Contrax web app simplifies the process of developing, testing, deploying and managing smart contracts with an intuitive interface. </p>
-              {/* <Button label={'Connect Wallet'} variant="light" /> */}
-              <Btn color="primary" size="lg"> Connect Wallet</Btn>
+              <Button label={'Connect Wallet'} variant="primary" />
             </div>
             <div className="col-lg-6 col-sm-12">
               <div className="row h-100 align-items-center">

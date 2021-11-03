@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import * as icons from '@icons';
-import { Logo } from '@icons';
 
 import { IconWrapper } from './Icon.styles';
 
@@ -14,10 +13,6 @@ const Icon = (props) => {
   if ((!name || !Elem) && !logo) return null;
 
   const renderIcon = () => {
-    if (logo) {
-      return <Logo data-testid="logo" name={logo} />;
-    }
-
     return <Elem data-testid="icon" fill={color} {...direction} {...isOn} />;
   };
 

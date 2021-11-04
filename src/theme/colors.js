@@ -9,10 +9,11 @@ export const secondaryDisabled = '#333333';
 export const primaryBorder = '#0d6efd';
 export const secondaryBorder = '#fff';
 
-export const textPrimary = '#313336';
-export const textSecondary = '#798B9B';
+export const textPrimary = primary;
+export const textSecondary = secondary;
 export const textWarn = 'rgba(121, 139, 155, 0.15)';
 export const textInfo = 'rgba(121, 139, 155, 0.15)';
+export const textLight = white;
 
 export const primaryError = '#F75757';
 export const secondaryError = '#F75757';

@@ -19,7 +19,7 @@ export const H3_M = {
 };
 
 export const P_R = {
-  ...baseStyles('1.4rem', weight.regular, '1.7rem'),
+  ...baseStyles('1rem', weight.regular, '1.4rem'),
 };
 
 export const P_R_Bloc = {

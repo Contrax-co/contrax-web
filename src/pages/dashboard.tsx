@@ -1,13 +1,14 @@
 import React from 'react'
 import Navigationbar from '../components/Navigationbar';
 import Header from '../components/Header';
+import StatsCard from '../components/StatsCard';
 
 export default function dashboard() {
     return (
         <>
             <Navigationbar />
             <Header />
-            
+
             <div className="container">
                 <nav>
                     <div className="nav nav-tabs" id="nav-tab" role="tablist">
@@ -17,15 +18,20 @@ export default function dashboard() {
                 <div className="tab-content" id="nav-tabContent">
                     <div className="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 
+                        <h5 className="mt-4 mb-3">Account Overview</h5>
 
+                        <div className="row">
 
+                            <div className="col-lg-4 col-md-4 col-sm-12">
+                                <StatsCard />        
+                            </div>
 
-
+                        </div>
 
                     </div>
                 </div>
             </div>
 
-        </>    
+        </>
     )
 }

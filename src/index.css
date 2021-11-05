@@ -35,3 +35,21 @@ code {
   margin-bottom: 10px;
   background-size: contain;
 }
+
+.pageHeader {
+  height: 100vh;
+  min-height: 200px;
+  max-height: 350px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.image-title {
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.dashboard-background {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)), url('./images/dashboard-banner.png');
+}

@@ -18,7 +18,7 @@ export default function Navigationbar() {
                                 <a className="nav-link active" aria-current="page" href="/">Home</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Dashboard</a>
+                                <a className="nav-link" href="/dashboard">Dashboard</a>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="#">Create a Token</a>

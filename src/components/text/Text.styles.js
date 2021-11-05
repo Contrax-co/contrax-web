@@ -5,33 +5,49 @@ import * as typo from '@typography';
 
 const noForwardProps = [];
 
-export const StyledText = styled('p', {
+export const StyledPageTitle = styled('h3', {
   shouldForwardProp: (prop) => !noForwardProps.includes(prop),
-})((props) => {
-  console.log({ props: props });
-  return ({
-    ...(props.variant === 'light' && { color: colors.textLight }),
-    ...(props.variant === 'primary' && { color: colors.textPrimary }),
-    ...(props.variant === 'secondary' && { color: colors.textSecondary }),
-    ...(props.variant === 'warn' && { color: colors.textWarn }),
-    ...(props.variant === 'info' && { color: colors.textInfo }),
-    ...(props.small ? typo.P_S : typo.P_R),
+})((props) => ({
+    ...(props.variant === 'light' && { color: colors.titleLight }),
+    ...(props.variant === 'dark' && { color: colors.titleDark }),
+    ...(typo.PageTitle),
   })
-});
+);
 
-
-export const StyledH3 = styled('h3', {
+export const StyledPageSubTitle = styled('h4', {
   shouldForwardProp: (prop) => !noForwardProps.includes(prop),
-})((props) => {
-  console.log({ props: props });
-  return ({
-    ...(props.variant === 'light' && { color: colors.textLight }),
-    ...(props.variant === 'primary' && { color: colors.textPrimary }),
-    ...(props.variant === 'secondary' && { color: colors.textSecondary }),
-    ...(props.variant === 'warn' && { color: colors.textWarn }),
-    ...(props.variant === 'info' && { color: colors.textInfo }),
-    ...(props.small ? typo.H3_M : typo.H3_M),
-    marginTop: '1rem',
-    marginBottom: '0.4rem',
+})((props) => ({
+  ...(props.variant === 'light' && { color: colors.subTitleLight }),
+  ...(props.variant === 'dark' && { color: colors.subTitleDark }),
+  ...(typo.PageSubTitle),
 })
-});
+);
+
+export const StyledTitle = styled('h4', {
+  shouldForwardProp: (prop) => !noForwardProps.includes(prop),
+})((props) => ({
+  ...(props.variant === 'light' && { color: colors.titleLight }),
+  ...(props.variant === 'dark' && { color: colors.titleDark }),
+  ...(typo.Title),
+})
+);
+
+
+export const StyledDesc = styled('p', {
+  shouldForwardProp: (prop) => !noForwardProps.includes(prop),
+})((props) => ({
+  ...(props.variant === 'light' && { color: colors.descLight }),
+  ...(props.variant === 'dark' && { color: colors.descDark }),
+  ...(typo.Desc),
+})
+);
+
+export const StyledLink = styled('a', {
+  shouldForwardProp: (prop) => !noForwardProps.includes(prop),
+})((props) => ({
+  ...(props.variant === 'light' && { color: colors.titleLight }),
+  ...(props.variant === 'dark' && { color: colors.titleDark }),
+  ...(typo.Desc),
+})
+);
+

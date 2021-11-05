@@ -1,28 +1,22 @@
-export const white = '#fff';
+export const white = '#ffffff';
+export const whiteText = '#f2f2f2';
 
-export const primary = '#0d6efd';
-export const secondary = '#262727';
+export const titleDark = '#212b36';
+export const titleLight = '#f2f2f2';
 
-export const primaryDisabled = '#333333';
-export const secondaryDisabled = '#333333';
+export const subTitleDark = '#637381';
+export const subTitleLight = '#e6e6e6';
 
-export const primaryBorder = '#0d6efd';
-export const secondaryBorder = '#fff';
+export const descDark = '#637381';
+export const descLight = '#e6e6e6';
 
-export const textPrimary = primary;
-export const textSecondary = secondary;
-export const textWarn = 'rgba(121, 139, 155, 0.15)';
-export const textInfo = 'rgba(121, 139, 155, 0.15)';
-export const textLight = white;
+export const buttonText = whiteText;
+export const buttonBg = '#55cddd';
 
-export const primaryError = '#F75757';
-export const secondaryError = '#F75757';
-export const infoError = '#F75757';
-export const warnError = '#F75757';
+export const link = '#55cddd';
 
+export const cardLight = '#ffffff';
+export const cardDark = '#000000';
 
-export const shadow = '0 0 1.2rem rgba(96, 126, 142, 0.1)';
-
-export const grayBg = 'rgba(221, 221, 221, 0.2)';
-
-export const progressBarGreen = '#43C0A3';
+export const pageBgLight = '#f9fafc';
+export const pageBgDark = '#191919';

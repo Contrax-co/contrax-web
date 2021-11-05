@@ -1,6 +1,7 @@
 export default `
   /**
-   * Inter
+   * Martel
+   * Source Serif Pro
    */
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Martel:wght@300;600&family=Source+Serif+Pro:wght@300;400&display=swap');
 `;

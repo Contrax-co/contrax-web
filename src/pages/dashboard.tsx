@@ -22,6 +22,17 @@ export default function dashboard() {
 
                         <div className="row">
 
+                            <div className="col-lg-4 col-md-4 col-sm-12">
+                                <StatsCard cardIcon={'fas fa-wallet'} cardTitle={'Wallet'} cardValue={'$3,345.74'} />        
+                            </div>
+
+                            <div className="col-lg-4 col-md-4 col-sm-12">
+                                <StatsCard cardIcon={'fas fa-lock'} cardTitle={'Staked'} cardValue={'$4,145.45'} />        
+                            </div>
+
+                            <div className="col-lg-4 col-md-4 col-sm-12">
+                                <StatsCard cardIcon={'fas fa-tractor'} cardTitle={'Yield Farming'} cardValue={'$182.19'} />        
+                            </div>
 
                         </div>
 

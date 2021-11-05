@@ -8,7 +8,6 @@ export default function dashboard() {
         <>
             <Navigationbar />
             <Header />
-
             <div className="container">
                 <nav>
                     <div className="nav nav-tabs" id="nav-tab" role="tablist">
@@ -17,18 +16,12 @@ export default function dashboard() {
                 </nav>
                 <div className="tab-content" id="nav-tabContent">
                     <div className="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-
                         <h5 className="mt-4 mb-3">Account Overview</h5>
-
                         <div className="row">
-
-
                         </div>
-
                     </div>
                 </div>
             </div>
-
         </>
     )
 }

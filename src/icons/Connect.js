@@ -31,7 +31,7 @@ Connect.propTypes = {
 };
 
 Connect.defaultProps = {
-  fill: colors.textPrimary,
+  fill: colors.descLight,
 };
 
 export default Connect;

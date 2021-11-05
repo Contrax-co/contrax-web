@@ -1,20 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { StyledH3, StyledText } from './Text.styles';
+import { StyledPageTitle, StyledTitle, StyledPageSubTitle, StyledDesc, StyledLink } from './Text.styles';
 
 const propTypes = {
   small: PropTypes.bool,
-  color: PropTypes.oneOf(['primary', 'secondary', 'warn', 'info', 'light']),
+  color: PropTypes.oneOf(['light', 'dark']),
   value: PropTypes.string,
   onClick: PropTypes.func,
   'aria-label': PropTypes.string,
   'aria-haspopup': PropTypes.string,
 };
 
-export const Text = (props) => {
+export const PageTitle = (props) => {
   const {
-    small,
     variant,
     value,
     onClick,
@@ -23,22 +22,21 @@ export const Text = (props) => {
   } = props;
 
   return (
-    <StyledText
-      small={small}
+    <StyledPageTitle
       variant={variant}
       onClick={!onClick ? undefined : onClick}
       {...remainingProps}
     >
       {value ? <span>{value}</span> : <span>{children}</span>}
-    </StyledText>
+    </StyledPageTitle>
   );
 };
-Text.prototype = propTypes;
-Text.defaultProps = { variant: 'primary' };
 
-export const H3 = (props) => {
+PageTitle.prototype = propTypes;
+PageTitle.defaultProps = { variant: 'dark' };
+
+export const PageSubTitle = (props) => {
   const {
-    small,
     variant,
     value,
     onClick,
@@ -47,15 +45,82 @@ export const H3 = (props) => {
   } = props;
 
   return (
-    <StyledH3
-      small={small}
+    <StyledPageSubTitle
       variant={variant}
       onClick={!onClick ? undefined : onClick}
       {...remainingProps}
     >
       {value ? <span>{value}</span> : <span>{children}</span>}
-    </StyledH3>
+    </StyledPageSubTitle>
   );
 };
-H3.prototype = propTypes;
-H3.defaultProps = { variant: 'primary' };
+PageSubTitle.prototype = propTypes;
+PageSubTitle.defaultProps = { variant: 'dark' };
+
+export const Title = (props) => {
+  const {
+    variant,
+    value,
+    onClick,
+    children,
+    ...remainingProps
+  } = props;
+
+  return (
+    <StyledTitle
+      variant={variant}
+      onClick={!onClick ? undefined : onClick}
+      {...remainingProps}
+    >
+      {value ? <span>{value}</span> : <span>{children}</span>}
+    </StyledTitle>
+  );
+};
+Title.prototype = propTypes;
+Title.defaultProps = { variant: 'dark' };
+
+export const Desc = (props) => {
+  const {
+    variant,
+    value,
+    onClick,
+    children,
+    ...remainingProps
+  } = props;
+
+  return (
+    <StyledDesc
+      variant={variant}
+      onClick={!onClick ? undefined : onClick}
+      {...remainingProps}
+    >
+      {value ? <span>{value}</span> : <span>{children}</span>}
+    </StyledDesc>
+  );
+};
+Desc.prototype = propTypes;
+Desc.defaultProps = { variant: 'dark' };
+
+export const Link = (props) => {
+  const {
+    variant,
+    text,
+    link,
+    onClick,
+    children,
+    ...remainingProps
+  } = props;
+
+  return (
+    <StyledLink
+      variant={variant}
+      onClick={!onClick ? undefined : onClick}
+      {...remainingProps}
+      href={link}
+    >
+      {text}
+    </StyledLink>
+  );
+};
+Link.prototype = propTypes;
+Link.defaultProps = { variant: 'dark' };

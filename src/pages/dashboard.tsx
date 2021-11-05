@@ -22,9 +22,6 @@ export default function dashboard() {
 
                         <div className="row">
 
-                            <div className="col-lg-4 col-md-4 col-sm-12">
-                                <StatsCard />        
-                            </div>
 
                         </div>
 

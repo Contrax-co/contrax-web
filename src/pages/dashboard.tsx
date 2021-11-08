@@ -18,20 +18,26 @@ export default function dashboard() {
                     <div className="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                         <h5 className="mt-4 mb-3">Account Overview</h5>
                         <div className="row">
-                            <div className="col-lg-4 col-md-4 col-sm-12">
+                            <div className="col-lg-4 col-md-4 col-sm-12 my-2">
                                 <StatsCard cardIcon={'fas fa-wallet'} cardTitle={'Wallet'} cardValue={'$3,345.74'} />        
                             </div>
-                            <div className="col-lg-4 col-md-4 col-sm-12">
+                            <div className="col-lg-4 col-md-4 col-sm-12 my-2">
                                 <StatsCard cardIcon={'fas fa-lock'} cardTitle={'Staked'} cardValue={'$4,145.45'} />        
                             </div>
-                            <div className="col-lg-4 col-md-4 col-sm-12">
+                            <div className="col-lg-4 col-md-4 col-sm-12 my-2">
                                 <StatsCard cardIcon={'fas fa-tractor'} cardTitle={'Yield Farming'} cardValue={'$182.19'} />        
                             </div>
                         </div>
                         <h5 className="mt-4 mb-3">Networks</h5>
                         <div className="row">
-                            <div className="col-lg-4 col-md-4 col-sm-12">
+                            <div className="col-lg-4 col-md-4 col-sm-12 my-2">
                                 <StatsCard cardIcon={'fab fa-ethereum'} cardTitle={'Ethereum'} cardValue={'$5,134.12'} />        
+                            </div>
+                        </div>
+                        <h5 className="mt-4 mb-3">Actions</h5>
+                        <div className="row">
+                            <div className="col-lg-4 col-md-4 col-sm-12 my-2">
+                                <StatsCard cardIcon={'fab fa-connectdevelop'} cardTitle={'Create a token'} cardValue={'→'} />
                             </div>
                         </div>
                     </div>

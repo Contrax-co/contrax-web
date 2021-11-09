@@ -44,7 +44,6 @@ export default function dashboard() {
                     </div>
                 </div>
             </div>
-            <hr></hr>
             <BottomBar />
         </>
     )

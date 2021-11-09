@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Martel:wght@300;600&family=Source+Serif+Pro:wght@300;400&display=swap');
+.navbar {
+  padding-left: 65px;
+}
 @media only screen and (max-width: 990px) {
   .mt-sm-25 {
     margin-top: 25px !important;
+  }
+  .navbar {
+    padding-left: 0px;
   }
 }

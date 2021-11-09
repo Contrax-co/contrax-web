@@ -2,6 +2,7 @@ import React from 'react'
 import Navigationbar from '../components/Navigationbar';
 import Header from '../components/Header';
 import StatsCard from '../components/StatsCard';
+import Footer from '../components/footer/Footer';
 
 export default function dashboard() {
     return (
@@ -43,6 +44,8 @@ export default function dashboard() {
                     </div>
                 </div>
             </div>
+            <hr></hr>
+            <Footer />
         </>
     )
 }

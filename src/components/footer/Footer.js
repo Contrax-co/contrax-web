@@ -36,14 +36,6 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-
-      </div>
-      <div className="row" style={{backgroundColor: colors.pageBgDark, paddingTop: '20px', marginTop: 30}}>
-        <div className="col-lg-3">
-        </div>
-        <div className="col-lg-6 text-center">
-          <Desc>©2021 Contrax. All rights reserved.</Desc>
-        </div>
       </div>
     </div>
   )

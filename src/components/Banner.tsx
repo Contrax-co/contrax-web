@@ -3,8 +3,8 @@ import Button from './button/Button'
 import { PageTitle, PageSubTitle, Title, Desc } from "./text/Text";
 import Onboard from 'bnc-onboard'
 import Web3 from 'web3'
+import { setUserSession } from '../store/localstorage';
 
-// set a variable to store instantiated web3
 let web3
 const onboard = Onboard({
     dappId: 'b4ae356c-11d5-4439-baf0-8f452f2bdbcd',  // [String] The API key of Blocknative
@@ -17,10 +17,21 @@ const onboard = Onboard({
 });
 
 async function ConnectWallet() {
-    await onboard.walletSelect();
-    await onboard.walletCheck();
+    const walletSelected = await onboard.walletSelect();
+    if(walletSelected){
+      const readyToTransact = await onboard.walletCheck();
+      if(readyToTransact){
+        const currentState = await onboard.getState()
+        setUserSession({
+          address: currentState.address,
+          appNetworkId: currentState.appNetworkId,
+          balance: currentState.balance,
+          mobileDevice: currentState.mobileDevice,
+          network: currentState.network,
+        })
+      }
+    }
 }
-
 
 export default function banner() {
   return (

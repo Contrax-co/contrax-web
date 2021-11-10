@@ -10,27 +10,27 @@ export default function Footer() {
         <div className="row">
           <div className="col-md-6">
             <b>Affiliate Hardware Wallets</b>
-              <div class="row">
+              <div className="row">
                 <Link text={'Ledger'} link={'#'} />
               </div>
-              <div class="row">
+              <div className="row">
                 <Link text={'Bitbox'} link={'#'} />
               </div>
-              <div class="row">
+              <div className="row">
                 <Link text={'Ether Cards'} link={'#'} />
               </div>
-              <div class="row">
+              <div className="row">
                 <Link text={'Trezor'} link={'#'} />
               </div>
           </div>
           <div className="col-md-6">
             <b>Love Contrax?</b>
             <Desc>Help us keep Contrax free and open-source, your donations go a long way towards making that possible.</Desc>
-            <ul class="list-group list-group-flush">
-              <div class="row">
+            <ul className="list-group list-group-flush">
+              <div className="row">
                 <Link text={'ETH Donation'} link={'#'} />
               </div>
-              <div class="row">
+              <div className="row">
                 <Link text={'BTC Donation'} link={'#'} />
               </div>
             </ul>

@@ -1,9 +1,14 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 import { Desc } from "@components/text/Text";
 import { Link } from '../text/Text';
 import * as colors from '@colors';
+import BottomBar from '../bottomBar/BottomBar';
 
 export default function Footer() {
+  const location = useLocation();
+  console.log("path ",location.pathname);
+
   return (
     <div className="footer">
       <div className="container">
@@ -37,6 +42,11 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      {location == '/'  ? (
+         <> </>
+      ):(
+        <BottomBar />
+      ) }
     </div>
   )
 }

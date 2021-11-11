@@ -43,9 +43,9 @@ export default function Navigationbar() {
                                     Address: {walletAddress}
                                 </span>
                             </ul>
-                        ) : (
-                            <> </>
-                        )}
+                        ) : 
+                            null
+                        }
 
                     </div>
                 </div>

@@ -53,3 +53,9 @@ code {
 .dashboard-background {
   background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)), url('./images/dashboard-banner.png');
 }
+
+.bottombar-design{
+  background-color: #191919;
+  padding-top: 20px !important;
+  margin-top: 30px !important;
+}

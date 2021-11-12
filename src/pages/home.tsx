@@ -11,7 +11,6 @@ export default function home() {
             <Navigationbar />
             <Banner />
             <Footer />
-            <BottomBar />
         </div>
     )
 }

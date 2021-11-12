@@ -1,26 +1,27 @@
-import React from 'react'
-import Button from './button/Button'
+import React from 'react';
+import Button from './button/Button';
 import { PageTitle, PageSubTitle, Title, Desc } from "./text/Text";
-import Onboard from 'bnc-onboard'
-import Web3 from 'web3'
+import Onboard from 'bnc-onboard';
+import Web3 from 'web3';
 import { setUserSession } from '../store/localstorage';
 
 let web3
 const onboard = Onboard({
-    dappId: 'b4ae356c-11d5-4439-baf0-8f452f2bdbcd',  // [String] The API key of Blocknative
-    networkId: 3,  // [Integer] The Ethereum network ID your Dapp uses.
-    subscriptions: {
-      wallet: wallet => {
-         web3 = new Web3(wallet.provider)
-      }
+  dappId: 'b4ae356c-11d5-4439-baf0-8f452f2bdbcd',  // [String] The API key of Blocknative
+  networkId: 3,  // [Integer] The Ethereum network ID your Dapp uses.
+  subscriptions: {
+    wallet: wallet => {
+      web3 = new Web3(wallet.provider)
     }
+  }
 });
 
-async function ConnectWallet() {
+export default function banner() {
+    async function ConnectWallet() {
     const walletSelected = await onboard.walletSelect();
-    if(walletSelected){
+    if (walletSelected) {
       const readyToTransact = await onboard.walletCheck();
-      if(readyToTransact){
+      if (readyToTransact) {
         const currentState = await onboard.getState()
         setUserSession({
           address: currentState.address,
@@ -28,12 +29,12 @@ async function ConnectWallet() {
           balance: currentState.balance,
           mobileDevice: currentState.mobileDevice,
           network: currentState.network,
-        })
+        });
+        window.location.href="/dashboard"
       }
     }
-}
+  }
 
-export default function banner() {
   return (
     <div>
       <header className="masthead home-background mb-5">

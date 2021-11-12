@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { getUserSession, removeUserSession } from '../store/localstorage';
 
 export default function Navigationbar() {
+    const [walletAddress, setWalletAddress] = useState('');
 
+    useEffect(() => {
+        let walletData: any;
+        let tempData = getUserSession();
+        if (tempData) {
+            walletData = JSON.parse(tempData)
+            setWalletAddress(walletData.address);
+        }
+    }, [])
+
+    function logout() {
+        removeUserSession();
+        setWalletAddress('')
+    }
 
     return (
         <div>
-
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="#">Contrax</a>
@@ -23,9 +37,21 @@ export default function Navigationbar() {
                             <li className="nav-item">
                                 <a className="nav-link" href="#">Create a Token</a>
                             </li>
-
                         </ul>
-
+                        {walletAddress != '' ? (
+                            <ul className="navbar-nav">
+                                <li className="nav-item dropdown">
+                                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Address: {walletAddress}
+                                    </a>
+                                    <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <li><a className="dropdown-item" onClick={logout}>Logout</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        ) :
+                            null
+                        }
                     </div>
                 </div>
             </nav>

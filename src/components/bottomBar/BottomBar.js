@@ -1,7 +1,5 @@
 import React from 'react'
 import { Desc } from "@components/text/Text";
-import { Link } from '../text/Text';
-import * as colors from '@colors';
 
 export default function BottomBar() {
   return (

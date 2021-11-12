@@ -7,7 +7,7 @@ import { setUserSession } from '../store/localstorage';
 
 let web3
 const onboard = Onboard({
-  dappId: 'b4ae356c-11d5-4439-baf0-8f452f2bdbcd',  // [String] The API key of Blocknative
+  dappId: process.env.REACT_APP_DAPP_ID,  // [String] The API key of Blocknative
   networkId: 3,  // [Integer] The Ethereum network ID your Dapp uses.
   subscriptions: {
     wallet: wallet => {

@@ -5,7 +5,7 @@ import * as colors from '@colors';
 
 export default function BottomBar() {
   return (
-      <div className="row" style={{backgroundColor: colors.pageBgDark, paddingTop: '20px', marginTop: 30}}>
+      <div className="row bottombar-design">
         <div className="col-lg-3">
         </div>
         <div className="col-lg-6 text-center">

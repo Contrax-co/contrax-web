@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './pages/home';
 import Dashboard from './pages/dashboard';
+import CreateToken from './pages/createToken';
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
             </Route>
             <Route exact path='/dashboard'>
               <Dashboard />
+            </Route>
+            <Route exact path='/create-a-token'>
+              <CreateToken />
             </Route>
         </Switch>
     </Router>

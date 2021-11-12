@@ -54,8 +54,12 @@ code {
   background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)), url('./images/dashboard-banner.png');
 }
 
-.bottombar-design{
-  background-color: #191919;
-  padding-top: 20px !important;
-  margin-top: 30px !important;
-}
+@media (min-width:1824px) { /* hi-res laptops and desktops */ 
+  .footer{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
+  }
+} 

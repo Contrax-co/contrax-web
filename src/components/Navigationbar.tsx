@@ -1,7 +1,19 @@
 import React from 'react';
+import { getUserSession } from '../store/localstorage';
 
 export default function Navigationbar() {
+    let walletData: any;
+    let walletAddress = '';
+    let dataLoaded = false;
 
+    let tempData = getUserSession();
+    if (tempData) {
+        walletData = JSON.parse(tempData)
+        walletAddress = walletData.address;
+        dataLoaded = true;
+        console.log("dataLoaded ", dataLoaded)
+        console.log("walletAddress ", walletAddress)
+    }
 
     return (
         <div>
@@ -25,6 +37,15 @@ export default function Navigationbar() {
                             </li>
 
                         </ul>
+                        {dataLoaded ? (
+                            <ul className="navbar-nav">
+                                <span className="navbar-text">
+                                    Address: {walletAddress}
+                                </span>
+                            </ul>
+                        ) : 
+                            null
+                        }
 
                     </div>
                 </div>

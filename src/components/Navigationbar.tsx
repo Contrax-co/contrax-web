@@ -15,7 +15,8 @@ export default function Navigationbar() {
 
     function logout() {
         removeUserSession();
-        setWalletAddress('')
+        setWalletAddress('');
+        window.location.href="/"
     }
 
     return (

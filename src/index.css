@@ -60,7 +60,7 @@ code {
   padding-bottom: 20px !important;
   margin-top: 30px !important;
 }
-@media (min-height:600px) { /* hi-res laptops and desktops */ 
+@media (min-height:950px) { /* hi-res laptops and desktops */ 
   .footer{
     position: fixed;
     right: 0;

@@ -57,6 +57,7 @@ code {
 .bottombar-design{
   background-color: #191919;
   padding-top: 20px !important;
+  padding-bottom: 20px !important;
   margin-top: 30px !important;
 }
 @media (min-width:1824px) { /* hi-res laptops and desktops */ 
@@ -68,3 +69,18 @@ code {
     z-index: 1030;
   }
 } 
+
+.formBackgroundDesign{
+  background: #dbdbdb;
+  border-radius: 10px;
+}
+
+p{
+  margin-top: 0;
+  margin-bottom: 0rem !important;
+}
+
+.inlineDisplay {
+  white-space: nowrap;
+  display:inline  
+}

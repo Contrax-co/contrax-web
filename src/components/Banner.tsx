@@ -1,6 +1,5 @@
-import React from 'react';
 import Button from './button/Button';
-import { PageTitle, PageSubTitle, Title, Desc } from "./text/Text";
+import { PageTitle, Desc } from "./text/Text";
 import Onboard from 'bnc-onboard';
 import Web3 from 'web3';
 import { setUserSession } from '../store/localstorage';

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Desc, PageTitle, Title } from './text/Text'
 
 export default function Header() {
     return (
@@ -7,11 +8,11 @@ export default function Header() {
                 <div className="container h-100">
                     <div className="row h-100 image-title">
                         <div className="col-12 my-auto">
-                            <h1 className="fw-light text-center mt-5">Contrax Dashboard</h1>
+                          <PageTitle variant={'light'} className="fw-light text-center mt-5">Contrax Dashboard</PageTitle>
                         </div>
                         <div className="col 12 my-auto">
-                            <p> Net Worth</p>
-                            <h3 className="mb-3">$6,905.51</h3>
+                            <Desc variant={'light'}> Net Worth</Desc>
+                            <Title variant={'light'} className="mb-3">$6,905.51</Title>
                         </div>
                     </div>
 

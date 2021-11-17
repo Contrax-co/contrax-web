@@ -87,7 +87,7 @@ export default function createToken() {
                                 <td>7,000</td>
                                 <td>678,987</td>
                                 <td>
-                                    <button className="btn btn-primary">Manage</button>
+                                    <a className="btn btn-primary" href="/manage-token">Manage</a>
                                 </td>
                             </tr>
                             <tr>
@@ -98,7 +98,7 @@ export default function createToken() {
                                 <td>15,000</td>
                                 <td>788,334</td>
                                 <td>
-                                    <button className="btn btn-primary">Manage</button>
+                                    <a className="btn btn-primary" href="/manage-token">Manage</a>
                                 </td>
                             </tr>
                         </tbody>

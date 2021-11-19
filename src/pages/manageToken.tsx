@@ -37,7 +37,21 @@ export default function manageToken() {
                                 <PieChart />
                             </div>        
                         </div>
-
+                        <h5 className="mt-4 mb-3">Token Actions</h5>
+                        <div className="row">
+                            <div className="col-lg-4 col-md-4 col-sm-12 my-2">
+                                <StatsCard cardIcon={'fas fa-money-check-alt'} cardTitle={'Send Tokens'} cardValue={'→'} />
+                            </div>
+                            <div className="col-lg-4 col-md-4 col-sm-12 my-2">
+                                <StatsCard cardIcon={'fas fa-fire-alt'} cardTitle={'Burn Tokens'} cardValue={'→'} />
+                            </div>
+                            <div className="col-lg-4 col-md-4 col-sm-12 my-2">
+                                <StatsCard cardIcon={'fas fa-project-diagram'} cardTitle={'End Crowdsale'} cardValue={'→'} />
+                            </div>
+                            <div className="col-lg-4 col-md-4 col-sm-12 my-2">
+                                <StatsCard cardIcon={'fas fa-file-invoice-dollar'} cardTitle={'Change Sale Rate'} cardValue={'→'} />
+                            </div>
+                        </div>
 
                     </div>
                 </div>

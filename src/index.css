@@ -39,7 +39,7 @@ code {
 .pageHeader {
   height: 100vh;
   min-height: 200px;
-  max-height: 350px;
+  max-height: 250px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

@@ -15,7 +15,7 @@ code {
 
 .masthead {
   /* height: 100vh; */
-  min-height: 400px;
+  min-height: 390px;
   /* max-height: 550px; */
   background-size: cover;
   background-position: center;
@@ -83,4 +83,17 @@ p{
 .inlineDisplay {
   white-space: nowrap;
   display:inline  
+}
+
+.brand-logo {
+  width: 100px !important;
+  background-color: #ffffffc7;
+  margin: 5px 10px;
+  padding: 5px 0px;
+  /* border: 1px solid #adb5bd; */
+  /* border-radius: 6px; */
+  margin-top: 20px !important;
+}
+.text-right{
+  text-align: end;
 }

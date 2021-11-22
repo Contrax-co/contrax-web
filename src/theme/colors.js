@@ -20,3 +20,7 @@ export const cardDark = '#000000';
 
 export const pageBgLight = '#f9fafc';
 export const pageBgDark = '#191919';
+
+export const chartColorBlue = '#007fad';
+export const chartColorYellow = '#e9a227';
+export const chartTextColor = '#233238';

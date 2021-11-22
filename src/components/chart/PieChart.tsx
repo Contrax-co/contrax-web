@@ -1,23 +1,25 @@
 import React from 'react'
 import { render } from "react-dom";
 import { Chart } from "react-google-charts";
+import { chartColorBlue, chartColorYellow, chartTextColor } from "../../theme/colors"
 
 const pieOptions = {
     title: "",
     pieHole: 0.6,
     slices: [
-          {
-            color: "#007fad"
-          },
-          {
-            color: "#e9a227"
-          }
+      {
+        color: chartColorBlue
+      },
+      {
+        color: chartColorYellow
+      }
+
     ],
     legend: {
       position: "bottom",
       alignment: "center",
       textStyle: {
-        color: "233238",
+        color: chartTextColor,
         fontSize: 14
       }
     },

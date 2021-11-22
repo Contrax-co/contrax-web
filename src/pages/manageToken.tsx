@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import StatsCard from '../components/StatsCard';
 import BottomBar from '../components/bottomBar/BottomBar';
 import PieChart from '../components/chart/PieChart';
+import { PageTitle, PageSubTitle, Title, Desc } from "../components/text/Text";
 
 export default function manageToken() {
     return (
@@ -40,7 +41,9 @@ export default function manageToken() {
                         <h5 className="mt-4 mb-3">Token Actions</h5>
                         <div className="row">
                             <div className="col-lg-4 col-md-4 col-sm-12 my-2">
+                            <a data-bs-toggle="modal" data-bs-target="#SendTokens">
                                 <StatsCard cardIcon={'fas fa-money-check-alt'} cardTitle={'Send Tokens'} cardValue={'→'} />
+                            </a>
                             </div>
                             <div className="col-lg-4 col-md-4 col-sm-12 my-2">
                                 <StatsCard cardIcon={'fas fa-fire-alt'} cardTitle={'Burn Tokens'} cardValue={'→'} />
@@ -57,6 +60,33 @@ export default function manageToken() {
                 </div>
             </div>
             <BottomBar />
+
+            <div className="modal fade" id="SendTokens" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal-dialog">
+                <div className="modal-content">
+                <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalLabel">Send Tokens</h5>
+                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div className="modal-body">
+                    <div className="row">
+                        <div className="col-12 my-2">
+                            <Desc value={'Amount'} variant={'dark'} />
+                            <input type="text" placeholder="Amount you will send" className="form-control" id="SendTokenAmount" name="SendTokenAmount" />
+                        </div>
+                        <div className="col-12 my-2">
+                            <Desc value={'Address'} variant={'dark'} />
+                            <input type="text" placeholder="Recipient Address" className="form-control" id="SendTokenAddress" name="SendTokenAddress" />
+                        </div>
+                    </div>
+                </div>
+                <div className="modal-footer">
+                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" className="btn btn-primary">Send</button>
+                </div>
+                </div>
+            </div>
+            </div>
         </div>
     )
 }

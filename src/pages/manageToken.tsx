@@ -41,18 +41,22 @@ export default function manageToken() {
                         <h5 className="mt-4 mb-3">Token Actions</h5>
                         <div className="row">
                             <div className="col-lg-4 col-md-4 col-sm-12 my-2">
-                            <a data-bs-toggle="modal" data-bs-target="#SendTokens">
-                                <StatsCard cardIcon={'fas fa-money-check-alt'} cardTitle={'Send Tokens'} cardValue={'→'} />
-                            </a>
+                                <a data-bs-toggle="modal" data-bs-target="#SendTokens">
+                                    <StatsCard cardIcon={'fas fa-money-check-alt'} cardTitle={'Send Tokens'} cardValue={'→'} />
+                                </a>
                             </div>
                             <div className="col-lg-4 col-md-4 col-sm-12 my-2">
-                                <StatsCard cardIcon={'fas fa-fire-alt'} cardTitle={'Burn Tokens'} cardValue={'→'} />
+                                <a data-bs-toggle="modal" data-bs-target="#BurnTokens">
+                                    <StatsCard cardIcon={'fas fa-fire-alt'} cardTitle={'Burn Tokens'} cardValue={'→'} />
+                                </a>
                             </div>
                             <div className="col-lg-4 col-md-4 col-sm-12 my-2">
-                                <StatsCard cardIcon={'fas fa-project-diagram'} cardTitle={'End Crowdsale'} cardValue={'→'} />
+                                    <StatsCard cardIcon={'fas fa-project-diagram'} cardTitle={'End Crowdsale'} cardValue={'→'} />
                             </div>
                             <div className="col-lg-4 col-md-4 col-sm-12 my-2">
-                                <StatsCard cardIcon={'fas fa-file-invoice-dollar'} cardTitle={'Change Sale Rate'} cardValue={'→'} />
+                                <a data-bs-toggle="modal" data-bs-target="#RateChange">
+                                    <StatsCard cardIcon={'fas fa-file-invoice-dollar'} cardTitle={'Change Sale Rate'} cardValue={'→'} />
+                                </a>
                             </div>
                         </div>
 
@@ -83,6 +87,52 @@ export default function manageToken() {
                 <div className="modal-footer">
                     <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="button" className="btn btn-primary">Send</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
+            <div className="modal fade" id="BurnTokens" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal-dialog">
+                <div className="modal-content">
+                <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalLabel">Burn Tokens</h5>
+                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div className="modal-body">
+                    <div className="row">
+                        <div className="col-12 my-2">
+                            <Desc value={'Amount'} variant={'dark'} />
+                            <input type="text" placeholder="Amount you will burn" className="form-control" id="BurnTokenAmount" name="BurnTokenAmount" />
+                        </div>
+                    </div>
+                </div>
+                <div className="modal-footer">
+                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" className="btn btn-primary">Burn</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
+            <div className="modal fade" id="RateChange" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal-dialog">
+                <div className="modal-content">
+                <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalLabel">Change Token Sale Rate</h5>
+                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div className="modal-body">
+                    <div className="row">
+                        <div className="col-12 my-2">
+                            <Desc value={'New Rate'} variant={'dark'} />
+                            <input type="text" placeholder="Enter New Sale Rate" className="form-control" id="RateChangeAmount" name="RateChangeAmount" />
+                        </div>
+                    </div>
+                </div>
+                <div className="modal-footer">
+                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" className="btn btn-primary">Set New Rate</button>
                 </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getUserSession, removeUserSession } from '../store/localstorage';
+import Button from "../components/button/Button";
 
 export default function Navigationbar() {
     const [walletAddress, setWalletAddress] = useState('');
@@ -30,6 +31,12 @@ export default function Navigationbar() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
+                              <a className="nav-link active" aria-current="page" href="/docs">Docs</a>
+                            </li>
+                            <li className="nav-item">
+                              <a className="nav-link active" aria-current="page" href="/about">About</a>
+                            </li>
+                            {/* <li className="nav-item">
                                 <a className="nav-link active" aria-current="page" href="/">Home</a>
                             </li>
                             <li className="nav-item">
@@ -37,8 +44,9 @@ export default function Navigationbar() {
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="/create-a-token">Create a Token</a>
-                            </li>
+                            </li> */}
                         </ul>
+                        <Button variant={'primary'} label='Get Started' />
                         {walletAddress != '' ? (
                             <ul className="navbar-nav">
                                 <li className="nav-item dropdown">

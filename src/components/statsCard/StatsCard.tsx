@@ -1,4 +1,4 @@
-import React from 'react'
+import { StyledDesc } from './StatsCard.styles';
 
 export default function StatsCard(props:any) {
     const {cardIcon, cardTitle, cardValue} = props;
@@ -7,7 +7,7 @@ export default function StatsCard(props:any) {
 
             <div className="card">
                 <div className="card-body">
-                    <i className={cardIcon}></i> <span className="ms-2"> {cardTitle} </span> <span className="float-end"> {cardValue} </span> 
+                    <i className={cardIcon}></i> <StyledDesc varient={'dark'} className="ms-2"> {cardTitle} </StyledDesc> <StyledDesc className="float-end"> {cardValue} </StyledDesc> 
                 </div>
             </div>
 

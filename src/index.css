@@ -61,13 +61,7 @@ code {
   margin-top: 30px !important;
 }
 @media (min-height:950px) { /* hi-res laptops and desktops */ 
-  .footer{
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1030;
-  }
+  
 } 
 
 .formBackgroundDesign{

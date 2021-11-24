@@ -5,6 +5,7 @@ import Home from './pages/home';
 import Dashboard from './pages/dashboard';
 import CreateToken from './pages/createToken';
 import ManageToken from './pages/manageToken';
+import Exchange from './pages/exchange';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
             </Route>
             <Route exact path='/manage-token'>
               <ManageToken />
+            </Route>
+            <Route exact path='/exchange'>
+              <Exchange />
             </Route>
         </Switch>
     </Router>

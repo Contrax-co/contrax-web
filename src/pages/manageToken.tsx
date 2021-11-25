@@ -1,10 +1,9 @@
-import React from 'react'
 import Navigationbar from '../components/Navigationbar';
 import Header from '../components/Header';
 import StatsCard from '../components/statsCard/StatsCard';
 import BottomBar from '../components/bottomBar/BottomBar';
 import PieChart from '../components/chart/PieChart';
-import { PageTitle, PageSubTitle, Title, Desc } from "../components/text/Text";
+import { Desc } from "../components/text/Text";
 
 export default function manageToken() {
     return (
@@ -41,12 +40,12 @@ export default function manageToken() {
                         <h5 className="mt-4 mb-3">Token Actions</h5>
                         <div className="row">
                             <div className="col-lg-4 col-md-4 col-sm-12 my-2">
-                                <a data-bs-toggle="modal" data-bs-target="#SendTokens">
+                                <a href='/#' data-bs-toggle="modal" data-bs-target="#SendTokens">
                                     <StatsCard cardIcon={'fas fa-money-check-alt'} cardTitle={'Send Tokens'} cardValue={'→'} />
                                 </a>
                             </div>
                             <div className="col-lg-4 col-md-4 col-sm-12 my-2">
-                                <a data-bs-toggle="modal" data-bs-target="#BurnTokens">
+                                <a href='/#' data-bs-toggle="modal" data-bs-target="#BurnTokens">
                                     <StatsCard cardIcon={'fas fa-fire-alt'} cardTitle={'Burn Tokens'} cardValue={'→'} />
                                 </a>
                             </div>
@@ -54,7 +53,7 @@ export default function manageToken() {
                                     <StatsCard cardIcon={'fas fa-project-diagram'} cardTitle={'End Crowdsale'} cardValue={'→'} />
                             </div>
                             <div className="col-lg-4 col-md-4 col-sm-12 my-2">
-                                <a data-bs-toggle="modal" data-bs-target="#RateChange">
+                                <a href='/#' data-bs-toggle="modal" data-bs-target="#RateChange">
                                     <StatsCard cardIcon={'fas fa-file-invoice-dollar'} cardTitle={'Change Sale Rate'} cardValue={'→'} />
                                 </a>
                             </div>

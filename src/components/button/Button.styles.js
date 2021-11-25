@@ -1,29 +1,10 @@
 import styled from 'styled-components/macro';
 
-import * as colors from '../../theme/colors';
 import * as typo from '../../theme/typography';
 
 const noForwardProps = ['iconAlignRight', 'small', 'variant'];
 
-const primaryStyles = (isDisabled) => ({
-  // backgroundColor: isDisabled ? colors.primaryDisabled : colors.primary,
-  color: colors.buttonText,
 
-  svg: {
-    fill: colors.white,
-  },
-});
-
-const secondaryStyles = (isDisabled) => ({
-  // ...(!isDisabled && { border: `.1rem solid ${colors.secondaryBorder}` }),
-  // ...(!isDisabled && { boxShadow: colors.shadow }),
-  // backgroundColor: colors.white,
-  color: isDisabled ? colors.buttonText : colors.buttonText,
-
-  svg: {
-    fill: isDisabled ? colors.buttonText : colors.buttonText,
-  },
-});
 
 export const StyledButton = styled('button', {
   shouldForwardProp: (prop) => !noForwardProps.includes(prop),

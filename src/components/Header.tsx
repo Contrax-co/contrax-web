@@ -9,7 +9,7 @@ export default function Header() {
             <header className="pageHeader dashboard-background mb-5">
                 <div className="container h-100">
                     <div className="row h-100 image-title">
-                        {location.pathname == '/dashboard' ? (
+                        {location.pathname === '/dashboard' ? (
                             <> 
                                 <div className="col-12 my-auto">
                                     <h1 className="fw-light text-center mt-5">Contrax Dashboard</h1>

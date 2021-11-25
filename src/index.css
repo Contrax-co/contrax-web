@@ -84,3 +84,15 @@ p{
   white-space: nowrap;
   display:inline  
 }
+
+.timeSpan{
+  color: black;
+}
+
+.priceIncreaseDisplay{
+  color: #56f6da;
+}
+
+.priceDecreaseDisplay{
+  color: #ff5072;
+}

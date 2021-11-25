@@ -5,14 +5,8 @@ import { chartTextColor } from "../../theme/colors"
 
 const chartOptions = {
     title: "",
-    legend: {
-      position: "bottom",
-      alignment: "center",
-      textStyle: {
-        color: chartTextColor,
-        fontSize: 14
-      }
-    },
+    legend: { position: "none" },
+    hAxis: { textPosition: 'none' },
     tooltip: {
       showColorCode: true
     },

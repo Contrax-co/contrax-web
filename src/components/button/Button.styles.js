@@ -1,8 +1,7 @@
 import styled from 'styled-components/macro';
 
-import * as colors from '@colors';
-import * as typo from '@typography';
-import { Icon } from '@icons';
+import * as colors from '../../theme/colors';
+import * as typo from '../../theme/typography';
 
 const noForwardProps = ['iconAlignRight', 'small', 'variant'];
 
@@ -40,13 +39,4 @@ export const StyledButton = styled('button', {
   justifyContent: 'center',
   lineHeight: props.small ? '1.2rem' : '1.6rem',
   padding: props.small ? '0.3rem' : '0.5rem 0.6rem',
-}));
-
-export const StyledIcon = styled(Icon, {
-  shouldForwardProp: (prop) => !noForwardProps.includes(prop),
-})((props) => ({
-  display: 'inline-flex',
-  '+span': {
-    margin: props.iconAlignRight ? '0 0.4rem 0 0' : '0 0 0 0.4rem',
-  },
 }));

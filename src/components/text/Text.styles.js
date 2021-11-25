@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
 
-import * as colors from '@colors';
-import * as typo from '@typography';
+import * as colors from '../../theme/colors';
+import * as typo from '../../theme/typography';
 
 const noForwardProps = [];
 

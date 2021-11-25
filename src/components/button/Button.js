@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { isRequiredIf } from '@proptypes';
+import { isRequiredIf } from '../../utils/proptypes';
 
-import { StyledButton, StyledIcon } from './Button.styles';
+import { StyledButton } from './Button.styles';
 
 const Button = (props) => {
   const {
@@ -32,13 +32,6 @@ const Button = (props) => {
       data-testid="button"
       {...remainingProps}
     >
-      <StyledIcon
-        data-testid="buttonIcon"
-        name={icon}
-        logo={logo}
-        size={small ? 12 : 16}
-        iconAlignRight={iconAlignRight}
-      />
       {label && <span>{label}</span>}
     </StyledButton>
   );

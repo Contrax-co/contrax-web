@@ -1,5 +1,5 @@
 import React from 'react'
-import { Desc } from "@components/text/Text";
+import { Desc } from "../text/Text";
 
 export default function BottomBar() {
   return (

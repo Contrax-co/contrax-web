@@ -1,5 +1,5 @@
 // need to update. this file its a sample file
-import { weight, family } from '@fonts';
+import { weight, family } from './fonts';
 
 const baseStyles = (fontSize, fontWeight, lineHeight) => ({
   fontSize,

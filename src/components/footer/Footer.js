@@ -1,7 +1,6 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
-import { Desc } from "@components/text/Text";
-import { Link, PageTitle, Title } from '../text/Text';
+import { Link, PageTitle, Title, Desc } from '../text/Text';
 import BottomBar from '../bottomBar/BottomBar';
 
 export default function Footer() {

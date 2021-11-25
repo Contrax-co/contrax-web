@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 import { Desc } from "@components/text/Text";
-import { Link } from '../text/Text';
+import { Link, PageTitle, Title } from '../text/Text';
 import BottomBar from '../bottomBar/BottomBar';
 
 export default function Footer() {
@@ -10,7 +10,11 @@ export default function Footer() {
     <div className="footer">
       <div className="container">
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-md-4" >
+            <PageTitle>Contrax</PageTitle>
+            <Title>Govern better, together</Title>
+          </div>
+          <div className="col-md-4">
             <b>Affiliate Hardware Wallets</b>
               <div className="row">
                 <Link text={'Ledger'} link={'#'} />
@@ -25,7 +29,7 @@ export default function Footer() {
                 <Link text={'Trezor'} link={'#'} />
               </div>
           </div>
-          <div className="col-md-6">
+          <div className="col-md-4">
             <b>Love Contrax?</b>
             <Desc>Help us keep Contrax free and open-source, your donations go a long way towards making that possible.</Desc>
             <ul className="list-group list-group-flush">

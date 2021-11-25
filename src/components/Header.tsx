@@ -1,4 +1,5 @@
 import React from 'react'
+import { Desc, PageTitle, Title } from './text/Text'
 import { useLocation } from 'react-router-dom'
 
 export default function Header() {
@@ -20,6 +21,11 @@ export default function Header() {
                             </>
                         ):
                         <div className="col-12 my-auto">
+                          <PageTitle variant={'light'} className="fw-light text-center mt-5">Contrax Dashboard</PageTitle>
+                        </div>
+                        <div className="col 12 my-auto">
+                            <Desc variant={'light'}> Net Worth</Desc>
+                            <Title variant={'light'} className="mb-3">$6,905.51</Title>
                             <h1 className="fw-light text-center mt-5">Manage Token</h1>
                         </div>
                         }

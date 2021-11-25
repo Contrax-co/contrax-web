@@ -1,7 +1,7 @@
 import React from 'react'
 import Navigationbar from '../components/Navigationbar';
 import Header from '../components/Header';
-import StatsCard from '../components/StatsCard';
+import StatsCard from '../components/statsCard/StatsCard';
 import BottomBar from '../components/bottomBar/BottomBar';
 import PieChart from '../components/chart/PieChart';
 import { PageTitle, PageSubTitle, Title, Desc } from "../components/text/Text";

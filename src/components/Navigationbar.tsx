@@ -44,7 +44,10 @@ export default function Navigationbar() {
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="/create-a-token">Create a Token</a>
-                            </li> */}
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="/exchange">Exchange</a>
+                            </li>
                         </ul>
                         <Button variant={'primary'} label='Get Started' />
                         {walletAddress != '' ? (

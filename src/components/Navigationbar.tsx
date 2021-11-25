@@ -61,7 +61,7 @@ export default function Navigationbar() {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        {walletAddress != '' ? (
+                        { walletAddress != '' ? (
                             <>
                               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                   <li className="nav-item">
@@ -72,6 +72,9 @@ export default function Navigationbar() {
                                   </li>
                                   <li className="nav-item">
                                       <a className="nav-link" href="/create-a-token">Create a Token</a>
+                                  </li>
+                                  <li className="nav-item">
+                                      <a className="nav-link" href="/exchange">Exchange</a>
                                   </li>
                               </ul>
                               <ul className="navbar-nav">
@@ -97,7 +100,7 @@ export default function Navigationbar() {
                           </ul>
                           <Button variant={'primary'} label='Get Started' onClick={ConnectWallet} />
                         </>
-                        }
+                       }
                     </div>
                 </div>
             </nav>

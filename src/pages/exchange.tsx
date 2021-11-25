@@ -1,24 +1,29 @@
-import React from 'react'
+import React, {useState} from 'react'
 import BottomBar from '../components/bottomBar/BottomBar'
 import Navigationbar from '../components/Navigationbar'
 import LineChart from '../components/chart/LineChart';
 
-export default function exchange() {
+export default function Exchange() {
+    const [day, setDay] = useState('active')
+    const [week, setWeek] = useState('')
+    const [month, setMonth] = useState('')
 
-    let day = 'active', week = '', month = '';
     function changeState(state: any){
         console.log("changeState: ", state);
         if(state == 'day'){
-            day = 'active';
-            week = ''; month = '';
+            setDay('active');
+            setWeek(''); 
+            setMonth('');
         }
         if(state == 'week'){
-            week = 'active';
-            day = ''; month = '';
+            setDay('');
+            setWeek('active'); 
+            setMonth('');
         }
         if(state == 'month'){
-            month = 'active';
-            day = ''; week = '';
+            setDay('');
+            setWeek(''); 
+            setMonth('active');
         }
     }
 

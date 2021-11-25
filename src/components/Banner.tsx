@@ -1,5 +1,5 @@
 import Button from './button/Button';
-import { PageTitle, Desc, PageSubTitle, Title, Text } from "./text/Text";
+import { PageTitle, Title, Text } from "./text/Text";
 
 import ethereum from "../images/ethereum.png";
 import arbitrum from "../images/arbitrum.png";

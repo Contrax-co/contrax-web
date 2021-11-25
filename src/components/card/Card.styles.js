@@ -1,6 +1,5 @@
 import styled from 'styled-components/macro';
-import * as colors from '@colors';
-import * as typo from '@typography';
+import * as colors from '../../theme/colors';
 
 export const StyledCard = styled('div')((props) => ({
   background : props.background ? props.background : colors.white,

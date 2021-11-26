@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import BottomBar from '../components/bottomBar/BottomBar'
 import Navigationbar from '../components/Navigationbar'
 import LineChart from '../components/chart/LineChart';
@@ -16,13 +16,12 @@ export default function Exchange() {
         ["10:44 AM", 21],
         ["10:59 AM", 28],
         ["11:36 AM", 14],
-      ])
+    ])
 
-    function changeState(state: any){
-        // console.log("changeState: ", state);
-        if(state == 'day'){
+    function changeState(state: any) {
+        if (state == 'day') {
             setDay('active');
-            setWeek(''); 
+            setWeek('');
             setMonth('');
             setChartData([
                 ["Date / Time", "Price"],
@@ -33,11 +32,11 @@ export default function Exchange() {
                 ["10:44 AM", 21],
                 ["10:59 AM", 28],
                 ["11:36 AM", 14],
-              ])
+            ])
         }
-        if(state == 'week'){
+        if (state == 'week') {
             setDay('');
-            setWeek('active'); 
+            setWeek('active');
             setMonth('');
             setChartData([
                 ["Date / Time", "Price"],
@@ -48,11 +47,11 @@ export default function Exchange() {
                 ["13/11/21 10:44 AM", 24],
                 ["14/11/21 10:59 AM", 28],
                 ["15/11/21 11:36 AM", 15],
-              ])
+            ])
         }
-        if(state == 'month'){
+        if (state == 'month') {
             setDay('');
-            setWeek(''); 
+            setWeek('');
             setMonth('active');
             setChartData([
                 ["Date / Time", "Price"],
@@ -71,7 +70,7 @@ export default function Exchange() {
                 ["24/11/21 10:36 AM", 24],
                 ["26/11/21 05:36 PM", 42],
                 ["27/11/21 09:36 PM", 41],
-              ])
+            ])
         }
     }
 
@@ -79,7 +78,7 @@ export default function Exchange() {
         <div>
             <Navigationbar />
             <div className="container">
-            <div className="row mt-4">
+                <div className="row mt-4">
                     <div className="col-lg-8 col-md-8 col-sm-12">
                         <div className="row mb-3">
                             <div className="col-lg-6 col-md-6 col-sm-12">
@@ -90,13 +89,13 @@ export default function Exchange() {
                             <div className="col-lg-6 col-md-6 col-sm-12">
                                 <ul className="nav nav-pills float-lg-end mt-4">
                                     <li className="nav-item">
-                                        <a className={`nav-link ${day}`} href="#" onClick={()=>changeState("day")}>24H</a>
+                                        <a className={`nav-link ${day}`} href="#" onClick={() => changeState("day")}>24H</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className={`nav-link ${week}`} href="#" onClick={()=>changeState("week")}>1W</a>
+                                        <a className={`nav-link ${week}`} href="#" onClick={() => changeState("week")}>1W</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className={`nav-link ${month}`} href="#" onClick={()=>changeState("month")}>1M</a>
+                                        <a className={`nav-link ${month}`} href="#" onClick={() => changeState("month")}>1M</a>
                                     </li>
                                 </ul>
                             </div>

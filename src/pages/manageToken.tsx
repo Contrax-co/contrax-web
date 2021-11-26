@@ -6,6 +6,7 @@ import PieChart from '../components/chart/PieChart';
 import { Desc } from "../components/text/Text";
 
 export default function manageToken() {
+    let chartDataList = [["Title", "Supply"], ["Your Tokens", 64000000], ["Other Tokens", 36000000]]
     return (
         <div>
             <Navigationbar />
@@ -34,7 +35,7 @@ export default function manageToken() {
                                 </div>    
                             </div>
                             <div className="col-lg-4 col-md-4 col-sm-12 my-2">
-                                <PieChart />
+                                <PieChart chartData={chartDataList} chartId={'1'} />
                             </div>        
                         </div>
                         <h5 className="mt-4 mb-3">Token Actions</h5>

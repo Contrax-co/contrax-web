@@ -102,3 +102,7 @@ p{
 .text-right{
   text-align: end;
 }
+
+.chartColumn{
+  width: 30%;
+}

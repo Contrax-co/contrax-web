@@ -21,6 +21,6 @@ export const cardDark = '#000000';
 export const pageBgLight = '#f9fafc';
 export const pageBgDark = '#191919';
 
-export const chartColorBlue = '#007fad';
-export const chartColorYellow = '#e9a227';
+export const chartColorOrange = 'rgb(239, 162, 78)';
+export const chartColorYellow = 'rgb(243, 229, 84)';
 export const chartTextColor = '#233238';

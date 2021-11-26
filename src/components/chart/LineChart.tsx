@@ -21,7 +21,6 @@ const chartOptions = {
 
 export default function LineChart(props: any) {
   const { chartData } = props;
-  console.log("chartData ", chartData)
   return (
     <div className="App">
       <Chart

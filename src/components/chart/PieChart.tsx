@@ -33,7 +33,6 @@ const pieOptions = {
 
 export default function PieChart(props: any) {
   const { chartData, chartId } = props;
-  console.log("chartData ",chartData, " chartId ",chartId)
     return (
     <div className="App">
         <Chart

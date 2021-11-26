@@ -1,5 +1,3 @@
-import React from 'react'
-import { render } from "react-dom";
 import { Chart } from "react-google-charts";
 import { chartColorBlue, chartColorYellow, chartTextColor } from "../../theme/colors"
 

@@ -15,7 +15,7 @@ code {
 
 .masthead {
   /* height: 100vh; */
-  min-height: 400px;
+  min-height: 390px;
   /* max-height: 550px; */
   background-size: cover;
   background-position: center;
@@ -61,13 +61,7 @@ code {
   margin-top: 30px !important;
 }
 @media (min-height:950px) { /* hi-res laptops and desktops */ 
-  .footer{
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1030;
-  }
+  
 } 
 
 .formBackgroundDesign{
@@ -95,4 +89,16 @@ p{
 
 .priceDecreaseDisplay{
   color: #ff5072;
+}
+.brand-logo {
+  width: 100px !important;
+  background-color: #ffffffc7;
+  margin: 5px 10px;
+  padding: 5px 0px;
+  /* border: 1px solid #adb5bd; */
+  /* border-radius: 6px; */
+  margin-top: 20px !important;
+}
+.text-right{
+  text-align: end;
 }

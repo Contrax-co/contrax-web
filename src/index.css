@@ -79,6 +79,17 @@ p{
   display:inline  
 }
 
+.timeSpan{
+  color: black;
+}
+
+.priceIncreaseDisplay{
+  color: #56f6da;
+}
+
+.priceDecreaseDisplay{
+  color: #ff5072;
+}
 .brand-logo {
   width: 100px !important;
   background-color: #ffffffc7;

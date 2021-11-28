@@ -6,6 +6,7 @@ import Dashboard from './pages/dashboard';
 import CreateToken from './pages/createToken';
 import ManageToken from './pages/manageToken';
 import Exchange from './pages/exchange';
+import ExplorePool from './pages/explorePool';
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
             </Route>
             <Route exact path='/exchange'>
               <Exchange />
+            </Route>
+            <Route exact path='/explore-pool'>
+              <ExplorePool />
             </Route>
         </Switch>
     </Router>

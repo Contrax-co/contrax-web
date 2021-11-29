@@ -42,6 +42,15 @@ export const StyledDesc = styled('p', {
 })
 );
 
+export const StyledDescSpan = styled('span', {
+  shouldForwardProp: (prop) => !noForwardProps.includes(prop),
+})((props) => ({
+  ...(typo.Desc),
+  ...(props.variant === 'light' && { color: colors.descLight }),
+  ...(props.variant === 'dark' && { color: colors.descDark }),
+})
+);
+
 export const StyledLink = styled('a', {
   shouldForwardProp: (prop) => !noForwardProps.includes(prop),
 })((props) => ({

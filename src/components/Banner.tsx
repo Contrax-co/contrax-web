@@ -1,9 +1,9 @@
 import Button from './button/Button';
 import { PageTitle, Title, Text } from "./text/Text";
 
-import ethereum from "../images/ethereum.png";
-import arbitrum from "../images/arbitrum.png";
-import uniswap from "../images/uniswap.png";
+import ethereum from "../images/ethereum.svg";
+import arbitrum from "../images/arbitrum.svg";
+import uniswap from "../images/uniswap.svg";
 
 export default function banner() {
  
@@ -14,12 +14,12 @@ export default function banner() {
         <div className="container h-100">
           <div className="row">
             <div className="col-12 my-auto">
-              <Text variant={'light'} className={'mt-5'} size={34} >Pools. Farms.</Text>
-              <PageTitle className={'mt-4'} variant={'light'}>
+              <Text variant={'dark'} className={'mt-5'} size={34} >Pools. Farms.</Text>
+              <PageTitle className={'mt-4'} variant={'dark'}>
                 Accessible. <br/>
                 Permissionless.
               </PageTitle>
-              <Title variant={'light'} className='mt-3'>Contrax is the only Serum AMM that allows you to easily create liquidity pools and farms.</Title>
+              <Title variant={'dark'} className='mt-3'>Contrax is the only Serum AMM that allows you to easily create liquidity pools and farms.</Title>
               <div className='row mb-2' >
                 <img src={ethereum} className='brand-logo' alt='ethereum' />
                 <img src={arbitrum} className='brand-logo' alt='arbitrum' />

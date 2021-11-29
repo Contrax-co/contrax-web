@@ -39,6 +39,7 @@ export const StyledDesc = styled('p', {
   ...(typo.Desc),
   ...(props.variant === 'light' && { color: colors.descLight }),
   ...(props.variant === 'dark' && { color: colors.descDark }),
+  ...(props.color && { color: props.color }),
 })
 );
 

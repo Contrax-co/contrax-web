@@ -1,6 +1,6 @@
 export const family = {
-  Martel: 'Martel, serif, -apple-system',
-  SourceSerifPro: 'Source Serif Pro, serif, -apple-system',
+  Lexend: 'Lexend, sans-serif',
+  Poppins: 'Poppins, sans-serif',
 };
 
 export const weight = {

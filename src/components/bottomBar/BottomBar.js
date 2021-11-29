@@ -7,7 +7,7 @@ export default function BottomBar() {
         <div className="col-lg-3">
         </div>
         <div className="col-lg-6 text-center">
-          <Desc>©2021 Contrax. All rights reserved.</Desc>
+          <Desc color={'#334A52'}>©2021 Contrax. All rights reserved.</Desc>
         </div>
       </div>
   )

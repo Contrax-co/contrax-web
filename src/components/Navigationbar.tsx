@@ -83,6 +83,9 @@ export default function Navigationbar() {
                                   <li className="nav-item">
                                       <a className="nav-link" href="/explore-pool">Explore Pool</a>
                                   </li>
+                                  <li className="nav-item">
+                                      <a className="nav-link" href="/create-pool">Create Pool</a>
+                                  </li>
                               </ul>
                               <ul className="navbar-nav">
                                   <li className="nav-item dropdown">

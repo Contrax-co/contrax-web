@@ -1,7 +1,5 @@
 import React from 'react'
-import { render } from "react-dom";
 import { Chart } from "react-google-charts";
-import { chartTextColor } from "../../theme/colors"
 
 const chartOptions = {
   title: "",

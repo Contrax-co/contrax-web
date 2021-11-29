@@ -19,7 +19,7 @@ export default function Exchange() {
     ])
 
     function changeState(state: any) {
-        if (state == 'day') {
+        if (state === 'day') {
             setDay('active');
             setWeek('');
             setMonth('');
@@ -34,7 +34,7 @@ export default function Exchange() {
                 ["11:36 AM", 14],
             ])
         }
-        if (state == 'week') {
+        if (state === 'week') {
             setDay('');
             setWeek('active');
             setMonth('');
@@ -49,7 +49,7 @@ export default function Exchange() {
                 ["15/11/21 11:36 AM", 15],
             ])
         }
-        if (state == 'month') {
+        if (state === 'month') {
             setDay('');
             setWeek('');
             setMonth('active');
@@ -89,13 +89,13 @@ export default function Exchange() {
                             <div className="col-lg-6 col-md-6 col-sm-12">
                                 <ul className="nav nav-pills float-lg-end mt-4">
                                     <li className="nav-item">
-                                        <a className={`nav-link ${day}`} href="#" onClick={() => changeState("day")}>24H</a>
+                                        <a className={`nav-link ${day}`} href="/#" onClick={() => changeState("day")}>24H</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className={`nav-link ${week}`} href="#" onClick={() => changeState("week")}>1W</a>
+                                        <a className={`nav-link ${week}`} href="/#" onClick={() => changeState("week")}>1W</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className={`nav-link ${month}`} href="#" onClick={() => changeState("month")}>1M</a>
+                                        <a className={`nav-link ${month}`} href="/#" onClick={() => changeState("month")}>1M</a>
                                     </li>
                                 </ul>
                             </div>

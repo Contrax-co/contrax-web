@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { StyledPageTitle, StyledTitle, StyledPageSubTitle, StyledDesc, StyledLink, StyledText } from './Text.styles';
+import { StyledPageTitle, StyledTitle, StyledPageSubTitle, StyledDesc, StyledDescSpan, StyledLink, StyledText } from './Text.styles';
 
 const propTypes = {
   small: PropTypes.bool,
@@ -100,6 +100,28 @@ export const Desc = (props) => {
 };
 Desc.prototype = propTypes;
 Desc.defaultProps = { variant: 'dark' };
+
+export const DescSpan = (props) => {
+  const {
+    variant,
+    value,
+    onClick,
+    children,
+    ...remainingProps
+  } = props;
+
+  return (
+    <StyledDescSpan
+      variant={variant}
+      onClick={!onClick ? undefined : onClick}
+      {...remainingProps}
+    >
+      {value ? <span>{value}</span> : <span>{children}</span>}
+    </StyledDescSpan>
+  );
+};
+DescSpan.prototype = propTypes;
+DescSpan.defaultProps = { variant: 'dark' };
 
 export const Link = (props) => {
   const {

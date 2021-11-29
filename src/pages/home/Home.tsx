@@ -54,8 +54,8 @@ export default function home() {
                 <div className='col-3 mb-5'>
                   <Card>
                     <Text size={24}>For Projects </Text>
-                    <PageSubTitle>Easily create Serum liquidity pools and LP token</PageSubTitle>
-                    <Title className='mb-5'>Create pools and farms with custom emissions to kickstart your project. Zero code needed.</Title>
+                    <PageSubTitle>Create Serum liquidity pools and LP token</PageSubTitle>
+                    <Title className='mb-5'>Create pools and farms with custom emissions to kickstart your project.</Title>
                   </Card>
                 </div>
 
@@ -90,9 +90,9 @@ export default function home() {
             <StyledCtaBar className='container'>
               <div className='row' >
                 <div className='col-md-6 mt-2'>
-                  <Text variant='light' size={24}>Ready to get started?</Text>
+                  <PageSubTitle variant='light'>Ready to get started?</PageSubTitle>
                 </div>
-                <div className='col-md-6 text-right'>
+                <div className='col-md-6 text-right'  style={{paddingTop: '12px'}} >
                   <Button label='Get Started' />
                 </div>
               </div>

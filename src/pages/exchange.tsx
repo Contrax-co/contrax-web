@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import BottomBar from '../components/bottomBar/BottomBar'
 import Navigationbar from '../components/Navigationbar'
 import LineChart from '../components/chart/LineChart';
+import DropdownInput from '../components/dropdownInput/DropdownInput';
 
 export default function Exchange() {
     const [day, setDay] = useState('active')
@@ -103,7 +104,7 @@ export default function Exchange() {
                         <LineChart chartData={ChartData} />
                     </div>
                     <div className="col-lg-4 col-md-4 col-sm-12">
-
+                      <DropdownInput />
                     </div>
                 </div>
             </div>

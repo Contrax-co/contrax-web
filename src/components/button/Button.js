@@ -17,6 +17,7 @@ const Button = (props) => {
     iconAlignRight,
     name,
     onClick,
+    children,
     ...remainingProps
   } = props;
 
@@ -32,7 +33,7 @@ const Button = (props) => {
       data-testid="button"
       {...remainingProps}
     >
-      {label && <span>{label}</span>}
+      {label ? <span>{label}</span> : children}
     </StyledButton>
   );
 };

@@ -115,50 +115,46 @@ export default function CreateToken(props: any) {
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
-              <div className="row">
-                <div className="col-12 my-2">
-                  <Desc value={'Token Symbol: ' + tokenSymbol.value} variant={'dark'} />
-                  <br />
-                  <Desc value={'Token Supply: ' + tokenSupply.value} variant={'dark'} />
-                  <br />
-                  <Desc value={'Token Name: ' + tokenName.value} variant={'dark'} />
-                  <br />
-                  <Desc value={'Decimals: ' + tokenDecimal.value} variant={'dark'} />
-                  <br />
-                  <DescSpan value={'Burn: '} variant={'dark'} />
-                  {
-                    tokenBurn.value == false ? (
-                      <DescSpan value={'No'} variant={'dark'} />
-                    ) : (
-                      <DescSpan value={'Yes - ' + tokenBurnValue.value + ' %'} variant={'dark'} />
-                    )
-                  }
-                  <br />
-                  <br />
-                  <DescSpan value={'Trading Fees: '} variant={'dark'} />
-                  {
-                    tokenTradingFee.value == false ? (
-                      <DescSpan value={'No'} variant={'dark'} />
-                    ) : (
-                      <DescSpan value={'Yes - ' + tokenTradingFeeValue.value + ' %'} variant={'dark'} />
-                    )
-                  }
-                  <br />
-                  <br />
-                  <DescSpan value={'Supports Supply Increase: '} variant={'dark'} />
-                  {
-                    tokenSupportSupplyIncrease.value == false ? (
-                      <DescSpan value={'No'} variant={'dark'} />
-                    ) : (
-                      <DescSpan value={'Yes'} variant={'dark'} />
-                    )
-                  }
-                </div>
+              <div className="row my-2">
+                  <Desc value={'Token Symbol: ' + tokenSymbol.value} variant={'dark'} className="mb-3" />
+                  <Desc value={'Token Supply: ' + tokenSupply.value} variant={'dark'} className="mb-3" />
+                  <Desc value={'Token Name: ' + tokenName.value} variant={'dark'} className="mb-3" />
+                  <Desc value={'Decimals: ' + tokenDecimal.value} variant={'dark'} className="mb-3" />
+                  <div className="col-12 mb-3">
+                    <DescSpan value={'Burn: '} variant={'dark'} />
+                    {
+                      tokenBurn.value == false ? (
+                        <DescSpan value={'No'} variant={'dark'} />
+                      ) : (
+                        <DescSpan value={'Yes - ' + tokenBurnValue.value + ' %'} variant={'dark'} />
+                      )
+                    }
+                  </div>
+                  <div className="col-12 mb-3">
+                    <DescSpan value={'Trading Fees: '} variant={'dark'}/>
+                    {
+                      tokenTradingFee.value == false ? (
+                        <DescSpan value={'No'} variant={'dark'} />
+                      ) : (
+                        <DescSpan value={'Yes - ' + tokenTradingFeeValue.value + ' %'} variant={'dark'} />
+                      )
+                    }
+                  </div>
+                  <div className="col-12 mb-3">
+                    <DescSpan value={'Supports Supply Increase: '} variant={'dark'} />
+                    {
+                      tokenSupportSupplyIncrease.value == false ? (
+                        <DescSpan value={'No'} variant={'dark'} />
+                      ) : (
+                        <DescSpan value={'Yes'} variant={'dark'} />
+                      )
+                    }
+                  </div>
               </div>
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Continue Editing</button>
-              <button type="button" className="btn btn-primary">Deploy / Finish</button>
+              <Button type="submit" label={'Continue Editing'} variant="primary" data-bs-dismiss="modal" />
+              <Button type="submit" label={'Deploy / Finish'} variant="primary" data-bs-dismiss="modal" />
             </div>
           </div>
         </div>

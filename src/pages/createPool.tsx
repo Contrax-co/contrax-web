@@ -1,8 +1,7 @@
 import React from 'react'
 import Navigationbar from '../components/Navigationbar';
 import BottomBar from '../components/bottomBar/BottomBar';
-import { PageTitle, Title, Desc } from "../components/text/Text";
-import { FormInput, FormCheckbox } from "../components/form/Form";
+import { PageTitle, Title } from "../components/text/Text";
 import Button from "../components/button/Button";
 
 export default function CreatePool() {

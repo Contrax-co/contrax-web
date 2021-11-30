@@ -123,7 +123,7 @@ export default function CreateToken(props: any) {
                   <div className="col-12 mb-3">
                     <DescSpan value={'Burn: '} variant={'dark'} />
                     {
-                      tokenBurn.value == false ? (
+                      tokenBurn.value === false ? (
                         <DescSpan value={'No'} variant={'dark'} />
                       ) : (
                         <DescSpan value={'Yes - ' + tokenBurnValue.value + ' %'} variant={'dark'} />
@@ -133,7 +133,7 @@ export default function CreateToken(props: any) {
                   <div className="col-12 mb-3">
                     <DescSpan value={'Trading Fees: '} variant={'dark'}/>
                     {
-                      tokenTradingFee.value == false ? (
+                      tokenTradingFee.value === false ? (
                         <DescSpan value={'No'} variant={'dark'} />
                       ) : (
                         <DescSpan value={'Yes - ' + tokenTradingFeeValue.value + ' %'} variant={'dark'} />
@@ -143,7 +143,7 @@ export default function CreateToken(props: any) {
                   <div className="col-12 mb-3">
                     <DescSpan value={'Supports Supply Increase: '} variant={'dark'} />
                     {
-                      tokenSupportSupplyIncrease.value == false ? (
+                      tokenSupportSupplyIncrease.value === false ? (
                         <DescSpan value={'No'} variant={'dark'} />
                       ) : (
                         <DescSpan value={'Yes'} variant={'dark'} />

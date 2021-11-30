@@ -1,7 +1,7 @@
 
 import styled from 'styled-components/macro';
-import * as colors from '../../theme/colors';
-import * as typo from "../../theme/typography";
+import * as colors from '../../../theme/colors';
+import * as typo from "../../../theme/typography";
 
 const noForwardProps = [];
 
@@ -9,8 +9,11 @@ export const StyledInput = styled('input', {
   shouldForwardProp: (prop) => !noForwardProps.includes(prop),
 })((props) => ({
   ...(typo.Title),
+  textAlign: props.type === 'number' ? 'right' : 'left',
   borderRadius: '0 5px 5px 0',
-  border: '1px solid #dee2e6',
+  border: `1px solid ${colors.inputBorder}`,
+  width: 'calc(100% - 100px)',
+  padding: 6,
 }));
 
 export const StyledSearch = styled('input', {

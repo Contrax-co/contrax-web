@@ -1,7 +1,6 @@
-import React from 'react'
 import Navigationbar from '../components/Navigationbar'
 import BottomBar from '../components/bottomBar/BottomBar'
-import { PageTitle, Title, Desc } from "../components/text/Text"; 
+import { Title } from "../components/text/Text"; 
 import PieChart from '../components/chart/PieChart';
 import duckIcon from '../images/yellowDuck.svg' 
 
@@ -66,7 +65,7 @@ export default function ExplorePool() {
                         <tr>
                         <th>{index+1}</th>
                         <td>
-                            <span> <a href={item.poolUrl} target='_blank'> {item.poolAddress.substring(0,6)}...{item.poolAddress.substring(38,42)} <i className='fa fa-external-link text-dark' aria-hidden="true"></i> </a> </span>
+                            <span> <a href={item.poolUrl} target='_blank' rel="noreferrer"> {item.poolAddress.substring(0,6)}...{item.poolAddress.substring(38,42)} <i className='fa fa-external-link text-dark' aria-hidden="true"></i> </a> </span>
                             <br />
                             <span className="badge bg-warning text-dark">{item.poolType}</span>
                         </td>
@@ -75,9 +74,9 @@ export default function ExplorePool() {
                              <PieChart chartData={poolChartDataList} chartId={index} />
                         </td>
                         <td> 
-                            <span> <img src={duckIcon}></img> {item.liquidityValue1} {item.liquidityName1}</span> 
+                            <span> <img src={duckIcon} alt=""></img> {item.liquidityValue1} {item.liquidityName1}</span> 
                             <br /> 
-                            <span> <img src={duckIcon}></img> {item.liquidityValue2} {item.liquidityName2}</span>
+                            <span> <img src={duckIcon} alt=""></img> {item.liquidityValue2} {item.liquidityName2}</span>
                         </td>
                         <td>{item.volume24H}</td>
                       </tr>

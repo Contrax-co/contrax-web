@@ -8,26 +8,26 @@ const baseStyles = (fontSize, fontWeight, lineHeight) => ({
 });
 
 export const PageTitle = {
-  ...baseStyles('2.5rem', weight.semibold, '3rem'),
-  fontFamily: family.Martel,
+  ...baseStyles('4rem', weight.semibold, '4.5rem'),
+  fontFamily: family.Lexend,
 }
 
 export const PageSubTitle = {
-  ...baseStyles('1rem', weight.light, '1.5rem'),
-  fontFamily: family.SourceSerifPro
+  ...baseStyles('2.5rem', weight.regular, '3rem'),
+  fontFamily: family.Lexend
 }
 
 export const Title = {
-  ...baseStyles('1rem', weight.light, '1.5rem'),
-  fontFamily: family.Martel,
+  ...baseStyles('1.5rem', weight.light, '2rem'),
+  fontFamily: family.Lexend,
 }
 
 export const Desc = {
   ...baseStyles('1rem', weight.light, '1.5rem'),
-  fontFamily: family.SourceSerifPro
+  fontFamily: family.Poppins
 }
 
 export const BtnText = {
   ...baseStyles('1rem', weight.regular, '1.5rem'),
-  fontFamily: family.SourceSerifPro
+  fontFamily: family.Poppins
 }

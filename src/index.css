@@ -106,3 +106,14 @@ p{
 .chartColumn{
   width: 30%;
 }
+.dropdown-input button {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.dropdown-input .dropdown-menu.show {
+  width: 100%;
+}
+.dropdown-input input:focus-visible, .dropdown-input button:focus {
+  outline: none;
+  box-shadow: none;
+}

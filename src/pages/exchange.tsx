@@ -75,6 +75,15 @@ export default function Exchange() {
         }
     }
 
+    const currencies = [
+      {title: 'ETH', subTitle: 'Ethereum'},
+      {title: 'BTC', subTitle: 'Bitcoin'},
+      {title: 'USDT', subTitle: 'Tether'},
+      {title: 'SOL', subTitle: 'Solana'},
+      {title: 'ABT', subTitle: 'Arcblock'},
+      {title: 'GTS', subTitle: 'GT STAR'},
+    ]
+
     return (
         <div>
             <Navigationbar />
@@ -104,7 +113,7 @@ export default function Exchange() {
                         <LineChart chartData={ChartData} />
                     </div>
                     <div className="col-lg-4 col-md-4 col-sm-12">
-                      <DropdownInput />
+                      <DropdownInput searchable={true} items={currencies} value={{title: 'Eth'}} />
                     </div>
                 </div>
             </div>

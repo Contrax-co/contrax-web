@@ -24,3 +24,5 @@ export const pageBgDark = '#191919';
 export const chartColorOrange = 'rgb(239, 162, 78)';
 export const chartColorYellow = 'rgb(243, 229, 84)';
 export const chartTextColor = '#233238';
+
+export const inputBorder = '#dee2e6';

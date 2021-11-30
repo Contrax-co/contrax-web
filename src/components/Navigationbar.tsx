@@ -4,6 +4,7 @@ import Button from "../components/button/Button";
 import Onboard from 'bnc-onboard';
 import Web3 from 'web3';
 import { setUserSession } from '../store/localstorage';
+import logo from "../images/logo.svg";
 
 let web3
 const onboard = Onboard({
@@ -57,7 +58,9 @@ export default function Navigationbar() {
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="/#">Contrax</a>
+                    <a className="navbar-brand" href="/#">
+                      <img src={logo} className='main-logo' alt='Contrax' />
+                    </a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -79,6 +82,9 @@ export default function Navigationbar() {
                                   </li>
                                   <li className="nav-item">
                                       <a className="nav-link" href="/explore-pool">Explore Pool</a>
+                                  </li>
+                                  <li className="nav-item">
+                                      <a className="nav-link" href="/create-pool">Create Pool</a>
                                   </li>
                               </ul>
                               <ul className="navbar-nav">

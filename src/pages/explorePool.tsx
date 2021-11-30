@@ -74,9 +74,9 @@ export default function ExplorePool() {
                              <PieChart chartData={poolChartDataList} chartId={index} />
                         </td>
                         <td> 
-                            <span> <img src={duckIcon} alt=""></img> {item.liquidityValue1} {item.liquidityName1}</span> 
+                            <span> <img src={duckIcon} alt=''></img> {item.liquidityValue1} {item.liquidityName1}</span> 
                             <br /> 
-                            <span> <img src={duckIcon} alt=""></img> {item.liquidityValue2} {item.liquidityName2}</span>
+                            <span> <img src={duckIcon} alt=''></img> {item.liquidityValue2} {item.liquidityName2}</span>
                         </td>
                         <td>{item.volume24H}</td>
                       </tr>

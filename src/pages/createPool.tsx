@@ -1,7 +1,7 @@
 import React from 'react'
 import Navigationbar from '../components/Navigationbar';
 import BottomBar from '../components/bottomBar/BottomBar';
-import { PageTitle, Title } from "../components/text/Text";
+import { PageTitle, Title, Desc } from "../components/text/Text";
 import Button from "../components/button/Button";
 
 export default function CreatePool() {
@@ -23,6 +23,28 @@ export default function CreatePool() {
               <div className="row">
                 <div className="col-lg-12 col-md-12 col-sm-12 my-2">
                   <Title variant={'dark'} value={'Create a pool'} ></Title>
+                </div>
+                <div className="col-lg-12 col-md-12 col-sm-12 my-2">
+                  <Desc className="form-check-label" value={'01 Choose Pool Type'} variant={'dark'} />
+                  <div className="btn-group w-100" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" className="btn-check" name="publicPool" id="publicPool" checked />
+                    <label className="btn btn-outline-primary">Public Pool</label>
+                    <input type="radio" className="btn-check" name="privatePool" id="privatePool" />
+                    <label className="btn btn-outline-primary disabled">Private Pool</label>
+                    <input type="radio" className="btn-check" name="peggedPool" id="peggedPool" />
+                    <label className="btn btn-outline-primary disabled">Pegged Pools</label>
+                  </div>
+                </div>
+                <div className="col-lg-12 col-md-12 col-sm-12 my-2">
+                  <Desc className="form-check-label" value={'02 Choose Pool Template'} variant={'dark'} />
+                  <div className="btn-group w-100" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" className="btn-check" name="standard" id="standard" checked />
+                    <label className="btn btn-outline-primary">Standard</label>
+                    <input type="radio" className="btn-check" name="singleToken" id="singleToken" />
+                    <label className="btn btn-outline-primary disabled">Single Token</label>
+                    <input type="radio" className="btn-check" name="custom" id="custom" />
+                    <label className="btn btn-outline-primary disabled">Custom</label>
+                  </div>
                 </div>
               </div>
               <div className="row justify-content-center mx-5 mt-3">

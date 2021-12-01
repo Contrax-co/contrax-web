@@ -1,8 +1,9 @@
 import React from 'react'
 import Navigationbar from '../components/Navigationbar';
 import BottomBar from '../components/bottomBar/BottomBar';
-import { PageTitle, Title, Desc } from "../components/text/Text";
+import { PageTitle, Title, Desc, PageSubTitle } from "../components/text/Text";
 import Button from "../components/button/Button";
+import { FormInput } from "../components/form/Form";
 
 export default function CreatePool() {
   return (
@@ -44,6 +45,23 @@ export default function CreatePool() {
                     <label className="btn btn-outline-primary disabled">Single Token</label>
                     <input type="radio" className="btn-check" name="custom" id="custom" />
                     <label className="btn btn-outline-primary disabled">Custom</label>
+                  </div>
+                </div>
+                <div className="col-lg-12 col-md-12 col-sm-12 my-2">
+                  <Desc className="form-check-label" value={'03 Supply Initial Tokens'} variant={'dark'} />
+                  {/* Quote Token Amount and Dropdown Field */}
+                  <Desc className="text-center" value={'+'} variant={'dark'} />
+                  {/* Base Token Amount and Dropdown Field */}
+                </div>
+                <div className="col-lg-12 col-md-12 col-sm-12 my-2">
+                  <Desc className="form-check-label" value={'04 Parameters'} variant={'dark'} />
+                  <div className="row">
+                    <div className="col-3 my-auto">
+                      <Desc className="" value={'Fee Rate (%)'} variant={'dark'} />
+                    </div>
+                    <div className="col-9">
+                      <FormInput className="w-100" placeholder="(0%, 10%)" />
+                    </div>
                   </div>
                 </div>
               </div>

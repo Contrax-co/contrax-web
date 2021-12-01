@@ -103,13 +103,13 @@ export default function Exchange() {
                             <div className="col-lg-6 col-md-6 col-sm-12">
                                 <ul className="nav nav-pills float-lg-end mt-4">
                                     <li className="nav-item">
-                                        <a className={`nav-link ${day}`} href="/#" onClick={() => changeState("day")}>24H</a>
+                                        <button className={`nav-link ${day}`} onClick={() => changeState("day")}>24H</button>
                                     </li>
                                     <li className="nav-item">
-                                        <a className={`nav-link ${week}`} href="/#" onClick={() => changeState("week")}>1W</a>
+                                        <button className={`nav-link ${week}`} onClick={() => changeState("week")}>1W</button>
                                     </li>
                                     <li className="nav-item">
-                                        <a className={`nav-link ${month}`} href="/#" onClick={() => changeState("month")}>1M</a>
+                                        <button className={`nav-link ${month}`} onClick={() => changeState("month")}>1M</button>
                                     </li>
                                 </ul>
                             </div>

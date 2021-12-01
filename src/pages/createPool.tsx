@@ -13,8 +13,7 @@ export default function CreatePool() {
           <div className="col-lg-6 col-md-6 col-sm-12 mx-auto my-auto h-100">
             <PageTitle value={'Public Pool'} variant={'dark'} />
             <Title value={'• Anyone can add liquidity'} variant={'dark'} />
-            <Title value={'• Parameters cannot be modified after creation'} variant={'dark'} />
-            <br />
+            <Title value={'• Parameters cannot be modified after creation'} variant={'dark'} className="mb-4" />
             <PageTitle value={'Standard'} variant={'dark'} />
             <Title value={'• 50/50 value liquidity provision (same as Uniswap)'} variant={'dark'} />
             <Title value={'• More parameters can be set'} variant={'dark'} />

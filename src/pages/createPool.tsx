@@ -1,11 +1,20 @@
 import React from 'react'
 import Navigationbar from '../components/Navigationbar';
 import BottomBar from '../components/bottomBar/BottomBar';
-import { PageTitle, Title, Desc, PageSubTitle } from "../components/text/Text";
+import { PageTitle, Title, Desc } from "../components/text/Text";
 import Button from "../components/button/Button";
 import { FormInput } from "../components/form/Form";
+import DropdownInput from '../components/form/dropdownInput/DropdownInput';
 
 export default function CreatePool() {
+  const currencies = [
+    {title: 'ETH', subTitle: 'Ethereum'},
+    {title: 'BTC', subTitle: 'Bitcoin'},
+    {title: 'USDT', subTitle: 'Tether'},
+    {title: 'SOL', subTitle: 'Solana'},
+    {title: 'ABT', subTitle: 'Arcblock'},
+    {title: 'GTS', subTitle: 'GT STAR'},
+  ]
   return (
     <>
       <Navigationbar />
@@ -49,9 +58,26 @@ export default function CreatePool() {
                 </div>
                 <div className="col-lg-12 col-md-12 col-sm-12 my-2">
                   <Desc className="form-check-label" value={'03 Supply Initial Tokens'} variant={'dark'} />
-                  {/* Quote Token Amount and Dropdown Field */}
+                  <DropdownInput 
+                          label='Quote Token Amount'
+                          searchable={true} 
+                          items={currencies} 
+                          value={{title: 'Eth'}} 
+                          inputType='number'
+                          placeholder='0'
+                          className="mb-4 mt-4"
+                  />
                   <Desc className="text-center" value={'+'} variant={'dark'} />
-                  {/* Base Token Amount and Dropdown Field */}
+                  <DropdownInput 
+                          label='Base Token Amount'
+                          searchable={true} 
+                          items={currencies} 
+                          value={{title: 'USDT'}} 
+                          inputType='number'
+                          placeholder='0'
+                          className='mb-4'
+                          disabled='disabled'
+                  />
                 </div>
                 <div className="col-lg-12 col-md-12 col-sm-12 my-2">
                   <Desc className="form-check-label" value={'04 Parameters'} variant={'dark'} />

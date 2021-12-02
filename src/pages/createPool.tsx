@@ -3,8 +3,18 @@ import Navigationbar from '../components/Navigationbar';
 import BottomBar from '../components/bottomBar/BottomBar';
 import { PageTitle, Title, Desc } from "../components/text/Text";
 import Button from "../components/button/Button";
+import { FormInput } from "../components/form/Form";
+import DropdownInput from '../components/form/dropdownInput/DropdownInput';
 
 export default function CreatePool() {
+  const currencies = [
+    {title: 'ETH', subTitle: 'Ethereum'},
+    {title: 'BTC', subTitle: 'Bitcoin'},
+    {title: 'USDT', subTitle: 'Tether'},
+    {title: 'SOL', subTitle: 'Solana'},
+    {title: 'ABT', subTitle: 'Arcblock'},
+    {title: 'GTS', subTitle: 'GT STAR'},
+  ]
   return (
     <>
       <Navigationbar />
@@ -44,6 +54,41 @@ export default function CreatePool() {
                     <label className="btn btn-outline-primary disabled">Single Token</label>
                     <input type="radio" className="btn-check" name="custom" id="custom" />
                     <label className="btn btn-outline-primary disabled">Custom</label>
+                  </div>
+                </div>
+
+                <div className="col-lg-12 col-md-12 col-sm-12 my-2">
+                  <Desc className="form-check-label" value={'03 Supply Initial Tokens'} variant={'dark'} />
+                  <DropdownInput 
+                          label='Quote Token Amount'
+                          searchable={true} 
+                          items={currencies} 
+                          value={{title: 'Eth'}} 
+                          inputType='number'
+                          placeholder='0'
+                          className="mb-4 mt-4"
+                  />
+                  <Desc className="text-center" value={'+'} variant={'dark'} />
+                  <DropdownInput 
+                          label='Base Token Amount'
+                          searchable={true} 
+                          items={currencies} 
+                          value={{title: 'USDT'}} 
+                          inputType='number'
+                          placeholder='0'
+                          className='mb-4'
+                          disabled='disabled'
+                  />
+                </div>
+                <div className="col-lg-12 col-md-12 col-sm-12 my-2">
+                  <Desc className="form-check-label" value={'04 Parameters'} variant={'dark'} />
+                  <div className="row">
+                    <div className="col-3 my-auto">
+                      <Desc className="" value={'Fee Rate (%)'} variant={'dark'} />
+                    </div>
+                    <div className="col-9">
+                      <FormInput className="w-100" placeholder="(0%, 10%)" />
+                    </div>
                   </div>
                 </div>
               </div>

@@ -57,6 +57,7 @@ export default function ExplorePool() {
                 <th>Liquidity</th>
                 <th>My Liquidity</th>
                 <th>Volume (24h)</th>
+                <th>Operation</th>
               </tr>
             </thead>
             <tbody>
@@ -79,6 +80,9 @@ export default function ExplorePool() {
                             <span> <img src={duckIcon} alt=''></img> {item.liquidityValue2} {item.liquidityName2}</span>
                         </td>
                         <td>{item.volume24H}</td>
+                        <td>
+                            <a className="btn btn-primary" href="/pool-detail">Manage</a>
+                        </td>
                       </tr>
                     ))
                 }

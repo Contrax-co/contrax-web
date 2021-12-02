@@ -56,6 +56,7 @@ export default function CreatePool() {
                     <label className="btn btn-outline-primary disabled">Custom</label>
                   </div>
                 </div>
+
                 <div className="col-lg-12 col-md-12 col-sm-12 my-2">
                   <Desc className="form-check-label" value={'03 Supply Initial Tokens'} variant={'dark'} />
                   <DropdownInput 

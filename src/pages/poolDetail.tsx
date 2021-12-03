@@ -266,9 +266,75 @@ export default function PoolDetail() {
                                         </span> 
                                     </div>
                                 </div>
+                                <div className="row my-3">
+                                    <div className="col-4 my-auto">
+                                        <Desc value={'Total Number of Traders'} variant={'dark'} />
+                                    </div>
+                                    <div className="col-8">
+                                        <Title value={'9,606'} variant={'dark'} />
+                                    </div>
+                                </div>
                             </div>
                             <div className="col-6">
-                                
+                                <div className="row my-3">
+                                    <div className="col-4 my-auto">
+                                        <Desc value={'Creator'} variant={'dark'} />
+                                    </div>
+                                    <div className="col-8">
+                                        <a href={poolData.poolUrl} target='_blank' rel="noreferrer">
+                                            {poolData.poolAddress.substring(0, 6)}...{poolData.poolAddress.substring(38, 42)} <i className='fa fa-external-link text-dark' aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="row my-3">
+                                    <div className="col-4 my-auto">
+                                        <Desc value={'Created'} variant={'dark'} />
+                                    </div>
+                                    <div className="col-8">
+                                        <Desc value={'2020/10/21 22:54:32'} variant={'dark'} />
+                                    </div>
+                                </div>
+                                <div className="row my-3">
+                                    <div className="col-4 my-auto">
+                                        <Desc value={'Fee Rate'} variant={'dark'} />
+                                    </div>
+                                    <div className="col-8">
+                                        <Desc value={'0.01%'} variant={'dark'} />
+                                    </div>
+                                </div>
+                                <div className="row my-3">
+                                    <div className="col-4 my-auto">
+                                        <Desc value={'Slippage Coefficient'} variant={'dark'} />
+                                    </div>
+                                    <div className="col-8">
+                                        <Desc value={'0.0001'} variant={'dark'} />
+                                    </div>
+                                </div>
+                                <div className="row my-3">
+                                    <div className="col-4 my-auto">
+                                        <Desc value={'Guide Price'} variant={'dark'} />
+                                    </div>
+                                    <div className="col-8">
+                                        <Desc value={'1'} variant={'dark'} />
+                                    </div>
+                                </div>
+                                <div className="row my-3">
+                                    <div className="col-4 my-auto">
+                                        <Desc value={'Equilibrium target'} variant={'dark'} />
+                                    </div>
+                                    <div className="col-8">
+                                        <div className="row">
+                                            <span>0 USDT 
+                                                <img src="https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp" alt='' className="ms-1"></img> 
+                                            </span> 
+                                        </div>
+                                        <div className="row">
+                                            <span>0 USDC 
+                                                <img src="https://cmp.dodoex.io/9kfMyaEhJBOwCKTXWVoPU8yPTdyx9rX7sSu9CYqRuqA/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL3VzZGNfZWU1MmExZWQyYi91c2RjX2VlNTJhMWVkMmIucG5n.webp" alt='' className="ms-1"></img> 
+                                            </span> 
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

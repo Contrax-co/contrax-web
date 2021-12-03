@@ -62,7 +62,7 @@ img.main-logo {
 @media (min-width:992px) { /* laptops and desktops */ 
   .borderRight{
     border-right: 1px solid #2b2b2b;
-    height: 200px;
+    height: 250px;
   }
 } 
 

@@ -141,6 +141,28 @@ export default function PoolDetail() {
             fee: "9.59 USDT"
         }
     ]
+    let liquidityProviderData = [
+        {
+            liquidityProviderAddress: "0x30c5312d9cf0d873994f000e72f1cbf561d0209c",
+            liquidityProviderAddressUrl: "https://etherscan.io/address/0x30c5312d9cf0d873994f000e72f1cbf561d0209c",
+            liquiditySuppliedPaidCurrency: "8,218,322.4856 USDT",
+            liquiditySuppliedPaidCurrencyMedia: "https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp",
+            liquiditySuppliedReceiveCurrency: "9,399,065.4253 USDC",
+            liquiditySuppliedReceiveCurrencyMedia: "https://cmp.dodoex.io/9kfMyaEhJBOwCKTXWVoPU8yPTdyx9rX7sSu9CYqRuqA/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL3VzZGNfZWU1MmExZWQyYi91c2RjX2VlNTJhMWVkMmIucG5n.webp",
+            value: "$17,624,011.87	",
+            share: "40.87%",
+        },
+        {
+            liquidityProviderAddress: "0x10bf1dcb5ab7860bab1c3320163c6dddf8dcc0e4",
+            liquidityProviderAddressUrl: "https://etherscan.io/address/0x10bf1dcb5ab7860bab1c3320163c6dddf8dcc0e4",
+            liquiditySuppliedPaidCurrency: "0 USDT",
+            liquiditySuppliedPaidCurrencyMedia: "https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp",
+            liquiditySuppliedReceiveCurrency: "4,090,763.46 USDC",
+            liquiditySuppliedReceiveCurrencyMedia: "https://cmp.dodoex.io/9kfMyaEhJBOwCKTXWVoPU8yPTdyx9rX7sSu9CYqRuqA/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL3VzZGNfZWU1MmExZWQyYi91c2RjX2VlNTJhMWVkMmIucG5n.webp",
+            value: "$4,090,763.46",
+            share: "9.48%",
+        }
+    ]
     return (
         <div>
             <Navigationbar />
@@ -364,7 +386,7 @@ export default function PoolDetail() {
                         </div>
                     </div>
                     <div className="tab-pane fade" id="swaps" role="tabpanel" aria-labelledby="swaps-tab">
-                        <table className="table table-hover my-4">
+                        <table className="table table-hover table-responsive my-4">
                             <thead>
                                 <tr className="table-dark">
                                     <th>Time</th>
@@ -393,7 +415,34 @@ export default function PoolDetail() {
                             </tbody>
                         </table>
                     </div>
-                    <div className="tab-pane fade" id="liquidity-providers" role="tabpanel" aria-labelledby="liquidity-providers">providers...</div>
+                    <div className="tab-pane fade" id="liquidity-providers" role="tabpanel" aria-labelledby="liquidity-providers">
+                    <table className="table table-hover table-responsive my-4">
+                            <thead>
+                                <tr className="table-dark">
+                                    <th>Liquidity Provider</th>
+                                    <th>Liquidity Supplied</th>
+                                    <th>Value (USD)</th>
+                                    <th>Share</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {
+                                liquidityProviderData.map((item, index) => (
+                                <tr>
+                                    <td> <span> <a href={item.liquidityProviderAddressUrl} target='_blank' rel="noreferrer"> {item.liquidityProviderAddress.substring(0,6)}...{item.liquidityProviderAddress.substring(38,42)} <i className='fa fa-external-link text-dark' aria-hidden="true"></i> </a> </span> </td>
+                                    <td> 
+                                        <span> <img src={item.liquiditySuppliedPaidCurrencyMedia} alt=''></img> {item.liquiditySuppliedPaidCurrency} </span>
+                                        <br />
+                                        <span> <img src={item.liquiditySuppliedReceiveCurrencyMedia} alt=''></img> {item.liquiditySuppliedReceiveCurrency} </span> 
+                                    </td>
+                                    <td>{item.value}</td>
+                                    <td>{item.share}</td>
+                                </tr>
+                                ))
+                            }
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
             </div>

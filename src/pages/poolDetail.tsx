@@ -120,7 +120,7 @@ export default function PoolDetail() {
         <div>
             <Navigationbar />
             <div className="container">
-                <div className="row mt-4">
+                <div className="row my-4">
                     <div className="col-lg-8 col-md-8 col-sm-12">
                         <div className="row mb-3">
                             <div className="col-lg-6 col-md-6 col-sm-12">
@@ -160,8 +160,8 @@ export default function PoolDetail() {
                                 <span className="badge bg-warning text-dark float-end">{poolData.poolType}</span>
                             </span>
                             <div className="row my-4">
-                                <div className="row my-2">
-                                    <div className="col">
+                                <div className="row">
+                                    <div className="col-lg-6 col-md-6 col-sm-12 my-3">
                                         <span>
                                             <div className="row">
                                                 <div className="col-3 my-auto">
@@ -174,7 +174,7 @@ export default function PoolDetail() {
                                             </div>
                                         </span>
                                     </div>
-                                    <div className="col">
+                                    <div className="col-lg-6 col-md-6 col-sm-12 my-3">
                                         <span>
                                             <div className="row">
                                                 <div className="col-3 my-auto">
@@ -188,8 +188,8 @@ export default function PoolDetail() {
                                         </span>
                                     </div>
                                 </div>
-                                <div className="row my-2">
-                                    <div className="col">
+                                <div className="row">
+                                    <div className="col-lg-6 col-md-6 col-sm-12 my-3">
                                         <span>
                                             <div className="row">
                                                 <div className="col-3 my-auto">
@@ -202,7 +202,7 @@ export default function PoolDetail() {
                                             </div>
                                         </span>
                                     </div>
-                                    <div className="col">
+                                    <div className="col-lg-6 col-md-6 col-sm-12 my-3">
                                         <span>
                                             <div className="row">
                                                 <div className="col-3 my-auto">
@@ -216,7 +216,7 @@ export default function PoolDetail() {
                                         </span>
                                     </div>
                                 </div>
-                                <div className="row my-4">
+                                <div className="row mt-4">
                                     <Desc className="form-check-label" value={'Total Liquidity'} variant={'dark'} />
                                     <div className="col-12 my-2">
                                         <PieChart chartData={poolChartDataList} chartId={'1'} />
@@ -227,6 +227,121 @@ export default function PoolDetail() {
                         </Card>
                     </div>
                 </div>
+                <ul className="nav nav-tabs" id="myTab" role="tablist">
+                    <li className="nav-item" role="presentation">
+                        <button className="nav-link active" id="parameters-tab" data-bs-toggle="tab" data-bs-target="#parameters" type="button" role="tab" aria-controls="parameters" aria-selected="true">Parameters</button>
+                    </li>
+                    <li className="nav-item" role="presentation">
+                        <button className="nav-link" id="swaps-tab" data-bs-toggle="tab" data-bs-target="#swaps" type="button" role="tab" aria-controls="swaps" aria-selected="false">Swaps</button>
+                    </li>
+                    <li className="nav-item" role="presentation">
+                        <button className="nav-link" id="liquidity-providers-tab" data-bs-toggle="tab" data-bs-target="#liquidity-providers" type="button" role="tab" aria-controls="liquidity-providers" aria-selected="false">Liquidity Providers</button>
+                    </li>
+                </ul>
+                <div className="tab-content" id="myTabContent">
+                    <div className="tab-pane fade show active" id="parameters" role="tabpanel" aria-labelledby="parameters-tab">
+                        <div className="row mt-3">
+                            <div className="col-lg-6 col-md-6 col-sm-12 borderRight mt-2">
+                                <div className="row my-3">
+                                    <div className="col-4 my-auto">
+                                        <Desc value={'Total Swap Volume'} variant={'dark'} />
+                                    </div>
+                                    <div className="col-8">
+                                        <Title value={'$10,576,241,986.55'} variant={'dark'} />
+                                        <span>10,575,363,434 USDT 
+                                            <img src="https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp" alt='' className="ms-1"></img> / 10,577,149,605 USDC 
+                                            <img src="https://cmp.dodoex.io/9kfMyaEhJBOwCKTXWVoPU8yPTdyx9rX7sSu9CYqRuqA/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL3VzZGNfZWU1MmExZWQyYi91c2RjX2VlNTJhMWVkMmIucG5n.webp" alt='' className="ms-1"></img>
+                                        </span> 
+                                    </div>
+                                </div>
+                                <div className="row my-3">
+                                    <div className="col-4 my-auto">
+                                        <Desc value={'Total Swap Fee'} variant={'dark'} />
+                                    </div>
+                                    <div className="col-8">
+                                        <Title value={'$996,650.94'} variant={'dark'} />
+                                        <span>499,733.37 USDT 
+                                            <img src="https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp" alt='' className="ms-1"></img> / 496,514.28 USDC  
+                                            <img src="https://cmp.dodoex.io/9kfMyaEhJBOwCKTXWVoPU8yPTdyx9rX7sSu9CYqRuqA/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL3VzZGNfZWU1MmExZWQyYi91c2RjX2VlNTJhMWVkMmIucG5n.webp" alt='' className="ms-1"></img>
+                                        </span> 
+                                    </div>
+                                </div>
+                                <div className="row my-3">
+                                    <div className="col-4 my-auto">
+                                        <Desc value={'Total Number of Traders'} variant={'dark'} />
+                                    </div>
+                                    <div className="col-8">
+                                        <Title value={'9,606'} variant={'dark'} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-6">
+                                <div className="row my-3">
+                                    <div className="col-4 my-auto">
+                                        <Desc value={'Creator'} variant={'dark'} />
+                                    </div>
+                                    <div className="col-8">
+                                        <a href={poolData.poolUrl} target='_blank' rel="noreferrer">
+                                            {poolData.poolAddress.substring(0, 6)}...{poolData.poolAddress.substring(38, 42)} <i className='fa fa-external-link text-dark' aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="row my-3">
+                                    <div className="col-4 my-auto">
+                                        <Desc value={'Created'} variant={'dark'} />
+                                    </div>
+                                    <div className="col-8">
+                                        <Desc value={'2020/10/21 22:54:32'} variant={'dark'} />
+                                    </div>
+                                </div>
+                                <div className="row my-3">
+                                    <div className="col-4 my-auto">
+                                        <Desc value={'Fee Rate'} variant={'dark'} />
+                                    </div>
+                                    <div className="col-8">
+                                        <Desc value={'0.01%'} variant={'dark'} />
+                                    </div>
+                                </div>
+                                <div className="row my-3">
+                                    <div className="col-4 my-auto">
+                                        <Desc value={'Slippage Coefficient'} variant={'dark'} />
+                                    </div>
+                                    <div className="col-8">
+                                        <Desc value={'0.0001'} variant={'dark'} />
+                                    </div>
+                                </div>
+                                <div className="row my-3">
+                                    <div className="col-4 my-auto">
+                                        <Desc value={'Guide Price'} variant={'dark'} />
+                                    </div>
+                                    <div className="col-8">
+                                        <Desc value={'1'} variant={'dark'} />
+                                    </div>
+                                </div>
+                                <div className="row my-3">
+                                    <div className="col-4 my-auto">
+                                        <Desc value={'Equilibrium target'} variant={'dark'} />
+                                    </div>
+                                    <div className="col-8">
+                                        <div className="row">
+                                            <span>0 USDT 
+                                                <img src="https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp" alt='' className="ms-1"></img> 
+                                            </span> 
+                                        </div>
+                                        <div className="row">
+                                            <span>0 USDC 
+                                                <img src="https://cmp.dodoex.io/9kfMyaEhJBOwCKTXWVoPU8yPTdyx9rX7sSu9CYqRuqA/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL3VzZGNfZWU1MmExZWQyYi91c2RjX2VlNTJhMWVkMmIucG5n.webp" alt='' className="ms-1"></img> 
+                                            </span> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="tab-pane fade" id="swaps" role="tabpanel" aria-labelledby="swaps-tab">Swaps...</div>
+                    <div className="tab-pane fade" id="liquidity-providers" role="tabpanel" aria-labelledby="liquidity-providers">providers...</div>
+                </div>
+
             </div>
             <BottomBar />
         </div>

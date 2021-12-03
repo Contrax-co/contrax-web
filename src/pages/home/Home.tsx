@@ -17,7 +17,7 @@ export default function home() {
               <div className='row'>
                 <div className='col-4 mb-5'>
                   <Card>
-                    <PageSubTitle>Built on Solana </PageSubTitle>
+                    <PageSubTitle>Built on Arbitrum </PageSubTitle>
                     <PageTitle>Warp Speed</PageTitle>
                     <Title className='mb-5'>With sub-second block times and microsopic fees, you'll never look back.</Title>
                     <Button label='Get Started' />

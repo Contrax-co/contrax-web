@@ -4,6 +4,9 @@ import Navigationbar from '../components/Navigationbar'
 import BarChart from '../components/chart/BarChart';
 import LineChart from '../components/chart/LineChart';
 import Card from '../components/card/Card';
+import { Title, Desc } from "../components/text/Text";
+import Button from '../components/button/Button';
+import PieChart from '../components/chart/PieChart';
 
 export default function PoolDetail() {
     const [volume, setVolume] = useState('active')
@@ -100,6 +103,18 @@ export default function PoolDetail() {
             ])
         }
     }
+    let poolData = {
+        poolUrl: 'https://kovan.etherscan.io/address/0x00568c59aa94fafbdfce81d1e72fc96c8fc4b85c',
+        poolAddress: '0x00568c59aa94fafbdfce81d1e72fc96c8fc4b85c',
+        poolType: 'Public',
+        feeRate: '0.36%',
+        liquidityName1: 'TT',
+        liquidityValue1: 0,
+        liquidityName2: 'WETH',
+        liquidityValue2: 0,
+        volume24H: '678,987'
+    }
+    let poolChartDataList = [["36,408,389.5732 USDC (84.46%)", "6,691,425.1753 USDT (15.54%)"], ["36,408,389.5732 USDC (84.46%)", 36408389.5732], ["6,691,425.1753 USDT (15.54%)", 6691425.1753]]
 
     return (
         <div>
@@ -138,6 +153,77 @@ export default function PoolDetail() {
                     </div>
                     <div className="col-lg-4 col-md-4 col-sm-12">
                         <Card>
+                            <span>
+                                <a href={poolData.poolUrl} target='_blank' rel="noreferrer">
+                                    {poolData.poolAddress.substring(0, 6)}...{poolData.poolAddress.substring(38, 42)} <i className='fa fa-external-link text-dark' aria-hidden="true"></i>
+                                </a>
+                                <span className="badge bg-warning text-dark float-end">{poolData.poolType}</span>
+                            </span>
+                            <div className="row my-4">
+                                <div className="row my-2">
+                                    <div className="col">
+                                        <span>
+                                            <div className="row">
+                                                <div className="col-3 my-auto">
+                                                    <i className="fas fa-chart-bar fa-2x faround"></i>
+                                                </div>
+                                                <div className="col-9 ps-4">
+                                                    <Title value={'24'} variant={'dark'} />
+                                                    <Desc value={'Traders (24H)'} variant={'dark'} />
+                                                </div>
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div className="col">
+                                        <span>
+                                            <div className="row">
+                                                <div className="col-3 my-auto">
+                                                    <i className="fas fa-briefcase fa-2x faround"></i>
+                                                </div>
+                                                <div className="col-9 ps-4">
+                                                    <Title value={'$43.1M'} variant={'dark'} />
+                                                    <Desc value={'Total Liquidity'} variant={'dark'} />
+                                                </div>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="row my-2">
+                                    <div className="col">
+                                        <span>
+                                            <div className="row">
+                                                <div className="col-3 my-auto">
+                                                    <i className="fad fa-chart-line fa-2x faround"></i>
+                                                </div>
+                                                <div className="col-9 ps-4">
+                                                    <Title value={'$22.43M'} variant={'dark'} />
+                                                    <Desc value={'Volume'} variant={'dark'} />
+                                                </div>
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div className="col">
+                                        <span>
+                                            <div className="row">
+                                                <div className="col-3 my-auto">
+                                                    <i className="far fa-donate fa-2x faround"></i>
+                                                </div>
+                                                <div className="col-9 ps-4">
+                                                    <Title value={'$1.79K'} variant={'dark'} />
+                                                    <Desc value={'Fees (24H)'} variant={'dark'} />
+                                                </div>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="row my-4">
+                                    <Desc className="form-check-label" value={'Total Liquidity'} variant={'dark'} />
+                                    <div className="col-12 my-2">
+                                        <PieChart chartData={poolChartDataList} chartId={'1'} />
+                                    </div>
+                                </div>
+                            </div>
+                            <Button label='Edit Liquidity' />
                         </Card>
                     </div>
                 </div>
@@ -146,4 +232,3 @@ export default function PoolDetail() {
         </div>
     )
 }
-

@@ -4,7 +4,7 @@ import Navigationbar from '../components/Navigationbar'
 import BarChart from '../components/chart/BarChart';
 import LineChart from '../components/chart/LineChart';
 import Card from '../components/card/Card';
-import { PageTitle, Title, Desc, DescSpan } from "../components/text/Text";
+import { Title, Desc } from "../components/text/Text";
 import Button from '../components/button/Button';
 import PieChart from '../components/chart/PieChart';
 
@@ -220,7 +220,7 @@ export default function PoolDetail() {
                                     <Desc className="form-check-label" value={'Total Liquidity'} variant={'dark'} />
                                     <div className="col-12 my-2">
                                         <PieChart chartData={poolChartDataList} chartId={'1'} />
-                                    </div>   
+                                    </div>
                                 </div>
                             </div>
                             <Button label='Edit Liquidity' />

@@ -322,7 +322,7 @@ export default function PoolDetail() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-6">
+                            <div className="col-lg-6 col-md-6 col-sm-12">
                                 <div className="row my-3">
                                     <div className="col-4 my-auto">
                                         <Desc value={'Creator'} variant={'dark'} />
@@ -385,8 +385,8 @@ export default function PoolDetail() {
                             </div>
                         </div>
                     </div>
-                    <div className="tab-pane fade" id="swaps" role="tabpanel" aria-labelledby="swaps-tab">
-                        <table className="table table-hover table-responsive my-4">
+                    <div className="tab-pane fade table-responsive" id="swaps" role="tabpanel" aria-labelledby="swaps-tab">
+                        <table className="table table-hover my-4">
                             <thead>
                                 <tr className="table-dark">
                                     <th>Time</th>
@@ -415,8 +415,8 @@ export default function PoolDetail() {
                             </tbody>
                         </table>
                     </div>
-                    <div className="tab-pane fade" id="liquidity-providers" role="tabpanel" aria-labelledby="liquidity-providers">
-                    <table className="table table-hover table-responsive my-4">
+                    <div className="tab-pane fade table-responsive" id="liquidity-providers" role="tabpanel" aria-labelledby="liquidity-providers">
+                    <table className="table table-hover my-4">
                             <thead>
                                 <tr className="table-dark">
                                     <th>Liquidity Provider</th>

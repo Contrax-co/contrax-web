@@ -6,6 +6,7 @@ import LineChart from '../components/chart/LineChart';
 import Card from '../components/card/Card';
 import { PageTitle, Title, Desc, DescSpan } from "../components/text/Text";
 import Button from '../components/button/Button';
+import PieChart from '../components/chart/PieChart';
 
 export default function PoolDetail() {
     const [volume, setVolume] = useState('active')
@@ -113,6 +114,7 @@ export default function PoolDetail() {
         liquidityValue2: 0,
         volume24H: '678,987'
     }
+    let poolChartDataList = [["36,408,389.5732 USDC (84.46%)", "6,691,425.1753 USDT (15.54%)"], ["36,408,389.5732 USDC (84.46%)", 36408389.5732], ["6,691,425.1753 USDT (15.54%)", 6691425.1753]]
 
     return (
         <div>
@@ -214,8 +216,11 @@ export default function PoolDetail() {
                                         </span>
                                     </div>
                                 </div>
-                                <div className="row my-3">
+                                <div className="row my-4">
                                     <Desc className="form-check-label" value={'Total Liquidity'} variant={'dark'} />
+                                    <div className="col-12 my-2">
+                                        <PieChart chartData={poolChartDataList} chartId={'1'} />
+                                    </div>   
                                 </div>
                             </div>
                             <Button label='Edit Liquidity' />

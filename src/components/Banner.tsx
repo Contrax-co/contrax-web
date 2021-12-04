@@ -14,12 +14,11 @@ export default function banner() {
         <div className="container h-100">
           <div className="row">
             <div className="col-12 my-auto">
-              <Text variant={'dark'} className={'mt-5'} size={34} >Pools. Farms.</Text>
+              <Text variant={'dark'} className={'mt-5'} size={34} >Create Tokens. And Pools.</Text>
               <PageTitle className={'mt-4'} variant={'dark'}>
-                Accessible. <br/>
-                Permissionless.
+                Be a DeFi Creator. <br/>
               </PageTitle>
-              <Title variant={'dark'} className='mt-3'>Contrax is the only Serum AMM that allows you to easily create liquidity pools and farms.</Title>
+              <Title variant={'dark'} className='mt-3'>Build and manage your own DeFi ecosystem on Ethereum and Arbitrum.</Title>
               <div className='row mb-2' >
                 <img src={ethereum} className='brand-logo' alt='ethereum' />
                 <img src={arbitrum} className='brand-logo' alt='arbitrum' />

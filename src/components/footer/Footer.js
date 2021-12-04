@@ -14,29 +14,29 @@ export default function Footer() {
             <Title>Govern better, together</Title>
           </div>
           <div className="col-md-4">
-            <b>Affiliate Hardware Wallets</b>
+            <b>Social Media Links</b>
               <div className="row">
-                <Link text={'Ledger'} link={'#'} />
+                <Link text={'Discord'} link={'#'} />
               </div>
               <div className="row">
-                <Link text={'Bitbox'} link={'#'} />
+                <Link text={'Medium'} link={'#'} />
               </div>
               <div className="row">
-                <Link text={'Ether Cards'} link={'#'} />
+                <Link text={'Twitter'} link={'#'} />
               </div>
               <div className="row">
-                <Link text={'Trezor'} link={'#'} />
+                <Link text={'GitHub'} link={'#'} />
               </div>
           </div>
           <div className="col-md-4">
             <b>Love Contrax?</b>
-            <Desc>Help us keep Contrax free and open-source, your donations go a long way towards making that possible.</Desc>
+            <Desc>Contrax free and open-source DAO, and your donations go to the community DAO to keep the project running.</Desc>
             <ul className="list-group list-group-flush">
               <div className="row">
-                <Link text={'ETH Donation'} link={'#'} />
+                <Link text={'Give in ETH'} link={'#'} />
               </div>
               <div className="row">
-                <Link text={'BTC Donation'} link={'#'} />
+                <Link text={'Give in BTC'} link={'#'} />
               </div>
             </ul>
           </div>

@@ -2,8 +2,9 @@ import { useState } from 'react'
 import Button from '../button/Button'
 import Card from '../card/Card'
 import DropdownInput from '../form/dropdownInput/DropdownInput'
+import { FormInput } from '../form/Form'
 import { Title, Desc } from '../text/Text'
-import { StyledSettingCard } from './CoinSwap.styles'
+import { StyledInputDesc, StyledSettingCard, StyledSmallBtn, StyledSmallInput } from './CoinSwap.styles'
 
 export default function CoinSwap() {
   const [showSetting, setShowSetting] = useState(false)
@@ -26,16 +27,42 @@ export default function CoinSwap() {
       {
         showSetting && 
         <StyledSettingCard>
-          <Button onClick={back}>Back</Button>
-          <div>
-            <Button class="btn btn-primary" type="button">1%</Button>
-            <Button class="btn btn-primary" type="button">2%</Button>
-            <Button class="btn btn-primary" type="button">3%</Button>
+          <div className="text-right">
+            <Button onClick={back} icon="fa-long-arrow-alt-left"></Button>
+          </div>
+          <div className="row mt-3">
+            <Desc>Slippage Tolerance</Desc>
+          </div>
+          <div className="row mt-1">
+            <div className="col-md-3">
+              <StyledSmallBtn className="btn btn-primary m-1" type="button">0.5%</StyledSmallBtn>
+            </div>
+            <div className="col-md-3">
+              <StyledSmallBtn className="btn btn-primary m-1" type="button">1%</StyledSmallBtn>
+            </div>
+            <div className="col-md-3">
+              <StyledSmallBtn className="btn btn-primary m-1" type="button">3%</StyledSmallBtn>
+            </div>
+            <div className="col-md-3">
+              <StyledSmallInput height="39px" /> <StyledInputDesc>%</StyledInputDesc>
+            </div>
+          </div>
+
+          <div className="row mt-3">
+            <Desc>Transaction Deadline</Desc>
+          </div>
+          <div className='row'>
+            <div className="col-md-3">
+              <FormInput height="39px" />
+            </div>
+            <div className='col-md-3 p-0 mt-2'><Desc>min</Desc></div>
           </div>
         </StyledSettingCard>
       }
-      <Button onClick={()=>{setShowSetting(true)}}>Settings</Button>
-      <Title>Swap into more than 2000 tokens, using the best quotes from over 20 sources.</Title>
+      <div className="text-right">
+        <Button onClick={()=>{setShowSetting(true)}} icon="fa-cog" />
+      </div>
+      <Title className="mt-1">Swap into more than 2000 tokens, using the best quotes from over 20 sources.</Title>
       <DropdownInput
         label='Pay'
         searchable={true}

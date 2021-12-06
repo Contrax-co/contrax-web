@@ -59,8 +59,11 @@ img.main-logo {
   padding-bottom: 20px !important;
   margin-top: 30px !important;
 }
-@media (min-height:950px) { /* hi-res laptops and desktops */ 
-  
+@media (min-width:992px) { /* laptops and desktops */ 
+  .borderRight{
+    border-right: 1px solid #2b2b2b;
+    height: 250px;
+  }
 } 
 
 .formBackgroundDesign{
@@ -116,4 +119,13 @@ p{
 .dropdown-input input:focus-visible, .dropdown-input button:focus {
   outline: none;
   box-shadow: none;
+}
+.card{
+  width: 100%;
+}
+.faround {
+  display: inline-block;
+  border-radius: 60px;
+  box-shadow: 0px 0px 6px #888;
+  padding: 0.4em 0.4em;
 }

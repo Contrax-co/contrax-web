@@ -108,6 +108,7 @@ p{
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
   width: 90px;
+  margin-top: -9px;
 }
 .dropdown-input .dropdown-menu.show {
   width: 100%;

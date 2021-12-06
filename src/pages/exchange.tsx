@@ -1,12 +1,8 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import BottomBar from '../components/bottomBar/BottomBar'
 import Navigationbar from '../components/Navigationbar'
 import LineChart from '../components/chart/LineChart';
-import DropdownInput from '../components/form/dropdownInput/DropdownInput';
-import Card from '../components/card/Card';
-import Button from '../components/button/Button';
-import { Desc, Title } from '../components/text/Text';
-import { PageSubTitle } from '../components/text/Text';
+import CoinSwap from '../components/coinSwap/CoinSwap';
 
 export default function Exchange() {
     const [day, setDay] = useState('active')
@@ -79,15 +75,6 @@ export default function Exchange() {
         }
     }
 
-    const currencies = [
-      {title: 'ETH', subTitle: 'Ethereum'},
-      {title: 'BTC', subTitle: 'Bitcoin'},
-      {title: 'USDT', subTitle: 'Tether'},
-      {title: 'SOL', subTitle: 'Solana'},
-      {title: 'ABT', subTitle: 'Arcblock'},
-      {title: 'GTS', subTitle: 'GT STAR'},
-    ]
-
     return (
         <div>
             <Navigationbar />
@@ -117,33 +104,7 @@ export default function Exchange() {
                         <LineChart chartData={ChartData} />
                     </div>
                     <div className="col-lg-4 col-md-4 col-sm-12">
-                      <Card>
-                        <PageSubTitle>Swap into more than 2000 tokens, using the best quotes from over 20 sources.</PageSubTitle>
-                        <DropdownInput 
-                          label='Pay'
-                          searchable={true} 
-                          items={currencies} 
-                          value={{title: 'Eth'}} 
-                          inputType='number'
-                          placeholder='0'
-                          className="mb-4 mt-4"
-                        />
-
-                        <DropdownInput 
-                          label='Receive'
-                          searchable={true} 
-                          items={currencies} 
-                          value={{title: 'USDT'}} 
-                          inputType='number'
-                          placeholder='0'
-                          className='mb-4'
-                          disabled='disabled'
-                        />
-                        <Title>1 ETH = 4482.6722 USDC</Title>
-                        <Button label='Exchange' />
-                        <Desc className="mt-5">Slippage Tolerance: 3%</Desc>
-                        <Desc>Minimum Received 4339.4263 USDC</Desc>
-                      </Card>
+                      <CoinSwap />
                     </div>
                 </div>
             </div>

@@ -13,7 +13,7 @@ export const StyledInput = styled('input', {
   borderRadius: '0 5px 5px 0',
   border: `1px solid ${colors.inputBorder}`,
   width: 'calc(100% - 100px)',
-  padding: 6,
+  padding: 2,
 }));
 
 export const StyledSearch = styled('input', {

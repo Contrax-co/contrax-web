@@ -27,7 +27,7 @@ export default function CoinSwap() {
       {
         showSetting && 
         <StyledSettingCard>
-          <div className="text-right">
+          <div className="text-left">
             <Button onClick={back} icon="fa-long-arrow-alt-left"></Button>
           </div>
           <div className="row mt-3">

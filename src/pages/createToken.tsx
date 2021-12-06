@@ -67,43 +67,45 @@ export default function CreateToken(props: any) {
             </form>
           </div>
           <Title className="mt-5" value={'My Token List'} variant={'dark'} />
-          <table className="table table-hover">
-            <thead>
-              <tr className="table-dark">
-                <th>#</th>
-                <th>Token Symbol</th>
-                <th>Token Name</th>
-                <th>Total Supply</th>
-                <th>Holders</th>
-                <th>Balance</th>
-                <th>Operation</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>1</th>
-                <td>SOL</td>
-                <td>Solana</td>
-                <td>1,000,000,000,000</td>
-                <td>7,000</td>
-                <td>678,987</td>
-                <td>
-                  <a className="btn btn-primary" href="/manage-token">Manage</a>
-                </td>
-              </tr>
-              <tr>
-                <th>2</th>
-                <td>Rune</td>
-                <td>Thor coin</td>
-                <td>1,000,000,000</td>
-                <td>15,000</td>
-                <td>788,334</td>
-                <td>
-                  <a className="btn btn-primary" href="/manage-token">Manage</a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <div className="table-responsive">
+            <table className="table table-hover">
+              <thead>
+                <tr className="table-dark">
+                  <th>#</th>
+                  <th>Token Symbol</th>
+                  <th>Token Name</th>
+                  <th>Total Supply</th>
+                  <th>Holders</th>
+                  <th>Balance</th>
+                  <th>Operation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>1</th>
+                  <td>SOL</td>
+                  <td>Solana</td>
+                  <td>1,000,000,000,000</td>
+                  <td>7,000</td>
+                  <td>678,987</td>
+                  <td>
+                    <a className="btn btn-primary" href="/manage-token">Manage</a>
+                  </td>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <td>Rune</td>
+                  <td>Thor coin</td>
+                  <td>1,000,000,000</td>
+                  <td>15,000</td>
+                  <td>788,334</td>
+                  <td>
+                    <a className="btn btn-primary" href="/manage-token">Manage</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
       <BottomBar />

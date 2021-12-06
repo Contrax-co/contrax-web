@@ -115,7 +115,54 @@ export default function PoolDetail() {
         volume24H: '678,987'
     }
     let poolChartDataList = [["36,408,389.5732 USDC (84.46%)", "6,691,425.1753 USDT (15.54%)"], ["36,408,389.5732 USDC (84.46%)", 36408389.5732], ["6,691,425.1753 USDT (15.54%)", 6691425.1753]]
-
+    let swapsData = [
+        {
+            time: "2021/12/03 12:53:51",
+            traderAddress: "0x30c5312d9cf0d873994f000e72f1cbf561d0209c",
+            traderAddressUrl: "https://etherscan.io/address/0x30c5312d9cf0d873994f000e72f1cbf561d0209c",
+            paidCurrency: "6,000 USDT",
+            paidCurrencyMedia: "https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp",
+            receiveCurrency: "6,004.24 USDC",
+            receiveCurrencyMedia: "https://cmp.dodoex.io/9kfMyaEhJBOwCKTXWVoPU8yPTdyx9rX7sSu9CYqRuqA/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL3VzZGNfZWU1MmExZWQyYi91c2RjX2VlNTJhMWVkMmIucG5n.webp",
+            price: "1 USDT = 1 USDC",
+            feeRate: "0.008%",
+            fee: "0.48 USDC"
+        },
+        {
+            time: "2021/12/02 20:45:21",
+            traderAddress: "0x2b6f908bf9082ad39adb27c04e88adfec8f58110",
+            traderAddressUrl: "https://etherscan.io/address/0x2b6f908bf9082ad39adb27c04e88adfec8f58110",
+            paidCurrency: "119,999.99 USDC",
+            paidCurrencyMedia: "https://cmp.dodoex.io/9kfMyaEhJBOwCKTXWVoPU8yPTdyx9rX7sSu9CYqRuqA/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL3VzZGNfZWU1MmExZWQyYi91c2RjX2VlNTJhMWVkMmIucG5n.webp",
+            receiveCurrency: "119,893.05 USDT",
+            receiveCurrencyMedia: "https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp",
+            price: "1 USDC = 0.99 USDT",
+            feeRate: "0.008%",
+            fee: "9.59 USDT"
+        }
+    ]
+    let liquidityProviderData = [
+        {
+            liquidityProviderAddress: "0x30c5312d9cf0d873994f000e72f1cbf561d0209c",
+            liquidityProviderAddressUrl: "https://etherscan.io/address/0x30c5312d9cf0d873994f000e72f1cbf561d0209c",
+            liquiditySuppliedPaidCurrency: "8,218,322.4856 USDT",
+            liquiditySuppliedPaidCurrencyMedia: "https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp",
+            liquiditySuppliedReceiveCurrency: "9,399,065.4253 USDC",
+            liquiditySuppliedReceiveCurrencyMedia: "https://cmp.dodoex.io/9kfMyaEhJBOwCKTXWVoPU8yPTdyx9rX7sSu9CYqRuqA/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL3VzZGNfZWU1MmExZWQyYi91c2RjX2VlNTJhMWVkMmIucG5n.webp",
+            value: "$17,624,011.87	",
+            share: "40.87%",
+        },
+        {
+            liquidityProviderAddress: "0x10bf1dcb5ab7860bab1c3320163c6dddf8dcc0e4",
+            liquidityProviderAddressUrl: "https://etherscan.io/address/0x10bf1dcb5ab7860bab1c3320163c6dddf8dcc0e4",
+            liquiditySuppliedPaidCurrency: "0 USDT",
+            liquiditySuppliedPaidCurrencyMedia: "https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp",
+            liquiditySuppliedReceiveCurrency: "4,090,763.46 USDC",
+            liquiditySuppliedReceiveCurrencyMedia: "https://cmp.dodoex.io/9kfMyaEhJBOwCKTXWVoPU8yPTdyx9rX7sSu9CYqRuqA/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL3VzZGNfZWU1MmExZWQyYi91c2RjX2VlNTJhMWVkMmIucG5n.webp",
+            value: "$4,090,763.46",
+            share: "9.48%",
+        }
+    ]
     return (
         <div>
             <Navigationbar />
@@ -248,10 +295,10 @@ export default function PoolDetail() {
                                     </div>
                                     <div className="col-8">
                                         <Title value={'$10,576,241,986.55'} variant={'dark'} />
-                                        <span>10,575,363,434 USDT 
-                                            <img src="https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp" alt='' className="ms-1"></img> / 10,577,149,605 USDC 
+                                        <span>10,575,363,434 USDT
+                                            <img src="https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp" alt='' className="ms-1"></img> / 10,577,149,605 USDC
                                             <img src="https://cmp.dodoex.io/9kfMyaEhJBOwCKTXWVoPU8yPTdyx9rX7sSu9CYqRuqA/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL3VzZGNfZWU1MmExZWQyYi91c2RjX2VlNTJhMWVkMmIucG5n.webp" alt='' className="ms-1"></img>
-                                        </span> 
+                                        </span>
                                     </div>
                                 </div>
                                 <div className="row my-3">
@@ -260,10 +307,10 @@ export default function PoolDetail() {
                                     </div>
                                     <div className="col-8">
                                         <Title value={'$996,650.94'} variant={'dark'} />
-                                        <span>499,733.37 USDT 
-                                            <img src="https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp" alt='' className="ms-1"></img> / 496,514.28 USDC  
+                                        <span>499,733.37 USDT
+                                            <img src="https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp" alt='' className="ms-1"></img> / 496,514.28 USDC
                                             <img src="https://cmp.dodoex.io/9kfMyaEhJBOwCKTXWVoPU8yPTdyx9rX7sSu9CYqRuqA/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL3VzZGNfZWU1MmExZWQyYi91c2RjX2VlNTJhMWVkMmIucG5n.webp" alt='' className="ms-1"></img>
-                                        </span> 
+                                        </span>
                                     </div>
                                 </div>
                                 <div className="row my-3">
@@ -275,7 +322,7 @@ export default function PoolDetail() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-6">
+                            <div className="col-lg-6 col-md-6 col-sm-12">
                                 <div className="row my-3">
                                     <div className="col-4 my-auto">
                                         <Desc value={'Creator'} variant={'dark'} />
@@ -324,22 +371,78 @@ export default function PoolDetail() {
                                     </div>
                                     <div className="col-8">
                                         <div className="row">
-                                            <span>0 USDT 
-                                                <img src="https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp" alt='' className="ms-1"></img> 
-                                            </span> 
+                                            <span>0 USDT
+                                                <img src="https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp" alt='' className="ms-1"></img>
+                                            </span>
                                         </div>
                                         <div className="row">
-                                            <span>0 USDC 
-                                                <img src="https://cmp.dodoex.io/9kfMyaEhJBOwCKTXWVoPU8yPTdyx9rX7sSu9CYqRuqA/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL3VzZGNfZWU1MmExZWQyYi91c2RjX2VlNTJhMWVkMmIucG5n.webp" alt='' className="ms-1"></img> 
-                                            </span> 
+                                            <span>0 USDC
+                                                <img src="https://cmp.dodoex.io/9kfMyaEhJBOwCKTXWVoPU8yPTdyx9rX7sSu9CYqRuqA/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL3VzZGNfZWU1MmExZWQyYi91c2RjX2VlNTJhMWVkMmIucG5n.webp" alt='' className="ms-1"></img>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="tab-pane fade" id="swaps" role="tabpanel" aria-labelledby="swaps-tab">Swaps...</div>
-                    <div className="tab-pane fade" id="liquidity-providers" role="tabpanel" aria-labelledby="liquidity-providers">providers...</div>
+                    <div className="tab-pane fade table-responsive" id="swaps" role="tabpanel" aria-labelledby="swaps-tab">
+                        <table className="table table-hover my-4">
+                            <thead>
+                                <tr className="table-dark">
+                                    <th>Time</th>
+                                    <th>Trader</th>
+                                    <th>Paid</th>
+                                    <th>Receive</th>
+                                    <th>Price</th>
+                                    <th>Fee Rate</th>
+                                    <th>Fee</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {
+                                swapsData.map((item, index) => (
+                                <tr>
+                                    <td>{item.time}</td>
+                                    <td> <span> <a href={item.traderAddressUrl} target='_blank' rel="noreferrer"> {item.traderAddress.substring(0,6)}...{item.traderAddress.substring(38,42)} <i className='fa fa-external-link text-dark' aria-hidden="true"></i> </a> </span> </td>
+                                    <td> <span> <img src={item.paidCurrencyMedia} alt=''></img> {item.paidCurrency} </span> </td>
+                                    <td> <span> <img src={item.receiveCurrencyMedia} alt=''></img> {item.receiveCurrency} </span> </td>
+                                    <td>{item.price}</td>
+                                    <td>{item.feeRate}</td>
+                                    <td>{item.fee}</td>
+                                </tr>
+                                ))
+                            }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div className="tab-pane fade table-responsive" id="liquidity-providers" role="tabpanel" aria-labelledby="liquidity-providers">
+                    <table className="table table-hover my-4">
+                            <thead>
+                                <tr className="table-dark">
+                                    <th>Liquidity Provider</th>
+                                    <th>Liquidity Supplied</th>
+                                    <th>Value (USD)</th>
+                                    <th>Share</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {
+                                liquidityProviderData.map((item, index) => (
+                                <tr>
+                                    <td> <span> <a href={item.liquidityProviderAddressUrl} target='_blank' rel="noreferrer"> {item.liquidityProviderAddress.substring(0,6)}...{item.liquidityProviderAddress.substring(38,42)} <i className='fa fa-external-link text-dark' aria-hidden="true"></i> </a> </span> </td>
+                                    <td> 
+                                        <span> <img src={item.liquiditySuppliedPaidCurrencyMedia} alt=''></img> {item.liquiditySuppliedPaidCurrency} </span>
+                                        <br />
+                                        <span> <img src={item.liquiditySuppliedReceiveCurrencyMedia} alt=''></img> {item.liquiditySuppliedReceiveCurrency} </span> 
+                                    </td>
+                                    <td>{item.value}</td>
+                                    <td>{item.share}</td>
+                                </tr>
+                                ))
+                            }
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
             </div>

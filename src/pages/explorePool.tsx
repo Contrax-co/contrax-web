@@ -67,8 +67,9 @@ export default function ExplorePool() {
                             <tr>
                             <th>{index+1}</th>
                             <td>
+                                <div className="row">
                                 <span> <a href={item.poolUrl} target='_blank' rel="noreferrer"> {item.poolAddress.substring(0,6)}...{item.poolAddress.substring(38,42)} <i className='fa fa-external-link text-dark' aria-hidden="true"></i> </a> </span>
-                                <br />
+                                </div>
                                 <span className="badge bg-warning text-dark">{item.poolType}</span>
                             </td>
                             <td>{item.feeRate}</td>
@@ -76,8 +77,9 @@ export default function ExplorePool() {
                                 <PieChart chartData={poolChartDataList} chartId={index} />
                             </td>
                             <td> 
+                                <div className="row">
                                 <span> <img src={duckIcon} alt=''></img> {item.liquidityValue1} {item.liquidityName1}</span> 
-                                <br /> 
+                                </div>
                                 <span> <img src={duckIcon} alt=''></img> {item.liquidityValue2} {item.liquidityName2}</span>
                             </td>
                             <td>{item.volume24H}</td>

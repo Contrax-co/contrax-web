@@ -14,9 +14,10 @@ export default function banner() {
         <div className="container h-100">
           <div className="row">
             <div className="col-12 my-auto">
-              <Text variant={'dark'} className={'mt-5'} size={34} >Create Tokens. And Pools.</Text>
+              <Text variant={'dark'} className={'mt-5'} size={34} >Tokens. Pools. Farms.</Text>
               <PageTitle className={'mt-4'} variant={'dark'}>
-                Be a DeFi Creator. <br/>
+              Fast. Secure. <br/>
+              Permissionless. <br/>
               </PageTitle>
               <Title variant={'dark'} className='mt-3'>Build and manage your own DeFi ecosystem on Ethereum and Arbitrum.</Title>
               <div className='row mb-2' >

@@ -48,12 +48,12 @@ export default function home() {
             <div className='container'>
               <div className='row mt-5' >
                 <Title>Designed with everyone in mind</Title>
-                <PageTitle>Offering a full suite of DeFi features</PageTitle>
+                <PageTitle>Offering a Suite of DeFi Features</PageTitle>
               </div>
               <div className='row'>
                 <div className='col-3 mb-5'>
                   <Card>
-                    <Text size={24}>for Builders</Text>
+                    <Text size={24}>for</Text>
                     <PageSubTitle>Builders</PageSubTitle>
                     <Title className='mb-5'>Create and manage tokens, liquidity pools and farms.
                     Bring new projects to life on the most trusted & secure Ethereum rollup.</Title>
@@ -87,11 +87,10 @@ export default function home() {
                   <PageSubTitle variant='light'>Ready to get started?</PageSubTitle>
                 </div>
                 <div className='col-md-6 text-right'  style={{paddingTop: '12px'}} >
-                  <Button label='Get Started' />
+                  <Button label="Let's Go!" />
                 </div>
               </div>
             </StyledCtaBar>
-
             <Footer />
         </div>
     )

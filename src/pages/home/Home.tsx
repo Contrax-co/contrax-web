@@ -47,33 +47,28 @@ export default function home() {
             {/* feature section */}
             <div className='container'>
               <div className='row mt-5' >
-                <Title>Designed with everyone in mind</Title>
-                <PageTitle>Offering a Suite of DeFi Features</PageTitle>
               </div>
               <div className='row'>
                 <div className='col-3 mb-5'>
                   <Card>
-                    <Text size={24}>for</Text>
-                    <PageSubTitle>Builders</PageSubTitle>
-                    <Title className='mb-5'>Create and manage tokens, liquidity pools and farms.
+                    <PageSubTitle>For Builders</PageSubTitle>
+                    <Title className='mb-5'>Create and manage tokens, liquidity pools and farms. <br/><br/>
                     Bring new projects to life on the most trusted & secure Ethereum rollup.</Title>
                   </Card>
                 </div>
 
                 <div className='col-3 mb-5'>
                   <Card>
-                    <Text size={24}>for</Text>
-                    <PageSubTitle>Traders</PageSubTitle>
-                    <Title className='mb-5'>Trade Ethereum assets without the high gas costs.
+                    <PageSubTitle>For Traders</PageSubTitle>
+                    <Title className='mb-5'>Trade Ethereum assets without the high gas costs. <br/><br/>
                     Contrax executes all trades on Uniswap for optimal liquidity and price.</Title>
                   </Card>
                 </div>
 
                 <div className='col-3 mb-5'>
                   <Card>
-                    <Text size={24}>For</Text>
-                    <PageSubTitle>Farmers</PageSubTitle>
-                    <Title className='mb-5'>Find and create farms for any asset under one roof
+                    <PageSubTitle>For Farmers</PageSubTitle>
+                    <Title className='mb-5'>Find and create farms for any asset under one roof. <br/><br/>
                     Contrax provides data and infographics on all listed pools and farms.</Title>
                   </Card>
                 </div>

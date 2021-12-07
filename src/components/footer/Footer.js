@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="row">
           <div className="col-md-4" >
             <PageTitle>Contrax</PageTitle>
-            <Title>Govern better, together</Title>
+            <Title>Fast. Secure. Permissionless. </Title>
           </div>
           <div className="col-md-4">
             <b>Social Media Links</b>

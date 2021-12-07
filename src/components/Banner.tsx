@@ -19,7 +19,7 @@ export default function banner() {
               Fast. Secure. <br/>
               Permissionless. <br/>
               </PageTitle>
-              <Title variant={'dark'} className='mt-3'>Build and manage your own DeFi ecosystem on Ethereum and Arbitrum.</Title>
+              <Title variant={'dark'} className='mt-3'>Contrax is the first AMM designed to easily create tokens, pools and farms on the Arbitrum One network.</Title>
               <div className='row mb-2' >
                 <img src={ethereum} className='brand-logo' alt='ethereum' />
                 <img src={arbitrum} className='brand-logo' alt='arbitrum' />

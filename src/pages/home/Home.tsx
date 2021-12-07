@@ -17,27 +17,27 @@ export default function home() {
               <div className='row'>
                 <div className='col-4 mb-5'>
                   <Card>
-                    <PageSubTitle>No Code Needed</PageSubTitle>
-                    <PageTitle>Create Projects</PageTitle>
-                    <Title className='mb-5'>Easily create and manage tokens, pools, and farms on Ethereum or Arbitrum.</Title>
+                    <PageSubTitle>Built on Arbitrum</PageSubTitle>
+                    <PageTitle>Secure & Scalable</PageTitle>
+                    <Title className='mb-5'>Secured by Ethereum while moving computations and data storage off of the main chain.</Title>
                     <Button label='Learn More' />
                   </Card>
                 </div>
 
                 <div className='col-4 mb-5'>
                   <Card>
-                    <PageSubTitle>Maximum Rewards</PageSubTitle>
-                    <PageTitle>Optimized Staking</PageTitle>
-                    <Title className='mb-5'>Customize your Arbitrum staking and farming experience and recieve all rewards automatically. </Title>
+                    <PageSubTitle>No-code Design</PageSubTitle>
+                    <PageTitle>Highly Accessible</PageTitle>
+                    <Title className='mb-5'>Create and manage projects on Ethereum and Arbitrum One without any coding. </Title>
                     <Button label='Learn More' />
                   </Card>
                 </div>
 
                 <div className='col-4 mb-5'>
                   <Card>
-                    <PageSubTitle>The TRAX DAO</PageSubTitle>
+                    <PageSubTitle>DAO Controlled</PageSubTitle>
                     <PageTitle>Community Owned</PageTitle>
-                    <Title className='mb-5'>Contrax is a DAO controlled by the token holders. You decide its rewards, features, and direction.</Title>
+                    <Title className='mb-5'>TRAX token holders can vote on future products, features and fee structures for the platform.</Title>
                     <Button label='Learn More' />
                   </Card>
                 </div>
@@ -47,33 +47,34 @@ export default function home() {
             {/* feature section */}
             <div className='container'>
               <div className='row mt-5' >
-                <Title>For All in DeFi</Title>
-                <PageTitle>Contrax covers different DeFi needs</PageTitle>
+                <Title>Designed with everyone in mind</Title>
+                <PageTitle>Offering a full suite of DeFi features</PageTitle>
               </div>
               <div className='row'>
                 <div className='col-3 mb-5'>
                   <Card>
-                    <Text size={24}>for</Text>
-                    <PageSubTitle>DeFi Creators</PageSubTitle>
-                    <Title className='mb-5'>In minutes, create your token on Arbitrum or Ethereum, then set
-                    up ways to distbute, stake, farm, or swap your token within the dApp</Title>
+                    <Text size={24}>for Builders</Text>
+                    <PageSubTitle>Builders</PageSubTitle>
+                    <Title className='mb-5'>Create and manage tokens, liquidity pools and farms.
+                    Bring new projects to life on the most trusted & secure Ethereum rollup.</Title>
                   </Card>
                 </div>
 
                 <div className='col-3 mb-5'>
                   <Card>
                     <Text size={24}>for</Text>
-                    <PageSubTitle>Stakers</PageSubTitle>
-                    <Title className='mb-5'>Contrax allows you stake and farm in Uniswap and custom pools, with 
-                    auto-compounding rewards and earning additional TRAX rewards.</Title>
+                    <PageSubTitle>Traders</PageSubTitle>
+                    <Title className='mb-5'>Trade Ethereum assets without the high gas costs.
+                    Contrax executes all trades on Uniswap for optimal liquidity and price.</Title>
                   </Card>
                 </div>
 
                 <div className='col-3 mb-5'>
                   <Card>
                     <Text size={24}>For</Text>
-                    <PageSubTitle>Traders</PageSubTitle>
-                    <Title className='mb-5'>Contrax uses Uniswap to allow you to swap into freshly minted tokens in their first token distibution events.</Title>
+                    <PageSubTitle>Farmers</PageSubTitle>
+                    <Title className='mb-5'>Find and create farms for any asset under one roof
+                    Contrax provides data and infographics on all listed pools and farms.</Title>
                   </Card>
                 </div>
               </div>

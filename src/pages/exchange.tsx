@@ -3,6 +3,7 @@ import BottomBar from '../components/bottomBar/BottomBar'
 import Navigationbar from '../components/Navigationbar'
 import LineChart from '../components/chart/LineChart';
 import CoinSwap from '../components/coinSwap/CoinSwap';
+import { Col, Container, Row } from '../components/blocks/Blocks';
 
 export default function Exchange() {
     const [day, setDay] = useState('active')
@@ -78,16 +79,16 @@ export default function Exchange() {
     return (
         <div>
             <Navigationbar />
-            <div className="container">
-                <div className="row mt-4">
-                    <div className="col-lg-8 col-md-8 col-sm-12">
-                        <div className="row mb-3">
-                            <div className="col-lg-6 col-md-6 col-sm-12">
+            <Container>
+                <Row className="mt-4">
+                    <Col size="8">
+                        <Row className="mb-3">
+                            <Col size="6" >
                                 <span> <b>ETH</b> / USDC</span>
                                 <h3> USDC: 14.362 </h3>
                                 <span className="priceDecreaseDisplay mb-4"> -63.77 USDC (-1.47%) <span className="timeSpan">Past 24 Hours </span> </span>
-                            </div>
-                            <div className="col-lg-6 col-md-6 col-sm-12">
+                            </Col>
+                            <Col size="6">
                                 <ul className="nav nav-pills float-lg-end mt-4">
                                     <li className="nav-item">
                                         <button className={`nav-link ${day}`} onClick={() => changeState("day")}>24H</button>
@@ -99,15 +100,15 @@ export default function Exchange() {
                                         <button className={`nav-link ${month}`} onClick={() => changeState("month")}>1M</button>
                                     </li>
                                 </ul>
-                            </div>
-                        </div>
+                            </Col>
+                        </Row>
                         <LineChart chartData={ChartData} />
-                    </div>
-                    <div className="col-lg-4 col-md-4 col-sm-12">
+                    </Col>
+                    <Col size="4">
                       <CoinSwap />
-                    </div>
-                </div>
-            </div>
+                    </Col>
+                </Row>
+            </Container>
             <BottomBar />
         </div>
     )

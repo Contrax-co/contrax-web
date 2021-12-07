@@ -4,6 +4,7 @@ import { PageTitle, Title, Desc, DescSpan } from "../components/text/Text";
 import { FormInput, FormCheckbox } from "../components/form/Form";
 import Button from "../components/button/Button";
 import { useInput } from "rooks";
+import { Col, Container, Row } from '../components/blocks/Blocks';
 
 export default function CreateToken(props: any) {
   const tokenSymbol = useInput('');
@@ -23,49 +24,49 @@ export default function CreateToken(props: any) {
   return (
     <>
       <Navigationbar />
-      <div className="container h-100">
-        <div className="row">
-          <div className="col-lg-6 col-md-6 col-sm-12 mx-auto my-auto">
+      <Container className="h-100">
+        <Row>
+          <Col size='6' className="mx-auto my-auto">
             <PageTitle value={'No coding required. '} variant={'dark'} />
             <PageTitle value={'Create your own tokens with one click!'} variant={'dark'} />
-          </div>
-          <div className="col-lg-6 col-md-6 col-sm-12">
+          </Col>
+          <Col size='6' >
             <form onSubmit={handleSubmit} className="px-4 py-4 my-5 formBackgroundDesign">
-              <div className="row">
-                <div className="col-lg-12 col-md-12 col-sm-12 my-2">
+              <Row className="row">
+                <Col size='12' className="my-2">
                   <Title variant={'dark'} value={'Enter Token Parameters:'} ></Title>
-                </div>
+                </Col>
                 <FormInput className="col-lg-6 col-md-6 col-sm-6" placeholder="1-16 Characters" label={'Token Symbol'} {...tokenSymbol} />
                 <FormInput className="col-lg-6 col-md-6 col-sm-6" placeholder="0-99,999,999,999,999,999" label={'Token Supply'} {...tokenSupply} />
 
                 <FormInput className="col-lg-6 col-md-6 col-sm-6" placeholder="1-64 Characters" label={'Token Name'} {...tokenName} />
                 <FormInput className="col-lg-6 col-md-6 col-sm-6" placeholder="0-18" label={'Decimals'} {...tokenDecimal} />
 
-                <div className="col-lg-12 col-md-12 col-sm-12 mt-3 mb-2">
+                <Col size='12' className="mt-3 mb-2">
                   <Title variant={'dark'} value={'Special Features:'}></Title>
-                </div>
-                <div className="col-lg-10 col-md-10 col-sm-10 my-2">
+                </Col>
+                <Col className="col-lg-10 col-md-10 col-sm-10 my-2">
                   <FormCheckbox className='col-lg-10 col-md-10 col-sm-10 my-2' label='Burn' {...tokenBurn} />
                   <Desc className="form-check-label" value={'A percentage of tokens will be sent to the burn address for each on-chain transfer'} variant={'dark'} />
-                </div>
+                </Col>
                 <FormInput className="col-lg-2 col-md-2 col-sm-2 my-2" placeholder="0.1%" id="burnPercent" name="burnPercent" {...tokenBurnValue} />
-                <div className="col-lg-10 col-md-10 col-sm-10 my-2">
+                <Col className="col-lg-10 col-md-10 col-sm-10 my-2">
                   <FormCheckbox id="exampleCheck1" label='Trading Fees' {...tokenTradingFee} />
                   <Desc className="form-check-label" value={'A percentage of tokens will be sent to the creators address for each on-chain transfer'} variant={'dark'} />
-                </div>
+                </Col>
                 <FormInput className="col-lg-2 col-md-2 col-sm-2 my-2" placeholder="0.1%" id="tradingFeePercent" name="tradingFeePercent" {...tokenTradingFeeValue} />
-                <div className="col-lg-12 col-md-12 col-sm-12 my-2">
+                <Col size='12' className="my-2">
                   <FormCheckbox id="exampleCheck1" label='Supports Supply Increase' {...tokenSupportSupplyIncrease} />
                   <Desc className="form-check-label" value={'Allows the creator to issue additional tokens after the token creation'} variant={'dark'} />
-                </div>
-              </div>
-              <div className="row justify-content-center mx-5 mt-3">
+                </Col>
+              </Row>
+              <Row className="justify-content-center mx-5 mt-3">
                 <a href='/#' data-bs-toggle="modal" data-bs-target="#PrevieCreateToken" className="row justify-content-center">
                   <Button type="submit" label={'Connect Wallet'} variant="primary" />
                 </a>
-              </div>
+              </Row>
             </form>
-          </div>
+          </Col>
           <Title className="mt-5" value={'My Token List'} variant={'dark'} />
           <div className="table-responsive">
             <table className="table table-hover">
@@ -106,8 +107,8 @@ export default function CreateToken(props: any) {
               </tbody>
             </table>
           </div>
-        </div>
-      </div>
+        </Row>
+      </Container>
       <BottomBar />
       <div className="modal fade" id="PrevieCreateToken" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">

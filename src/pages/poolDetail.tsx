@@ -7,6 +7,7 @@ import Card from '../components/card/Card';
 import { Title, Desc } from "../components/text/Text";
 import Button from '../components/button/Button';
 import PieChart from '../components/chart/PieChart';
+import { Col, Container, Row } from '../components/blocks/Blocks';
 
 export default function PoolDetail() {
     const [volume, setVolume] = useState('active')
@@ -166,15 +167,15 @@ export default function PoolDetail() {
     return (
         <div>
             <Navigationbar />
-            <div className="container">
-                <div className="row my-4">
-                    <div className="col-lg-8 col-md-8 col-sm-12">
-                        <div className="row mb-3">
-                            <div className="col-lg-6 col-md-6 col-sm-12">
+            <Container>
+                <Row className="my-4">
+                    <Col size='8'>
+                        <Row className="mb-3">
+                            <Col size='6'>
                                 <span> <b>USDT</b> / USDC</span>
                                 <p className="mb-4"> 1 USDT = 1.0008917034604228 USDC </p>
-                            </div>
-                            <div className="col-lg-6 col-md-6 col-sm-12">
+                            </Col>
+                            <Col size='6'>
                                 <ul className="nav nav-pills float-lg-end mt-4">
                                     <li className="nav-item">
                                         <button className={`nav-link ${volume}`} onClick={() => changeState("volume")}>Volume</button>
@@ -189,16 +190,16 @@ export default function PoolDetail() {
                                         <button className={`nav-link ${fees}`} onClick={() => changeState("fees")}>Fees</button>
                                     </li>
                                 </ul>
-                            </div>
-                        </div>
+                            </Col>
+                        </Row>
                         {state === 'tvl' ? (
                             <LineChart chartData={ChartData} />
                         ) : (
                             <BarChart chartData={ChartData} />
                         )
                         }
-                    </div>
-                    <div className="col-lg-4 col-md-4 col-sm-12">
+                    </Col>
+                    <Col size='4'>
                         <Card>
                             <span>
                                 <a href={poolData.poolUrl} target='_blank' rel="noreferrer">
@@ -206,74 +207,74 @@ export default function PoolDetail() {
                                 </a>
                                 <span className="badge bg-warning text-dark float-end">{poolData.poolType}</span>
                             </span>
-                            <div className="row my-4">
-                                <div className="row">
-                                    <div className="col-lg-6 col-md-6 col-sm-12 my-3">
+                            <Row className="row my-4">
+                                <Row className="row">
+                                    <Col size='6' className="my-3">
                                         <span>
-                                            <div className="row">
-                                                <div className="col-3 my-auto">
+                                            <Row>
+                                                <Col size='3' className="my-auto">
                                                     <i className="fas fa-chart-bar fa-2x faround"></i>
-                                                </div>
-                                                <div className="col-9 ps-4">
+                                                </Col>
+                                                <Col size='9' className="ps-4">
                                                     <Title value={'24'} variant={'dark'} />
                                                     <Desc value={'Traders (24H)'} variant={'dark'} />
-                                                </div>
-                                            </div>
+                                                </Col>
+                                            </Row>
                                         </span>
-                                    </div>
-                                    <div className="col-lg-6 col-md-6 col-sm-12 my-3">
+                                    </Col>
+                                    <Col size='6' className="my-3">
                                         <span>
-                                            <div className="row">
-                                                <div className="col-3 my-auto">
+                                            <Row>
+                                                <Col size='3' className="my-auto">
                                                     <i className="fas fa-briefcase fa-2x faround"></i>
-                                                </div>
-                                                <div className="col-9 ps-4">
+                                                </Col>
+                                                <Col size='9' className="ps-4">
                                                     <Title value={'$43.1M'} variant={'dark'} />
                                                     <Desc value={'Total Liquidity'} variant={'dark'} />
-                                                </div>
-                                            </div>
+                                                </Col>
+                                            </Row>
                                         </span>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-lg-6 col-md-6 col-sm-12 my-3">
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col size='6' className="my-3">
                                         <span>
-                                            <div className="row">
-                                                <div className="col-3 my-auto">
+                                            <Row>
+                                                <Col size='3' className="my-auto">
                                                     <i className="fad fa-chart-line fa-2x faround"></i>
-                                                </div>
-                                                <div className="col-9 ps-4">
+                                                </Col>
+                                                <Col size='9' className="ps-4">
                                                     <Title value={'$22.43M'} variant={'dark'} />
                                                     <Desc value={'Volume'} variant={'dark'} />
-                                                </div>
-                                            </div>
+                                                </Col>
+                                            </Row>
                                         </span>
-                                    </div>
-                                    <div className="col-lg-6 col-md-6 col-sm-12 my-3">
+                                    </Col>
+                                    <Col size='6' className="my-3">
                                         <span>
-                                            <div className="row">
-                                                <div className="col-3 my-auto">
+                                            <Row>
+                                                <Col size='3' className="my-auto">
                                                     <i className="far fa-donate fa-2x faround"></i>
-                                                </div>
-                                                <div className="col-9 ps-4">
+                                                </Col>
+                                                <Col size='9' className="ps-4">
                                                     <Title value={'$1.79K'} variant={'dark'} />
                                                     <Desc value={'Fees (24H)'} variant={'dark'} />
-                                                </div>
-                                            </div>
+                                                </Col>
+                                            </Row>
                                         </span>
-                                    </div>
-                                </div>
-                                <div className="row mt-4">
+                                    </Col>
+                                </Row>
+                                <Row className="mt-4">
                                     <Desc className="form-check-label" value={'Total Liquidity'} variant={'dark'} />
-                                    <div className="col-12 my-2">
+                                    <Col size='12' className="my-2">
                                         <PieChart chartData={poolChartDataList} chartId={'1'} />
-                                    </div>
-                                </div>
-                            </div>
+                                    </Col>
+                                </Row>
+                            </Row>
                             <Button label='Edit Liquidity' />
                         </Card>
-                    </div>
-                </div>
+                    </Col>
+                </Row>
                 <ul className="nav nav-tabs" id="myTab" role="tablist">
                     <li className="nav-item" role="presentation">
                         <button className="nav-link active" id="parameters-tab" data-bs-toggle="tab" data-bs-target="#parameters" type="button" role="tab" aria-controls="parameters" aria-selected="true">Parameters</button>
@@ -287,103 +288,103 @@ export default function PoolDetail() {
                 </ul>
                 <div className="tab-content" id="myTabContent">
                     <div className="tab-pane fade show active" id="parameters" role="tabpanel" aria-labelledby="parameters-tab">
-                        <div className="row mt-3">
-                            <div className="col-lg-6 col-md-6 col-sm-12 borderRight mt-2">
-                                <div className="row my-3">
-                                    <div className="col-4 my-auto">
+                        <Row className="mt-3">
+                            <Col size='6' className="borderRight mt-2">
+                                <Row className="my-3">
+                                    <Col size='4' className="my-auto">
                                         <Desc value={'Total Swap Volume'} variant={'dark'} />
-                                    </div>
-                                    <div className="col-8">
+                                    </Col>
+                                    <Col size="8">
                                         <Title value={'$10,576,241,986.55'} variant={'dark'} />
                                         <span>10,575,363,434 USDT
                                             <img src="https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp" alt='' className="ms-1"></img> / 10,577,149,605 USDC
                                             <img src="https://cmp.dodoex.io/9kfMyaEhJBOwCKTXWVoPU8yPTdyx9rX7sSu9CYqRuqA/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL3VzZGNfZWU1MmExZWQyYi91c2RjX2VlNTJhMWVkMmIucG5n.webp" alt='' className="ms-1"></img>
                                         </span>
-                                    </div>
-                                </div>
-                                <div className="row my-3">
-                                    <div className="col-4 my-auto">
+                                    </Col>
+                                </Row>
+                                <Row className="my-3">
+                                    <Col size='4' className="my-auto">
                                         <Desc value={'Total Swap Fee'} variant={'dark'} />
-                                    </div>
-                                    <div className="col-8">
+                                    </Col>
+                                    <Col size="8">
                                         <Title value={'$996,650.94'} variant={'dark'} />
                                         <span>499,733.37 USDT
                                             <img src="https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp" alt='' className="ms-1"></img> / 496,514.28 USDC
                                             <img src="https://cmp.dodoex.io/9kfMyaEhJBOwCKTXWVoPU8yPTdyx9rX7sSu9CYqRuqA/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL3VzZGNfZWU1MmExZWQyYi91c2RjX2VlNTJhMWVkMmIucG5n.webp" alt='' className="ms-1"></img>
                                         </span>
-                                    </div>
-                                </div>
-                                <div className="row my-3">
-                                    <div className="col-4 my-auto">
+                                    </Col>
+                                </Row>
+                                <Row className="my-3">
+                                    <Col size='4' className="my-auto">
                                         <Desc value={'Total Number of Traders'} variant={'dark'} />
-                                    </div>
-                                    <div className="col-8">
+                                    </Col>
+                                    <Col size="8">
                                         <Title value={'9,606'} variant={'dark'} />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-6 col-md-6 col-sm-12">
-                                <div className="row my-3">
-                                    <div className="col-4 my-auto">
+                                    </Col>
+                                </Row>
+                            </Col>
+                            <Col size='6' >
+                                <Row className="my-3">
+                                    <Col size='4' className="my-auto">
                                         <Desc value={'Creator'} variant={'dark'} />
-                                    </div>
-                                    <div className="col-8">
+                                    </Col>
+                                    <Col size='8'>
                                         <a href={poolData.poolUrl} target='_blank' rel="noreferrer">
-                                            {poolData.poolAddress.substring(0, 6)}...{poolData.poolAddress.substring(38, 42)} <i className='fa fa-external-link text-dark' aria-hidden="true"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div className="row my-3">
-                                    <div className="col-4 my-auto">
+                                        {poolData.poolAddress.substring(0, 6)}...{poolData.poolAddress.substring(38, 42)} <i className='fa fa-external-link text-dark' aria-hidden="true"></i>
+                                       </a>
+                                    </Col>
+                                </Row>
+                                <Row className="my-3">
+                                    <Col size='4' className="my-auto">
                                         <Desc value={'Created'} variant={'dark'} />
-                                    </div>
-                                    <div className="col-8">
+                                    </Col>
+                                    <Col size='8'>
                                         <Desc value={'2020/10/21 22:54:32'} variant={'dark'} />
-                                    </div>
-                                </div>
-                                <div className="row my-3">
-                                    <div className="col-4 my-auto">
+                                    </Col>
+                                </Row>
+                                <Row className="my-3">
+                                    <Col size='4' className="my-auto">
                                         <Desc value={'Fee Rate'} variant={'dark'} />
-                                    </div>
-                                    <div className="col-8">
+                                    </Col>
+                                    <Col size='8'>
                                         <Desc value={'0.01%'} variant={'dark'} />
-                                    </div>
-                                </div>
-                                <div className="row my-3">
-                                    <div className="col-4 my-auto">
+                                    </Col>
+                                </Row>
+                                <Row className="my-3">
+                                    <Col size='4' className="my-auto">
                                         <Desc value={'Slippage Coefficient'} variant={'dark'} />
-                                    </div>
-                                    <div className="col-8">
+                                    </Col>
+                                    <Col size='8'>
                                         <Desc value={'0.0001'} variant={'dark'} />
-                                    </div>
-                                </div>
-                                <div className="row my-3">
-                                    <div className="col-4 my-auto">
+                                    </Col>
+                                </Row>
+                                <Row className="my-3">
+                                    <Col size='4' className="my-auto">
                                         <Desc value={'Guide Price'} variant={'dark'} />
-                                    </div>
-                                    <div className="col-8">
+                                    </Col>
+                                    <Col size='8'>
                                         <Desc value={'1'} variant={'dark'} />
-                                    </div>
-                                </div>
-                                <div className="row my-3">
-                                    <div className="col-4 my-auto">
+                                    </Col>
+                                </Row>
+                                <Row className="my-3">
+                                    <Col size='4' className="my-auto">
                                         <Desc value={'Equilibrium target'} variant={'dark'} />
-                                    </div>
-                                    <div className="col-8">
-                                        <div className="row">
+                                    </Col>
+                                    <Col size='8'>
+                                        <Row>
                                             <span>0 USDT
-                                                <img src="https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp" alt='' className="ms-1"></img>
+                                              <img src="https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp" alt='' className="ms-1"></img>
                                             </span>
-                                        </div>
-                                        <div className="row">
+                                        </Row>
+                                        <Row>
                                             <span>0 USDC
                                                 <img src="https://cmp.dodoex.io/9kfMyaEhJBOwCKTXWVoPU8yPTdyx9rX7sSu9CYqRuqA/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL3VzZGNfZWU1MmExZWQyYi91c2RjX2VlNTJhMWVkMmIucG5n.webp" alt='' className="ms-1"></img>
                                             </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                        </Row>
+                                    </Col>
+                                </Row>
+                            </Col>
+                        </Row>
                     </div>
                     <div className="tab-pane fade table-responsive" id="swaps" role="tabpanel" aria-labelledby="swaps-tab">
                         <table className="table table-hover my-4">
@@ -445,7 +446,7 @@ export default function PoolDetail() {
                     </div>
                 </div>
 
-            </div>
+            </Container>
             <BottomBar />
         </div>
     )

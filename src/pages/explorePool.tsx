@@ -3,6 +3,7 @@ import BottomBar from '../components/bottomBar/BottomBar'
 import { Title } from "../components/text/Text"; 
 import PieChart from '../components/chart/PieChart';
 import duckIcon from '../images/yellowDuck.svg' 
+import { Container } from '../components/blocks/Blocks';
 
 export default function ExplorePool() {
     let poolChartDataList = [["TT", "WETH"], ["TT", 73000], ["WETH", 54000]]
@@ -46,7 +47,7 @@ export default function ExplorePool() {
     return (
         <div>
             <Navigationbar />
-            <div className="container h-100">
+            <Container className="container h-100">
             <Title className="mt-5" value={'Explore Pools'} variant={'dark'} />
           <div className="table-responsive">
             <table className="table table-hover">
@@ -92,7 +93,7 @@ export default function ExplorePool() {
                 </tbody>
             </table>
           </div>
-            </div>
+            </Container>
             <BottomBar />
         </div>
     )

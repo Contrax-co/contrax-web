@@ -5,6 +5,7 @@ import { PageTitle, Title, Desc } from "../components/text/Text";
 import Button from "../components/button/Button";
 import { FormInput } from "../components/form/Form";
 import DropdownInput from '../components/form/dropdownInput/DropdownInput';
+import { Col, Container, Row } from '../components/blocks/Blocks';
 
 export default function CreatePool() {
   const currencies = [
@@ -18,23 +19,23 @@ export default function CreatePool() {
   return (
     <>
       <Navigationbar />
-      <div className="container h-100">
-        <div className="row">
-          <div className="col-lg-6 col-md-6 col-sm-12 mx-auto my-auto h-100">
+      <Container className="h-100">
+        <Row>
+          <Col size='6' className="mx-auto my-auto h-100">
             <PageTitle value={'Public Pool'} variant={'dark'} />
             <Title value={'• Anyone can add liquidity'} variant={'dark'} />
             <Title value={'• Parameters cannot be modified after creation'} variant={'dark'} className="mb-4" />
             <PageTitle value={'Standard'} variant={'dark'} />
             <Title value={'• 50/50 value liquidity provision (same as Uniswap)'} variant={'dark'} />
             <Title value={'• More parameters can be set'} variant={'dark'} />
-          </div>
-          <div className="col-lg-6 col-md-6 col-sm-12">
+          </Col>
+          <Col size='6'>
             <form className="px-4 py-4 my-5 formBackgroundDesign">
-              <div className="row">
-                <div className="col-lg-12 col-md-12 col-sm-12 my-2">
+              <Row>
+                <Col size='12' className="my-2">
                   <Title variant={'dark'} value={'Create a pool'} ></Title>
-                </div>
-                <div className="col-lg-12 col-md-12 col-sm-12 my-2">
+                </Col>
+                <Col size='12' className="my-2">
                   <Desc className="form-check-label" value={'01 Choose Pool Type'} variant={'dark'} />
                   <div className="btn-group w-100" role="group" aria-label="Basic radio toggle button group">
                     <input type="radio" className="btn-check" name="publicPool" id="publicPool" checked />
@@ -44,8 +45,8 @@ export default function CreatePool() {
                     <input type="radio" className="btn-check" name="peggedPool" id="peggedPool" />
                     <label className="btn btn-outline-primary disabled">Pegged Pools</label>
                   </div>
-                </div>
-                <div className="col-lg-12 col-md-12 col-sm-12 my-2">
+                </Col>
+                <Col size='12' className="my-2">
                   <Desc className="form-check-label" value={'02 Choose Pool Template'} variant={'dark'} />
                   <div className="btn-group w-100" role="group" aria-label="Basic radio toggle button group">
                     <input type="radio" className="btn-check" name="standard" id="standard" checked />
@@ -55,9 +56,9 @@ export default function CreatePool() {
                     <input type="radio" className="btn-check" name="custom" id="custom" />
                     <label className="btn btn-outline-primary disabled">Custom</label>
                   </div>
-                </div>
+                </Col>
 
-                <div className="col-lg-12 col-md-12 col-sm-12 my-2">
+                <Col size='12' className="my-2">
                   <Desc className="form-check-label" value={'03 Supply Initial Tokens'} variant={'dark'} />
                   <DropdownInput 
                           label='Quote Token Amount'
@@ -79,26 +80,26 @@ export default function CreatePool() {
                           className='mb-4'
                           disabled='disabled'
                   />
-                </div>
-                <div className="col-lg-12 col-md-12 col-sm-12 my-2">
+                </Col>
+                <Col size='12' className="my-2">
                   <Desc className="form-check-label" value={'04 Parameters'} variant={'dark'} />
-                  <div className="row">
-                    <div className="col-3 my-auto">
+                  <Row>
+                    <Col size='3' className="my-auto">
                       <Desc className="" value={'Fee Rate (%)'} variant={'dark'} />
-                    </div>
-                    <div className="col-9">
+                    </Col>
+                    <Col size="9">
                       <FormInput className="w-100" placeholder="(0%, 10%)" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="row justify-content-center mx-5 mt-3">
+                    </Col>
+                  </Row>
+                </Col>
+              </Row>
+              <Row className="justify-content-center mx-5 mt-3">
                 <Button type="submit" label={'Create'} variant="primary" />
-              </div>
+              </Row>
             </form>
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
       <BottomBar />
     </>
   )

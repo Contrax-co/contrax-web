@@ -2,6 +2,8 @@
 import styled from 'styled-components/macro';
 import * as colors from '../../../theme/colors';
 import * as typo from "../../../theme/typography";
+import { Desc } from '../../text/Text';
+import Button from '../../button/Button';
 
 const noForwardProps = [];
 
@@ -13,7 +15,7 @@ export const StyledInput = styled('input', {
   borderRadius: '0 5px 5px 0',
   border: `1px solid ${colors.inputBorder}`,
   width: 'calc(100% - 100px)',
-  padding: 2,
+  padding: 4,
 }));
 
 export const StyledSearch = styled('input', {
@@ -34,3 +36,16 @@ export const Subtitle = styled('small', {
   float: 'right',
 }));
 
+export const StyledListBtn = styled.div.attrs(props => {
+  return {
+    className: 'dropdown-item',
+  }
+})``
+
+export const ListSubTitle = styled(Desc)((props)=>({
+  float: 'right',
+}));
+
+export const StyledDropBtn = styled(Button).attrs(props =>({
+  className: 'btn btn-primary dropdown-toggle'
+}))``

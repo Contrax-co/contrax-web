@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Desc } from "../../text/Text";
-import { StyledInput, StyledSearch, Subtitle } from "./DropdownInput.styles";
+import { ListSubTitle, StyledDropBtn, StyledInput, StyledListBtn, StyledSearch } from "./DropdownInput.styles";
 
 function DropdownInput(props) {
   const {items, searchable, label } = props;
@@ -20,9 +20,9 @@ function DropdownInput(props) {
     <div className={`dropdown-input ${props.className}`} >
       {label && <Desc value={label} variant={'dark'} />}
       <div className="dropdown input-append btn-group">
-        <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        <StyledDropBtn className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             {selected && selected.title} <span className="caret"></span>
-        </button>
+        </StyledDropBtn>
         <StyledInput size="16" type={props.inputType || 'text'} placeholder={props.placeholder} {...{disabled: props.disabled}}/>
         <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           {searchable && <li><StyledSearch onChange={onSearch} size="16" className='form-control' type="text" placeholder='Search here...' /></li>}
@@ -30,11 +30,11 @@ function DropdownInput(props) {
             filtered && filtered.map(item => {
              return (
               <li>
-                <button 
+                <StyledListBtn 
                   className="dropdown-item" 
                   onClick={()=>{onSelect(item)}}>
-                    {item.title} {item.subTitle && <Subtitle className='subtitle'>{item.subTitle}</Subtitle>}
-                </button>
+                    {item.title} {item.subTitle && <ListSubTitle>{item.subTitle}</ListSubTitle>}
+                </StyledListBtn>
               </li>
              )  
           })

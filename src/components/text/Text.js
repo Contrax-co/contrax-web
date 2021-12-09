@@ -140,7 +140,7 @@ export const Link = (props) => {
       {...remainingProps}
       href={link}
     >
-      {text}
+      {text || children}
     </StyledLink>
   );
 };

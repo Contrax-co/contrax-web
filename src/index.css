@@ -83,6 +83,7 @@ p{
 
 .timeSpan{
   color: black;
+  display: inline;
 }
 
 .priceIncreaseDisplay{
@@ -90,7 +91,7 @@ p{
 }
 
 .priceDecreaseDisplay{
-  color: #ff5072;
+  color: #ff5072 !important;
 }
 .brand-logo {
   width: 140px !important;

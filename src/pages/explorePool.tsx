@@ -1,9 +1,10 @@
 import Navigationbar from '../components/Navigationbar'
 import BottomBar from '../components/bottomBar/BottomBar'
-import { Title } from "../components/text/Text"; 
+import { Link, Title } from "../components/text/Text"; 
 import PieChart from '../components/chart/PieChart';
 import duckIcon from '../images/yellowDuck.svg' 
-import { Container } from '../components/blocks/Blocks';
+import { Container, Row } from '../components/blocks/Blocks';
+import { Image } from '../components/image/Image';
 
 export default function ExplorePool() {
     let poolChartDataList = [["TT", "WETH"], ["TT", 73000], ["WETH", 54000]]
@@ -68,9 +69,9 @@ export default function ExplorePool() {
                             <tr>
                             <th>{index+1}</th>
                             <td>
-                                <div className="row">
-                                <span> <a href={item.poolUrl} target='_blank' rel="noreferrer"> {item.poolAddress.substring(0,6)}...{item.poolAddress.substring(38,42)} <i className='fa fa-external-link text-dark' aria-hidden="true"></i> </a> </span>
-                                </div>
+                                <Row>
+                                <span> <Link link={item.poolUrl} target='_blank' rel="noreferrer"> {item.poolAddress.substring(0,6)}...{item.poolAddress.substring(38,42)} <i className='fa fa-external-link text-dark' aria-hidden="true"></i> </Link> </span>
+                                </Row>
                                 <span className="badge bg-warning text-dark">{item.poolType}</span>
                             </td>
                             <td>{item.feeRate}</td>
@@ -78,14 +79,14 @@ export default function ExplorePool() {
                                 <PieChart chartData={poolChartDataList} chartId={index} />
                             </td>
                             <td> 
-                                <div className="row">
-                                <span> <img src={duckIcon} alt=''></img> {item.liquidityValue1} {item.liquidityName1}</span> 
-                                </div>
-                                <span> <img src={duckIcon} alt=''></img> {item.liquidityValue2} {item.liquidityName2}</span>
+                                <Row>
+                                <span> <Image src={duckIcon} alt='' /> {item.liquidityValue1} {item.liquidityName1}</span> 
+                                </Row>
+                                <span> <Image src={duckIcon} alt='' /> {item.liquidityValue2} {item.liquidityName2}</span>
                             </td>
                             <td>{item.volume24H}</td>
                             <td>
-                                <a className="btn btn-primary" href="/pool-detail">Manage</a>
+                                <Link className="btn btn-primary" link="/pool-detail">Manage</Link>
                             </td>
                         </tr>
                         ))

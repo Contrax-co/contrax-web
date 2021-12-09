@@ -8,6 +8,7 @@ import { Title, Desc } from "../components/text/Text";
 import Button from '../components/button/Button';
 import PieChart from '../components/chart/PieChart';
 import { Col, Container, Row } from '../components/blocks/Blocks';
+import { Image } from '../components/image/Image';
 
 export default function PoolDetail() {
     const [volume, setVolume] = useState('active')
@@ -172,22 +173,22 @@ export default function PoolDetail() {
                     <Col size='8'>
                         <Row className="mb-3">
                             <Col size='6'>
-                                <span> <b>USDT</b> / USDC</span>
-                                <p className="mb-4"> 1 USDT = 1.0008917034604228 USDC </p>
+                                <Desc> <b>USDT</b> / USDC</Desc>
+                                <Desc className="mb-4"> 1 USDT = 1.0008917034604228 USDC </Desc>
                             </Col>
                             <Col size='6'>
                                 <ul className="nav nav-pills float-lg-end mt-4">
                                     <li className="nav-item">
-                                        <button className={`nav-link ${volume}`} onClick={() => changeState("volume")}>Volume</button>
+                                        <Button className={`nav-link ${volume}`} onClick={() => changeState("volume")}>Volume</Button>
                                     </li>
                                     <li className="nav-item">
-                                        <button className={`nav-link ${tvl}`} onClick={() => changeState("tvl")}>TVL</button>
+                                        <Button className={`nav-link ${tvl}`} onClick={() => changeState("tvl")}>TVL</Button>
                                     </li>
                                     <li className="nav-item">
-                                        <button className={`nav-link ${liquidity}`} onClick={() => changeState("liquidity")}>Liquidity</button>
+                                        <Button className={`nav-link ${liquidity}`} onClick={() => changeState("liquidity")}>Liquidity</Button>
                                     </li>
                                     <li className="nav-item">
-                                        <button className={`nav-link ${fees}`} onClick={() => changeState("fees")}>Fees</button>
+                                        <Button className={`nav-link ${fees}`} onClick={() => changeState("fees")}>Fees</Button>
                                     </li>
                                 </ul>
                             </Col>
@@ -296,10 +297,10 @@ export default function PoolDetail() {
                                     </Col>
                                     <Col size="8">
                                         <Title value={'$10,576,241,986.55'} variant={'dark'} />
-                                        <span>10,575,363,434 USDT
-                                            <img src="https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp" alt='' className="ms-1"></img> / 10,577,149,605 USDC
-                                            <img src="https://cmp.dodoex.io/9kfMyaEhJBOwCKTXWVoPU8yPTdyx9rX7sSu9CYqRuqA/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL3VzZGNfZWU1MmExZWQyYi91c2RjX2VlNTJhMWVkMmIucG5n.webp" alt='' className="ms-1"></img>
-                                        </span>
+                                        <Desc>10,575,363,434 USDT
+                                            <Image src="https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp" alt='' className="ms-1" /> / 10,577,149,605 USDC
+                                            <Image src="https://cmp.dodoex.io/9kfMyaEhJBOwCKTXWVoPU8yPTdyx9rX7sSu9CYqRuqA/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL3VzZGNfZWU1MmExZWQyYi91c2RjX2VlNTJhMWVkMmIucG5n.webp" alt='' className="ms-1" />
+                                        </Desc>
                                     </Col>
                                 </Row>
                                 <Row className="my-3">
@@ -308,10 +309,10 @@ export default function PoolDetail() {
                                     </Col>
                                     <Col size="8">
                                         <Title value={'$996,650.94'} variant={'dark'} />
-                                        <span>499,733.37 USDT
-                                            <img src="https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp" alt='' className="ms-1"></img> / 496,514.28 USDC
-                                            <img src="https://cmp.dodoex.io/9kfMyaEhJBOwCKTXWVoPU8yPTdyx9rX7sSu9CYqRuqA/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL3VzZGNfZWU1MmExZWQyYi91c2RjX2VlNTJhMWVkMmIucG5n.webp" alt='' className="ms-1"></img>
-                                        </span>
+                                        <Desc>499,733.37 USDT
+                                            <Image src="https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp" alt='' className="ms-1" /> / 496,514.28 USDC
+                                            <Image src="https://cmp.dodoex.io/9kfMyaEhJBOwCKTXWVoPU8yPTdyx9rX7sSu9CYqRuqA/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL3VzZGNfZWU1MmExZWQyYi91c2RjX2VlNTJhMWVkMmIucG5n.webp" alt='' className="ms-1" />
+                                        </Desc>
                                     </Col>
                                 </Row>
                                 <Row className="my-3">
@@ -372,14 +373,14 @@ export default function PoolDetail() {
                                     </Col>
                                     <Col size='8'>
                                         <Row>
-                                            <span>0 USDT
-                                              <img src="https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp" alt='' className="ms-1"></img>
-                                            </span>
+                                            <Desc>0 USDT
+                                              <Image src="https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp" alt='' className="ms-1" />
+                                            </Desc>
                                         </Row>
                                         <Row>
-                                            <span>0 USDC
-                                                <img src="https://cmp.dodoex.io/9kfMyaEhJBOwCKTXWVoPU8yPTdyx9rX7sSu9CYqRuqA/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL3VzZGNfZWU1MmExZWQyYi91c2RjX2VlNTJhMWVkMmIucG5n.webp" alt='' className="ms-1"></img>
-                                            </span>
+                                            <Desc>0 USDC
+                                                <Image src="https://cmp.dodoex.io/9kfMyaEhJBOwCKTXWVoPU8yPTdyx9rX7sSu9CYqRuqA/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL3VzZGNfZWU1MmExZWQyYi91c2RjX2VlNTJhMWVkMmIucG5n.webp" alt='' className="ms-1" />
+                                            </Desc>
                                         </Row>
                                     </Col>
                                 </Row>
@@ -405,8 +406,8 @@ export default function PoolDetail() {
                                 <tr>
                                     <td>{item.time}</td>
                                     <td> <span> <a href={item.traderAddressUrl} target='_blank' rel="noreferrer"> {item.traderAddress.substring(0,6)}...{item.traderAddress.substring(38,42)} <i className='fa fa-external-link text-dark' aria-hidden="true"></i> </a> </span> </td>
-                                    <td> <span> <img src={item.paidCurrencyMedia} alt=''></img> {item.paidCurrency} </span> </td>
-                                    <td> <span> <img src={item.receiveCurrencyMedia} alt=''></img> {item.receiveCurrency} </span> </td>
+                                    <td> <span> <Image src={item.paidCurrencyMedia} alt='' /> {item.paidCurrency} </span> </td>
+                                    <td> <span> <Image src={item.receiveCurrencyMedia} alt='' /> {item.receiveCurrency} </span> </td>
                                     <td>{item.price}</td>
                                     <td>{item.feeRate}</td>
                                     <td>{item.fee}</td>
@@ -432,9 +433,9 @@ export default function PoolDetail() {
                                 <tr>
                                     <td> <span> <a href={item.liquidityProviderAddressUrl} target='_blank' rel="noreferrer"> {item.liquidityProviderAddress.substring(0,6)}...{item.liquidityProviderAddress.substring(38,42)} <i className='fa fa-external-link text-dark' aria-hidden="true"></i> </a> </span> </td>
                                     <td> 
-                                        <span> <img src={item.liquiditySuppliedPaidCurrencyMedia} alt=''></img> {item.liquiditySuppliedPaidCurrency} </span>
+                                        <span> <Image src={item.liquiditySuppliedPaidCurrencyMedia} alt='' /> {item.liquiditySuppliedPaidCurrency} </span>
                                         <br />
-                                        <span> <img src={item.liquiditySuppliedReceiveCurrencyMedia} alt=''></img> {item.liquiditySuppliedReceiveCurrency} </span> 
+                                        <span> <Image src={item.liquiditySuppliedReceiveCurrencyMedia} alt='' /> {item.liquiditySuppliedReceiveCurrency} </span> 
                                     </td>
                                     <td>{item.value}</td>
                                     <td>{item.share}</td>

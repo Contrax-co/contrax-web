@@ -3,7 +3,7 @@ import styled from 'styled-components/macro';
 
 export const StyledContainer = styled.div.attrs(props => {
   return {
-    className: 'container'
+    className: props.fluid ? 'container-fluid':'container'
   }
 })``
 

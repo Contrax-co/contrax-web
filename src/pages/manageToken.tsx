@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import StatsCard from '../components/statsCard/StatsCard';
 import BottomBar from '../components/bottomBar/BottomBar';
 import PieChart from '../components/chart/PieChart';
-import { Desc, Title } from "../components/text/Text";
+import { Title } from "../components/text/Text";
 import { Col, Container, Row } from '../components/blocks/Blocks';
 import { Button } from '../components/button/Button';
 import { FormInput } from '../components/form/Form';

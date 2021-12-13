@@ -5,8 +5,9 @@ import PieChart from '../components/chart/PieChart';
 import duckIcon from '../images/yellowDuck.svg' 
 
 export default function ExplorePool() {
+    // Pie Chart Data 
     let poolChartDataList = [["TT", "WETH"], ["TT", 73000], ["WETH", 54000]]
-
+    // Explore Pool Table Data
     let tableData = [
         {
             poolUrl: 'https://kovan.etherscan.io/address/0x00568c59aa94fafbdfce81d1e72fc96c8fc4b85c',
@@ -49,6 +50,7 @@ export default function ExplorePool() {
             <div className="container h-100">
             <Title className="mt-5" value={'Explore Pools'} variant={'dark'} />
           <div className="table-responsive">
+            {/* Explore Pool Table - Start */}
             <table className="table table-hover">
                 <thead>
                 <tr className="table-dark">
@@ -74,7 +76,9 @@ export default function ExplorePool() {
                             </td>
                             <td>{item.feeRate}</td>
                             <td className="chartColumn">
+                                {/* Display Pie Chart - Start */}
                                 <PieChart chartData={poolChartDataList} chartId={index} />
+                                {/* Display Pie Chart - End */}
                             </td>
                             <td> 
                                 <div className="row">
@@ -91,6 +95,7 @@ export default function ExplorePool() {
                     }
                 </tbody>
             </table>
+            {/* Explore Pool Table - End */}
           </div>
             </div>
             <BottomBar />

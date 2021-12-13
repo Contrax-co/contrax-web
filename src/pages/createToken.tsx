@@ -30,6 +30,7 @@ export default function CreateToken(props: any) {
             <PageTitle value={'Create your own tokens with one click!'} variant={'dark'} />
           </div>
           <div className="col-lg-6 col-md-6 col-sm-12">
+            {/* Create Token Form - Start */}
             <form onSubmit={handleSubmit} className="px-4 py-4 my-5 formBackgroundDesign">
               <div className="row">
                 <div className="col-lg-12 col-md-12 col-sm-12 my-2">
@@ -65,8 +66,10 @@ export default function CreateToken(props: any) {
                 </a>
               </div>
             </form>
+            {/* Create Token Form - End */}
           </div>
           <Title className="mt-5" value={'My Token List'} variant={'dark'} />
+          {/* List Of Tokens Previously Created By The Logged-in User - Start */}
           <div className="table-responsive">
             <table className="table table-hover">
               <thead>
@@ -106,9 +109,11 @@ export default function CreateToken(props: any) {
               </tbody>
             </table>
           </div>
+          {/* List Of Tokens Previously Created By The Logged-in User - End */}
         </div>
       </div>
       <BottomBar />
+      {/* Confirmation Modal To Show Create Token Data Before Submitting - Start */}
       <div className="modal fade" id="PrevieCreateToken" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
@@ -161,6 +166,7 @@ export default function CreateToken(props: any) {
           </div>
         </div>
       </div>
+      {/* Confirmation Modal To Show Create Token Data Before Submitting - End */}
     </>
   )
 }

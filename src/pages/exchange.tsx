@@ -5,9 +5,11 @@ import LineChart from '../components/chart/LineChart';
 import CoinSwap from '../components/coinSwap/CoinSwap';
 
 export default function Exchange() {
+    // State of Day, Week and Month - Only One State Will Be Active At a time
     const [day, setDay] = useState('active')
     const [week, setWeek] = useState('')
     const [month, setMonth] = useState('')
+    // Initial Chart Data
     const [ChartData, setChartData] = useState([
         ["Date / Time", "Price"],
         ["09:40 AM", 22.4],
@@ -18,7 +20,7 @@ export default function Exchange() {
         ["10:59 AM", 28],
         ["11:36 AM", 14],
     ])
-
+    // Method To Change Chart Data Duration (24 Hours, 1 Week, 1 Month)
     function changeState(state: any) {
         if (state === 'day') {
             setDay('active');
@@ -88,6 +90,7 @@ export default function Exchange() {
                                 <span className="priceDecreaseDisplay mb-4"> -63.77 USDC (-1.47%) <span className="timeSpan">Past 24 Hours </span> </span>
                             </div>
                             <div className="col-lg-6 col-md-6 col-sm-12">
+                                {/* Nav Buttons To Switch Chart Data Between 24 Hours, 1 Weel and 1 Month - Start */}
                                 <ul className="nav nav-pills float-lg-end mt-4">
                                     <li className="nav-item">
                                         <button className={`nav-link ${day}`} onClick={() => changeState("day")}>24H</button>
@@ -99,6 +102,7 @@ export default function Exchange() {
                                         <button className={`nav-link ${month}`} onClick={() => changeState("month")}>1M</button>
                                     </li>
                                 </ul>
+                                {/* Nav Buttons To Switch Chart Data Between 24 Hours, 1 Weel and 1 Month - End */}
                             </div>
                         </div>
                         <LineChart chartData={ChartData} />

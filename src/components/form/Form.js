@@ -1,6 +1,16 @@
 import { Desc } from "../text/Text";
-import { StyledCheckbox, StyledInput } from "./Form.styles";
+import { StyledCheckbox, StyledForm, StyledInput } from "./Form.styles";
 
+export const Form = (props) => {
+  const {
+    children,
+    ...remainingProps
+  } = props;
+
+  return (
+    <StyledForm {...remainingProps} >{children}</StyledForm>
+  );
+}
 
 export const FormInput = (props) => {
   const {
@@ -44,7 +54,7 @@ export const FormCheckbox = (props) => {
 
   return (
     <div className={props.className}>
-      <label style={{display: 'block'}}>
+      <label style={{ display: 'block' }}>
         <StyledCheckbox
           variant={variant}
           onClick={!onClick ? undefined : onClick}

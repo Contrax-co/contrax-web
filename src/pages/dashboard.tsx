@@ -1,6 +1,5 @@
-import React from 'react'
 import Navigationbar from '../components/Navigationbar';
-import Header from '../components/Header';
+import Header from '../components/header/Header';
 import StatsCard from '../components/statsCard/StatsCard';
 import BottomBar from '../components/bottomBar/BottomBar';
 import { Title } from '../components/text/Text';

@@ -1,10 +1,11 @@
 import Navigationbar from '../components/Navigationbar';
 import BottomBar from '../components/bottomBar/BottomBar';
 import { PageTitle, Title, Desc, DescSpan } from "../components/text/Text";
-import { FormInput, FormCheckbox } from "../components/form/Form";
+import { FormInput, FormCheckbox, Form } from "../components/form/Form";
 import Button from "../components/button/Button";
 import { useInput } from "rooks";
 import { Col, Container, Row } from '../components/blocks/Blocks';
+import { Modal } from '../components/modal/Modal';
 
 export default function CreateToken(props: any) {
   const tokenSymbol = useInput('');
@@ -31,7 +32,7 @@ export default function CreateToken(props: any) {
             <PageTitle value={'Create your own tokens with one click!'} variant={'dark'} />
           </Col>
           <Col size='6' >
-            <form onSubmit={handleSubmit} className="px-4 py-4 my-5 formBackgroundDesign">
+            <Form onSubmit={handleSubmit} className="px-4 py-4 my-5">
               <Row className="row">
                 <Col size='12' className="my-2">
                   <Title variant={'dark'} value={'Enter Token Parameters:'} ></Title>
@@ -65,7 +66,7 @@ export default function CreateToken(props: any) {
                   <Button type="submit" label={'Connect Wallet'} variant="primary" />
                 </a>
               </Row>
-            </form>
+            </Form>
           </Col>
           <Title className="mt-5" value={'My Token List'} variant={'dark'} />
           {/* List Of Tokens Previously Created By The Logged-in User - Start */}
@@ -112,60 +113,49 @@ export default function CreateToken(props: any) {
       </Container>
       {/* List Of Tokens Previously Created By The Logged-in User - End */}
       <BottomBar />
-      {/* Confirmation Modal To Show Create Token Data Before Submitting - Start */}
-      <div className="modal fade" id="PrevieCreateToken" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <Title variant={'dark'} value={'Token Create Confirmation'}></Title>
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div className="modal-body">
-              <Row className="my-2">
-                  <Desc value={'Token Symbol: ' + tokenSymbol.value} variant={'dark'} className="mb-3" />
-                  <Desc value={'Token Supply: ' + tokenSupply.value} variant={'dark'} className="mb-3" />
-                  <Desc value={'Token Name: ' + tokenName.value} variant={'dark'} className="mb-3" />
-                  <Desc value={'Decimals: ' + tokenDecimal.value} variant={'dark'} className="mb-3" />
-                  <Col size='12' className="mb-3">
-                    <DescSpan value={'Burn: '} variant={'dark'} />
-                    {
-                      tokenBurn.value === false ? (
-                        <DescSpan value={'No'} variant={'dark'} />
-                      ) : (
-                        <DescSpan value={'Yes - ' + tokenBurnValue.value + ' %'} variant={'dark'} />
-                      )
-                    }
-                  </Col>
-                  <Col size='12' className="mb-3">
-                    <DescSpan value={'Trading Fees: '} variant={'dark'}/>
-                    {
-                      tokenTradingFee.value === false ? (
-                        <DescSpan value={'No'} variant={'dark'} />
-                      ) : (
-                        <DescSpan value={'Yes - ' + tokenTradingFeeValue.value + ' %'} variant={'dark'} />
-                      )
-                    }
-                  </Col>
-                  <Col size='12' className="mb-3">
-                    <DescSpan value={'Supports Supply Increase: '} variant={'dark'} />
-                    {
-                      tokenSupportSupplyIncrease.value === false ? (
-                        <DescSpan value={'No'} variant={'dark'} />
-                      ) : (
-                        <DescSpan value={'Yes'} variant={'dark'} />
-                      )
-                    }
-                  </Col>
-              </Row>
-            </div>
-            <div className="modal-footer">
-              <Button type="submit" label={'Continue Editing'} variant="primary" data-bs-dismiss="modal" />
-              <Button type="submit" label={'Deploy / Finish'} variant="primary" data-bs-dismiss="modal" />
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* Confirmation Modal To Show Create Token Data Before Submitting - End */}
+
+      <Modal id="PrevieCreateToken" title='Token Create Confirmation'
+        closeLabel='Continue Editing'
+        okLabel='Deploy / Finish'
+      >
+        <Row className="my-2">
+          <Desc value={'Token Symbol: ' + tokenSymbol.value} variant={'dark'} className="mb-3" />
+          <Desc value={'Token Supply: ' + tokenSupply.value} variant={'dark'} className="mb-3" />
+          <Desc value={'Token Name: ' + tokenName.value} variant={'dark'} className="mb-3" />
+          <Desc value={'Decimals: ' + tokenDecimal.value} variant={'dark'} className="mb-3" />
+          <Col size='12' className="mb-3">
+            <DescSpan value={'Burn: '} variant={'dark'} />
+            {
+              tokenBurn.value === false ? (
+                <DescSpan value={'No'} variant={'dark'} />
+              ) : (
+                <DescSpan value={'Yes - ' + tokenBurnValue.value + ' %'} variant={'dark'} />
+              )
+            }
+          </Col>
+          <Col size='12' className="mb-3">
+            <DescSpan value={'Trading Fees: '} variant={'dark'} />
+            {
+              tokenTradingFee.value === false ? (
+                <DescSpan value={'No'} variant={'dark'} />
+              ) : (
+                <DescSpan value={'Yes - ' + tokenTradingFeeValue.value + ' %'} variant={'dark'} />
+              )
+            }
+          </Col>
+          <Col size='12' className="mb-3">
+            <DescSpan value={'Supports Supply Increase: '} variant={'dark'} />
+            {
+              tokenSupportSupplyIncrease.value === false ? (
+                <DescSpan value={'No'} variant={'dark'} />
+              ) : (
+                <DescSpan value={'Yes'} variant={'dark'} />
+              )
+            }
+          </Col>
+        </Row>
+      </Modal>
+
     </>
   )
 }

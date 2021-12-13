@@ -1,7 +1,7 @@
 import React from 'react'
-import { Desc, PageTitle, Title } from './text/Text'
+import { Desc, PageTitle, Title } from '../text/Text'
 import { useLocation } from 'react-router-dom'
-import { Col } from './blocks/Blocks';
+import { Col } from '../blocks/Blocks';
 
 export default function Header() {
     const location = useLocation();
@@ -9,7 +9,7 @@ export default function Header() {
         <>
             <header className="pageHeader dashboard-background mb-5">
                 <div className="container h-100">
-                    <div className="row h-100 image-title">
+                    <div className="row h-100">
                         {location.pathname === '/dashboard' ? (
                             <> 
                                 <Col className="my-auto">

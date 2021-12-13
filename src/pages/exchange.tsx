@@ -4,7 +4,7 @@ import Navigationbar from '../components/Navigationbar'
 import LineChart from '../components/chart/LineChart';
 import CoinSwap from '../components/coinSwap/CoinSwap';
 import { Col, Container, Row } from '../components/blocks/Blocks';
-import { Desc, Title } from '../components/text/Text';
+import { Desc, DescSpan, Title } from '../components/text/Text';
 import { Button } from "../components/button/Button";
 
 export default function Exchange() {
@@ -90,7 +90,7 @@ export default function Exchange() {
                             <Col size="6" >
                                 <Desc> <b>ETH</b> / USDC</Desc>
                                 <Title> USDC: 14.362 </Title>
-                                <Desc className="priceDecreaseDisplay mb-4"> -63.77 USDC (-1.47%) <Desc className="timeSpan">Past 24 Hours </Desc> </Desc>
+                                <Desc variant='danger' className="mb-4"> -63.77 USDC (-1.47%) <DescSpan>Past 24 Hours </DescSpan> </Desc>
                             </Col>
                             <Col size="6">
                                 {/* Nav Buttons To Switch Chart Data Between 24 Hours, 1 Weel and 1 Month - Start */}

@@ -5,6 +5,15 @@ import * as typo from '../../theme/typography';
 
 const noForwardProps = [];
 
+
+export const StyledForm = styled('form', {
+  shouldForwardProp: (prop) => !noForwardProps.includes(prop),
+})((props) => ({
+  background: colors.formBg,
+  borderRadius: 10,
+})
+);
+
 export const StyledInput = styled('input', {
   shouldForwardProp: (prop) => !noForwardProps.includes(prop),
 })((props) => ({

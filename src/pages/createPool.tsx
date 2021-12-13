@@ -3,7 +3,7 @@ import Navigationbar from '../components/Navigationbar';
 import BottomBar from '../components/bottomBar/BottomBar';
 import { PageTitle, Title, Desc } from "../components/text/Text";
 import Button, { ButtonGroupRadio } from "../components/button/Button";
-import { FormInput } from "../components/form/Form";
+import { Form, FormInput } from "../components/form/Form";
 import DropdownInput from '../components/form/dropdownInput/DropdownInput';
 import { Col, Container, Row } from '../components/blocks/Blocks';
 
@@ -30,7 +30,7 @@ export default function CreatePool() {
             <Title value={'• More parameters can be set'} variant={'dark'} />
           </Col>
           <Col size='6'>
-            <form className="px-4 py-4 my-5 formBackgroundDesign">
+            <Form className="px-4 py-4 my-5">
               <Row>
                 <Col size='12' className="my-2">
                   <Title variant={'dark'} value={'Create a pool'} ></Title>
@@ -90,7 +90,7 @@ export default function CreatePool() {
               <Row className="justify-content-center mx-5 mt-3">
                 <Button type="submit" label={'Create'} variant="primary" />
               </Row>
-            </form>
+            </Form>
           </Col>
         </Row>
       </Container>

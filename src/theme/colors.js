@@ -1,5 +1,7 @@
 export const white = '#ffffff';
 export const whiteText = '#f2f2f2';
+export const redText = '#ff5072';
+export const greenText = '#56f6da';
 
 export const titleDark = '#212b36';
 export const titleLight = '#f2f2f2';
@@ -26,3 +28,4 @@ export const chartColorYellow = 'rgb(243, 229, 84)';
 export const chartTextColor = '#233238';
 
 export const inputBorder = '#dee2e6';
+export const formBg = '#dbdbdb';

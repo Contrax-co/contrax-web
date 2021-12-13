@@ -39,6 +39,8 @@ export const StyledDesc = styled('p', {
   ...(typo.Desc),
   ...(props.variant === 'light' && { color: colors.descLight }),
   ...(props.variant === 'dark' && { color: colors.descDark }),
+  ...(props.variant === 'danger' && { color: colors.redText }),
+  ...(props.variant === 'success' && { color: colors.greenText }),
   ...(props.color && { color: props.color }),
 })
 );
@@ -49,6 +51,8 @@ export const StyledDescSpan = styled('span', {
   ...(typo.Desc),
   ...(props.variant === 'light' && { color: colors.descLight }),
   ...(props.variant === 'dark' && { color: colors.descDark }),
+  ...(props.variant === 'danger' && { color: colors.redText }),
+  ...(props.variant === 'success' && { color: colors.greenText }),
 })
 );
 
@@ -58,6 +62,8 @@ export const StyledLink = styled('a', {
   ...(typo.Desc),
   ...(props.variant === 'light' && { color: colors.titleLight }),
   ...(props.variant === 'dark' && { color: colors.titleDark }),
+  ...(props.variant === 'danger' && { color: colors.redText }),
+  ...(props.variant === 'success' && { color: colors.greenText }),
 })
 );
 
@@ -67,6 +73,8 @@ export const StyledText = styled('p', {
   ...(typo.Desc),
   ...(props.variant === 'light' && { color: colors.descLight }),
   ...(props.variant === 'dark' && { color: colors.descDark }),
+  ...(props.variant === 'danger' && { color: colors.redText }),
+  ...(props.variant === 'success' && { color: colors.greenText }),
   ...(props.color && { color: props.color }),
   ...(props.size && { fontSize: props.size }),
 })

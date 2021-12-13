@@ -121,12 +121,12 @@ export default function CreateToken(props: any) {
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
-              <div className="row my-2">
+              <Row className="my-2">
                   <Desc value={'Token Symbol: ' + tokenSymbol.value} variant={'dark'} className="mb-3" />
                   <Desc value={'Token Supply: ' + tokenSupply.value} variant={'dark'} className="mb-3" />
                   <Desc value={'Token Name: ' + tokenName.value} variant={'dark'} className="mb-3" />
                   <Desc value={'Decimals: ' + tokenDecimal.value} variant={'dark'} className="mb-3" />
-                  <div className="col-12 mb-3">
+                  <Col size='12' className="mb-3">
                     <DescSpan value={'Burn: '} variant={'dark'} />
                     {
                       tokenBurn.value === false ? (
@@ -135,8 +135,8 @@ export default function CreateToken(props: any) {
                         <DescSpan value={'Yes - ' + tokenBurnValue.value + ' %'} variant={'dark'} />
                       )
                     }
-                  </div>
-                  <div className="col-12 mb-3">
+                  </Col>
+                  <Col size='12' className="mb-3">
                     <DescSpan value={'Trading Fees: '} variant={'dark'}/>
                     {
                       tokenTradingFee.value === false ? (
@@ -145,8 +145,8 @@ export default function CreateToken(props: any) {
                         <DescSpan value={'Yes - ' + tokenTradingFeeValue.value + ' %'} variant={'dark'} />
                       )
                     }
-                  </div>
-                  <div className="col-12 mb-3">
+                  </Col>
+                  <Col size='12' className="mb-3">
                     <DescSpan value={'Supports Supply Increase: '} variant={'dark'} />
                     {
                       tokenSupportSupplyIncrease.value === false ? (
@@ -155,8 +155,8 @@ export default function CreateToken(props: any) {
                         <DescSpan value={'Yes'} variant={'dark'} />
                       )
                     }
-                  </div>
-              </div>
+                  </Col>
+              </Row>
             </div>
             <div className="modal-footer">
               <Button type="submit" label={'Continue Editing'} variant="primary" data-bs-dismiss="modal" />

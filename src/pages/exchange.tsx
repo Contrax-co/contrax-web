@@ -4,6 +4,8 @@ import Navigationbar from '../components/Navigationbar'
 import LineChart from '../components/chart/LineChart';
 import CoinSwap from '../components/coinSwap/CoinSwap';
 import { Col, Container, Row } from '../components/blocks/Blocks';
+import { Desc, Title } from '../components/text/Text';
+import { Button } from "../components/button/Button";
 
 export default function Exchange() {
     // State of Day, Week and Month - Only One State Will Be Active At a time
@@ -86,21 +88,21 @@ export default function Exchange() {
                     <Col size="8">
                         <Row className="mb-3">
                             <Col size="6" >
-                                <span> <b>ETH</b> / USDC</span>
-                                <h3> USDC: 14.362 </h3>
-                                <span className="priceDecreaseDisplay mb-4"> -63.77 USDC (-1.47%) <span className="timeSpan">Past 24 Hours </span> </span>
+                                <Desc> <b>ETH</b> / USDC</Desc>
+                                <Title> USDC: 14.362 </Title>
+                                <Desc className="priceDecreaseDisplay mb-4"> -63.77 USDC (-1.47%) <Desc className="timeSpan">Past 24 Hours </Desc> </Desc>
                             </Col>
                             <Col size="6">
                                 {/* Nav Buttons To Switch Chart Data Between 24 Hours, 1 Weel and 1 Month - Start */}
                                 <ul className="nav nav-pills float-lg-end mt-4">
                                     <li className="nav-item">
-                                        <button className={`nav-link ${day}`} onClick={() => changeState("day")}>24H</button>
+                                        <Button className={`nav-link ${day}`} onClick={() => changeState("day")}>24H</Button>
                                     </li>
                                     <li className="nav-item">
-                                        <button className={`nav-link ${week}`} onClick={() => changeState("week")}>1W</button>
+                                        <Button className={`nav-link ${week}`} onClick={() => changeState("week")}>1W</Button>
                                     </li>
                                     <li className="nav-item">
-                                        <button className={`nav-link ${month}`} onClick={() => changeState("month")}>1M</button>
+                                        <Button className={`nav-link ${month}`} onClick={() => changeState("month")}>1M</Button>
                                     </li>
                                 </ul>
                             </Col>

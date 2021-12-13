@@ -2,19 +2,19 @@ import React from 'react'
 import Navigationbar from '../components/Navigationbar';
 import BottomBar from '../components/bottomBar/BottomBar';
 import { PageTitle, Title, Desc } from "../components/text/Text";
-import Button from "../components/button/Button";
+import Button, { ButtonGroupRadio } from "../components/button/Button";
 import { FormInput } from "../components/form/Form";
 import DropdownInput from '../components/form/dropdownInput/DropdownInput';
 import { Col, Container, Row } from '../components/blocks/Blocks';
 
 export default function CreatePool() {
   const currencies = [
-    {title: 'ETH', subTitle: 'Ethereum'},
-    {title: 'BTC', subTitle: 'Bitcoin'},
-    {title: 'USDT', subTitle: 'Tether'},
-    {title: 'SOL', subTitle: 'Solana'},
-    {title: 'ABT', subTitle: 'Arcblock'},
-    {title: 'GTS', subTitle: 'GT STAR'},
+    { title: 'ETH', subTitle: 'Ethereum' },
+    { title: 'BTC', subTitle: 'Bitcoin' },
+    { title: 'USDT', subTitle: 'Tether' },
+    { title: 'SOL', subTitle: 'Solana' },
+    { title: 'ABT', subTitle: 'Arcblock' },
+    { title: 'GTS', subTitle: 'GT STAR' },
   ]
   return (
     <>
@@ -37,48 +37,42 @@ export default function CreatePool() {
                 </Col>
                 <Col size='12' className="my-2">
                   <Desc className="form-check-label" value={'01 Choose Pool Type'} variant={'dark'} />
-                  <div className="btn-group w-100" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" className="btn-check" name="publicPool" id="publicPool" checked />
-                    <label className="btn btn-outline-primary">Public Pool</label>
-                    <input type="radio" className="btn-check" name="privatePool" id="privatePool" />
-                    <label className="btn btn-outline-primary disabled">Private Pool</label>
-                    <input type="radio" className="btn-check" name="peggedPool" id="peggedPool" />
-                    <label className="btn btn-outline-primary disabled">Pegged Pools</label>
-                  </div>
+                  <ButtonGroupRadio className='col-md-12'
+                    name='publicPool' checked='Public Pool'
+                    disabled={['Private Pool', 'Pegged Pools']}
+                    values={['Public Pool', 'Private Pool', 'Pegged Pools',
+                    ]} />
                 </Col>
                 <Col size='12' className="my-2">
                   <Desc className="form-check-label" value={'02 Choose Pool Template'} variant={'dark'} />
-                  <div className="btn-group w-100" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" className="btn-check" name="standard" id="standard" checked />
-                    <label className="btn btn-outline-primary">Standard</label>
-                    <input type="radio" className="btn-check" name="singleToken" id="singleToken" />
-                    <label className="btn btn-outline-primary disabled">Single Token</label>
-                    <input type="radio" className="btn-check" name="custom" id="custom" />
-                    <label className="btn btn-outline-primary disabled">Custom</label>
-                  </div>
+                  <ButtonGroupRadio className='col-md-12'
+                    name='peggedPool' checked='Standard'
+                    disabled={['Single Token', 'Custom']}
+                    values={['Standard', 'Single Token', 'Custom',
+                    ]} />
                 </Col>
 
                 <Col size='12' className="my-2">
                   <Desc className="form-check-label" value={'03 Supply Initial Tokens'} variant={'dark'} />
-                  <DropdownInput 
-                          label='Quote Token Amount'
-                          searchable={true} 
-                          items={currencies} 
-                          value={{title: 'Eth'}} 
-                          inputType='number'
-                          placeholder='0'
-                          className="mb-4 mt-4"
+                  <DropdownInput
+                    label='Quote Token Amount'
+                    searchable={true}
+                    items={currencies}
+                    value={{ title: 'Eth' }}
+                    inputType='number'
+                    placeholder='0'
+                    className="mb-4 mt-4"
                   />
                   <Desc className="text-center" value={'+'} variant={'dark'} />
-                  <DropdownInput 
-                          label='Base Token Amount'
-                          searchable={true} 
-                          items={currencies} 
-                          value={{title: 'USDT'}} 
-                          inputType='number'
-                          placeholder='0'
-                          className='mb-4'
-                          disabled='disabled'
+                  <DropdownInput
+                    label='Base Token Amount'
+                    searchable={true}
+                    items={currencies}
+                    value={{ title: 'USDT' }}
+                    inputType='number'
+                    placeholder='0'
+                    className='mb-4'
+                    disabled='disabled'
                   />
                 </Col>
                 <Col size='12' className="my-2">

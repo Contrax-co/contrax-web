@@ -1,14 +1,15 @@
 import React from 'react'
+import { Col, Row } from '../blocks/Blocks';
 import { Desc } from "../text/Text";
 
 export default function BottomBar() {
   return (
-      <div className="row bottombar-design">
-        <div className="col-lg-3">
-        </div>
-        <div className="col-lg-6 text-center">
+      <Row className="bottombar-design">
+        <Col size='3'>
+        </Col>
+        <Col size='6' className="text-center">
           <Desc color={'#334A52'}>©2021 Contrax. All rights reserved.</Desc>
-        </div>
-      </div>
+        </Col>
+      </Row>
   )
 }

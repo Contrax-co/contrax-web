@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { getUserSession, removeUserSession } from '../store/localstorage';
-import Button from "../components/button/Button";
+import { Button } from "../components/button/Button";
 import Onboard from 'bnc-onboard';
 import Web3 from 'web3';
 import { setUserSession } from '../store/localstorage';
 import logo from "../images/logo.svg";
+import { Image } from './image/Image';
+import { Link } from './text/Text';
+import { Container } from './blocks/Blocks';
 
 let web3
 const onboard = Onboard({
@@ -19,101 +22,101 @@ const onboard = Onboard({
 });
 
 export default function Navigationbar() {
-    const [walletAddress, setWalletAddress] = useState('');
+  const [walletAddress, setWalletAddress] = useState('');
 
-    useEffect(() => {
-        let walletData: any;
-        let tempData = getUserSession();
-        if (tempData) {
-            walletData = JSON.parse(tempData)
-            setWalletAddress(walletData.address);
-        }
-    }, [])
-
-    function logout() {
-        removeUserSession();
-        setWalletAddress('');
-        window.location.href="/"
+  useEffect(() => {
+    let walletData: any;
+    let tempData = getUserSession();
+    if (tempData) {
+      walletData = JSON.parse(tempData)
+      setWalletAddress(walletData.address);
     }
+  }, [])
 
-    async function ConnectWallet() {
-      const walletSelected = await onboard.walletSelect();
-      if (walletSelected) {
-        const readyToTransact = await onboard.walletCheck();
-        if (readyToTransact) {
-          const currentState = await onboard.getState()
-          setUserSession({
-            address: currentState.address,
-            appNetworkId: currentState.appNetworkId,
-            balance: currentState.balance,
-            mobileDevice: currentState.mobileDevice,
-            network: currentState.network,
-          });
-          window.location.href="/dashboard"
-        }
+  function logout() {
+    removeUserSession();
+    setWalletAddress('');
+    window.location.href = "/"
+  }
+
+  async function ConnectWallet() {
+    const walletSelected = await onboard.walletSelect();
+    if (walletSelected) {
+      const readyToTransact = await onboard.walletCheck();
+      if (readyToTransact) {
+        const currentState = await onboard.getState()
+        setUserSession({
+          address: currentState.address,
+          appNetworkId: currentState.appNetworkId,
+          balance: currentState.balance,
+          mobileDevice: currentState.mobileDevice,
+          network: currentState.network,
+        });
+        window.location.href = "/dashboard"
       }
     }
+  }
 
-    return (
-        <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <div className="container-fluid">
-                    <a className="navbar-brand" href="/#">
-                      <img src={logo} className='main-logo' alt='Contrax' />
-                    </a>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        { walletAddress !== '' ? (
-                            <>
-                              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                                  <li className="nav-item">
-                                      <a className="nav-link active" aria-current="page" href="/">Home</a>
-                                  </li>
-                                  <li className="nav-item">
-                                      <a className="nav-link" href="/dashboard">Dashboard</a>
-                                  </li>
-                                  <li className="nav-item">
-                                      <a className="nav-link" href="/create-a-token">Create a Token</a>
-                                  </li>
-                                  <li className="nav-item">
-                                      <a className="nav-link" href="/exchange">Exchange</a>
-                                  </li>
-                                  <li className="nav-item">
-                                      <a className="nav-link" href="/explore-pool">Explore Pool</a>
-                                  </li>
-                                  <li className="nav-item">
-                                      <a className="nav-link" href="/create-pool">Create Pool</a>
-                                  </li>
-                              </ul>
-                              <ul className="navbar-nav">
-                                  <li className="nav-item dropdown">
-                                      <a className="nav-link dropdown-toggle" href="/#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                          Address: {walletAddress}
-                                      </a>
-                                      <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                          <li><a className="dropdown-item" onClick={logout} href='/#'>Logout</a></li>
-                                      </ul>
-                                  </li>
-                              </ul>
-                            </>
-                        ) :
-                        <>
-                          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
-                              <a className="nav-link active" aria-current="page" href="/docs">Docs</a>
-                            </li>
-                            <li className="nav-item">
-                              <a className="nav-link active" aria-current="page" href="/about">About</a>
-                            </li>
-                          </ul>
-                          <Button variant={'primary'} label='Get Started' onClick={ConnectWallet} />
-                        </>
-                       }
-                    </div>
-                </div>
-            </nav>
-        </div>
-    )
+  return (
+    <div>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <Container fluid>
+          <Link className="navbar-brand" link="/#">
+            <Image src={logo} className='main-logo' alt='Contrax' />
+          </Link>
+          <Button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </Button>
+          <div className="collapse navbar-collapse mt-1" id="navbarSupportedContent">
+            {walletAddress !== '' ? (
+              <>
+                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li className="nav-item">
+                    <Link className="nav-link active" aria-current="page" link="/">Home</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" link="/dashboard">Dashboard</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" link="/create-a-token">Create a Token</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" link="/exchange">Exchange</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" link="/explore-pool">Explore Pool</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" link="/create-pool">Create Pool</Link>
+                  </li>
+                </ul>
+                <ul className="navbar-nav">
+                  <li className="nav-item dropdown">
+                    <Link className="nav-link dropdown-toggle" link="/#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Address: {walletAddress}
+                    </Link>
+                    <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><Link className="dropdown-item" onClick={logout} href='/#'>Logout</Link></li>
+                    </ul>
+                  </li>
+                </ul>
+              </>
+            ) :
+              <>
+                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li className="nav-item">
+                    <Link className="nav-link active" aria-current="page" link="/docs">Docs</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link active" aria-current="page" link="/about">About</Link>
+                  </li>
+                </ul>
+                <Button variant={'primary'} label='Get Started' onClick={ConnectWallet} />
+              </>
+            }
+          </div>
+        </Container>
+      </nav>
+    </div>
+  )
 }

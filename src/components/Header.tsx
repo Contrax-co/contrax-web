@@ -1,6 +1,7 @@
 import React from 'react'
 import { Desc, PageTitle, Title } from './text/Text'
 import { useLocation } from 'react-router-dom'
+import { Col } from './blocks/Blocks';
 
 export default function Header() {
     const location = useLocation();
@@ -11,23 +12,23 @@ export default function Header() {
                     <div className="row h-100 image-title">
                         {location.pathname === '/dashboard' ? (
                             <> 
-                                <div className="col-12 my-auto">
-                                    <h1 className="fw-light text-center mt-5">Contrax Dashboard</h1>
-                                </div>
-                                <div className="col 12 my-auto">
-                                <p>Net Worth</p>
-                                <h3 className="mb-3">$6,905.51</h3>
-                                </div>
+                                <Col className="my-auto">
+                                  <PageTitle variant={'light'} className="fw-light text-center mt-5">Contrax Dashboard</PageTitle>
+                                </Col>
+                                <Col className="my-auto">
+                                    <Desc variant={'light'}> Net Worth</Desc>
+                                    <Title variant={'light'} className="mb-3">$6,905.51</Title>
+                                </Col>
                             </>
                         ):
                         <>
-                          <div className="col-12 my-auto">
-                            <PageTitle variant={'light'} className="fw-light text-center mt-5">Contrax Dashboard</PageTitle>
-                          </div>
-                          <div className="col 12 my-auto">
+                          <Col className="my-auto">
+                            <PageTitle variant={'light'} className="fw-light text-center mt-5">Manage Token</PageTitle>
+                          </Col>
+                          <Col className="my-auto">
                               <Desc variant={'light'}> Net Worth</Desc>
                               <Title variant={'light'} className="mb-3">$6,905.51</Title>
-                          </div>
+                          </Col>
                         </>
                         }
                     </div>

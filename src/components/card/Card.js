@@ -8,7 +8,9 @@ export default function Card(props) {
 
   return (
     <StyledCard className="card" {...remainingProps} >
-      {children}
+      <div className='card-body'>
+        {children}
+      </div>
     </StyledCard>
   )
 }

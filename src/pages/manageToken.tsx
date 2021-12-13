@@ -3,8 +3,10 @@ import Header from '../components/Header';
 import StatsCard from '../components/statsCard/StatsCard';
 import BottomBar from '../components/bottomBar/BottomBar';
 import PieChart from '../components/chart/PieChart';
-import { Desc } from "../components/text/Text";
+import { Title } from "../components/text/Text";
 import { Col, Container, Row } from '../components/blocks/Blocks';
+import { Button } from '../components/button/Button';
+import { FormInput } from '../components/form/Form';
 
 export default function manageToken() {
     // Pie Chart Data 
@@ -21,7 +23,7 @@ export default function manageToken() {
                 </nav>
                 <div className="tab-content" id="nav-tabContent">
                     <div className="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <h5 className="mt-4 mb-3">Coin Name: Solana Coin</h5>
+                        <Title className="mt-4 mb-3">Coin Name: Solana Coin</Title>
                         <Row>
                             <Col size='8' className="my-2">
                                 <Row className="row">
@@ -41,7 +43,7 @@ export default function manageToken() {
                                 <PieChart chartData={chartDataList} chartId={'1'} />
                             </Col>        
                         </Row>
-                        <h5 className="mt-4 mb-3">Token Actions</h5>
+                        <Title className="mt-4 mb-3">Token Actions</Title>
                         <Row>
                             <Col size='4' className="my-2">
                                 <a href='/#' data-bs-toggle="modal" data-bs-target="#SendTokens">
@@ -73,24 +75,22 @@ export default function manageToken() {
             <div className="modal-dialog">
                 <div className="modal-content">
                 <div className="modal-header">
-                    <h5 className="modal-title" id="exampleModalLabel">Send Tokens</h5>
-                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <Title className="modal-title" id="exampleModalLabel">Send Tokens</Title>
+                    <Button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></Button>
                 </div>
                 <div className="modal-body">
                     <Row>
                         <Col size='12' className="my-2">
-                            <Desc value={'Amount'} variant={'dark'} />
-                            <input type="text" placeholder="Amount you will send" className="form-control" id="SendTokenAmount" name="SendTokenAmount" />
+                          <FormInput name='amount' label='Amount' placeholder='Amount you will send' />
                         </Col>
                         <Col size='12' className="my-2">
-                            <Desc value={'Address'} variant={'dark'} />
-                            <input type="text" placeholder="Recipient Address" className="form-control" id="SendTokenAddress" name="SendTokenAddress" />
+                          <FormInput name='address' label='Address' placeholder='Recipient Address' />
                         </Col>
                     </Row>
                 </div>
                 <div className="modal-footer">
-                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" className="btn btn-primary">Send</button>
+                    <Button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</Button>
+                    <Button type="button" className="btn btn-primary">Send</Button>
                 </div>
                 </div>
             </div>
@@ -101,20 +101,19 @@ export default function manageToken() {
             <div className="modal-dialog">
                 <div className="modal-content">
                 <div className="modal-header">
-                    <h5 className="modal-title" id="exampleModalLabel">Burn Tokens</h5>
-                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <Title className="modal-title" id="exampleModalLabel">Burn Tokens</Title>
+                    <Button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></Button>
                 </div>
                 <div className="modal-body">
                     <Row className="row">
                         <Col size='12' className="my-2">
-                            <Desc value={'Amount'} variant={'dark'} />
-                            <input type="text" placeholder="Amount you will burn" className="form-control" id="BurnTokenAmount" name="BurnTokenAmount" />
+                          <FormInput name='amount' label='Amount' placeholder='Amount you will burn' />
                         </Col>
                     </Row>
                 </div>
                 <div className="modal-footer">
-                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" className="btn btn-primary">Burn</button>
+                    <Button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</Button>
+                    <Button type="button" className="btn btn-primary">Burn</Button>
                 </div>
                 </div>
             </div>
@@ -125,20 +124,19 @@ export default function manageToken() {
             <div className="modal-dialog">
                 <div className="modal-content">
                 <div className="modal-header">
-                    <h5 className="modal-title" id="exampleModalLabel">Change Token Sale Rate</h5>
-                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <Title className="modal-title" id="exampleModalLabel">Change Token Sale Rate</Title>
+                    <Button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></Button>
                 </div>
                 <div className="modal-body">
                     <Row>
                         <Col size='12' className="my-2">
-                            <Desc value={'New Rate'} variant={'dark'} />
-                            <input type="text" placeholder="Enter New Sale Rate" className="form-control" id="RateChangeAmount" name="RateChangeAmount" />
+                          <FormInput label='New Rate' name='' placeholder="Enter New Sale Rate" />
                         </Col>
                     </Row>
                 </div>
                 <div className="modal-footer">
-                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" className="btn btn-primary">Set New Rate</button>
+                    <Button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</Button>
+                    <Button type="button" className="btn btn-primary">Set New Rate</Button>
                 </div>
                 </div>
             </div>

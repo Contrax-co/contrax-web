@@ -6,6 +6,7 @@ import PieChart from '../components/chart/PieChart';
 import { Desc } from "../components/text/Text";
 
 export default function manageToken() {
+    // Pie Chart Data 
     let chartDataList = [["Title", "Supply"], ["Your Tokens", 64000000], ["Other Tokens", 36000000]]
     return (
         <div>
@@ -20,6 +21,7 @@ export default function manageToken() {
                 <div className="tab-content" id="nav-tabContent">
                     <div className="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                         <h5 className="mt-4 mb-3">Coin Name: Solana Coin</h5>
+                        {/* Coin Stats Section - Start */}
                         <div className="row">
                             <div className="col-lg-8 col-md-8 col-sm-12 my-2">
                                 <div className="row">
@@ -34,11 +36,15 @@ export default function manageToken() {
                                     </div>
                                 </div>    
                             </div>
+                            {/* Coin Stats Section - End */}
                             <div className="col-lg-4 col-md-4 col-sm-12 my-2">
+                                {/* Pie Chart - Start */}
                                 <PieChart chartData={chartDataList} chartId={'1'} />
+                                {/* Pie Chart - End */}
                             </div>        
                         </div>
                         <h5 className="mt-4 mb-3">Token Actions</h5>
+                        {/* Actions Section - Start */}
                         <div className="row">
                             <div className="col-lg-4 col-md-4 col-sm-12 my-2">
                                 <a href='/#' data-bs-toggle="modal" data-bs-target="#SendTokens">
@@ -59,12 +65,12 @@ export default function manageToken() {
                                 </a>
                             </div>
                         </div>
-
+                        {/* Actions Section - End */}
                     </div>
                 </div>
             </div>
             <BottomBar />
-
+            {/* Send Tokens Modal - Start */}
             <div className="modal fade" id="SendTokens" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog">
                 <div className="modal-content">
@@ -91,7 +97,8 @@ export default function manageToken() {
                 </div>
             </div>
             </div>
-
+            {/* Send Tokens Modal - End */}
+            {/* Send Tokens Modal - Start */}
             <div className="modal fade" id="BurnTokens" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog">
                 <div className="modal-content">
@@ -114,7 +121,8 @@ export default function manageToken() {
                 </div>
             </div>
             </div>
-
+            {/* Burn Tokens Modal - End */}
+            {/* Rate Change Modal - Start */}
             <div className="modal fade" id="RateChange" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog">
                 <div className="modal-content">
@@ -137,6 +145,7 @@ export default function manageToken() {
                 </div>
             </div>
             </div>
+            {/* Rate Change Modal - End */}
         </div>
     )
 }

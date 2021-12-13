@@ -9,9 +9,11 @@ import { Desc, Title } from '../components/text/Text';
 import { PageSubTitle } from '../components/text/Text';
 
 export default function Exchange() {
+    // State of Day, Week and Month - Only One State Will Be Active At a time
     const [day, setDay] = useState('active')
     const [week, setWeek] = useState('')
     const [month, setMonth] = useState('')
+    // Initial Chart Data
     const [ChartData, setChartData] = useState([
         ["Date / Time", "Price"],
         ["09:40 AM", 22.4],
@@ -22,7 +24,7 @@ export default function Exchange() {
         ["10:59 AM", 28],
         ["11:36 AM", 14],
     ])
-
+    // Method To Change Chart Data Duration (24 Hours, 1 Week, 1 Month)
     function changeState(state: any) {
         if (state === 'day') {
             setDay('active');
@@ -78,7 +80,7 @@ export default function Exchange() {
             ])
         }
     }
-
+    // Currency List Array
     const currencies = [
       {title: 'ETH', subTitle: 'Ethereum'},
       {title: 'BTC', subTitle: 'Bitcoin'},
@@ -101,6 +103,7 @@ export default function Exchange() {
                                 <span className="priceDecreaseDisplay mb-4"> -63.77 USDC (-1.47%) <span className="timeSpan">Past 24 Hours </span> </span>
                             </div>
                             <div className="col-lg-6 col-md-6 col-sm-12">
+                                {/* Nav Buttons To Switch Chart Data Between 24 Hours, 1 Weel and 1 Month - Start */}
                                 <ul className="nav nav-pills float-lg-end mt-4">
                                     <li className="nav-item">
                                         <button className={`nav-link ${day}`} onClick={() => changeState("day")}>24H</button>
@@ -112,11 +115,13 @@ export default function Exchange() {
                                         <button className={`nav-link ${month}`} onClick={() => changeState("month")}>1M</button>
                                     </li>
                                 </ul>
+                                {/* Nav Buttons To Switch Chart Data Between 24 Hours, 1 Weel and 1 Month - End */}
                             </div>
                         </div>
                         <LineChart chartData={ChartData} />
                     </div>
                     <div className="col-lg-4 col-md-4 col-sm-12">
+                      {/* Exchange Currency Form - Start  */}
                       <Card>
                         <PageSubTitle>Swap into more than 2000 tokens, using the best quotes from over 20 sources.</PageSubTitle>
                         <DropdownInput 
@@ -144,6 +149,7 @@ export default function Exchange() {
                         <Desc className="mt-5">Slippage Tolerance: 3%</Desc>
                         <Desc>Minimum Received 4339.4263 USDC</Desc>
                       </Card>
+                      {/* Exchange Currency Form - End  */}
                     </div>
                 </div>
             </div>

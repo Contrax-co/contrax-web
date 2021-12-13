@@ -10,11 +10,13 @@ import PieChart from '../components/chart/PieChart';
 import { Col, Container, Row } from '../components/blocks/Blocks';
 
 export default function PoolDetail() {
+    // State of Volume, Tvl, Liquidity and Fees - Only One State Will Be Active At a time
     const [volume, setVolume] = useState('active')
     const [tvl, setTvl] = useState('')
     const [liquidity, setLiquidity] = useState('')
     const [fees, setFees] = useState('')
     const [state, setState] = useState('volume')
+    // Initial Chart Data
     const [ChartData, setChartData] = useState([
         ["Date / Time", "Price"],
         ["09:40 AM", 22.4],
@@ -25,6 +27,7 @@ export default function PoolDetail() {
         ["10:59 AM", 28],
         ["11:36 AM", 14],
     ])
+    // Method To Change Chart Type (volume, tvl, liquidity, fees)
     function changeState(state: any) {
         setState(state)
         if (state === 'volume') {
@@ -104,6 +107,7 @@ export default function PoolDetail() {
             ])
         }
     }
+    // Pool Data For Info Card
     let poolData = {
         poolUrl: 'https://kovan.etherscan.io/address/0x00568c59aa94fafbdfce81d1e72fc96c8fc4b85c',
         poolAddress: '0x00568c59aa94fafbdfce81d1e72fc96c8fc4b85c',
@@ -115,7 +119,9 @@ export default function PoolDetail() {
         liquidityValue2: 0,
         volume24H: '678,987'
     }
+    // Pie Chart Data
     let poolChartDataList = [["36,408,389.5732 USDC (84.46%)", "6,691,425.1753 USDT (15.54%)"], ["36,408,389.5732 USDC (84.46%)", 36408389.5732], ["6,691,425.1753 USDT (15.54%)", 6691425.1753]]
+    // Array of Swap Data
     let swapsData = [
         {
             time: "2021/12/03 12:53:51",
@@ -142,6 +148,7 @@ export default function PoolDetail() {
             fee: "9.59 USDT"
         }
     ]
+    // Array Of Liquidity Provider Data
     let liquidityProviderData = [
         {
             liquidityProviderAddress: "0x30c5312d9cf0d873994f000e72f1cbf561d0209c",
@@ -176,6 +183,7 @@ export default function PoolDetail() {
                                 <p className="mb-4"> 1 USDT = 1.0008917034604228 USDC </p>
                             </Col>
                             <Col size='6'>
+                                {/* Nav Buttons To Switch Chart Type (volume, tvl, liquidity and fees) - Start */}
                                 <ul className="nav nav-pills float-lg-end mt-4">
                                     <li className="nav-item">
                                         <button className={`nav-link ${volume}`} onClick={() => changeState("volume")}>Volume</button>
@@ -192,6 +200,7 @@ export default function PoolDetail() {
                                 </ul>
                             </Col>
                         </Row>
+                        {/* If Chart Type Tvl then Display Line Chart Else Display Bar Chart - Start */}
                         {state === 'tvl' ? (
                             <LineChart chartData={ChartData} />
                         ) : (
@@ -275,6 +284,7 @@ export default function PoolDetail() {
                         </Card>
                     </Col>
                 </Row>
+                {/* Buttons To Switch Pool Details Section - Start */}
                 <ul className="nav nav-tabs" id="myTab" role="tablist">
                     <li className="nav-item" role="presentation">
                         <button className="nav-link active" id="parameters-tab" data-bs-toggle="tab" data-bs-target="#parameters" type="button" role="tab" aria-controls="parameters" aria-selected="true">Parameters</button>
@@ -286,7 +296,9 @@ export default function PoolDetail() {
                         <button className="nav-link" id="liquidity-providers-tab" data-bs-toggle="tab" data-bs-target="#liquidity-providers" type="button" role="tab" aria-controls="liquidity-providers" aria-selected="false">Liquidity Providers</button>
                     </li>
                 </ul>
+                {/* Buttons To Switch Pool Details Section - Start */}
                 <div className="tab-content" id="myTabContent">
+                    {/* Parameters Section - Start */}
                     <div className="tab-pane fade show active" id="parameters" role="tabpanel" aria-labelledby="parameters-tab">
                         <Row className="mt-3">
                             <Col size='6' className="borderRight mt-2">
@@ -386,6 +398,8 @@ export default function PoolDetail() {
                             </Col>
                         </Row>
                     </div>
+                    {/* Parameters Section - End */}
+                    {/* Swaps Section - Start */}
                     <div className="tab-pane fade table-responsive" id="swaps" role="tabpanel" aria-labelledby="swaps-tab">
                         <table className="table table-hover my-4">
                             <thead>
@@ -416,6 +430,8 @@ export default function PoolDetail() {
                             </tbody>
                         </table>
                     </div>
+                    {/* Swaps Section - End */}
+                    {/* Liquidity Providers Section - Start */}
                     <div className="tab-pane fade table-responsive" id="liquidity-providers" role="tabpanel" aria-labelledby="liquidity-providers">
                     <table className="table table-hover my-4">
                             <thead>
@@ -444,6 +460,7 @@ export default function PoolDetail() {
                             </tbody>
                         </table>
                     </div>
+                    {/* Liquidity Providers  Section - End */}
                 </div>
 
             </Container>

@@ -7,6 +7,7 @@ import { Desc } from "../components/text/Text";
 import { Col, Container, Row } from '../components/blocks/Blocks';
 
 export default function manageToken() {
+    // Pie Chart Data 
     let chartDataList = [["Title", "Supply"], ["Your Tokens", 64000000], ["Other Tokens", 36000000]]
     return (
         <div>
@@ -25,6 +26,7 @@ export default function manageToken() {
                             <Col size='8' className="my-2">
                                 <Row className="row">
                                     <Col size='6' className="my-2">
+                        {/* Coin Stats Section - Start */}
                                         <StatsCard cardIcon={'fas fa-chart-line'} cardTitle={'Supply'} cardValue={'100,000,000'} />        
                                     </Col>
                                     <Col size='6' className="my-2">
@@ -61,11 +63,12 @@ export default function manageToken() {
                             </Col>
                         </Row>
 
+                        {/* Actions Section - End */}
                     </div>
                 </div>
             </Container>
             <BottomBar />
-
+            {/* Send Tokens Modal - Start */}
             <div className="modal fade" id="SendTokens" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog">
                 <div className="modal-content">
@@ -92,7 +95,8 @@ export default function manageToken() {
                 </div>
             </div>
             </div>
-
+            {/* Send Tokens Modal - End */}
+            {/* Send Tokens Modal - Start */}
             <div className="modal fade" id="BurnTokens" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog">
                 <div className="modal-content">
@@ -115,7 +119,8 @@ export default function manageToken() {
                 </div>
             </div>
             </div>
-
+            {/* Burn Tokens Modal - End */}
+            {/* Rate Change Modal - Start */}
             <div className="modal fade" id="RateChange" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog">
                 <div className="modal-content">
@@ -138,6 +143,7 @@ export default function manageToken() {
                 </div>
             </div>
             </div>
+            {/* Rate Change Modal - End */}
         </div>
     )
 }

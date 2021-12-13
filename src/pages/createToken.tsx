@@ -68,6 +68,7 @@ export default function CreateToken(props: any) {
             </form>
           </Col>
           <Title className="mt-5" value={'My Token List'} variant={'dark'} />
+          {/* List Of Tokens Previously Created By The Logged-in User - Start */}
           <div className="table-responsive">
             <table className="table table-hover">
               <thead>
@@ -109,7 +110,9 @@ export default function CreateToken(props: any) {
           </div>
         </Row>
       </Container>
+      {/* List Of Tokens Previously Created By The Logged-in User - End */}
       <BottomBar />
+      {/* Confirmation Modal To Show Create Token Data Before Submitting - Start */}
       <div className="modal fade" id="PrevieCreateToken" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
@@ -162,6 +165,7 @@ export default function CreateToken(props: any) {
           </div>
         </div>
       </div>
+      {/* Confirmation Modal To Show Create Token Data Before Submitting - End */}
     </>
   )
 }

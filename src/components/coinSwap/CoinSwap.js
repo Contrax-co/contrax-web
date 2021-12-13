@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Col, Row } from '../blocks/Blocks'
 import Button from '../button/Button'
 import Card from '../card/Card'
 import DropdownInput from '../form/dropdownInput/DropdownInput'
@@ -30,37 +31,37 @@ export default function CoinSwap() {
           <div className="text-left">
             <Button onClick={back} icon="fa-long-arrow-alt-left"></Button>
           </div>
-          <div className="row mt-3">
+          <Row className="mt-3">
             <Desc>Slippage Tolerance</Desc>
-          </div>
-          <div className="row mt-1">
-            <div className="col-md-3">
+          </Row>
+          <Row className="mt-1">
+            <Col size="3">
               <StyledSmallBtn className="btn btn-primary m-1" type="button">0.5%</StyledSmallBtn>
-            </div>
-            <div className="col-md-3">
+            </Col>
+            <Col size="3">
               <StyledSmallBtn className="btn btn-primary m-1" type="button">1%</StyledSmallBtn>
-            </div>
-            <div className="col-md-3">
+            </Col>
+            <Col size="3">
               <StyledSmallBtn className="btn btn-primary m-1" type="button">3%</StyledSmallBtn>
-            </div>
-            <div className="col-md-3">
+            </Col>
+            <Col size="3">
               <StyledSmallInput height="39px" /> <StyledInputDesc>%</StyledInputDesc>
-            </div>
-          </div>
+            </Col>
+          </Row>
 
-          <div className="row mt-3">
+          <Row className="mt-3">
             <Desc>Transaction Deadline</Desc>
-          </div>
-          <div className='row'>
-            <div className="col-md-3">
+          </Row>
+          <Row>
+            <Col size="3">
               <FormInput height="39px" />
-            </div>
-            <div className='col-md-3 p-0 mt-2'><Desc>min</Desc></div>
-          </div>
+            </Col>
+            <Col size="3" className='p-0 mt-2'><Desc>min</Desc></Col>
+          </Row>
         </StyledSettingCard>
       }
       <div className="text-right">
-        <Button onClick={()=>{setShowSetting(true)}} icon="fa-cog" />
+        <Button onClick={()=>{setShowSetting(true)}} icon="fa-cog" label='' />
       </div>
       <Title className="mt-1">Swap into more than 2000 tokens, using the best quotes from over 20 sources.</Title>
       <DropdownInput

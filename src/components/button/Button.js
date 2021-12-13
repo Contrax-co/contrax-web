@@ -33,6 +33,7 @@ const Button = (props) => {
       data-testid="button"
       {...remainingProps}
     >
+      { icon && <i className={`fas ${icon}`}></i> }
       {label ? <span>{label}</span> : children}
     </StyledButton>
   );

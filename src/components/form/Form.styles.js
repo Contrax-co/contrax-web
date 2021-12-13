@@ -10,6 +10,7 @@ export const StyledInput = styled('input', {
 })((props) => ({
   ...(props.variant === 'light' && { color: colors.titleLight }),
   ...(props.variant === 'dark' && { color: colors.titleDark }),
+  ...(props.height && { height: props.height }),
   ...(typo.Title),
 })
 );

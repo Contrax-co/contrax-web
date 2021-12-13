@@ -11,7 +11,7 @@ export const descDark = '#637381';
 export const descLight = '#e6e6e6';
 
 export const buttonText = whiteText;
-export const buttonBg = '#55cddd';
+export const buttonBg = '#5ECEF1';
 
 export const link = '#55cddd';
 

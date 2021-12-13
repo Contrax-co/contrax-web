@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro';
 
 import * as typo from '../../theme/typography';
+import * as colors from '../../theme/colors';
 
 const noForwardProps = ['iconAlignRight', 'small', 'variant'];
 
@@ -20,7 +21,7 @@ export const StyledButton = styled('button', {
   justifyContent: 'center',
   lineHeight: props.small ? '1.2rem' : '1.6rem',
   padding: props.small ? '0.3rem' : '0.5rem 0.6rem',
-  backgroundColor: '#5ECEF1',
+  backgroundColor: props.background ? props.background : colors.buttonBg,
   border: 'none',
   paddingLeft: '1rem',
   paddingRight: '1rem',

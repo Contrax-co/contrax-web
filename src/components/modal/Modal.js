@@ -1,5 +1,8 @@
 import Button from "../button/Button";
-import { Title } from "../text/Text";
+import { H3 } from "../text/Text";
+import { StyledCrossBtn, StyledModalContent, StyledModalDialog } from "./Modal.styles";
+import crossImage from "../../images/cross.svg";
+import { Image } from "../image/Image";
 
 export const Modal = (props) => {
   const {
@@ -13,11 +16,13 @@ export const Modal = (props) => {
   } = props;
   return (
     <div className="modal fade" aria-labelledby="exampleModalLabel" aria-hidden="true" {...remainingProps}>
-      <div className="modal-dialog">
-        <div className="modal-content">
+      <StyledModalDialog>
+        <StyledModalContent>
           <div className="modal-header">
-            <Title className="modal-title">{title}</Title>
-            <Button type="button" className="btn-close" data-bs-dismiss="modal" onClick={onClose} aria-label="Close"></Button>
+            <H3 className="modal-title">{title}</H3>
+            <StyledCrossBtn type="button" className="btn-close" data-bs-dismiss="modal" onClick={onClose} aria-label="Close">
+              <Image src={crossImage} alt='close' />
+            </StyledCrossBtn>
           </div>
           <div className="modal-body">
             {children}
@@ -26,8 +31,8 @@ export const Modal = (props) => {
             <Button type="button" className="btn btn-secondary" onClick={onClose} data-bs-dismiss="modal">{closeLabel ? closeLabel : 'Close'}</Button>
             <Button type="button" className="btn btn-primary" onClick={onOk}>{okLabel ? okLabel : 'OK'}</Button>
           </div>
-        </div>
-      </div>
+        </StyledModalContent>
+      </StyledModalDialog>
     </div>
   )
 }

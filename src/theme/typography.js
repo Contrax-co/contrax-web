@@ -31,3 +31,29 @@ export const BtnText = {
   ...baseStyles('1rem', weight.regular, '1.5rem'),
   fontFamily: family.Poppins
 }
+
+// new design
+export const H1 = {
+  ...baseStyles('3rem', weight.regular, '3.5rem'),
+  fontFamily: family.Lexend,
+}
+
+export const H2 = {
+  ...baseStyles('2rem', weight.regular, '2.5rem'),
+  fontFamily: family.Lexend,
+}
+
+export const H3 = {
+  ...baseStyles('1.5rem', weight.regular, '2rem'),
+  fontFamily: family.Lexend,
+}
+
+export const B1 = {
+  ...baseStyles('1rem', weight.regular, '1.5rem'),
+  fontFamily: family.Poppins
+}
+
+export const TextBtn = {
+  ...baseStyles('1rem', weight.semibold, '1.5rem'),
+  fontFamily: family.Poppins
+}

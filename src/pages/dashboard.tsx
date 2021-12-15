@@ -4,6 +4,7 @@ import StatsCard from '../components/statsCard/StatsCard';
 import BottomBar from '../components/bottomBar/BottomBar';
 import { Title } from '../components/text/Text';
 import { Col, Container, Row } from '../components/blocks/Blocks';
+import Button from '../components/button/Button';
 
 export default function dashboard() {
     return (

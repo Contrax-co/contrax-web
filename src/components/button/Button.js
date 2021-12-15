@@ -38,6 +38,7 @@ export const Button = (props) => {
 Button.defaultProps = {
   variant: 'primary',
   type: 'button',
+  size: 'lg',
 };
 
 export const ButtonGroupRadio = (props) => {

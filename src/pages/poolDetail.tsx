@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import BottomBar from '../components/bottomBar/BottomBar'
-import Navigationbar from '../components/Navigationbar'
+import Navigationbar from '../components/Navigationbar/Navigationbar'
 import BarChart from '../components/chart/BarChart';
 import LineChart from '../components/chart/LineChart';
 import Card from '../components/card/Card';

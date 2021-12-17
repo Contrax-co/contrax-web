@@ -1,4 +1,4 @@
-import Navigationbar from '../../components/Navigationbar';
+import Navigationbar from '../../components/Navigationbar/Navigationbar';
 import Banner from '../../components/Banner';
 import Footer from '../../components/footer/Footer';
 import * as colors from '../../theme/colors';

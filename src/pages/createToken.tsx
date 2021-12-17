@@ -1,4 +1,4 @@
-import Navigationbar from '../components/Navigationbar';
+import Navigationbar from '../components/Navigationbar/Navigationbar';
 import BottomBar from '../components/bottomBar/BottomBar';
 import { PageTitle, Title, Desc, DescSpan } from "../components/text/Text";
 import { FormInput, FormCheckbox, Form } from "../components/form/Form";

@@ -6,3 +6,12 @@ export const StyledCard = styled('div')((props) => ({
   borderRadius: '1rem',
   display: 'inline-flex',
 }));
+
+
+export const StyledCardBody = styled.div.attrs(props => {
+  return {
+    className: 'card-body',
+  }
+})`
+  padding: 1.5rem;
+`

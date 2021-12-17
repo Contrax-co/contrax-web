@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import BottomBar from '../components/bottomBar/BottomBar'
-import Navigationbar from '../components/Navigationbar'
+import Navigationbar from '../components/Navigationbar/Navigationbar'
 import LineChart from '../components/chart/LineChart';
 import CoinSwap from '../components/coinSwap/CoinSwap';
 import { Col, Container, Row } from '../components/blocks/Blocks';

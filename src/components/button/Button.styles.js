@@ -10,7 +10,7 @@ export const StyledButton = styled.button.attrs(props => {
   ${props => !props.primary && css`
     background-color: ${colors.secondaryBtn.background};
     color: ${colors.secondaryBtn.color};
-    border: 1px solid #63CCE0;
+    border: 1px solid ${colors.secondaryBtn.color};
     &:hover {
       background-color: ${colors.secondaryBtn.hoverBackground};
       color: ${colors.secondaryBtn.hoverColor};
@@ -41,7 +41,7 @@ export const StyledButton = styled.button.attrs(props => {
     padding: 9px 18px;
   `}
 
-  ${props => props.size === 'lg' && css`
+  ${props => props.size === 'large' && css`
     font-size: 1.25rem;
     line-height: 2rem;
     padding: 7px 25px;

@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+import Card from '../../components/card/Card';
 
 export const StyledCtaBar = styled('div')(
   (props) => ({
@@ -7,5 +8,11 @@ export const StyledCtaBar = styled('div')(
     border: '1px solid',
     borderRadius: '1rem',
     marginBottom: '2rem',
+  })
+);
+
+export const StyledC4Card = styled(Card)(
+  (props) => ({
+    minHeight: 350,
   })
 );

@@ -1,4 +1,4 @@
-import { StyledCol, StyledContainer, StyledRow } from "./Blocks.style";
+import { StyledBlock, StyledCol, StyledContainer, StyledRow } from "./Blocks.style";
 
 export const Container = (props) => {
   const {
@@ -30,5 +30,16 @@ export const Col = (props) => {
 
   return (
     <StyledCol {...remainingProps} >{children}</StyledCol>
+  );
+};
+
+export const Block = (props) => {
+  const {
+    children,
+    ...remainingProps
+  } = props;
+
+  return (
+    <StyledBlock {...remainingProps} >{children}</StyledBlock>
   );
 };

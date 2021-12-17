@@ -60,9 +60,9 @@ export default function Navigationbar() {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light mt-1">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light p-1">
         <Container>
-          <Link className="navbar-brand" link="/#">
+          <Link className="navbar-brand pt-0" link="/#">
             <Image src={logo} className='main-logo' alt='Contrax' />
           </Link>
           <Button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -112,7 +112,7 @@ export default function Navigationbar() {
                     <StyledNavLink className="nav-link active" aria-current="page" link="/about">About</StyledNavLink>
                   </li>
                 </ul>
-                <Button primary onClick={ConnectWallet} >Connect Wallet</Button>
+                <Button primary size='sm' onClick={ConnectWallet} >Connect Wallet</Button>
               </>
             }
           </div>

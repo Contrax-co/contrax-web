@@ -2,45 +2,37 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 import { Link, PageTitle, Title, Desc } from '../text/Text';
 import BottomBar from '../bottomBar/BottomBar';
-import { Col, Container, Row } from '../blocks/Blocks';
+import { Col, Row } from '../blocks/Blocks';
+import * as colors from '../../theme/colors';
+import { StyledBox } from './Footer.styles';
+import footerLogo from "../../images/logo-footer.png";
+import discordLogo from "../../images/discord.png";
+import twitterLogo from "../../images/twitter.png";
+import { Image } from '../image/Image';
+import Button from '../button/Button';
 
 export default function Footer() {
   const location = useLocation();
   return (
     <div className="footer">
-      <Container className="container">
+      <StyledBox color={colors.accentDark} className='mt-5' >
         <Row className="row">
-          <Col size="4" >
-            <PageTitle>Contrax</PageTitle>
-            <Title>Govern better, together</Title>
+          <Col size="6" >
+            <Image src={footerLogo} alt='contrax' />
           </Col>
-          <Col size="4">
-            <Title>Affiliate Hardware Wallets</Title>
-            <Row>
-              <Link text={'Ledger'} link={'#'} />
-            </Row>
-            <Row>
-              <Link text={'Bitbox'} link={'#'} />
-            </Row>
-            <Row>
-              <Link text={'Ether Cards'} link={'#'} />
-            </Row>
-            <Row>
-              <Link text={'Trezor'} link={'#'} />
-            </Row>
-          </Col>
-          <Col size="4">
-            <Title>Love Contrax?</Title>
-            <Desc>Help us keep Contrax free and open-source, your donations go a long way towards making that possible.</Desc>
-            <Row>
-              <Link text={'ETH Donation'} link={'#'} />
-            </Row>
-            <Row>
-              <Link text={'BTC Donation'} link={'#'} />
-            </Row>
+          <Col size="6">
           </Col>
         </Row>
-      </Container>
+        <Row>
+          <Col size="6">
+            <Image src={discordLogo} alt='Discord' />
+            <Image className='m-5 mt-3 mb-3' src={twitterLogo} alt='Twitter' />
+          </Col>
+          <Col size="6" className='text-right'>
+            <Button primary size='sm' className='mt-3'>Get Started</Button>
+          </Col>
+        </Row>
+      </StyledBox>
       {location === '/' ?
         null
         : (

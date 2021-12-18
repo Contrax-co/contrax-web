@@ -60,7 +60,7 @@ export default function Navigationbar() {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light p-1">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light p-2">
         <Container>
           <Link className="navbar-brand pt-0" link="/#">
             <Image src={logo} className='main-logo' alt='Contrax' />

@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro';
-import Card from '../../components/card/Card';
+import {Card} from '../../components/card/Card';
 
 export const StyledCtaBar = styled('div')(
   (props) => ({
@@ -11,8 +11,15 @@ export const StyledCtaBar = styled('div')(
   })
 );
 
-export const StyledC4Card = styled(Card)(
-  (props) => ({
-    minHeight: 350,
-  })
-);
+// flex-direction: row;
+//     justify-content: space-between;
+
+export const StyledCard = styled(Card)`
+  min-height: 350px;
+  width: calc(33.33% - 36px)
+`
+
+export const StyledFeatureCard = styled(Card)`
+  min-height: 287px;
+  width: calc(25% - 39px)
+`

@@ -1,6 +1,5 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
-import { Link, PageTitle, Title, Desc } from '../text/Text';
 import BottomBar from '../bottomBar/BottomBar';
 import { Col, Row } from '../blocks/Blocks';
 import * as colors from '../../theme/colors';
@@ -15,7 +14,8 @@ export default function Footer() {
   const location = useLocation();
   return (
     <div className="footer">
-      <StyledBox color={colors.accentDark} className='mt-5' >
+      <Row height='72px' />
+      <StyledBox color={colors.accentDark} >
         <Row className="row">
           <Col size="6" >
             <Image src={footerLogo} alt='contrax' />

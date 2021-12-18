@@ -1,6 +1,6 @@
 import { StyledCard, StyledCardBody } from "./Card.styles";
 
-export default function Card(props) {
+export const Card = function(props) {
   const {
     children,
     ...remainingProps
@@ -14,3 +14,5 @@ export default function Card(props) {
     </StyledCard>
   )
 }
+
+export default Card;

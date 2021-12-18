@@ -15,7 +15,11 @@ export const StyledRow = styled.div.attrs(props => {
   return {
     className: 'row'
   }
-})``
+})`
+  ${props => props.height && css`
+    height: ${props.height};
+  `}
+`
 
 export const StyledCol = styled.div.attrs(props => {
   return {

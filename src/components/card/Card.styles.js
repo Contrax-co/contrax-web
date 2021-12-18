@@ -5,6 +5,7 @@ export const StyledCard = styled('div')((props) => ({
   background : props.background ? props.background : colors.white,
   borderRadius: '1rem',
   display: 'inline-flex',
+  border: `1px solid ${colors.secondaryMideum}`,
 }));
 
 

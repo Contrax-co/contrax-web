@@ -2,7 +2,6 @@ import Navigationbar from '../../components/Navigationbar/Navigationbar';
 import Banner from '../../components/Banner';
 import Footer from '../../components/footer/Footer';
 import * as colors from '../../theme/colors';
-import Card from '../../components/card/Card';
 import { H1, H3, B1, H2 } from '../../components/text/Text';
 import Button from "../../components/button/Button";
 import { StyledCard, StyledFeatureCard } from './Home.styles';
@@ -58,8 +57,8 @@ export default function home() {
               </Row>
               <Row>
                 <B1 className='mt-4'>
-                  We believe the fate of humanity will be decided at <br /> 
-                  the frontier of technological innovation and <br /> 
+                  We believe the fate of humanity will be decided at <br />
+                  the frontier of technological innovation and <br />
                   human collaboration.
                 </B1>
               </Row>

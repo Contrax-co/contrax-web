@@ -5,7 +5,6 @@
   "scripts": {
     "start": "craco start",
     "build": "react-scripts build",
-    "deploy": "aws s3 sync build/ s3://contrax-web-landing-page --acl public-read",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { StyledPageTitle, StyledTitle, StyledPageSubTitle, StyledDesc, StyledDescSpan, StyledLink, StyledText } from './Text.styles';
+import { StyledPageTitle, StyledTitle, StyledPageSubTitle, StyledDesc, StyledDescSpan, StyledLink, StyledText, StyledB1, StyledH1, StyledH2, StyledH3 } from './Text.styles';
 
 const propTypes = {
   small: PropTypes.bool,
@@ -168,3 +168,70 @@ export const Text = (props) => {
 };
 Text.prototype = propTypes;
 Text.defaultProps = { variant: 'dark' };
+
+// new design
+
+export const B1 = (props) => {
+  const {
+    variant,
+    children,
+    ...remainingProps
+  } = props;
+
+  return (
+    <StyledB1 variant={variant} {...remainingProps} >
+      {children}
+    </StyledB1>
+  );
+};
+B1.prototype = propTypes;
+B1.defaultProps = { variant: 'dark' };
+
+export const H1 = (props) => {
+  const {
+    variant,
+    children,
+    ...remainingProps
+  } = props;
+
+  return (
+    <StyledH1 variant={variant} {...remainingProps} >
+      {children}
+    </StyledH1>
+  );
+};
+
+H1.prototype = propTypes;
+H1.defaultProps = { variant: 'dark' };
+
+export const H2 = (props) => {
+  const {
+    variant,
+    children,
+    ...remainingProps
+  } = props;
+
+  return (
+    <StyledH2 variant={variant} {...remainingProps} >
+      {children}
+    </StyledH2>
+  );
+};
+H2.prototype = propTypes;
+H2.defaultProps = { variant: 'dark' };
+
+export const H3 = (props) => {
+  const {
+    variant,
+    children,
+    ...remainingProps
+  } = props;
+
+  return (
+    <StyledH3 variant={variant} {...remainingProps} >
+      {children}
+    </StyledH3>
+  );
+};
+H3.prototype = propTypes;
+H3.defaultProps = { variant: 'dark' };

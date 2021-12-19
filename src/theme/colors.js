@@ -29,3 +29,27 @@ export const chartTextColor = '#233238';
 
 export const inputBorder = '#dee2e6';
 export const formBg = '#dbdbdb';
+
+// new design
+export const lightText = '#FFFFFF';
+export const darkText = '#323433';
+
+export const primaryBtn = {
+  background: '#63CCE0',
+  color: '#FFFFFF',
+  hoverBackground: '#54adbe',
+  hoverColor: '#FFFFFF',
+  disabledBackground: 'rgba(31, 31, 31, 0.12)',
+  disabledColor: '#818182',
+}
+
+export const secondaryBtn = {
+  background: '#FFFFFF',
+  color: '#63CCE0',
+  hoverBackground: '#63CCE0',
+  hoverColor: '#FFFFFF',
+  disabledBackground: '#FFFFFF',
+  disabledColor: '#818182',
+  disabledBorderColor: 'rgba(31, 31, 31, 0.12)',
+}
+

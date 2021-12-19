@@ -1,28 +1,54 @@
-import styled from 'styled-components/macro';
-
-import * as typo from '../../theme/typography';
+import styled, { css } from 'styled-components/macro';
 import * as colors from '../../theme/colors';
+import { weight, family } from '../../theme/fonts';
 
-const noForwardProps = ['iconAlignRight', 'small', 'variant'];
+export const StyledButton = styled.button.attrs(props => {
+  return {
+    className: 'btn'
+  }
+})`
+  ${props => !props.primary && css`
+    background-color: ${colors.secondaryBtn.background};
+    color: ${colors.secondaryBtn.color};
+    border: 1px solid ${colors.secondaryBtn.color};
+    &:hover {
+      background-color: ${colors.secondaryBtn.hoverBackground};
+      color: ${colors.secondaryBtn.hoverColor};
+    }
+  `}
+  ${props => !props.primary && props.disabled && css`
+    background-color: ${colors.secondaryBtn.disabledBackground};
+    color: ${colors.secondaryBtn.disabledColor};
+    border: 1px solid ${colors.secondaryBtn.disabledBorderColor};
+  `}
 
+  ${props => props.primary && css`
+    background-color: ${colors.primaryBtn.background};
+    color: ${colors.primaryBtn.color};
+    &:hover {
+      background-color: ${colors.primaryBtn.hoverBackground};
+      color: ${colors.primaryBtn.hoverColor};
+    }
+  `}
+  ${props => props.primary && props.disabled && css`
+    background-color: ${colors.primaryBtn.disabledBackground};
+    color: ${colors.primaryBtn.disabledColor};
+  `}
+  
+  ${props => props.size === 'sm' && css`
+    font-size: 1rem,
+    light-height: 1.5rem,
+    padding: 9px 18px;
+  `}
 
-
-export const StyledButton = styled('button', {
-  shouldForwardProp: (prop) => !noForwardProps.includes(prop),
-})((props) => ({
-  // ...(props.variant === 'primary' && primaryStyles(props.disabled)),
-  // ...(props.variant === 'secondary' && secondaryStyles(props.disabled)),
-  ...(!props.disabled && { cursor: 'pointer' }),
-  ...(props.small ? typo.BtnText : typo.BtnText),
-  alignItems: 'center',
-  borderRadius: props.small ? '0.3rem' : '24px',
-  display: 'inline-flex',
-  flexDirection: props.iconAlignRight ? 'row-reverse' : 'row',
-  justifyContent: 'center',
-  lineHeight: props.small ? '1.2rem' : '1.6rem',
-  padding: props.small ? '0.3rem' : '0.5rem 0.6rem',
-  backgroundColor: props.background ? props.background : colors.buttonBg,
-  border: 'none',
-  paddingLeft: '1rem',
-  paddingRight: '1rem',
-}));
+  ${props => props.size === 'large' && css`
+    font-size: 1.25rem;
+    line-height: 2rem;
+    padding: 7px 25px;
+  `}
+  
+  border-radius: 3rem;
+  font-family: ${family.Poppins};
+  font-style: normal;
+  font-weight: ${weight.semibold};
+`;

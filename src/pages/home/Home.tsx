@@ -3,7 +3,7 @@ import Banner from '../../components/Banner';
 import Footer from '../../components/footer/Footer';
 import * as colors from '../../theme/colors';
 import { H1, H3, B1, H2 } from '../../components/text/Text';
-import Button from "../../components/button/Button";
+// import Button from "../../components/button/Button";
 import { StyledCard, StyledFeatureCard } from './Home.styles';
 import { Block, Col, Container, Row } from '../../components/blocks/Blocks';
 
@@ -20,21 +20,21 @@ export default function home() {
             <H3 color={colors.secondaryMideum}>Built on Solana </H3>
             <Block className='mt-2'><H1 color={colors.accentDark}>Warp Speed</H1></Block>
             <Block className='mt-4'><B1 className='mb-5'>With sub-second block times and microsopic fees, you'll never look back.</B1></Block>
-            <Button size={'sm'} primary className='mt-4' label='Get Started' />
+            {/* <Button size={'sm'} primary className='mt-4' label='Get Started' /> */}
           </StyledCard>
 
           <StyledCard>
             <H3 color={colors.secondaryMideum}>Powered by Serum </H3>
             <Block className='mt-2'><H1 color={colors.accentDark}>Maximal Liquidity</H1></Block>
             <Block className='mt-4'><B1 className='mb-5'>Experience the power and liquidity of a CEX with the decentralization of a DEX.</B1></Block>
-            <Button size={'sm'} primary className='mt-4' label='Get Started' />
+            {/* <Button size={'sm'} primary className='mt-4' label='Get Started' /> */}
           </StyledCard>
 
           <StyledCard>
             <H3 color={colors.secondaryMideum}>Built on Solana </H3>
             <Block className='mt-2'><H1 color={colors.accentDark}>Warp Speed</H1></Block>
             <Block className='mt-4'><B1 className='mb-5'>With sub-second block times and microsopic fees, you'll never look back.</B1></Block>
-            <Button size={'sm'} primary className='mt-4' label='Get Started' />
+            {/* <Button size={'sm'} primary className='mt-4' label='Get Started' /> */}
           </StyledCard>
         </Row>
       </Container>

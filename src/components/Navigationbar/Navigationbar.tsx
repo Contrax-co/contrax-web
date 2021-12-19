@@ -1,26 +1,26 @@
 import { useState, useEffect } from 'react';
 import { getUserSession, removeUserSession } from '../../store/localstorage';
 import { Button } from "../button/Button";
-import Onboard from 'bnc-onboard';
-import Web3 from 'web3';
-import { setUserSession } from '../../store/localstorage';
+// import Onboard from 'bnc-onboard';
+// import Web3 from 'web3';
+// import { setUserSession } from '../../store/localstorage';
 import logo from "../../images/logo.svg";
 import { Image } from '../image/Image';
 import { Link } from '../text/Text';
 import { Container } from '../blocks/Blocks';
 import { StyledNavLink } from './Navigationbar.styles';
 
-let web3
-const onboard = Onboard({
-  dappId: process.env.REACT_APP_DAPP_ID,  // [String] The API key of Blocknative
-  networkId: 3,  // [Integer] The Ethereum network ID your Dapp uses.
-  subscriptions: {
-    wallet: wallet => {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      web3 = new Web3(wallet.provider)
-    }
-  }
-});
+// let web3
+// const onboard = Onboard({
+//   dappId: process.env.REACT_APP_DAPP_ID,  // [String] The API key of Blocknative
+//   networkId: 3,  // [Integer] The Ethereum network ID your Dapp uses.
+//   subscriptions: {
+//     wallet: wallet => {
+//       // eslint-disable-next-line @typescript-eslint/no-unused-vars
+//       web3 = new Web3(wallet.provider)
+//     }
+//   }
+// });
 
 export default function Navigationbar() {
   const [walletAddress, setWalletAddress] = useState('');
@@ -40,23 +40,23 @@ export default function Navigationbar() {
     window.location.href = "/"
   }
 
-  async function ConnectWallet() {
-    const walletSelected = await onboard.walletSelect();
-    if (walletSelected) {
-      const readyToTransact = await onboard.walletCheck();
-      if (readyToTransact) {
-        const currentState = await onboard.getState()
-        setUserSession({
-          address: currentState.address,
-          appNetworkId: currentState.appNetworkId,
-          balance: currentState.balance,
-          mobileDevice: currentState.mobileDevice,
-          network: currentState.network,
-        });
-        window.location.href = "/dashboard"
-      }
-    }
-  }
+  // async function ConnectWallet() {
+  //   const walletSelected = await onboard.walletSelect();
+  //   if (walletSelected) {
+  //     const readyToTransact = await onboard.walletCheck();
+  //     if (readyToTransact) {
+  //       const currentState = await onboard.getState()
+  //       setUserSession({
+  //         address: currentState.address,
+  //         appNetworkId: currentState.appNetworkId,
+  //         balance: currentState.balance,
+  //         mobileDevice: currentState.mobileDevice,
+  //         network: currentState.network,
+  //       });
+  //       window.location.href = "/dashboard"
+  //     }
+  //   }
+  // }
 
   return (
     <div>
@@ -112,7 +112,7 @@ export default function Navigationbar() {
                     <StyledNavLink className="nav-link active" aria-current="page" link="/about">About</StyledNavLink>
                   </li>
                 </ul>
-                <Button primary size='sm' onClick={ConnectWallet} >Connect Wallet</Button>
+                {/* <Button primary size='sm' onClick={ConnectWallet} >Connect Wallet</Button> */}
               </>
             }
           </div>

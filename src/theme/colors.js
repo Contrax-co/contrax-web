@@ -2,6 +2,12 @@ export const white = '#ffffff';
 export const whiteText = '#f2f2f2';
 export const redText = '#ff5072';
 export const greenText = '#56f6da';
+export const primary = '#63CCE0';
+export const secondaryLight = '#F9FAFB';
+export const secondaryMideum = '#9CA3AF';
+export const secondaryDark = '#323433';
+export const accentLight = '#EFFAFC';
+export const accentDark = '#3B7A86';
 
 export const titleDark = '#212b36';
 export const titleLight = '#f2f2f2';
@@ -29,3 +35,27 @@ export const chartTextColor = '#233238';
 
 export const inputBorder = '#dee2e6';
 export const formBg = '#dbdbdb';
+
+// new design
+export const lightText = '#FFFFFF';
+export const darkText = '#323433';
+
+export const primaryBtn = {
+  background: '#63CCE0',
+  color: '#FFFFFF',
+  hoverBackground: '#54adbe',
+  hoverColor: '#FFFFFF',
+  disabledBackground: 'rgba(31, 31, 31, 0.12)',
+  disabledColor: '#818182',
+}
+
+export const secondaryBtn = {
+  background: '#FFFFFF',
+  color: '#63CCE0',
+  hoverBackground: '#63CCE0',
+  hoverColor: '#FFFFFF',
+  disabledBackground: '#FFFFFF',
+  disabledColor: '#818182',
+  disabledBorderColor: 'rgba(31, 31, 31, 0.12)',
+}
+

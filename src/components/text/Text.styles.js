@@ -4,6 +4,11 @@ import * as colors from '../../theme/colors';
 import * as typo from '../../theme/typography';
 
 const noForwardProps = [];
+const baseStyles = (typography, props) => ({
+  ...(typography),
+  color: props.variant === 'light' ? colors.lightText : colors.darkText, 
+  ...(props.color && { color: props.color }),
+});
 
 export const StyledPageTitle = styled('h3', {
   shouldForwardProp: (prop) => !noForwardProps.includes(prop),
@@ -79,3 +84,29 @@ export const StyledText = styled('p', {
   ...(props.size && { fontSize: props.size }),
 })
 );
+
+// new design
+
+export const StyledB1 = styled('span', {
+  shouldForwardProp: (prop) => !noForwardProps.includes(prop),
+})((props) => ({
+  ...(baseStyles(typo.B1, props)),
+}));
+
+export const StyledH1 = styled('span', {
+  shouldForwardProp: (prop) => !noForwardProps.includes(prop),
+})((props) => ({
+  ...(baseStyles(typo.H1, props)),
+}));
+
+export const StyledH2 = styled('span', {
+  shouldForwardProp: (prop) => !noForwardProps.includes(prop),
+})((props) => ({
+  ...(baseStyles(typo.H2, props)),
+}));
+
+export const StyledH3 = styled('span', {
+  shouldForwardProp: (prop) => !noForwardProps.includes(prop),
+})((props) => ({
+  ...(baseStyles(typo.H3, props)),
+}));

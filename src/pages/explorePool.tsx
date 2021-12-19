@@ -1,4 +1,4 @@
-import Navigationbar from '../components/Navigationbar'
+import Navigationbar from '../components/Navigationbar/Navigationbar'
 import BottomBar from '../components/bottomBar/BottomBar'
 import { Link, Title } from "../components/text/Text"; 
 import PieChart from '../components/chart/PieChart';

@@ -1,4 +1,4 @@
-import Navigationbar from '../components/Navigationbar';
+import Navigationbar from '../components/Navigationbar/Navigationbar';
 import Header from '../components/header/Header';
 import StatsCard from '../components/statsCard/StatsCard';
 import BottomBar from '../components/bottomBar/BottomBar';

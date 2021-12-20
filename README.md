@@ -46,4 +46,3 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 To learn more about the Contrax project, visit [The Contrax Website](https://www.contrax.co).
-

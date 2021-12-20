@@ -21,5 +21,5 @@ export const StyledCard = styled(Card)`
 
 export const StyledFeatureCard = styled(Card)`
   min-height: 287px;
-  width: calc(25% - 39px)
+  width: calc(33.33% - 36px)
 `

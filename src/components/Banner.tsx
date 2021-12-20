@@ -18,14 +18,12 @@ export default function banner() {
         <Container className="h-100" >
           <Row>
             <Col size='7' className="my-auto">
-              <p className={'mt-4 mb-2'} ><H2 color={colors.secondaryMideum} >Pools. Farms.</H2></p>
-              <H1 color={colors.primary} >Accessible. <br/>Permissionless.</H1>
-              <p><H3 color={colors.secondaryDark} >
-                Contrax is the only Serum AMM that allows you to easily<br/> create liquidity pools and farms.
-              </H3></p>
+              <p className={'mt-4 mb-2'} ><H2 color={colors.secondaryMideum} >Tokens. Pools. Farms.</H2></p>
+              <H1 color={colors.primary} >Fast. Secure. <br/>Permissionless.</H1>
+              <Row><H3 color={colors.secondaryDark} >
+                Contrax is the first AMM designed to easily create tokens, pools and farms on the Arbitrum One network.
+              </H3></Row>
               <Row className='mb-2' >
-                <Image src={ethereum} className='brand-logo' alt='ethereum' />
-                <Image src={arbitrum} className='brand-logo' alt='arbitrum' />
                 <Image src={uniswap} className='brand-logo' alt='uniswap' />
               </Row>
               <Button size='sm' primary label={'Explore Docs'}  />

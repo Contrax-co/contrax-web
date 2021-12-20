@@ -33,13 +33,13 @@ export default function dashboard() {
                                 <StatsCard cardIcon={'fas fa-tractor'} cardTitle={'Yield Farming'} cardValue={'$182.19'} />        
                             </Col>
                         </Row>
-                        <Title className="mt-4 mb-3">Networks</Title>
+                        <Row className="mt-4 mb-3"><H3>Networks</H3></Row>
                         <Row>
                             <Col size='4' className="my-2">
                                 <StatsCard cardIcon={'fab fa-ethereum'} cardTitle={'Ethereum'} cardValue={'$5,134.12'} />        
                             </Col>
                         </Row>
-                        <Title variant="dark" className="mt-4 mb-3">Actions</Title>
+                        <Row className="mt-4 mb-3"><H3>Actions</H3></Row>
                         <Row>
                             <Col size='4' className="my-2">
                                 <StatsCard cardIcon={'fab fa-connectdevelop'} cardTitle={'Create a token'} cardValue={'→'} />

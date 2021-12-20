@@ -1,8 +1,6 @@
 import Button from './button/Button';
 import { H3, H2, H1 } from "./text/Text";
 
-import ethereum from "../images/ethereum.svg";
-import arbitrum from "../images/arbitrum.svg";
 import banner1 from "../images/banner-1.png";
 import uniswap from "../images/uniswap.svg";
 import { Image } from './image/Image';

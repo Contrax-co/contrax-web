@@ -2,8 +2,9 @@ import Navigationbar from '../components/Navigationbar/Navigationbar';
 import Header from '../components/header/Header';
 import StatsCard from '../components/statsCard/StatsCard';
 import BottomBar from '../components/bottomBar/BottomBar';
-import { Title } from '../components/text/Text';
+import { B1, H3, Title } from '../components/text/Text';
 import { Col, Container, Row } from '../components/blocks/Blocks';
+import * as colors from '../theme/colors';
 
 export default function dashboard() {
     return (
@@ -13,12 +14,14 @@ export default function dashboard() {
             <Container className="mb-5">
                 <nav>
                     <div className="nav nav-tabs" id="nav-tab" role="tablist">
-                        <button className="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Key Metrics</button>
+                        <button className="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
+                          <B1 color={colors.primary}>Key Metrics</B1>
+                        </button>
                     </div>
                 </nav>
                 <div className="tab-content" id="nav-tabContent">
                     <div className="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <Title className="mt-4 mb-3">Account Overview</Title>
+                        <Row className="mt-4 mb-3"><H3>Account Overview</H3></Row>
                         <Row>
                             <Col size='4' className="my-2">
                                 <StatsCard cardIcon={'fas fa-wallet'} cardTitle={'Wallet'} cardValue={'$3,345.74'} />        

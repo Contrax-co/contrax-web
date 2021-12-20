@@ -2,7 +2,7 @@ import Navigationbar from '../components/Navigationbar/Navigationbar';
 import Header from '../components/header/Header';
 import StatsCard from '../components/statsCard/StatsCard';
 import BottomBar from '../components/bottomBar/BottomBar';
-import { B1, H3, Title } from '../components/text/Text';
+import { B1, H3 } from '../components/text/Text';
 import { Col, Container, Row } from '../components/blocks/Blocks';
 import * as colors from '../theme/colors';
 

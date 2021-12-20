@@ -17,24 +17,24 @@ export default function home() {
       <Container className=''>
         <Row className='d-row justify-content-between'>
           <StyledCard>
-            <H3 color={colors.secondaryMideum}>Built on Solana </H3>
-            <Block className='mt-2'><H1 color={colors.accentDark}>Warp Speed</H1></Block>
-            <Block className='mt-4'><B1 className='mb-5'>With sub-second block times and microsopic fees, you'll never look back.</B1></Block>
-            <Button size={'sm'} primary className='mt-4' label='Get Started' />
+            <H3 color={colors.secondaryMideum}>Built on Arbitrum</H3>
+            <Block className='mt-2'><H1 color={colors.accentDark}>Secure & Scalable</H1></Block>
+            <Block className='mt-4'><B1 className='mb-5'>Secured by Ethereum while moving computations and data storage off of the main chain.</B1></Block>
+            <Button size={'sm'} primary className='mt-4' label='Learn More' />
           </StyledCard>
 
           <StyledCard>
-            <H3 color={colors.secondaryMideum}>Powered by Serum </H3>
-            <Block className='mt-2'><H1 color={colors.accentDark}>Maximal Liquidity</H1></Block>
-            <Block className='mt-4'><B1 className='mb-5'>Experience the power and liquidity of a CEX with the decentralization of a DEX.</B1></Block>
-            <Button size={'sm'} primary className='mt-4' label='Get Started' />
+            <H3 color={colors.secondaryMideum}>No-code Design</H3>
+            <Block className='mt-2'><H1 color={colors.accentDark}>Highly Accessible</H1></Block>
+            <Block className='mt-4'><B1 className='mb-5'>Create and manage projects on Ethereum and Arbitrum One without any coding.</B1></Block>
+            <Button size={'sm'} primary className='mt-4' label='Learn More' />
           </StyledCard>
 
           <StyledCard>
-            <H3 color={colors.secondaryMideum}>Built on Solana </H3>
-            <Block className='mt-2'><H1 color={colors.accentDark}>Warp Speed</H1></Block>
-            <Block className='mt-4'><B1 className='mb-5'>With sub-second block times and microsopic fees, you'll never look back.</B1></Block>
-            <Button size={'sm'} primary className='mt-4' label='Get Started' />
+            <H3 color={colors.secondaryMideum}>DAO Controlled</H3>
+            <Block className='mt-2'><H1 color={colors.accentDark}>Community Owned</H1></Block>
+            <Block className='mt-4'><B1 className='mb-5'>TRAX token holders can vote on future products, features and fee structures for the platform.</B1></Block>
+            <Button size={'sm'} primary className='mt-4' label='Learn More' />
           </StyledCard>
         </Row>
       </Container>
@@ -77,28 +77,28 @@ export default function home() {
         </Row>
         <Row className='d-row justify-content-between '>
           <StyledFeatureCard>
-            <Block><B1 color={colors.secondaryMideum}>For Projects </B1></Block>
-            <Block className='mt-3'><H3 color={colors.accentDark}>Create Serum liquidity pools and LP token</H3></Block>
-            <Block className='mt-4'><B1 className='mb-5'>Create pools and farms with custom emissions to kickstart your project.</B1></Block>
+            <Block className='mt-3'><H3 color={colors.accentDark}>For Builders</H3></Block>
+            <Block className='mt-4'><B1 className='mb-5'>Create and manage tokens, liquidity pools and farms.</B1></Block>
+            <Block className='mt-4'><B1 className='mb-5'>Bring new projects to life on the most trusted & secure Ethereum rollup.</B1></Block>
           </StyledFeatureCard>
 
           <StyledFeatureCard>
+            <Block className='mt-3'><H3 color={colors.accentDark}>For Traders</H3></Block>
+            <Block className='mt-4'><B1 className='mb-5'>Trade Ethereum assets without the high gas costs.</B1></Block>
+            <Block className='mt-4'><B1 className='mb-5'>Contrax executes all trades on Uniswap for optimal liquidity and price.</B1></Block>
+          </StyledFeatureCard>
+
+          <StyledFeatureCard>
+            <Block className='mt-3'><H3 color={colors.accentDark}>For Farmers</H3></Block>
+            <Block className='mt-4'><B1 className='mb-5'>Find and create farms for any asset under one roof.</B1></Block>
+            <Block className='mt-4'><B1 className='mb-5'>Contrax provides data and infographics on all listed pools and farms.</B1></Block>
+          </StyledFeatureCard>
+
+          {/* <StyledFeatureCard>
             <Block><B1 color={colors.secondaryMideum}>For Traders </B1></Block>
             <Block className='mt-3'><H3 color={colors.accentDark}>Trade with minimal fees and minimal slippage</H3></Block>
             <Block className='mt-4'><B1 className='mb-5'>Contrax performs all trades directly on Serum DEX without any additional fees.</B1></Block>
-          </StyledFeatureCard>
-
-          <StyledFeatureCard>
-            <Block><B1 color={colors.secondaryMideum}>For Farmers </B1></Block>
-            <Block className='mt-3'><H3 color={colors.accentDark}>Find all your liquidity and farms in one place</H3></Block>
-            <Block className='mt-4'><B1 className='mb-5'>Contrax provides an intuitive interface with all your pools and farms in one place.</B1></Block>
-          </StyledFeatureCard>
-
-          <StyledFeatureCard>
-            <Block><B1 color={colors.secondaryMideum}>For Traders </B1></Block>
-            <Block className='mt-3'><H3 color={colors.accentDark}>Trade with minimal fees and minimal slippage</H3></Block>
-            <Block className='mt-4'><B1 className='mb-5'>Contrax performs all trades directly on Serum DEX without any additional fees.</B1></Block>
-          </StyledFeatureCard>
+          </StyledFeatureCard> */}
 
         </Row>
       </Container>

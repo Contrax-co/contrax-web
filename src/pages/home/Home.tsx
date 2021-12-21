@@ -57,9 +57,9 @@ export default function home() {
               </Row>
               <Row>
                 <B1 className='mt-4'>
-                  We believe the fate of humanity will be decided at <br />
-                  the frontier of technological innovation and <br />
-                  human collaboration.
+                  DeFi should be easy for anyone to use, and be <br />
+                  provide users with flexibility for what they want to do,  <br />
+                  and how they want to do it.
                 </B1>
               </Row>
             </Col>

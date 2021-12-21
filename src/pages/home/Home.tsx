@@ -57,7 +57,7 @@ export default function home() {
               </Row>
               <Row>
                 <B1 className='mt-4'>
-                  We believe the fate of humanity will be decided at <br />
+                  Contrax believes the fate of humanity will be decided at <br />
                   the frontier of technological innovation and <br />
                   human collaboration.
                 </B1>

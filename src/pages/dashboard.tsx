@@ -25,13 +25,14 @@ export default function dashboard() {
                         <Row className="mt-4 mb-3"><H3>Account Overview</H3></Row>
                         <Row>
                             <Col size='4' className="my-2">
-                                <StatsCard cardIcon={'fas fa-wallet'} cardTitle={'Wallet'} cardValue={'$3,345.74'} />        
+                              {/* Account Overview Section - Start  */}
+                              <StatsCard cardIcon={'fas fa-wallet'} cardTitle={'Wallet'} cardValue={'$3,345.74'} />        
                             </Col>
                             <Col size='4' className="my-2">
                                 <StatsCard cardIcon={'fas fa-lock'} cardTitle={'Staked'} cardValue={'$4,145.45'} />        
                             </Col>
                             <Col size='4' className="my-2">
-                                <StatsCard cardIcon={'fas fa-tractor'} cardTitle={'Yield Farming'} cardValue={'$182.19'} />        
+                              <StatsCard cardIcon={'fas fa-tractor'} cardTitle={'Yield Farming'} cardValue={'$182.19'} />        
                             </Col>
                         </Row>
                         <Row className="mt-4 mb-3"><H3>Networks</H3></Row>

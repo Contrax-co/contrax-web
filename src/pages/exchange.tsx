@@ -4,13 +4,18 @@ import Navigationbar from '../components/Navigationbar/Navigationbar'
 import LineChart from '../components/chart/LineChart';
 import CoinSwap from '../components/coinSwap/CoinSwap';
 import { Col, Container, Row } from '../components/blocks/Blocks';
-import { Desc, DescSpan, Title } from '../components/text/Text';
+import { B1, H2 } from '../components/text/Text';
 import { Button } from "../components/button/Button";
+import ethIcon from '../images/eth-round-icon.png';
+import usdcIcon from '../images/USDC-round-icon.png';
+import { Image } from '../components/image/Image';
+import * as colors from '../theme/colors';
+
 
 export default function Exchange() {
-    const [day, setDay] = useState('active')
-    const [week, setWeek] = useState('')
-    const [month, setMonth] = useState('')
+    const [day, setDay] = useState(true)
+    const [week, setWeek] = useState(false)
+    const [month, setMonth] = useState(false)
     const [ChartData, setChartData] = useState([
         ["Date / Time", "Price"],
         ["09:40 AM", 22.4],
@@ -24,9 +29,9 @@ export default function Exchange() {
 
     function changeState(state: any) {
         if (state === 'day') {
-            setDay('active');
-            setWeek('');
-            setMonth('');
+            setDay(true);
+            setWeek(false);
+            setMonth(false);
             setChartData([
                 ["Date / Time", "Price"],
                 ["09:40 AM", 22.4],
@@ -39,9 +44,9 @@ export default function Exchange() {
             ])
         }
         if (state === 'week') {
-            setDay('');
-            setWeek('active');
-            setMonth('');
+            setDay(false);
+            setWeek(true);
+            setMonth(false);
             setChartData([
                 ["Date / Time", "Price"],
                 ["9/11/21 10:23 AM", 12.4],
@@ -54,9 +59,9 @@ export default function Exchange() {
             ])
         }
         if (state === 'month') {
-            setDay('');
-            setWeek('');
-            setMonth('active');
+            setDay(false);
+            setWeek(false);
+            setMonth(true);
             setChartData([
                 ["Date / Time", "Price"],
                 ["1/11/21 10:23 AM", 12.4],
@@ -86,27 +91,33 @@ export default function Exchange() {
                     <Col size="8">
                         <Row className="mb-3">
                             <Col size="6" >
-                                <Desc> <b>ETH</b> / USDC</Desc>
-                                <Title> USDC: 14.362 </Title>
-                                <Desc variant='danger' className="mb-4"> -63.77 USDC (-1.47%) <DescSpan>Past 24 Hours </DescSpan> </Desc>
+                                <Col className='align-items-center'>
+                                  <Image height='34' alt='ethIcon' src={ethIcon} />
+                                  <Image height='34' alt='usdcIcon' src={usdcIcon}  />
+                                  &nbsp; &nbsp; <B1 color={colors.secondaryMideum}> ETH / USDC</B1>
+                                </Col>
+                                <Row><H2>ETH / USDC</H2></Row>
+                                <Row><B1 color={colors.accentDark}>+63.77 USDC (+1.47%) <B1 color={colors.secondaryMideum}>Past 24 Hours</B1></B1></Row>
                             </Col>
-                            <Col size="6">
-                                <ul className="nav nav-pills float-lg-end mt-4">
-                                    <li className="nav-item">
-                                        <Button className={`nav-link ${day}`} onClick={() => changeState("day")}>24H</Button>
-                                    </li>
-                                    <li className="nav-item">
-                                        <Button className={`nav-link ${week}`} onClick={() => changeState("week")}>1W</Button>
-                                    </li>
-                                    <li className="nav-item">
-                                        <Button className={`nav-link ${month}`} onClick={() => changeState("month")}>1M</Button>
-                                    </li>
-                                </ul>
-                            </Col>
+                        </Row>
+                        <Row>
+                          <Col size="12">
+                              <ul className="nav nav-pills float-lg-end mt-4">
+                                  <li className="nav-item">
+                                      <Button size='sm' primary={day} onClick={() => changeState("day")}>24H</Button>
+                                  </li>
+                                  <li className="nav-item">
+                                    &nbsp; &nbsp; <Button size='sm' primary={week} onClick={() => changeState("week")}>1W</Button>
+                                  </li>
+                                  <li className="nav-item">
+                                    &nbsp; &nbsp; <Button size='sm' className={month} onClick={() => changeState("month")}>1M</Button>
+                                  </li>
+                              </ul>
+                          </Col>
                         </Row>
                         <LineChart chartData={ChartData} />
                     </Col>
-                    <Col size="4">
+                    <Col size="4" className='pt-2'>
                       <CoinSwap />
                     </Col>
                 </Row>

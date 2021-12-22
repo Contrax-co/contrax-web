@@ -4,6 +4,7 @@ import { StyledCrossBtn, StyledModalContent, StyledModalDialog } from "./Modal.s
 import crossImage from "../../images/cross.svg";
 import { Image } from "../image/Image";
 import * as colors from "../../theme/colors";
+import Icon from "../icon/Icon";
 
 export const Modal = (props) => {
   const {
@@ -20,7 +21,7 @@ export const Modal = (props) => {
       <StyledModalDialog>
         <StyledModalContent>
           <div className="modal-header border-0 pb-2">
-            <H3 className="modal-title" color={colors.accentDark}>{props.titleIcon && <i className={"fas " + props.titleIcon} style={{color: colors.primary}} /> } {title}</H3>
+            <H3 className="modal-title" color={colors.accentDark}>{props.titleIcon && <Icon name={props.titleIcon} /> } {title}</H3>
             <StyledCrossBtn type="button" className="btn-close mt-0" data-bs-dismiss="modal" onClick={onClose} aria-label="Close">
               <Image src={crossImage} alt='close' />
             </StyledCrossBtn>

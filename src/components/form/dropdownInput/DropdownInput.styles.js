@@ -1,5 +1,5 @@
 
-import styled from 'styled-components/macro';
+import styled, {css} from 'styled-components/macro';
 import * as colors from '../../../theme/colors';
 import * as typo from "../../../theme/typography";
 import { Desc } from '../../text/Text';
@@ -48,4 +48,11 @@ export const ListSubTitle = styled(Desc)((props)=>({
 
 export const StyledDropBtn = styled(Button).attrs(props =>({
   className: 'btn btn-primary dropdown-toggle'
-}))``
+}))`
+  border-radius: 4px 0 0 4px;
+  padding: 0.25rem;
+  border-right: none;
+  ${props => css`
+    border-color: ${colors.inputBorder};
+  `}
+`

@@ -25,7 +25,7 @@ export default function Footer() {
         </Row>
         <Row>
           <Col size="6">
-            <Image src={discordLogo} alt='Discord' />
+          <a href='https://google.com/'><Image src={discordLogo} alt='Discord' /></a>
             <Image className='m-5 mt-3 mb-3' src={twitterLogo} alt='Twitter' />
           </Col>
           <Col size="6" className='text-right'>

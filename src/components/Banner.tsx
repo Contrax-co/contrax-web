@@ -24,7 +24,7 @@ export default function banner() {
               <Row className='mb-2' >
                 <Image src={uniswap} className='brand-logo' alt='uniswap' />
               </Row>
-              <Button size='sm' primary label={'Explore Docs'}  />
+              <a href="https://contrax.gitbook.io/contrax-docs/"><Button size='sm' primary label={'Explore Docs'} /></a>
             </Col>
             <Col size='5' className='pt-4'>
               <Image src={banner1} alt='banner' className='mt-1' />

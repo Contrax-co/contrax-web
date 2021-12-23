@@ -57,9 +57,9 @@ export default function home() {
               </Row>
               <Row>
                 <B1 className='mt-4'>
-                  Contrax believes in making DeFi accessible and feature-rich <br />
-                  We are bringing easy token and DeFi creation to Arbitrum<br />
-                  With many other chains around the corner.
+                  Contrax believes in making DeFi accessible and feature-rich. <br />
+                  We are bringing easy token and DeFi creation to Arbitrum,<br />
+                  with many other chains around the corner.
                 </B1>
               </Row>
             </Col>

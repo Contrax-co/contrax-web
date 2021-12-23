@@ -1,5 +1,6 @@
 import { StyledButton } from './Button.styles';
 import uuid from 'react-uuid'
+import * as colors from '../../theme/colors';
 
 export const Button = (props) => {
   const {
@@ -59,7 +60,7 @@ export const ButtonGroupRadio = (props) => {
           return (
             <>
               <input type="radio" class="btn-check" name={name} id={key} autocomplete="off" checked={item === checked} disabled={disabled && disabled.includes(item)} />
-              <label class="btn btn-primary" for={key} >{item}</label>
+              <label class="btn btn-primary" style={{background: colors.primary, borderColor: colors.primary}} for={key} >{item}</label>
             </>
           )
         })

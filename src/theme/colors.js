@@ -8,7 +8,7 @@ export const secondaryMideum = '#9CA3AF';
 export const secondaryDark = '#323433';
 export const accentLight = '#EFFAFC';
 export const accentDark = '#3B7A86';
-
+export const badgeBg = '#C9EEF5';
 export const titleDark = '#212b36';
 export const titleLight = '#f2f2f2';
 
@@ -41,7 +41,7 @@ export const lightText = '#FFFFFF';
 export const darkText = '#323433';
 
 export const primaryBtn = {
-  background: '#63CCE0',
+  background: primary,
   color: '#FFFFFF',
   hoverBackground: '#54adbe',
   hoverColor: '#FFFFFF',
@@ -51,8 +51,8 @@ export const primaryBtn = {
 
 export const secondaryBtn = {
   background: '#FFFFFF',
-  color: '#63CCE0',
-  hoverBackground: '#63CCE0',
+  color: primary,
+  hoverBackground: primary,
   hoverColor: '#FFFFFF',
   disabledBackground: '#FFFFFF',
   disabledColor: '#818182',

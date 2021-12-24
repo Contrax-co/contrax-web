@@ -7,5 +7,5 @@ export const StyledBadge = styled.span.attrs(props => {
   }
 })`
   color: ${colors.primary} !important;
-  background-color: ${colors.accentLight};
+  background-color: ${colors.badgeBg};
 `

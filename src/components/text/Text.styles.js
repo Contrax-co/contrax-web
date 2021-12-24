@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro';
 
 import * as colors from '../../theme/colors';
+import { weight } from '../../theme/fonts';
 import * as typo from '../../theme/typography';
 
 const noForwardProps = [];
@@ -89,6 +90,7 @@ export const StyledB1 = styled('span', {
   shouldForwardProp: (prop) => !noForwardProps.includes(prop),
 })((props) => ({
   ...(baseStyles(typo.B1, props)),
+  ...(props.bold && {fontWeight: weight.semibold}),
 }));
 
 export const StyledH1 = styled('span', {

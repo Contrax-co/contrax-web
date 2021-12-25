@@ -17,23 +17,23 @@ export default function home() {
       <Container className=''>
         <Row className='d-row justify-content-between'>
           <StyledCard>
-            <H3 color={colors.secondaryMideum}>Built on Arbitrum</H3>
+            <H3 color={colors.secondaryMideum}>Built for Arbitrum</H3>
             <Block className='mt-2'><H1 color={colors.accentDark}>Secure & Scalable</H1></Block>
-            <Block className='mt-4'><B1 className='mb-5'>Secured by Ethereum while moving computations and data storage off of the main chain.</B1></Block>
+            <Block className='mt-4'><B1 className='mb-5'>Arbitrum is secured by Ethereum, and saves gas fees by moving computations and data storage off of the main chain.</B1></Block>
             {/* <Button size={'sm'} primary className='mt-4' label='Learn More' /> */}
           </StyledCard>
 
           <StyledCard>
             <H3 color={colors.secondaryMideum}>No-code Design</H3>
             <Block className='mt-2'><H1 color={colors.accentDark}>Highly Accessible</H1></Block>
-            <Block className='mt-4'><B1 className='mb-5'>Create and manage projects on Ethereum and Arbitrum One without any coding.</B1></Block>
+            <Block className='mt-4'><B1 className='mb-5'>Made for anyone to use. Create and manage projects on Ethereum and Arbitrum One without any coding.</B1></Block>
             {/* <Button size={'sm'} primary className='mt-4' label='Learn More' /> */}
           </StyledCard>
 
           <StyledCard>
             <H3 color={colors.secondaryMideum}>DAO Controlled</H3>
             <Block className='mt-2'><H1 color={colors.accentDark}>Community Owned</H1></Block>
-            <Block className='mt-4'><B1 className='mb-5'>TRAX token holders can vote on future products, features and fee structures for the platform.</B1></Block>
+            <Block className='mt-4'><B1 className='mb-5'>TRAX token holders can vote on future products, features, and staking & farming rewards for the platform..</B1></Block>
             {/* <Button size={'sm'} primary className='mt-4' label='Learn More' /> */}
           </StyledCard>
         </Row>
@@ -57,9 +57,9 @@ export default function home() {
               </Row>
               <Row>
                 <B1 className='mt-4'>
-                  Contrax believes in making DeFi accessible and feature-rich. <br />
-                  We are bringing easy token and DeFi creation to Arbitrum,<br />
-                  with many other chains around the corner.
+                  Contrax believes in making DeFi feature-rich and accessible to all. <br />
+                  We are bringing easy token and DeFi creation to Arbitrum and others.<br />
+                  Watch our one minute explainer to learn more.
                 </B1>
               </Row>
             </Col>
@@ -78,20 +78,20 @@ export default function home() {
         <Row className='d-row justify-content-between '>
           <StyledFeatureCard>
             <Block className='mt-3'><H3 color={colors.accentDark}>For Builders</H3></Block>
-            <Block className='mt-4'><B1 className='mb-5'>Create and manage tokens, liquidity pools and farms.</B1></Block>
+            <Block className='mt-4'><H2 className='mb-5'>Create and manage tokens, liquidity pools, and farms.</H2></Block>
             <Block className='mt-4'><B1 className='mb-5'>Bring new projects to life on the most trusted & secure Ethereum rollup.</B1></Block>
           </StyledFeatureCard>
 
           <StyledFeatureCard>
             <Block className='mt-3'><H3 color={colors.accentDark}>For Traders</H3></Block>
-            <Block className='mt-4'><B1 className='mb-5'>Trade Ethereum assets without the high gas costs.</B1></Block>
-            <Block className='mt-4'><B1 className='mb-5'>Contrax executes all trades on Uniswap for optimal liquidity and price.</B1></Block>
+            <Block className='mt-4'><H2 className='mb-5'>Trade Ethereum assets without the high gas costs.</H2></Block>
+            <Block className='mt-4'><B1 className='mb-5'>Contrax executes existing swap pairs on Uniswap for optimal liquidity and price.</B1></Block>
           </StyledFeatureCard>
 
           <StyledFeatureCard>
             <Block className='mt-3'><H3 color={colors.accentDark}>For Farmers</H3></Block>
-            <Block className='mt-4'><B1 className='mb-5'>Find and create farms for any asset under one roof.</B1></Block>
-            <Block className='mt-4'><B1 className='mb-5'>Contrax provides data and infographics on all listed pools and farms.</B1></Block>
+            <Block className='mt-4'><H2 className='mb-5'>Get more out of staking and farming for any token</H2></Block>
+            <Block className='mt-4'><B1 className='mb-5'>Auto-compounding and impermanent loss protectoion for all Arbitrum pools.</B1></Block>
           </StyledFeatureCard>
 
           {/* <StyledFeatureCard>

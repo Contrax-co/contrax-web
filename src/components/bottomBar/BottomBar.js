@@ -8,7 +8,8 @@ export default function BottomBar() {
         <Col size='3'>
         </Col>
         <Col size='6' className="text-center">
-          <Desc color={'#334A52'}>©2021 Contrax. All rights reserved. View website terms and conditions <a href = "https://pdfhost.io/v/bTVkDyPle_termsofuse">here</a>.</Desc>
+          <Desc color={'#334A52'}>View website terms and conditions 
+          <a href = "https://pdfhost.io/v/bTVkDyPle_termsofuse" target="_blank" rel="noreferrer noopener">here</a>.</Desc>
         </Col>
       </Row>
   )

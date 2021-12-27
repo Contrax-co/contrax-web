@@ -102,7 +102,7 @@ export default function manageToken() {
 
       <Modal id="RateChange" title='Change Token Sale Rate'
         okLabel='Set New Rate'
-        titleIcon='fa-hand-holding-usd'
+        titleIcon='fa-file-invoice-dollar'
       >
         <Row>
           <Col size='12' className="my-2">

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Desc } from "../../text/Text";
+import { B1 } from "../../text/Text";
 import { ListSubTitle, StyledDropBtn, StyledInput, StyledListBtn, StyledSearch } from "./DropdownInput.styles";
 
 function DropdownInput(props) {
@@ -18,9 +18,9 @@ function DropdownInput(props) {
   }
   return (
     <div className={`dropdown-input ${props.className}`} >
-      {label && <Desc value={label} variant={'dark'} />}
+      {label && <B1>{label}</B1>}
       <div className="dropdown input-append btn-group">
-        <StyledDropBtn className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        <StyledDropBtn className="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             {selected && selected.title} <span className="caret"></span>
         </StyledDropBtn>
         <StyledInput size="16" type={props.inputType || 'text'} placeholder={props.placeholder} {...{disabled: props.disabled}}/>

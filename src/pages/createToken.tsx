@@ -69,6 +69,7 @@ export default function CreateToken(props: any) {
             </Form>
           </Col>
           <Title className="mt-5" value={'My Token List'} variant={'dark'} />
+          {/* List Of Tokens Previously Created By The Logged-in User - Start */}
           <div className="table-responsive">
             <table className="table table-hover">
               <thead>
@@ -110,6 +111,7 @@ export default function CreateToken(props: any) {
           </div>
         </Row>
       </Container>
+      {/* List Of Tokens Previously Created By The Logged-in User - End */}
       <BottomBar />
 
       <Modal id="PrevieCreateToken" title='Token Create Confirmation'

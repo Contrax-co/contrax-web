@@ -46,7 +46,7 @@ export default function home() {
           <Row height='72px' />
           <Row className='' >
             <Col size='6'>
-              <iframe width="523" height="333" src="https://www.youtube.com/embed/kDmT1BPvRlU" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+              <iframe width="523" height="333" src="https://www.youtube.com/embed/bAOWN1MwJe4" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
             </Col>
             <Col size='6' className='d-flex flex-column justify-content-center'>
               <Row>

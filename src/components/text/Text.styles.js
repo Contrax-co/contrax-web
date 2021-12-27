@@ -8,6 +8,7 @@ const baseStyles = (typography, props) => ({
   ...(typography),
   color: props.variant === 'light' ? colors.lightText : colors.darkText, 
   ...(props.color && { color: props.color }),
+  ...(props.weight && { fontWeight: props.weight }),
 });
 
 export const StyledPageTitle = styled('h3', {
@@ -64,11 +65,8 @@ export const StyledDescSpan = styled('span', {
 export const StyledLink = styled('a', {
   shouldForwardProp: (prop) => !noForwardProps.includes(prop),
 })((props) => ({
-  ...(typo.Desc),
-  ...(props.variant === 'light' && { color: colors.titleLight }),
-  ...(props.variant === 'dark' && { color: colors.titleDark }),
-  ...(props.variant === 'danger' && { color: colors.redText }),
-  ...(props.variant === 'success' && { color: colors.greenText }),
+  ...(typo.BtnText),
+  color: colors.primary, 
 })
 );
 
@@ -109,4 +107,10 @@ export const StyledH3 = styled('span', {
   shouldForwardProp: (prop) => !noForwardProps.includes(prop),
 })((props) => ({
   ...(baseStyles(typo.H3, props)),
+}));
+
+export const StyledCaption = styled('span', {
+  shouldForwardProp: (prop) => !noForwardProps.includes(prop),
+})((props) => ({
+  ...(baseStyles(typo.caption, props)),
 }));

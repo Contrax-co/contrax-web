@@ -92,7 +92,7 @@ export default function CreateToken(props: any) {
                   <td>7,000</td>
                   <td>678,987</td>
                   <td>
-                    <Link className="btn btn-text p-0" href="/manage-token">Manage</Link>
+                    <Link className="btn btn-text p-0" link="/manage-token">Manage</Link>
                   </td>
                 </tr>
                 <tr>

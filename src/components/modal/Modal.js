@@ -3,6 +3,7 @@ import { H3 } from "../text/Text";
 import { StyledCrossBtn, StyledModalContent, StyledModalDialog } from "./Modal.styles";
 import crossImage from "../../images/cross.svg";
 import { Image } from "../image/Image";
+import * as colors from "../../theme/colors";
 
 export const Modal = (props) => {
   const {
@@ -18,18 +19,18 @@ export const Modal = (props) => {
     <div className="modal fade" aria-labelledby="exampleModalLabel" aria-hidden="true" {...remainingProps}>
       <StyledModalDialog>
         <StyledModalContent>
-          <div className="modal-header">
-            <H3 className="modal-title">{title}</H3>
-            <StyledCrossBtn type="button" className="btn-close" data-bs-dismiss="modal" onClick={onClose} aria-label="Close">
+          <div className="modal-header border-0 pb-2">
+            <H3 className="modal-title" color={colors.accentDark}>{props.titleIcon && <i className={"fas " + props.titleIcon} style={{color: colors.primary}} /> } {title}</H3>
+            <StyledCrossBtn type="button" className="btn-close mt-0" data-bs-dismiss="modal" onClick={onClose} aria-label="Close">
               <Image src={crossImage} alt='close' />
             </StyledCrossBtn>
           </div>
-          <div className="modal-body">
+          <div className="modal-body pb-0">
             {children}
           </div>
-          <div className="modal-footer">
-            <Button type="button" className="btn btn-secondary" onClick={onClose} data-bs-dismiss="modal">{closeLabel ? closeLabel : 'Close'}</Button>
-            <Button type="button" className="btn btn-primary" onClick={onOk}>{okLabel ? okLabel : 'OK'}</Button>
+          <div className="modal-footer border-0 pb-0">
+            { closeLabel && <Button type="button" className="col" onClick={onClose} data-bs-dismiss="modal">{closeLabel ? closeLabel : 'Close'}</Button> }
+            <Button type="button" className='col' primary onClick={onOk}>{okLabel ? okLabel : 'OK'}</Button>
           </div>
         </StyledModalContent>
       </StyledModalDialog>

@@ -9,22 +9,26 @@ const noForwardProps = [];
 export const StyledForm = styled('form', {
   shouldForwardProp: (prop) => !noForwardProps.includes(prop),
 })((props) => ({
-  background: colors.formBg,
+  background: colors.secondaryLight,
   borderRadius: 10,
 })
 );
 
 export const StyledInput = styled('input', {
   shouldForwardProp: (prop) => !noForwardProps.includes(prop),
-})((props) => ({
-  ...(props.variant === 'light' && { color: colors.titleLight }),
-  ...(props.variant === 'dark' && { color: colors.titleDark }),
-  ...(props.height && { height: props.height }),
-  ...(typo.Title),
-})
+})((props) => {
+  if(!props.variant) props.variant = 'light';
+  return {
+    ...(props.height && { height: props.height }),
+    ...(typo.Title),
+    padding: '2px 1rem',
+    fontSize: '1rem',
+    lineHeight: '2rem',
+  }
+}
 );
 
-export const StyledCheckbox = styled('input', {
+export const Checkbox = styled('input', {
   shouldForwardProp: (prop) => !noForwardProps.includes(prop),
 })((props) => ({
   ...(props.variant === 'light' && { backgroundColor: colors.titleLight }),
@@ -32,5 +36,18 @@ export const StyledCheckbox = styled('input', {
   ...(typo.Title),
   float: 'left',
   marginRight: '0.6rem',
+  border: `1px solid ${colors.primary}`,
+  width: 13,
+  height: 13,
+  padding: 0,
 })
 );
+
+export const StyledCheckbox = styled(Checkbox).attrs(props => {
+})`
+  border-radius: 2px !important;
+  &:checked {
+    background-color: ${colors.primary};
+    border-color: ${colors.primary};
+  }
+`

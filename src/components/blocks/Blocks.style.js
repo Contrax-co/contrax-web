@@ -23,7 +23,7 @@ export const StyledRow = styled.div.attrs(props => {
 
 export const StyledCol = styled.div.attrs(props => {
   return {
-    className: 'col-md-'+props.size,
+    className: props.size ? 'col-md-'+props.size : 'col',
   }
 })``
 

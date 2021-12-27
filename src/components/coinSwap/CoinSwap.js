@@ -4,8 +4,9 @@ import Button from '../button/Button'
 import Card from '../card/Card'
 import DropdownInput from '../form/dropdownInput/DropdownInput'
 import { FormInput } from '../form/Form'
-import { Title, Desc } from '../text/Text'
+import { Desc, H3 } from '../text/Text'
 import { StyledInputDesc, StyledSettingCard, StyledSmallBtn, StyledSmallInput } from './CoinSwap.styles'
+import * as colors from '../../theme/colors';
 
 export default function CoinSwap() {
   const [showSetting, setShowSetting] = useState(false)
@@ -24,12 +25,12 @@ export default function CoinSwap() {
   }
 
   return (
-    <Card>
+    <Card className='border-0 mt-5' background={colors.secondaryLight} >
       {
         showSetting && 
         <StyledSettingCard>
           <div className="text-left">
-            <Button onClick={back} icon="fa-long-arrow-alt-left"></Button>
+            <Button onClick={back} className='bg-white border-0 p-0' icon="fa-long-arrow-alt-left"></Button>
           </div>
           <Row className="mt-3">
             <Desc>Slippage Tolerance</Desc>
@@ -61,9 +62,9 @@ export default function CoinSwap() {
         </StyledSettingCard>
       }
       <div className="text-right">
-        <Button onClick={()=>{setShowSetting(true)}} icon="fa-cog" label='' />
+        <Button className='bg-white border-0 p-0' onClick={()=>{setShowSetting(true)}} icon="fa-cog" label='' />
       </div>
-      <Title className="mt-1">Swap into more than 2000 tokens, using the best quotes from over 20 sources.</Title>
+      <H3 className="mt-1">Swap into more than 2000 tokens, using the best quotes from over 20 sources.</H3>
       <DropdownInput
         label='Pay'
         searchable={true}
@@ -84,8 +85,10 @@ export default function CoinSwap() {
         className='mb-4'
         disabled='disabled'
       />
-      <Title>1 ETH = 4482.6722 USDC</Title>
-      <Button label='Exchange' />
+      <H3 color={colors.accentDark}>1 ETH = 4482.6722 USDC</H3>
+      <Row>
+        <Button label='Exchange' className='col mt-4' primary />
+      </Row>
       <Desc className="mt-5">Slippage Tolerance: 3%</Desc>
       <Desc>Minimum Received 4339.4263 USDC</Desc>
     </Card>

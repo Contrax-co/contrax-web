@@ -7,7 +7,8 @@ export const StyledModalContent = styled.div.attrs(props => {
     className: 'modal-content'
   }
 })`
-  padding: 2rem 1.5rem;
+  padding: 1.8rem 1.2rem;
+  border-radius: 1.25rem;
 `
 
 export const StyledModalDialog = styled.div.attrs(props => {
@@ -15,9 +16,6 @@ export const StyledModalDialog = styled.div.attrs(props => {
     className: 'modal-dialog modal-dialog-centered'
   }
 })`
-  @media (min-width: 576px) {
-    max-width: 654px;
-  }
 `
 
 export const StyledCrossBtn = styled(Button).attrs(props => {

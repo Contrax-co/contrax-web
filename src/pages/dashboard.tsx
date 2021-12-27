@@ -5,6 +5,7 @@ import BottomBar from '../components/bottomBar/BottomBar';
 import { B1, H3 } from '../components/text/Text';
 import { Col, Container, Row } from '../components/blocks/Blocks';
 import * as colors from '../theme/colors';
+import tokenIcon from '../images/token-icon.svg';
 
 export default function dashboard() {
     return (
@@ -37,13 +38,13 @@ export default function dashboard() {
                         <Row className="mt-4 mb-3"><H3>Networks</H3></Row>
                         <Row>
                             <Col size='4' className="my-2">
-                                <StatsCard cardIcon={'fab fa-ethereum'} cardTitle={'Ethereum'} cardValue={'$5,134.12'} />        
+                                <StatsCard cardIcon='fas fa-wallet' cardTitle={'Ethereum'} cardValue={'$5,134.12'} />        
                             </Col>
                         </Row>
                         <Row className="mt-4 mb-3"><H3>Actions</H3></Row>
                         <Row>
                             <Col size='4' className="my-2">
-                                <StatsCard cardIcon={'fab fa-connectdevelop'} cardTitle={'Create a token'} cardValue={'→'} />
+                                <StatsCard iconImg={tokenIcon} cardTitle={'Create a token'} cardValue={'→'} />
                             </Col>
                         </Row>
                     </div>

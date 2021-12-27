@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { StyledPageTitle, StyledTitle, StyledPageSubTitle, StyledDesc, StyledDescSpan, StyledLink, StyledText, StyledB1, StyledH1, StyledH2, StyledH3 } from './Text.styles';
+import { StyledPageTitle, StyledTitle, StyledPageSubTitle, StyledDesc, StyledDescSpan, StyledLink, StyledText, StyledB1, StyledH1, StyledH2, StyledH3, StyledCaption } from './Text.styles';
 
 const propTypes = {
   small: PropTypes.bool,
@@ -180,7 +180,7 @@ export const B1 = (props) => {
 
   return (
     <StyledB1 variant={variant} {...remainingProps} >
-      {children}
+      {props.value || children}
     </StyledB1>
   );
 };
@@ -235,3 +235,19 @@ export const H3 = (props) => {
 };
 H3.prototype = propTypes;
 H3.defaultProps = { variant: 'dark' };
+
+export const Caption = (props) => {
+  const {
+    variant,
+    children,
+    ...remainingProps
+  } = props;
+
+  return (
+    <StyledCaption variant={variant} {...remainingProps} >
+      {children}
+    </StyledCaption>
+  );
+};
+Caption.prototype = propTypes;
+Caption.defaultProps = { variant: 'dark' };

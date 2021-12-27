@@ -180,7 +180,7 @@ export const B1 = (props) => {
 
   return (
     <StyledB1 variant={variant} {...remainingProps} >
-      {children}
+      {props.value || children}
     </StyledB1>
   );
 };

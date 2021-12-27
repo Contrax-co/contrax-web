@@ -1,15 +1,15 @@
 import Navigationbar from '../components/Navigationbar/Navigationbar'
 import BottomBar from '../components/bottomBar/BottomBar'
-import { Link, Title } from "../components/text/Text"; 
+import { B1, Link, Title } from "../components/text/Text"; 
 import PieChart from '../components/chart/PieChart';
 import duckIcon from '../images/yellowDuck.svg' 
 import { Container, Row } from '../components/blocks/Blocks';
 import { Image } from '../components/image/Image';
+import { Badge } from '../components/badge/Badge';
 
 export default function ExplorePool() {
-    // Pie Chart Data 
-    let poolChartDataList = [["TT", "WETH"], ["TT", 73000], ["WETH", 54000]]
-    // Explore Pool Table Data
+    let poolChartDataList = [["TT", "WETH"], ["11.29M TT-ETH (42%)", 73000], ["11.29M WETH (57%)", 54000]]
+
     let tableData = [
         {
             poolUrl: 'https://kovan.etherscan.io/address/0x00568c59aa94fafbdfce81d1e72fc96c8fc4b85c',
@@ -55,7 +55,7 @@ export default function ExplorePool() {
             {/* Explore Pool Table - Start */}
             <table className="table table-hover">
                 <thead>
-                <tr className="table-dark">
+                <tr className="table-light">
                     <th>#</th>
                     <th>Pool</th>
                     <th>Fee Rate</th>
@@ -72,15 +72,13 @@ export default function ExplorePool() {
                             <th>{index+1}</th>
                             <td>
                                 <Row>
-                                <span> <Link link={item.poolUrl} target='_blank' rel="noreferrer"> {item.poolAddress.substring(0,6)}...{item.poolAddress.substring(38,42)} <i className='fa fa-external-link text-dark' aria-hidden="true"></i> </Link> </span>
+                                <span><B1>{item.poolAddress.substring(0,6)}...{item.poolAddress.substring(38,42)}</B1> <Link link={item.poolUrl} target='_blank' rel="noreferrer"> <i className='fa fa-external-link' aria-hidden="true"></i> </Link> </span>
                                 </Row>
-                                <span className="badge bg-warning text-dark">{item.poolType}</span>
+                                <Badge>{item.poolType}</Badge>
                             </td>
                             <td>{item.feeRate}</td>
-                            <td className="chartColumn">
-                                {/* Display Pie Chart - Start */}
-                                <PieChart chartData={poolChartDataList} chartId={index} />
-                                {/* Display Pie Chart - End */}
+                            <td className="chartColumn" >
+                              <PieChart chartData={poolChartDataList} chartId={index} height='57px' />
                             </td>
                             <td> 
                                 <Row>
@@ -90,7 +88,7 @@ export default function ExplorePool() {
                             </td>
                             <td>{item.volume24H}</td>
                             <td>
-                                <Link className="btn btn-primary" link="/pool-detail">Manage</Link>
+                                <Link className="btn" link="/pool-detail">Manage</Link>
                             </td>
                         </tr>
                         ))

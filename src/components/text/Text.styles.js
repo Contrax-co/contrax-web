@@ -5,12 +5,17 @@ import { weight } from '../../theme/fonts';
 import * as typo from '../../theme/typography';
 
 const noForwardProps = [];
-const baseStyles = (typography, props) => ({
+const baseStyles = (typography, props) => {
+  if(props.size)
+  console.log(props);
+  return {
   ...(typography),
   color: props.variant === 'light' ? colors.lightText : colors.darkText, 
   ...(props.color && { color: props.color }),
   ...(props.weight && { fontWeight: props.weight }),
-});
+  ...(props.size && { fontSize: props.size }),
+  ...(props.lineHeight && { lineHeight: props.lineHeight }),
+}};
 
 export const StyledPageTitle = styled('h3', {
   shouldForwardProp: (prop) => !noForwardProps.includes(prop),

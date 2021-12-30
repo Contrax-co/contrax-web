@@ -52,6 +52,7 @@ export default function ExplorePool() {
             <Container className="container h-100">
             <Title className="mt-5" value={'Explore Pools'} variant={'dark'} />
           <div className="table-responsive">
+            {/* Explore Pool Table - Start */}
             <table className="table table-hover">
                 <thead>
                 <tr className="table-light">
@@ -94,6 +95,7 @@ export default function ExplorePool() {
                     }
                 </tbody>
             </table>
+            {/* Explore Pool Table - End */}
           </div>
             </Container>
             <BottomBar />

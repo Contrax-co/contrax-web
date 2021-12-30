@@ -1,7 +1,7 @@
 import React from 'react'
 import Navigationbar from '../components/Navigationbar/Navigationbar';
 import BottomBar from '../components/bottomBar/BottomBar';
-import { PageTitle, Title, Desc, H1, H3, B1 } from "../components/text/Text";
+import { Title, H1, H3, B1 } from "../components/text/Text";
 import Button, { ButtonGroupRadio } from "../components/button/Button";
 import { Form, FormInput } from "../components/form/Form";
 import DropdownInput from '../components/form/dropdownInput/DropdownInput';

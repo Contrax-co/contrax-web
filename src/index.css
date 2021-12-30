@@ -13,7 +13,7 @@ code {
 }
 
 img.main-logo {
-  width: 92px;
+  width: 145px;
 }
 
 .masthead {
@@ -110,4 +110,10 @@ p{
 }
 .navbar{
   padding-top: 2px !important;
+}
+.mr-4{
+  margin-right: 1.5rem;
+}
+.ml-4{
+  margin-left: 1.5rem;
 }

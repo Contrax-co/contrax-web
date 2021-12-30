@@ -4,7 +4,7 @@ import { Button } from "../button/Button";
 import Onboard from 'bnc-onboard';
 import Web3 from 'web3';
 import { setUserSession } from '../../store/localstorage';
-import logo from "../../images/logo.svg";
+import logo from "../../images/logo-4x.png";
 import { Image } from '../image/Image';
 import { Link } from '../text/Text';
 import { Container } from '../blocks/Blocks';

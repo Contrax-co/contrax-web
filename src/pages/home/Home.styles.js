@@ -14,12 +14,30 @@ export const StyledCtaBar = styled('div')(
 // flex-direction: row;
 //     justify-content: space-between;
 
-export const StyledCard = styled(Card)`
-  min-height: 350px;
-  width: calc(33.33% - 36px)
+export const StyledCard = styled(Card).attrs(props => {
+  return {
+    // className: 'col-lg-4'
+  }
+})`
+  @media (min-width: 64em){
+    min-height: 350px;
+    width: calc(33.33% - 36px)
+  }
+  @media (max-width: 63.94em){
+    width: calc(100% - 1rem);
+    margin: auto;
+    margin-top: 2rem;
+  }
 `
 
 export const StyledFeatureCard = styled(Card)`
-  min-height: 287px;
-  width: calc(33.33% - 36px)
+  @media (min-width: 64em){
+    // min-height: 287px;
+    width: calc(33.33% - 36px)
+  }
+  @media (max-width: 63.94em){
+    width: calc(100% - 1rem);
+    margin: auto;
+    margin-top: 2rem;
+  }
 `

@@ -57,3 +57,8 @@ export const TextBtn = {
   ...baseStyles('1rem', weight.semibold, '1.5rem'),
   fontFamily: family.Poppins
 }
+
+export const caption = {
+  ...baseStyles('0.75rem', weight.regular, '1.25rem'),
+  fontFamily: family.Poppins
+}

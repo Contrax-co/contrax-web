@@ -1,11 +1,12 @@
 import React from 'react'
 import Navigationbar from '../components/Navigationbar/Navigationbar';
 import BottomBar from '../components/bottomBar/BottomBar';
-import { PageTitle, Title, Desc } from "../components/text/Text";
+import { Title, H1, H3, B1 } from "../components/text/Text";
 import Button, { ButtonGroupRadio } from "../components/button/Button";
 import { Form, FormInput } from "../components/form/Form";
 import DropdownInput from '../components/form/dropdownInput/DropdownInput';
 import { Col, Container, Row } from '../components/blocks/Blocks';
+import * as colors from '../theme/colors';
 
 export default function CreatePool() {
   const currencies = [
@@ -21,22 +22,26 @@ export default function CreatePool() {
       <Navigationbar />
       <Container className="h-100">
         <Row>
-          <Col size='6' className="mx-auto my-auto h-100">
-            <PageTitle value={'Public Pool'} variant={'dark'} />
-            <Title value={'• Anyone can add liquidity'} variant={'dark'} />
-            <Title value={'• Parameters cannot be modified after creation'} variant={'dark'} className="mb-4" />
-            <PageTitle value={'Standard'} variant={'dark'} />
-            <Title value={'• 50/50 value liquidity provision (same as Uniswap)'} variant={'dark'} />
-            <Title value={'• More parameters can be set'} variant={'dark'} />
+          <Col size='6' className="mx-auto my-auto">
+            <H1 color={colors.primary}>Public Pool</H1>
+            <Row className='flex-column mb-3'>
+              <Col className='mt-3'><H3>• Anyone can add liquidity</H3></Col>
+              <Col className='mt-3'><H3>• Parameters cannot be modified after creation</H3></Col>
+            </Row>
+            <H1 color={colors.primary}>Standard</H1>
+            <Row className='flex-column'>
+              <Col className='mt-3'><H3>• 50/50 value liquidity provision (same as Uniswap)</H3></Col>
+              <Col className='mt-3'><H3>• More parameters can be set</H3></Col>
+            </Row>
           </Col>
-          <Col size='6'>
+          <Col size='6' className='pt-5'>
             <Form className="px-4 py-4 my-5">
               <Row>
                 <Col size='12' className="my-2">
                   <Title variant={'dark'} value={'Create a pool'} ></Title>
                 </Col>
                 <Col size='12' className="my-2">
-                  <Desc className="form-check-label" value={'01 Choose Pool Type'} variant={'dark'} />
+                  <Row className='mb-2'><B1 className="form-check-label">01 Choose Pool Type</B1></Row>
                   <ButtonGroupRadio className='col-md-12'
                     name='publicPool' checked='Public Pool'
                     disabled={['Private Pool', 'Pegged Pools']}
@@ -44,7 +49,7 @@ export default function CreatePool() {
                     ]} />
                 </Col>
                 <Col size='12' className="my-2">
-                  <Desc className="form-check-label" value={'02 Choose Pool Template'} variant={'dark'} />
+                  <Row className='mb-2'><B1 className="form-check-label">02 Choose Pool Template</B1></Row>
                   <ButtonGroupRadio className='col-md-12'
                     name='peggedPool' checked='Standard'
                     disabled={['Single Token', 'Custom']}
@@ -53,7 +58,6 @@ export default function CreatePool() {
                 </Col>
 
                 <Col size='12' className="my-2">
-                  <Desc className="form-check-label" value={'03 Supply Initial Tokens'} variant={'dark'} />
                   <DropdownInput
                     label='Quote Token Amount'
                     searchable={true}
@@ -63,7 +67,7 @@ export default function CreatePool() {
                     placeholder='0'
                     className="mb-4 mt-4"
                   />
-                  <Desc className="text-center" value={'+'} variant={'dark'} />
+                  <Row><B1 className="text-center">+</B1></Row>
                   <DropdownInput
                     label='Base Token Amount'
                     searchable={true}
@@ -76,10 +80,10 @@ export default function CreatePool() {
                   />
                 </Col>
                 <Col size='12' className="my-2">
-                  <Desc className="form-check-label" value={'04 Parameters'} variant={'dark'} />
+                  <B1 className="form-check-label" >04 Parameters</B1>
                   <Row>
                     <Col size='3' className="my-auto">
-                      <Desc className="" value={'Fee Rate (%)'} variant={'dark'} />
+                      <B1 className="" >Fee Rate (%)</B1>
                     </Col>
                     <Col size="9">
                       <FormInput className="w-100" placeholder="(0%, 10%)" />
@@ -87,8 +91,8 @@ export default function CreatePool() {
                   </Row>
                 </Col>
               </Row>
-              <Row className="justify-content-center mx-5 mt-3">
-                <Button type="submit" label={'Create'} variant="primary" />
+              <Row className="justify-content-center mx-5 mt-3 pt-3">
+                <Button type="submit" label={'Create Pool'} primary />
               </Row>
             </Form>
           </Col>

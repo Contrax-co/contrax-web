@@ -1,5 +1,8 @@
-import { Desc } from "../text/Text";
+import { B1, Caption } from "../text/Text";
 import { StyledCheckbox, StyledForm, StyledInput } from "./Form.styles";
+import * as colors from '../../theme/colors';
+import { weight } from '../../theme/fonts';
+import { Block, Row } from "../blocks/Blocks";
 
 export const Form = (props) => {
   const {
@@ -27,7 +30,7 @@ export const FormInput = (props) => {
 
   return (
     <div className={props.className}>
-      {label && <Desc value={label} variant={'dark'} />}
+      {label && <B1 color={colors.secondaryDark}>{label}</B1>}
       <StyledInput
         variant={variant}
         onClick={!onClick ? undefined : onClick}
@@ -36,6 +39,7 @@ export const FormInput = (props) => {
         {...remainingProps}
       >
       </StyledInput>
+      {props.caption && <Caption>{props.caption}</Caption>}
     </div>
   );
 };
@@ -54,7 +58,7 @@ export const FormCheckbox = (props) => {
 
   return (
     <div className={props.className}>
-      <label style={{ display: 'block' }}>
+      <Row className='d-flex flex-row flex-nowrap'>
         <StyledCheckbox
           variant={variant}
           onClick={!onClick ? undefined : onClick}
@@ -62,8 +66,11 @@ export const FormCheckbox = (props) => {
           type='checkbox'
           {...remainingProps}
         />
-        {label && <Desc value={label} variant={'dark'} />}
-      </label>
+        <Block className='p-0'>
+          <Row><B1 weight={props.caption ? weight.semibold : weight.regular}>{props.label}</B1></Row>
+          {props.caption && <Row><B1>{props.caption}</B1></Row>}
+        </Block>
+      </Row>
     </div>
   );
 };

@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { getUserSession, removeUserSession } from '../../store/localstorage';
-import { Button } from "../button/Button";
-// import Onboard from 'bnc-onboard';
-// import Web3 from 'web3';
-// import { setUserSession } from '../../store/localstorage';
-import logo from "../../images/logo.svg";
+// import { Button } from "../button/Button";
+import Onboard from 'bnc-onboard';
+import Web3 from 'web3';
+import { setUserSession } from '../../store/localstorage';
+import logo from "../../images/logo-4x.png";
 import { Image } from '../image/Image';
 import { Link } from '../text/Text';
 import { Container } from '../blocks/Blocks';
@@ -65,9 +65,9 @@ export default function Navigationbar() {
           <Link className="navbar-brand pt-0" link="/#">
             <Image src={logo} className='main-logo' alt='Contrax' />
           </Link>
-          <Button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </Button>
+          {/* <Button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> */}
+          {/* <span className="navbar-toggler-icon"></span> */}
+          {/* </Button> */}
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             {walletAddress !== '' ? (
               <>

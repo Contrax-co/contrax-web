@@ -1,14 +1,21 @@
 import styled from 'styled-components/macro';
 
 import * as colors from '../../theme/colors';
+import { weight } from '../../theme/fonts';
 import * as typo from '../../theme/typography';
 
 const noForwardProps = [];
-const baseStyles = (typography, props) => ({
+const baseStyles = (typography, props) => {
+  if(props.size)
+  console.log(props);
+  return {
   ...(typography),
   color: props.variant === 'light' ? colors.lightText : colors.darkText, 
   ...(props.color && { color: props.color }),
-});
+  ...(props.weight && { fontWeight: props.weight }),
+  ...(props.size && { fontSize: props.size }),
+  ...(props.lineHeight && { lineHeight: props.lineHeight }),
+}};
 
 export const StyledPageTitle = styled('h3', {
   shouldForwardProp: (prop) => !noForwardProps.includes(prop),
@@ -64,11 +71,8 @@ export const StyledDescSpan = styled('span', {
 export const StyledLink = styled('a', {
   shouldForwardProp: (prop) => !noForwardProps.includes(prop),
 })((props) => ({
-  ...(typo.Desc),
-  ...(props.variant === 'light' && { color: colors.titleLight }),
-  ...(props.variant === 'dark' && { color: colors.titleDark }),
-  ...(props.variant === 'danger' && { color: colors.redText }),
-  ...(props.variant === 'success' && { color: colors.greenText }),
+  ...(typo.BtnText),
+  color: colors.primary, 
 })
 );
 
@@ -91,6 +95,7 @@ export const StyledB1 = styled('span', {
   shouldForwardProp: (prop) => !noForwardProps.includes(prop),
 })((props) => ({
   ...(baseStyles(typo.B1, props)),
+  ...(props.bold && {fontWeight: weight.semibold}),
 }));
 
 export const StyledH1 = styled('span', {
@@ -109,4 +114,10 @@ export const StyledH3 = styled('span', {
   shouldForwardProp: (prop) => !noForwardProps.includes(prop),
 })((props) => ({
   ...(baseStyles(typo.H3, props)),
+}));
+
+export const StyledCaption = styled('span', {
+  shouldForwardProp: (prop) => !noForwardProps.includes(prop),
+})((props) => ({
+  ...(baseStyles(typo.caption, props)),
 }));

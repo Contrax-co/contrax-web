@@ -3,10 +3,11 @@ import Header from '../components/header/Header';
 import StatsCard from '../components/statsCard/StatsCard';
 import BottomBar from '../components/bottomBar/BottomBar';
 import PieChart from '../components/chart/PieChart';
-import { Title } from "../components/text/Text";
+import { B1, H3, Link, Title } from "../components/text/Text";
 import { Col, Container, Row } from '../components/blocks/Blocks';
 import { FormInput } from '../components/form/Form';
 import { Modal } from '../components/modal/Modal';
+import * as colors from '../theme/colors';
 
 export default function manageToken() {
   let chartDataList = [["Title", "Supply"], ["Your Tokens", 64000000], ["Other Tokens", 36000000]]
@@ -17,12 +18,18 @@ export default function manageToken() {
       <Container className="container mb-5">
         <nav>
           <div className="nav nav-tabs" id="nav-tab" role="tablist">
-            <button className="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Token Details</button>
+            <button className="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
+              <B1 color={colors.primary}>Token Details</B1>
+            </button>
           </div>
         </nav>
         <div className="tab-content" id="nav-tabContent">
           <div className="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-            <Title className="mt-4 mb-3">Coin Name: Solana Coin</Title>
+            <Row className="mt-4 mb-3">
+              <Col size='12'>
+                <H3>Coin Name: </H3><H3 color={colors.primary}>Solana Coin</H3>
+              </Col>
+            </Row>
             <Row>
               <Col size='8' className="my-2">
                 <Row className="row">
@@ -44,22 +51,22 @@ export default function manageToken() {
             <Title className="mt-4 mb-3">Token Actions</Title>
             <Row>
               <Col size='4' className="my-2">
-                <a href='/#' data-bs-toggle="modal" data-bs-target="#SendTokens">
+                <Link link='/#' data-bs-toggle="modal" data-bs-target="#SendTokens">
                   <StatsCard cardIcon={'fas fa-money-check-alt'} cardTitle={'Send Tokens'} cardValue={'→'} />
-                </a>
+                </Link>
               </Col>
               <Col size='4' className="my-2">
-                <a href='/#' data-bs-toggle="modal" data-bs-target="#BurnTokens">
+                <Link link='/#' data-bs-toggle="modal" data-bs-target="#BurnTokens">
                   <StatsCard cardIcon={'fas fa-fire-alt'} cardTitle={'Burn Tokens'} cardValue={'→'} />
-                </a>
+                </Link>
               </Col>
               <Col size='4' className="my-2">
                 <StatsCard cardIcon={'fas fa-project-diagram'} cardTitle={'End Crowdsale'} cardValue={'→'} />
               </Col>
               <Col size='4' className="my-2">
-                <a href='/#' data-bs-toggle="modal" data-bs-target="#RateChange">
+                <Link link='/#' data-bs-toggle="modal" data-bs-target="#RateChange">
                   <StatsCard cardIcon={'fas fa-file-invoice-dollar'} cardTitle={'Change Sale Rate'} cardValue={'→'} />
-                </a>
+                </Link>
               </Col>
             </Row>
 
@@ -69,37 +76,37 @@ export default function manageToken() {
       <BottomBar />
 
       <Modal id="SendTokens" title='Send Tokens'
-        closeLabel='Close'
         okLabel='Send'
+        titleIcon='fa-money-bill-alt'
       >
         <Row>
           <Col size='12' className="my-2">
-            <FormInput name='amount' label='Amount' placeholder='Amount you will send' />
+            <FormInput name='amount' caption='Amount you will send' placeholder='Amount' />
           </Col>
-          <Col size='12' className="my-2">
-            <FormInput name='address' label='Address' placeholder='Recipient Address' />
+          <Col size='12' className="my-2 mt-3">
+            <FormInput name='address' caption='Recipient Address' placeholder='Address' />
           </Col>
         </Row>
       </Modal>
 
       <Modal id="BurnTokens" title='Burn Tokens'
-        closeLabel='Close'
         okLabel='Burn'
+        titleIcon='fa-fire'
       >
         <Row className="row">
           <Col size='12' className="my-2">
-            <FormInput name='amount' label='Amount' placeholder='Amount you will burn' />
+            <FormInput name='amount' caption='Amount you will burn' placeholder='Amount' />
           </Col>
         </Row>
       </Modal>
 
       <Modal id="RateChange" title='Change Token Sale Rate'
-        closeLabel='Close'
         okLabel='Set New Rate'
+        titleIcon='fa-file-invoice-dollar'
       >
         <Row>
           <Col size='12' className="my-2">
-            <FormInput label='New Rate' name='' placeholder="Enter New Sale Rate" />
+            <FormInput caption='Enter new sale rate' name='' placeholder="New Rate" />
           </Col>
         </Row>
       </Modal>

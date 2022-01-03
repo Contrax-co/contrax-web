@@ -18,7 +18,7 @@ export default function Footer() {
       <StyledBox color={colors.accentDark} >
         <Row className="row">
           <Col size="6" >
-            <Image src={footerLogo} alt='contrax' />
+            <Image src={footerLogo} width='565px' alt='contrax' />
           </Col>
           <Col size="6">
           </Col>
@@ -33,8 +33,8 @@ export default function Footer() {
           </Col>
         </Row>
       </StyledBox>
-      {location === '/' ?
-        null
+      {location === '' ?
+        ''
         : (
           <BottomBar />
         )}

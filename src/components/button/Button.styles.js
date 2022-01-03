@@ -46,9 +46,14 @@ export const StyledButton = styled.button.attrs(props => {
     line-height: 2rem;
     padding: 7px 25px;
   `}
+
+  ${props => props.width && css`
+    width: ${props.width};
+  `}
   
   border-radius: 3rem;
   font-family: ${family.Poppins};
   font-style: normal;
   font-weight: ${weight.semibold};
+  
 `;

@@ -7,8 +7,8 @@ export const Card = function(props) {
   } = props;
 
   return (
-    <StyledCard className="card" {...remainingProps} >
-      <StyledCardBody>
+    <StyledCard  {...remainingProps} >
+      <StyledCardBody className={props.bodyClass}>
         {children}
       </StyledCardBody>
     </StyledCard>

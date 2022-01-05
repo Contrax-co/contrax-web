@@ -98,7 +98,7 @@ export default function home() {
           <StyledFeatureCard>
             <Block className='mt-3'><H3 color={colors.accentDark}>For Farmers</H3></Block>
             <Block className='mt-2'><H3 className='mb-5'>Get more out of staking and farming for any token</H3></Block>
-            <Block className='mt-4'><B1 className='mb-5'>Auto-compounding and impermanent loss protectoion for all Arbitrum pools.</B1></Block>
+            <Block className='mt-4'><B1 className='mb-5'>Auto-compounding and impermanent loss protection for all Arbitrum pools.</B1></Block>
           </StyledFeatureCard>
 
           {/* <StyledFeatureCard>

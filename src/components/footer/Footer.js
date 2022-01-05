@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import BottomBar from '../bottomBar/BottomBar';
 import { Col, Row } from '../blocks/Blocks';
 import * as colors from '../../theme/colors';
-import { StyledBox } from './Footer.styles';
+import { StyledBox, StyledImage } from './Footer.styles';
 import footerLogo from "../../images/logo-footer.png";
 import discordLogo from "../../images/discord.png";
 import twitterLogo from "../../images/twitter.png";
@@ -21,7 +21,7 @@ export default function Footer() {
       <StyledBox color={colors.accentDark} >
         <Row className="row">
           <Col size="6" >
-            <Image src={footerLogo} width='565px' alt='contrax' />
+            <StyledImage src={footerLogo} width='565px' alt='contrax' />
           </Col>
           <Col size="6">
           </Col>

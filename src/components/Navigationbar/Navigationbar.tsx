@@ -108,6 +108,9 @@ export default function Navigationbar() {
                   <li className="nav-item">
                     <StyledNavLink className="nav-link active" aria-current="page" link="https://medium.com/contrax-defi">Blog</StyledNavLink>
                   </li>
+                  <li className="nav-item">
+                    <StyledNavLink className="nav-link" link="/about">About</StyledNavLink>
+                  </li>
                 </ul>
                 {/* <Button primary size='sm' onClick={ConnectWallet} >Connect Wallet</Button> */}
               </>

@@ -20,7 +20,7 @@ padding: 2.3rem 3rem;
 `
 
 export const StyledImage = styled(Image)`
-width: 565px;
+  width: 239px;
   @media (max-width: 63.94em){
     width: 100%;
   }

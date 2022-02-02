@@ -5,7 +5,6 @@ import * as colors from '../../theme/colors';
 import { H1, H3, B1, H2 } from '../../components/text/Text';
 import { StyledCard, StyledFeatureCard } from './Home.styles';
 import { Block, Col, Container, Row } from '../../components/blocks/Blocks';
-import Button from '../../components/button/Button';
 
 export default function home() {
   return (

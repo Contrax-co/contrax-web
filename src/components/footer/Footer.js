@@ -4,13 +4,14 @@ import BottomBar from '../bottomBar/BottomBar';
 import { Col, Row } from '../blocks/Blocks';
 import * as colors from '../../theme/colors';
 import { StyledBox, StyledImage } from './Footer.styles';
-import footerLogo from "../../images/logo-footer.png";
+import footerLogo from "../../images/footer-logo.png";
 import discordLogo from "../../images/discord.png";
 import twitterLogo from "../../images/twitter.png";
 import telegramLogo from "../../images/telegram.png";
 import githubLogo from "../../images/github.png";
 import mediumLogo from "../../images/medium.png";
 import { Image } from '../image/Image';
+import { H3 } from '../text/Text';
 // import Button from '../button/Button';
 
 export default function Footer() {
@@ -21,9 +22,12 @@ export default function Footer() {
       <StyledBox color={colors.accentDark} >
         <Row className="row">
           <Col size="6" >
-            <StyledImage src={footerLogo} width='565px' alt='contrax' />
+            <StyledImage src={footerLogo} width='239px' alt='contrax' />
           </Col>
-          <Col size="6">
+        </Row>
+        <Row className="mt-2 mb-3">
+          <Col size="12" >
+            <H3 color={colors.whiteText}>Permissionless. Scalable. Community-led DeFi.</H3>
           </Col>
         </Row>
         <Row>

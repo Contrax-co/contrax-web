@@ -15,7 +15,6 @@ export default function home() {
       {/* benefits section */}
       <Row height='72px' />
       <Container className=''>
-        <Button onClick={test}>Test</Button>
         <Row className='d-row justify-content-between'>
           <StyledCard className='p-1'>
             <H3 color={colors.secondaryMideum}>Built on Arbitrum</H3>

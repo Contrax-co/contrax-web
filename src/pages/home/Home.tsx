@@ -10,7 +10,7 @@ const ethers = require('ethers');
 const contractFile = require('../../erc20.json');
 
 export default function home() {
-  function test(){
+  function test() {
     (async () => {
       // Deploy the contract to Ethereum test network - Ropsten
       const provider = ethers.providers.getDefaultProvider('https://mainnet.infura.io/v3/c6835386230d48689a28c924792e4fb1')
@@ -24,11 +24,11 @@ export default function home() {
 
       // Set gas limit and gas price, using the default Ropsten provider
       const price = ethers.utils.formatUnits(await provider.getGasPrice(), 'gwei')
-      const options = {gasLimit: 100000, gasPrice: ethers.utils.parseUnits(price, 'gwei')}
+      const options = { gasLimit: 100000, gasPrice: ethers.utils.parseUnits(price, 'gwei') }
 
       // Deploy the contract
       const factory = new ethers.ContractFactory(metadata.abi, metadata.bytecode, wallet)
-      const contract = await factory.deploy(8 , 'Test', 'testing' , 10000, options)
+      const contract = await factory.deploy(8, 'Test', 'testing', 10000, options)
       await contract.deployed()
       console.log(`Deployment successful! Contract Address: ${contract.address}`)
     })()

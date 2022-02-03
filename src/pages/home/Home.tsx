@@ -54,7 +54,7 @@ export default function home() {
             </Col>
             <Col size='6' className='d-flex flex-column justify-content-center'>
               <Row>
-                <H3 className='mb-1' color={colors.secondaryMideum}>What is the Contrax Project?</H3>
+                <H3 className='mb-1' color={colors.secondaryMideum}>What is the Contrax Project? </H3>
               </Row>
               <Row>
                 <H2 className='mb-2' size='2.12rem' color={colors.primary}>Understand Our Vision</H2>

@@ -109,6 +109,12 @@ export default function Navigationbar() {
                     <StyledNavLink className="nav-link active" aria-current="page" link="https://medium.com/contrax-defi">Blog</StyledNavLink>
                   </li>
                   <li className="nav-item">
+                    <StyledNavLink className="nav-link" link="/dashboard">Dashboard</StyledNavLink>
+                  </li>
+                  <li className="nav-item">
+                    <StyledNavLink className="nav-link" link="/create-pool">Create Pool</StyledNavLink>
+                  </li>
+                  <li className="nav-item">
                     <StyledNavLink className="nav-link" link="/about">About</StyledNavLink>
                   </li>
                 </ul>

@@ -9,6 +9,7 @@ import { Modal } from '../components/modal/Modal';
 import * as colors from '../theme/colors';
 import { Image } from '../components/image/Image';
 import createTokenImg from '../images/create-token.png';
+import { main } from '../utils/constants';
 const ethers = require('ethers');
 
 export default function CreateToken(props: any) {
@@ -23,8 +24,7 @@ export default function CreateToken(props: any) {
   const tokenSupportSupplyIncrease = useInput(false);
   const handleSubmit = (evt: any) => {
     evt.preventDefault();
-    alert(`Submitting Form ${tokenSymbol} ${tokenSupply}`);
-    // reset();
+    
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -35,7 +35,7 @@ export default function CreateToken(props: any) {
           decimal: tokenDecimal,
         })
     };
-    fetch('http://localhost:3000/api/v1/token', requestOptions)
+    fetch(`${main.serverUrl}api/v1/token`, requestOptions)
         .then(response => response.json())
         .then(res => {
           console.log(res, 'response after api request');
@@ -80,10 +80,10 @@ export default function CreateToken(props: any) {
                   <H3>Enter Token Parameters</H3>
                 </Col>
                 <FormInput className="col-lg-6 col-md-6 col-sm-6" caption="1-16 Characters" placeholder='Token Symbol' {...tokenSymbol} />
-                <FormInput className="col-lg-6 col-md-6 col-sm-6" caption="0-99,999,999,999,999,999" placeholder={'Token Supply'} {...tokenSupply} />
+                <FormInput type='number' className="col-lg-6 col-md-6 col-sm-6" caption="0-99,999,999,999,999,999" placeholder={'Token Supply'} {...tokenSupply} />
 
                 <FormInput className="col-lg-6 col-md-6 col-sm-6" caption="1-64 Characters" placeholder={'Token Name'} {...tokenName} />
-                <FormInput className="col-lg-6 col-md-6 col-sm-6" caption="0-18" placeholder={'Decimals'} {...tokenDecimal} />
+                <FormInput type='number' className="col-lg-6 col-md-6 col-sm-6" caption="0-18" placeholder={'Decimals'} {...tokenDecimal} />
 
                 <Col size='12' className="mt-3 mb-2">
                   <H3>Special Features</H3>
@@ -101,7 +101,7 @@ export default function CreateToken(props: any) {
                 </Col>
               </Row>
               <Row className="justify-content-center mx-5 mt-3">
-                <Button width='394px' data-bs-toggle="modal" data-bs-target="#PrevieCreateToken" className="row justify-content-center mt-2 mb-2" type="submit" label={'Connect Wallet'} primary />
+                <Button disabled={!tokenSymbol.value || !tokenSupply.value || !tokenName.value || !tokenDecimal.value} width='394px' data-bs-toggle="modal" data-bs-target="#PrevieCreateToken" className="row justify-content-center mt-2 mb-2" type="submit" label={'Connect Wallet'} primary />
               </Row>
             </Form>
           </Col>

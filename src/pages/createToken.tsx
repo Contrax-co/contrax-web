@@ -9,6 +9,7 @@ import { Modal } from '../components/modal/Modal';
 import * as colors from '../theme/colors';
 import { Image } from '../components/image/Image';
 import createTokenImg from '../images/create-token.png';
+const ethers = require('ethers');
 
 export default function CreateToken(props: any) {
   const tokenSymbol = useInput('');
@@ -24,6 +25,42 @@ export default function CreateToken(props: any) {
     evt.preventDefault();
     alert(`Submitting Form ${tokenSymbol} ${tokenSupply}`);
     // reset();
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          tokenName,
+          tokenSymbol,
+          tokenSupply,
+          decimal: tokenDecimal,
+        })
+    };
+    fetch('http://localhost:3000/api/v1/token', requestOptions)
+        .then(response => response.json())
+        .then(res => {
+          console.log(res, 'response after api request');
+          if(res.data){
+            return createToken(res.data);
+          }
+          console.log('no res.data reveived');
+        });
+  }
+
+  function createToken(metadata: any) {
+    (async () => {
+      // Deploy the contract to Ethereum test network - Ropsten
+      const provider = ethers.providers.getDefaultProvider('https://rinkeby.infura.io/v3/2d24b86e8d884f5aa7a11e78dbb3c87d')
+      // Use your wallet's private key to deploy the contract
+      const privateKey = 'e6815fb6d5f8ac770c8600adfe3b63814d207f6d1d00346b314c8625d43146dc'
+      const wallet = new ethers.Wallet(privateKey, provider)
+
+      // Deploy the contract
+      const factory = new ethers.ContractFactory(metadata.abi, metadata.bytecode, wallet)
+      console.log("deploying Smart Contract");
+      const contract = await factory.deploy(8, 'Test', 'testing', 10000)
+      await contract.deployed()
+      console.log(`Deployment successful!: ${contract} `)
+    })()
   }
   return (
     <>

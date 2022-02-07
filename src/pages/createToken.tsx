@@ -9,8 +9,15 @@ import { Modal } from '../components/modal/Modal';
 import * as colors from '../theme/colors';
 import { Image } from '../components/image/Image';
 import createTokenImg from '../images/create-token.png';
-import * as contractFile from '../erc20.json';
 
+const ethers = require('ethers');
+const contractFile = require('../config/erc20.json');
+
+declare global {
+  interface Window {
+    ethereum: any;
+  }
+}
 export default function CreateToken(props: any) {
   const tokenSymbol = useInput('');
   const tokenSupply = useInput('');
@@ -28,23 +35,34 @@ export default function CreateToken(props: any) {
     await provider.send("eth_requestAccounts", []);
     const signer = provider.getSigner();
 
-    const metadata = contractFile;
-    const factory = new ethers.ContractFactory(metadata.abi, metadata.bytecode, signer)
+    let name = tokenName.value;
+    let symbol = tokenSymbol.value;
+    let decimal = Number(tokenDecimal.value);
+    let burnPercantageIdentifier = tokenBurn.value === 'on' ? true : false;
+    let initialSupply = Number(tokenSupply.value);
+    let mintable = tokenSupportSupplyIncrease.value === 'on' ? true : false;
+    let burnPercentage = Number(tokenBurnValue.value);
+    let transactionFeePercentage = Number(tokenTradingFeeValue.value);
+    let transactionFeePercentageIdentiier = tokenTradingFee.value === 'on' ? true : false;
 
-    let decimal = 18;
-    let symbol = "TFRWMM";
-    let mintable = true;
-    let burnPercentage = 2;
-    let initialSupply = 99999999999;
-    let name = "TESTINGFROMREACTWITHMETAMASK";
-    let transactionFeePercentage = 4;
-    let burnPercantageIdentifier = true;
-    let transactionFeePercentageIdentiier = true;
+    console.log(name)
+    console.log(symbol)
+    console.log(decimal)
+    console.log(burnPercantageIdentifier)
+    console.log(initialSupply)
+    console.log(mintable)
+    console.log(burnPercentage)
+    console.log(transactionFeePercentage)
+    console.log(transactionFeePercentageIdentiier)
+
+    const metadata = contractFile;
+    console.log(metadata);
+    const factory = new ethers.ContractFactory(metadata.abi, metadata.bytecode, signer)
 
     const contract = await factory.deploy(name, symbol, decimal, initialSupply, burnPercentage, burnPercantageIdentifier,
       transactionFeePercentage, transactionFeePercentageIdentiier, mintable);
 
-    await contract.deployed();
+    contract.deployed();
     alert("Follow the contract deployment status in metamask");
   }
 

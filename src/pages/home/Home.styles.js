@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro';
-import {Card} from '../../components/card/Card';
+import { Card } from '../../components/card/Card';
 
 export const StyledCtaBar = styled('div')(
   (props) => ({

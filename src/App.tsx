@@ -13,32 +13,32 @@ import PoolDetail from './pages/poolDetail';
 function App() {
   return (
     <Router>
-       <Switch>
-            <Route exact path='/'>
-              <Home />
-            </Route>
-            <Route exact path='/dashboard'>
-              <Dashboard />
-            </Route>
-            <Route exact path='/create-a-token'>
-              <CreateToken />
-            </Route>
-            <Route exact path='/manage-token'>
-              <ManageToken />
-            </Route>
-            <Route exact path='/exchange'>
-              <Exchange />
-            </Route>
-            <Route exact path='/explore-pool'>
-              <ExplorePool />
-            </Route>
-            <Route exact path='/create-pool'>
-              <CreatePool />
-            </Route>
-            <Route exact path='/pool-detail'>
-              <PoolDetail />
-            </Route>
-        </Switch>
+      <Switch>
+        <Route exact path='/'>
+          <Home />
+        </Route>
+        <Route exact path='/dashboard'>
+          <Dashboard />
+        </Route>
+        <Route exact path='/create-a-token'>
+          <CreateToken />
+        </Route>
+        <Route exact path='/manage-token'>
+          <ManageToken />
+        </Route>
+        <Route exact path='/exchange'>
+          <Exchange />
+        </Route>
+        <Route exact path='/explore-pool'>
+          <ExplorePool />
+        </Route>
+        <Route exact path='/create-pool'>
+          <CreatePool />
+        </Route>
+        <Route exact path='/pool-detail'>
+          <PoolDetail />
+        </Route>
+      </Switch>
     </Router>
   );
 }

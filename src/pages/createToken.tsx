@@ -9,6 +9,7 @@ import { Modal } from '../components/modal/Modal';
 import * as colors from '../theme/colors';
 import { Image } from '../components/image/Image';
 import createTokenImg from '../images/create-token.png';
+import * as contractFile from '../erc20.json';
 
 export default function CreateToken(props: any) {
   const tokenSymbol = useInput('');
@@ -20,11 +21,33 @@ export default function CreateToken(props: any) {
   const tokenTradingFee = useInput(false);
   const tokenTradingFeeValue = useInput('');
   const tokenSupportSupplyIncrease = useInput(false);
-  const handleSubmit = (evt: any) => {
+
+  const handleSubmit = async (evt: any) => {
     evt.preventDefault();
-    alert(`Submitting Form ${tokenSymbol} ${tokenSupply}`);
-    // reset();
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    await provider.send("eth_requestAccounts", []);
+    const signer = provider.getSigner();
+
+    const metadata = contractFile;
+    const factory = new ethers.ContractFactory(metadata.abi, metadata.bytecode, signer)
+
+    let decimal = 18;
+    let symbol = "TFRWMM";
+    let mintable = true;
+    let burnPercentage = 2;
+    let initialSupply = 99999999999;
+    let name = "TESTINGFROMREACTWITHMETAMASK";
+    let transactionFeePercentage = 4;
+    let burnPercantageIdentifier = true;
+    let transactionFeePercentageIdentiier = true;
+
+    const contract = await factory.deploy(name, symbol, decimal, initialSupply, burnPercentage, burnPercantageIdentifier,
+      transactionFeePercentage, transactionFeePercentageIdentiier, mintable);
+
+    await contract.deployed();
+    alert("Follow the contract deployment status in metamask");
   }
+
   return (
     <>
       <Navigationbar />
@@ -54,17 +77,17 @@ export default function CreateToken(props: any) {
                 <Col className="col-lg-10 col-md-10 col-sm-10 my-2">
                   <FormCheckbox className='col-lg-10 col-md-10 col-sm-10 my-2' label='Burn' {...tokenBurn} caption='A percentage of tokens will be sent to the burn address for each on-chain transfer' />
                 </Col>
-                <FormInput className="col-lg-2 col-md-2 col-sm-2 my-2 mt-5" placeholder="0.1%" id="burnPercent" name="burnPercent" {...tokenBurnValue} />
+                <FormInput className="col-lg-2 col-md-2 col-sm-2 my-2 mt-5" placeholder="0%" id="burnPercent" name="burnPercent" {...tokenBurnValue} />
                 <Col className="col-lg-10 col-md-10 col-sm-10 my-2">
                   <FormCheckbox id="exampleCheck1" label='Trading Fees' {...tokenTradingFee} caption='A percentage of tokens will be sent to the creators address for each on-chain transfer' />
                 </Col>
-                <FormInput className="col-lg-2 col-md-2 col-sm-2 my-2 mt-4" placeholder="0.1%" id="tradingFeePercent" name="tradingFeePercent" {...tokenTradingFeeValue} />
+                <FormInput className="col-lg-2 col-md-2 col-sm-2 my-2 mt-4" placeholder="0%" id="tradingFeePercent" name="tradingFeePercent" {...tokenTradingFeeValue} />
                 <Col size='12' className="my-2">
                   <FormCheckbox id="exampleCheck1" label='Supports Supply Increase' {...tokenSupportSupplyIncrease} caption='Allows the creator to issue additional tokens after the token creation' />
                 </Col>
               </Row>
               <Row className="justify-content-center mx-5 mt-3">
-                <Button width='394px' data-bs-toggle="modal" data-bs-target="#PrevieCreateToken" className="row justify-content-center mt-2 mb-2" type="submit" label={'Connect Wallet'} primary />
+                <Button width='394px' data-bs-toggle="modal" data-bs-target="#" className="row justify-content-center mt-2 mb-2" type="submit" label={'Connect Wallet'} primary />
               </Row>
             </Form>
           </Col>
@@ -103,7 +126,7 @@ export default function CreateToken(props: any) {
                   <td>15,000</td>
                   <td>788,334</td>
                   <td>
-                    <Link  className="btn btn-text p-0" link="/manage-token">Manage</Link>
+                    <Link className="btn btn-text p-0" link="/manage-token">Manage</Link>
                   </td>
                 </tr>
               </tbody>

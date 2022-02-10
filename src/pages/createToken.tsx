@@ -9,6 +9,10 @@ import { Modal } from '../components/modal/Modal';
 import * as colors from '../theme/colors';
 import { Image } from '../components/image/Image';
 import createTokenImg from '../images/create-token.png';
+import { tokenApiEndpoint } from "../utils/url";
+import { main } from '../utils/constants';
+import { useEffect, useState } from 'react';
+import { getUserSession, setSelectedToken } from '../store/localstorage';
 
 const ethers = require('ethers');
 const contractFile = require('../config/erc20.json');
@@ -28,6 +32,16 @@ export default function CreateToken(props: any) {
   const tokenTradingFee = useInput(false);
   const tokenTradingFeeValue = useInput('');
   const tokenSupportSupplyIncrease = useInput(false);
+  const [tokens, setTokens] = useState([]);
+
+  useEffect(() => {
+    let walletData: any;
+    let sessionData = getUserSession();
+    if (sessionData) {
+      walletData = JSON.parse(sessionData)
+      getTokensList(walletData.address);
+    }
+  }, [])
 
   const handleSubmit = async (evt: any) => {
     evt.preventDefault();
@@ -54,6 +68,27 @@ export default function CreateToken(props: any) {
 
     contract.deployed();
     alert("Follow the contract deployment status in metamask");
+  }
+
+  const getTokensList = (address: string) => {
+    const requestOptions = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-API-Key': main.xApiKey,
+        'Access-Control-Allow-Origin': '*'
+      }
+    };
+    fetch(`${tokenApiEndpoint}/${address}/erc20?chain=rinkeby`, requestOptions)
+      .then(response => response.json())
+      .then(res => {
+        if (res) {
+          console.log(res);
+          setTokens(res)
+          return;
+        }
+        console.log('no res.data reveived');
+      });
   }
 
   return (
@@ -115,28 +150,21 @@ export default function CreateToken(props: any) {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th>1</th>
-                  <td>SOL</td>
-                  <td>Solana</td>
-                  <td>1,000,000,000,000</td>
-                  <td>7,000</td>
-                  <td>678,987</td>
-                  <td>
-                    <Link className="btn btn-text p-0" link="/manage-token">Manage</Link>
-                  </td>
-                </tr>
-                <tr>
-                  <th>2</th>
-                  <td>Rune</td>
-                  <td>Thor coin</td>
-                  <td>1,000,000,000</td>
-                  <td>15,000</td>
-                  <td>788,334</td>
-                  <td>
-                    <Link className="btn btn-text p-0" link="/manage-token">Manage</Link>
-                  </td>
-                </tr>
+                {
+                  tokens.map((token: any, index) => {
+                    return <tr key={index}>
+                      <th>{index + 1}</th>
+                      <td>{token.symbol}</td>
+                      <td>{token.name}</td>
+                      <td>--</td>
+                      <td>--</td>
+                      <td>{token.balance}</td>
+                      <td>
+                        <Link className="btn btn-text p-0" onClick={() => { setSelectedToken(token) }} link="/manage-token">Manage</Link>
+                      </td>
+                    </tr>
+                  })
+                }
               </tbody>
             </table>
           </div>

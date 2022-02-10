@@ -8,9 +8,19 @@ import { Col, Container, Row } from '../components/blocks/Blocks';
 import { FormInput } from '../components/form/Form';
 import { Modal } from '../components/modal/Modal';
 import * as colors from '../theme/colors';
+import { useEffect, useState } from 'react';
+import { getSelectedToken } from '../store/localstorage';
 
-export default function manageToken() {
+export default function ManageToken() {
   let chartDataList = [["Title", "Supply"], ["Your Tokens", 64000000], ["Other Tokens", 36000000]]
+  let any:any = {};
+  const [selectedToken, setSelectedToken] = useState(any);  
+  useEffect(() => {
+    const data = getSelectedToken();
+    setSelectedToken(JSON.parse(data || ''));
+    console.log(selectedToken);
+  }, []);
+  
   return (
     <div>
       <Navigationbar />
@@ -27,20 +37,20 @@ export default function manageToken() {
           <div className="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
             <Row className="mt-4 mb-3">
               <Col size='12'>
-                <H3>Coin Name: </H3><H3 color={colors.primary}>Solana Coin</H3>
+                <H3>Coin Name: </H3><H3 color={colors.primary}>{selectedToken.name}</H3>
               </Col>
             </Row>
             <Row>
               <Col size='8' className="my-2">
                 <Row className="row">
                   <Col size='6' className="my-2">
-                    <StatsCard cardIcon={'fas fa-chart-line'} cardTitle={'Supply'} cardValue={'100,000,000'} />
+                    <StatsCard cardIcon={'fas fa-chart-line'} cardTitle={'Supply'} cardValue={'--'} />
                   </Col>
                   <Col size='6' className="my-2">
-                    <StatsCard cardIcon={'fas fa-wallet'} cardTitle={'Your Balance'} cardValue={'56,000,000'} />
+                    <StatsCard cardIcon={'fas fa-wallet'} cardTitle={'Your Balance'} cardValue={selectedToken.balance} />
                   </Col>
                   <Col size='6' className="my-2">
-                    <StatsCard cardIcon={'fas fa-chart-pie'} cardTitle={'% of Distribution'} cardValue={'65%'} />
+                    <StatsCard cardIcon={'fas fa-chart-pie'} cardTitle={'% of Distribution'} cardValue={'--'} />
                   </Col>
                 </Row>
               </Col>

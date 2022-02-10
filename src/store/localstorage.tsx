@@ -10,3 +10,16 @@ export function getUserSession(){
 export function removeUserSession(){
     return localStorage.removeItem('userOnboardData');
 }
+
+// Method To Store SelectedToken
+export function setSelectedToken(data:any){
+  return localStorage.setItem('selectedToken', JSON.stringify(data));
+}
+// Method To Fetch SelectedToken
+export function getSelectedToken(){
+  return localStorage.getItem('selectedToken');
+}
+// Method To Remove SelectedToken
+export function removeSelectedToken(){
+  return localStorage.removeItem('selectedToken');
+}

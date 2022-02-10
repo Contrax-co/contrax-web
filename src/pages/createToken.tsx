@@ -45,16 +45,6 @@ export default function CreateToken(props: any) {
     let transactionFeePercentage = Number(tokenTradingFeeValue.value);
     let transactionFeePercentageIdentiier = tokenTradingFee.value === 'on' ? true : false;
 
-    console.log(name)
-    console.log(symbol)
-    console.log(decimal)
-    console.log(burnPercantageIdentifier)
-    console.log(initialSupply)
-    console.log(mintable)
-    console.log(burnPercentage)
-    console.log(transactionFeePercentage)
-    console.log(transactionFeePercentageIdentiier)
-
     const metadata = contractFile;
     console.log(metadata);
     const factory = new ethers.ContractFactory(metadata.abi, metadata.bytecode, signer)

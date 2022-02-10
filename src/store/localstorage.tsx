@@ -16,7 +16,7 @@ export function setSelectedToken(data:any){
   return localStorage.setItem('selectedToken', JSON.stringify(data));
 }
 // Method To Fetch SelectedToken
-export function getSelectedToken(){
+export function getSelectedToken() :string | null{
   return localStorage.getItem('selectedToken');
 }
 // Method To Remove SelectedToken

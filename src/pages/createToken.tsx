@@ -33,7 +33,7 @@ export default function CreateToken(props: any) {
   const tokenTradingFeeValue = useInput('');
   const tokenSupportSupplyIncrease = useInput(false);
   const [tokens, setTokens] = useState([]);
-  
+
   useEffect(() => {
     let walletData: any;
     let sessionData = getUserSession();
@@ -59,16 +59,6 @@ export default function CreateToken(props: any) {
     let transactionFeePercentage = Number(tokenTradingFeeValue.value);
     let transactionFeePercentageIdentiier = tokenTradingFee.value === 'on' ? true : false;
 
-    console.log(name)
-    console.log(symbol)
-    console.log(decimal)
-    console.log(burnPercantageIdentifier)
-    console.log(initialSupply)
-    console.log(mintable)
-    console.log(burnPercentage)
-    console.log(transactionFeePercentage)
-    console.log(transactionFeePercentageIdentiier)
-
     const metadata = contractFile;
     console.log(metadata);
     const factory = new ethers.ContractFactory(metadata.abi, metadata.bytecode, signer)
@@ -80,24 +70,26 @@ export default function CreateToken(props: any) {
     alert("Follow the contract deployment status in metamask");
   }
 
-  const getTokensList = (address: string) =>{
+  const getTokensList = (address: string) => {
     const requestOptions = {
       method: 'GET',
-      headers: { 
+      headers: {
         'Content-Type': 'application/json',
-        'X-API-Key': main.xApiKey
+        'X-API-Key': main.xApiKey,
+        'Access-Control-Allow-Origin': '*'
       }
-  };
+    };
     fetch(`${tokenApiEndpoint}/${address}/erc20?chain=rinkeby`, requestOptions)
-        .then(response => response.json())
-        .then(res => {
-          if(res){
-            setTokens(res)
-            return;
-          }
-          console.log('no res.data reveived');
-        });
-  } 
+      .then(response => response.json())
+      .then(res => {
+        if (res) {
+          console.log(res);
+          setTokens(res)
+          return;
+        }
+        console.log('no res.data reveived');
+      });
+  }
 
   return (
     <>
@@ -159,16 +151,16 @@ export default function CreateToken(props: any) {
               </thead>
               <tbody>
                 {
-                  tokens.map((token:any, index) => {
+                  tokens.map((token: any, index) => {
                     return <tr key={index}>
-                      <th>{index+1}</th>
+                      <th>{index + 1}</th>
                       <td>{token.symbol}</td>
                       <td>{token.name}</td>
                       <td>--</td>
                       <td>--</td>
                       <td>{token.balance}</td>
                       <td>
-                        <Link className="btn btn-text p-0" onClick={()=>{setSelectedToken(token)}} link="/manage-token">Manage</Link>
+                        <Link className="btn btn-text p-0" onClick={() => { setSelectedToken(token) }} link="/manage-token">Manage</Link>
                       </td>
                     </tr>
                   })

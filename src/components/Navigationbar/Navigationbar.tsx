@@ -106,7 +106,7 @@ export default function Navigationbar() {
                     <StyledNavLink className="nav-link active" aria-current="page" link="https://contrax.gitbook.io/contrax-docs/">Docs</StyledNavLink>
                   </li>
                   <li className="nav-item">
-                    <StyledNavLink className="nav-link active" aria-current="page" link="https://medium.com/contrax-defi">Blog</StyledNavLink>
+                    <StyledNavLink className="nav-link active" aria-current="page" link="https://contraxfi.medium.com/contrax-the-dapp-token-and-dao-explained-8c8d5a9b7e9d">Blog</StyledNavLink>
                   </li>
                   <li className="nav-item">
                     <StyledNavLink className="nav-link" link="/about">About</StyledNavLink>

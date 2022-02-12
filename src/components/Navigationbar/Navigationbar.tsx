@@ -102,6 +102,9 @@ export default function Navigationbar() {
             ) :
               <>
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                <li className="nav-item">
+                    <StyledNavLink className="nav-link active" aria-current="page" link="https://contrax.finance/">Home</StyledNavLink>
+                  </li>
                   <li className="nav-item">
                     <StyledNavLink className="nav-link active" aria-current="page" link="https://contrax.gitbook.io/contrax-docs/">Docs</StyledNavLink>
                   </li>

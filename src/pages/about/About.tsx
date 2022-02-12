@@ -4,13 +4,12 @@ import * as colors from '../../theme/colors';
 import { H3, Link } from '../../components/text/Text';
 import { StyledCard, StyledH1, StyledImage } from './About.styles';
 import { Col, Container, Row } from '../../components/blocks/Blocks';
-import logo from "../../images/logo-4x.png";
 import { Image } from '../../components/image/Image';
 import member1 from '../../images/team/member-1.jpeg';
 import member2 from '../../images/team/member-2.jpeg';
 import member3 from '../../images/team/member-3.jpeg';
 import member4 from '../../images/team/member-4.jpeg';
-import member5 from '../../images/team/member-5.jpeg';
+import member5 from '../../images/team/member-5.jpg';
 import member6 from '../../images/team/member-6.jpeg';
 import member7 from '../../images/team/member-7.jpeg';
 import linkedin from '../../images/linkedin.png';
@@ -22,14 +21,7 @@ export default function about() {
     <div style={{ backgroundColor: colors.white }}>
       <Navigationbar />
       <div style={{ background: colors.pageBgLight, paddingBottom: '2.5rem' }}>
-        <Container>
-          <Image src={logo} width="354px" />
-          <Row>
-            <StyledH1 color={colors.primary} size='3.8rem' lineHeight='5rem'>
-              Permissionless. Scalable. <br /> Community-led DeFi.
-            </StyledH1>
-          </Row>
-        </Container>
+          {/* header removed for now */}
       </div>
       {/* benefits section */}
       <Row height='72px' />
@@ -37,7 +29,9 @@ export default function about() {
       <Container className=''>
         <Row>
           <Col className="text-center mb-4">
-            <H3>Meet the Team</H3>
+          <StyledH1 color={colors.primary} size='3.8rem' lineHeight='5rem'>
+              Meet the Team
+            </StyledH1>
           </Col>
         </Row>
       </Container>
@@ -127,7 +121,7 @@ export default function about() {
           <StyledCard className='p-1 mr-4'>
             <StyledImage src={member4} />
             <Row className="text-center mt-3">
-              <H3 color={colors.primary}>Gianfranco D'agostino</H3>
+              <H3 color={colors.primary}>Jeff Gianfranco</H3>
             </Row>
             <Row className="text-center mt-1">
               <H3 color={colors.accentDark}>Strategic Advisor</H3>
@@ -146,7 +140,7 @@ export default function about() {
 
           <StyledCard className='p-1 mr-4 ml-4'>
             <StyledImage src={member7} />
-            <Row className="text-center mt-3">
+            <Row className="text-center mt-4">
               <H3 color={colors.primary}>Sidney Powell</H3>
             </Row>
             <Row className="text-center mt-1">
@@ -166,7 +160,7 @@ export default function about() {
 
           <StyledCard className='p-1 ml-4'>
             <StyledImage src={member5} />
-            <Row className="text-center mt-3">
+            <Row className="text-center mt-4">
               <H3 color={colors.primary}>SavicFoley P.C.</H3>
             </Row>
             <Row className="text-center mt-1">

@@ -32,7 +32,7 @@ export default function banner() {
               {/* <Button size='sm' className='mb-3 mt-3' primary label={'Explore Docs'} /> */}
               <Link link="https://contrax.gitbook.io/contrax-docs/"><Button className='mb-3 mt-3' size='sm' primary label={'Explore Docs'} /></Link> 
               &nbsp; &nbsp;
-              <Link link="https://my.forms.app/form/6127a7e0bd6e4f7f3a71a783" target="_blank" rel="noreferrer noopener"><Button className='mb-3 mt-3' size='sm' primary label={'Early Access'} /></Link>
+              <Link link="https://gleam.io/plWUe/trax-100k-giveaway-10k-to-5-random-winners-10k-to-the-top-5-of-entries" target="_blank" rel="noreferrer noopener"><Button className='mb-3 mt-3' size='sm' primary label={'TRAX Giveaway'} /></Link>
             </Col>
             <Col size='5' className='pt-4'>
               <Image src={banner1} alt='banner' className='mt-1  d-none d-md-block' />

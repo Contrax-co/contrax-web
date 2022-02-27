@@ -22,7 +22,7 @@ export default function banner() {
               <p className={'mt-4 mb-2'} ><H2 color={colors.secondaryMideum} >Tokens. Pools. Farms.</H2></p>
               <StyledH1 color={colors.primary} size='4.5rem' lineHeight='5rem'>Fast. Secure. <br />Permissionless.</StyledH1>
               <Row><H3 color={colors.secondaryDark} className='mt-3 mb-1'>
-                Contrax is Arbitrum's only AMM with integrated development tools and advanced farming features.
+                Contrax gives you the power to create your own DeFi tokens on Ethereum and Arbitrum, and add advanced DeFi features to existing ones.
               </H3></Row>
               <Image src={ethereum} className='mr-4 mt-3' width='94' height='42' alt='ethereum' />
               <Image src={arbiscan} className='mr-4 mt-3' width='144' height='29' alt='arbiscan' />

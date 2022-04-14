@@ -17,7 +17,7 @@ const pieOptions = {
       textStyle: {
         color: secondaryDark,
         fontSize: 14,   
-      }
+      },
     },
     tooltip: {
       showColorCode: true

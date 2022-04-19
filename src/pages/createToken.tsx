@@ -214,7 +214,6 @@ export default function CreateToken(props: any) {
           </Col>
         </Row>
       </Modal>
-
     </>
   )
 }

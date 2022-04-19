@@ -9,6 +9,7 @@ import Exchange from './pages/exchange';
 import ExplorePool from './pages/explorePool';
 import CreatePool from './pages/createPool';
 import PoolDetail from './pages/poolDetail';
+import CreatePoolNew from './pages/createPoolOld';
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
             </Route>
             <Route exact path='/create-pool'>
               <CreatePool />
+            </Route>
+            <Route exact path='/pool'>
+              <CreatePoolNew />
             </Route>
             <Route exact path='/pool-detail'>
               <PoolDetail />

@@ -31,7 +31,7 @@ export const Modal = (props) => {
           </div>
           <div className="modal-footer border-0 pb-0">
             { closeLabel && <Button type="button" className="col" onClick={onClose} data-bs-dismiss="modal">{closeLabel ? closeLabel : 'Close'}</Button> }
-            <Button type="button" className='col' primary onClick={onOk}>{okLabel ? okLabel : 'OK'}</Button>
+            {okLabel && <Button type="button" className='col' primary onClick={onOk}>{okLabel ? okLabel : 'OK'}</Button>}
           </div>
         </StyledModalContent>
       </StyledModalDialog>

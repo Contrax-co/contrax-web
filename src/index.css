@@ -245,7 +245,7 @@ p{
 .btnCreatePool {
   font-size: 16px;
   color: #fff;
-  margin-left: 10%;
+  margin-left: 2% !important;
 }
 
 .mb-22{

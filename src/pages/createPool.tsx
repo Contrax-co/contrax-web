@@ -156,10 +156,10 @@ export default function CreatePool() {
         </Row>
       </Container>
       <BottomBar />
-      <TokenModal id='tokenModal' onSelection={(item: any) => {
+      <TokenModal id='tokenModal' standardTokens={true} onSelection={(item: any) => {
         setTokenOne(item)
       }} />
-      <TokenModal id='tokenModalTwo' onSelection={(item: any) => {
+      <TokenModal id='tokenModalTwo' standardTokens={false} onSelection={(item: any) => {
         setTokenTwo(item)
       }} />
     </>

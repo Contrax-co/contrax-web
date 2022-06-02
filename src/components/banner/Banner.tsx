@@ -22,7 +22,7 @@ export default function banner() {
               <p className={'mt-4 mb-2'} ><H2 color={colors.secondaryMideum} >Tokens. Pools. Farms.</H2></p>
               <StyledH1 color={colors.primary} size='4.5rem' lineHeight='5rem'>Fast. Secure. <br />Permissionless.</StyledH1>
               <Row><H3 color={colors.secondaryDark} className='mt-3 mb-1'>
-              Create your own DeFi tokens on Ethereum and Arbitrum, and add DeFi features to existing ones.
+              No-code dev tools & auto-compounding vaults on Arbitrum
               </H3></Row>
               <Image src={ethereum} className='mr-4 mt-3' width='94' height='42' alt='ethereum' />
               <Image src={arbiscan} className='mr-4 mt-3' width='144' height='29' alt='arbiscan' />
@@ -32,7 +32,7 @@ export default function banner() {
               {/* <Button size='sm' className='mb-3 mt-3' primary label={'Explore Docs'} /> */}
               <Link link="https://contrax.gitbook.io/contrax-docs/"><Button className='mb-3 mt-3' size='sm' primary label={'Explore Docs'} /></Link> 
               &nbsp; &nbsp;
-              <Link link="https://gleam.io/plWUe/500k-trax-tokens-airdrop-200-ways-to-win" target="_blank" rel="noreferrer noopener"><Button className='mb-3 mt-3' size='sm' primary label={'Trax Airdrop'} /></Link>
+              <Link link="https://gleam.io/plWUe/5-contrax-nfts-giveaway" target="_blank" rel="noreferrer noopener"><Button className='mb-3 mt-3' size='sm' primary label={'NFT Giveway'} /></Link>
             </Col>
             <Col size='5' className='pt-4'>
               <Image src={banner1} alt='banner' className='mt-1  d-none d-md-block' />

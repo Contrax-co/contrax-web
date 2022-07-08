@@ -19,7 +19,7 @@ export default function banner() {
           <Row>
             <Col size='7' className="my-auto">
               <p className={'mt-4 mb-2'} ><H2 color={colors.secondaryMideum} >Tokens. Pools. Farms.</H2></p>
-              <H1 color={colors.primary} size='4.5rem' lineHeight='5rem'>Fast. Secure. <br/>Permissionless.</H1>
+              <H1 color={colors.primary} size='4.5rem' lineHeight='5rem'>Fast. Secure. <br/>Testing.</H1>
               <Row><H3 color={colors.secondaryDark} className='mt-3 mb-1'>
                 Contrax is the only Serum AMM that allows you to easily create liquidity pools and farms.
               </H3></Row>

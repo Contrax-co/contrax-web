@@ -1,4 +1,4 @@
-nimport Button from './button/Button';
+import Button from './button/Button';
 import { H3, H2, H1 } from "./text/Text";
 
 import banner1 from "../images/banner-1.png";
@@ -19,9 +19,9 @@ export default function banner() {
           <Row>
             <Col size='7' className="my-auto">
               <p className={'mt-4 mb-2'} ><H2 color={colors.secondaryMideum} >Permissionless. Pools. Farms.</H2></p>
-              <H1 color={colors.primary} size='4.5rem' lineHeight='5rem'>Fast. Secure. <br/>Testing.</H1>
+              <H1 color={colors.primary} size='4.5rem' lineHeight='5rem'>Fast. Secure. <br/>Permissionless.</H1>
               <Row><H3 color={colors.secondaryDark} className='mt-3 mb-1'>
-                Contrax is the only Serum AMM that allows you to easily create liquidity pools and farms.
+                Get Started by Connecting your Wallet.
               </H3></Row>
                 <Image src={ethereum} className='mr-4 mt-3' width='94' height='42' alt='ethereum' />
                 <Image src={arbiscan} className='mr-4 mt-3' width='144' height='29' alt='arbiscan' />

@@ -19,8 +19,8 @@ export default function Header() {
               <>
                 <Col size='6' className="pt-3">
                   <Row className='mb-4 mt-4'><H1 color={colors.primary} className="mt-5 mb-5">Contrax Dashboard</H1></Row>
-                  <Row className='pt-3'><H3 color={colors.white}> Net Worth</H3></Row>
-                  <Row><H2 color={colors.white} className="mb-3">$6,905.51</H2></Row>
+                  <Row className='pt-3'><H3 color={colors.white}> Value of Assets</H3></Row>
+                  <Row><H2 color={colors.white} className="mb-3">$10,000.00</H2></Row>
                   <Row height='92px' />
                 </Col>
                 <Col size='6' className='p-2'>
@@ -31,8 +31,8 @@ export default function Header() {
               <>
                 <Col size='6' className="pt-3">
                   <Row className='mb-4 mt-4'><H1 color={colors.primary} className="mt-5 mb-5">Manage Token</H1></Row>
-                  <Row className='pt-3'><H3 color={colors.white}> Net Worth</H3></Row>
-                  <Row><H2 color={colors.white} className="mb-3">$6,905.51</H2></Row>
+                  <Row className='pt-3'><H3 color={colors.white}> Value of Assets</H3></Row>
+                  <Row><H2 color={colors.white} className="mb-3">$10,000.00</H2></Row>
                   <Row height='92px' />
                 </Col>
                 <Col size='6' className='p-2'>

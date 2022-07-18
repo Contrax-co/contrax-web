@@ -47,7 +47,7 @@ export const ListSubTitle = styled(Desc)((props)=>({
 }));
 
 export const StyledDropBtn = styled(Button).attrs(props =>({
-  className: 'btn btn-primary dropdown-toggle'
+  className: 'btn dropdown-toggle'
 }))`
   border-radius: 4px 0 0 4px;
   padding: 0.25rem;

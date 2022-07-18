@@ -23,3 +23,11 @@ export function getSelectedToken() :string | null{
 export function removeSelectedToken(){
   return localStorage.removeItem('selectedToken');
 }
+
+export function storeCurrencies(data:any){
+  return localStorage.setItem('currencies', JSON.stringify(data));
+}
+
+export function getCurrencies(){
+  return JSON.parse(localStorage.getItem('currencies') || "[]");
+}

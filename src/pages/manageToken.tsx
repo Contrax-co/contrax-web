@@ -10,17 +10,57 @@ import { Modal } from '../components/modal/Modal';
 import * as colors from '../theme/colors';
 import { useEffect, useState } from 'react';
 import { getSelectedToken } from '../store/localstorage';
+import { Badge } from '../components/badge/Badge';
+import { Image } from '../components/image/Image';
+import duckIcon from '../images/yellowDuck.svg'
+
+const poolChartDataList = [["TT", "WETH"], ["11.29M TT-ETH (42%)", 73000], ["11.29M WETH (57%)", 54000]]
+const tableData = [
+  {
+    poolUrl: 'https://kovan.etherscan.io/address/0x00568c59aa94fafbdfce81d1e72fc96c8fc4b85c',
+    poolAddress: '0x00568c59aa94fafbdfce81d1e72fc96c8fc4b85c',
+    poolType: 'Public',
+    feeRate: '0.36%',
+    liquidityName1: 'TT',
+    liquidityValue1: 0,
+    liquidityName2: 'WETH',
+    liquidityValue2: 0,
+    volume24H: '678,987'
+  },
+  {
+    poolUrl: 'https://kovan.etherscan.io/address/0x75f5d66a7bbb9330a9067c0833ec9b3198b71666',
+    poolAddress: '0x75f5d66a7bbb9330a9067c0833ec9b3198b71666',
+    poolType: 'Public',
+    feeRate: '0.54%',
+    liquidityName1: 'WETH',
+    liquidityValue1: 0,
+    liquidityName2: 'USDC',
+    liquidityValue2: 0,
+    volume24H: '788,334'
+  },
+  {
+    poolUrl: 'https://kovan.etherscan.io/address/0x875ba7d9b71aee6580db2d3d5c74021e6af02933',
+    poolAddress: '0x875ba7d9b71aee6580db2d3d5c74021e6af02933',
+    poolType: 'Public',
+    feeRate: '0.24%',
+    liquidityName1: 'USDT',
+    liquidityValue1: 0,
+    liquidityName2: 'DODO',
+    liquidityValue2: 0,
+    volume24H: '48,334'
+  }
+]
 
 export default function ManageToken() {
   let chartDataList = [["Title", "Supply"], ["Your Tokens", 64000000], ["Other Tokens", 36000000]]
-  let any:any = {};
-  const [selectedToken, setSelectedToken] = useState(any);  
+  let any: any = {};
+  const [selectedToken, setSelectedToken] = useState(any);
   useEffect(() => {
     const data = getSelectedToken();
-    setSelectedToken(JSON.parse(data || ''));
+    setSelectedToken(data ? JSON.parse(data) : '');
     console.log(selectedToken);
   }, []);
-  
+
   return (
     <div>
       <Navigationbar />
@@ -28,9 +68,21 @@ export default function ManageToken() {
       <Container className="container mb-5">
         <nav>
           <div className="nav nav-tabs" id="nav-tab" role="tablist">
-            <button className="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
+            {/* <button className="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
               <B1 color={colors.primary}>Token Details</B1>
-            </button>
+            </button> */}
+            <ul className="nav nav-tabs" id="myTab" role="tablist">
+              <li className="nav-item" role="presentation">
+                <button className="nav-link active" id="parameters-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="parameters" aria-selected="true">
+                  <B1 color={colors.primary}>Token Details</B1>
+                </button>
+              </li>
+              <li className="nav-item" role="presentation">
+                <button className="nav-link" id="swaps-tab" data-bs-toggle="tab" data-bs-target="#pool-details" type="button" role="tab" aria-controls="swaps" aria-selected="false">
+                  <B1 color={colors.primary}>Pool Details</B1>
+                </button>
+              </li>
+            </ul>
           </div>
         </nav>
         <div className="tab-content" id="nav-tabContent">
@@ -80,6 +132,54 @@ export default function ManageToken() {
               </Col>
             </Row>
 
+          </div>
+          <div className="tab-pane fade show active" id="pool-details" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div className="table-responsive">
+              {/* Explore Pool Table - Start */}
+              <table className="table table-hover pool-deatil-table">
+                <thead>
+                  <tr className="table-light pool-deatil-tr">
+                    <th>#</th>
+                    <th>Pool</th>
+                    <th>Fee Rate</th>
+                    <th>Liquidity</th>
+                    <th>My Liquidity</th>
+                    <th>Volume (24h)</th>
+                    <th>Operation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {
+                    tableData.map((item, index) => (
+                      <tr>
+                        <th>{index + 1}</th>
+                        <td>
+                          <Row>
+                            <span><B1>{item.poolAddress.substring(0, 6)}...{item.poolAddress.substring(38, 42)}</B1> <Link link={item.poolUrl} target='_blank' rel="noreferrer"> <i className='fa fa-external-link' aria-hidden="true"></i> </Link> </span>
+                          </Row>
+                          <Badge>{item.poolType}</Badge>
+                        </td>
+                        <td>{item.feeRate}</td>
+                        <td className="chartColumn" >
+                          <PieChart chartData={poolChartDataList} chartId={index} height='60px' />
+                        </td>
+                        <td>
+                          <Row>
+                            <span> <Image src={duckIcon} alt='' /> {item.liquidityValue1} {item.liquidityName1}</span>
+                          </Row>
+                          <span> <Image src={duckIcon} alt='' /> {item.liquidityValue2} {item.liquidityName2}</span>
+                        </td>
+                        <td>{item.volume24H}</td>
+                        <td>
+                          <Link className="btn" link="/pool-detail">Manage</Link>
+                        </td>
+                      </tr>
+                    ))
+                  }
+                </tbody>
+              </table>
+              {/* Explore Pool Table - End */}
+            </div>
           </div>
         </div>
       </Container>

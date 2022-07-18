@@ -7,8 +7,8 @@ import CreateToken from './pages/createToken';
 import ManageToken from './pages/manageToken';
 import Exchange from './pages/exchange';
 import ExplorePool from './pages/explorePool';
-import CreatePool from './pages/createPool';
 import PoolDetail from './pages/poolDetail';
+import CreatePool from './pages/createPool';
 
 function App() {
   return (

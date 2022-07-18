@@ -130,7 +130,7 @@ export default function CreateToken(props: any) {
                 </Col>
               </Row>
               <Row className="justify-content-center mx-5 mt-3">
-                <Button width='394px' data-bs-toggle="modal" data-bs-target="#" className="row justify-content-center mt-2 mb-2" type="submit" label={'Connect Wallet'} primary />
+                <Button width='394px' data-bs-toggle="modal" data-bs-target="#" className="row justify-content-center mt-2 mb-2" type="submit" label={'Create Token'} primary />
               </Row>
             </Form>
           </Col>

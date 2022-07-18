@@ -117,3 +117,36 @@ p{
 .ml-4{
   margin-left: 1.5rem;
 }
+
+.compound-card{
+  width: 100%;
+  padding: 2% 0%;
+  padding-left: 4%;
+  border-radius: 5px;
+  border: 1px solid #eee;
+  margin-bottom: 2.5%;
+  align-items: center;
+}
+
+.compound-range-slider{
+  height: 5px;
+  background: #63CCE0;
+  box-shadow: none;
+}
+
+.compound-range-slider .rangeslider__handle{
+  width: 20px;
+  height: 20px;
+  box-shadow: none;
+  background: #63CCE0;
+  border: none;
+}
+
+.compound-range-slider .rangeslider__handle:after {
+  content: ' ';
+  position: relative;
+}
+
+.compound-range-slider .rangeslider__fill{
+  background: #63CCE0;
+}

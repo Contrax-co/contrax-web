@@ -93,7 +93,8 @@ export default function Tokens() {
                                     <td>
                                         <Link style={{color:'#5ECDDE'}} className="btn btn-text p-0" to={{
                                             pathname: "/manage-token",
-                                            state: token.tokenAddress
+                                            state: token,
+                                            
                                         }}>Manage</Link>
                                     </td>
                                 </tr>

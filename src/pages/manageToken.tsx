@@ -50,8 +50,7 @@ export default function ManageToken() {
       setSelectedToken(walletData)
     }
     setTokenAddress(location.state);
-    console.log(tokenAddress);
-   get(tokenAddress)
+console.log(tokenAddress);
    
     },[]);
 
@@ -107,21 +106,21 @@ export default function ManageToken() {
           <div className="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
             <Row className="mt-4 mb-3">
               <Col size='12'>
-                <H3>Coin Name: </H3><H3 color={colors.primary}></H3>
-
+                <H3>Coin Name: {tokenAddress.tokenName}</H3><H3 color={colors.primary}></H3>
+<p><b>Token Address: </b>{tokenAddress.tokenaddress}</p>
               </Col>
             </Row>
             <Row>
               <Col size='8' className="my-2">
                 <Row className="row">
                   <Col size='6' className="my-2">
-                    <StatsCard cardIcon={'fas fa-chart-line'} cardTitle={'Supply'} cardValue={'--'} />
+                    <StatsCard cardIcon={'fas fa-project-diagram'} cardTitle={'Symbol'} cardValue={tokenAddress.tokenSymbol} />
                   </Col>
                   <Col size='6' className="my-2">
-                    <StatsCard cardIcon={'fas fa-wallet'} cardTitle={'Your Balance'} cardValue={'--'} />
+                    <StatsCard cardIcon={'fas fa-wallet'} cardTitle={'Decimal'} cardValue={tokenAddress.decimal} />
                   </Col>
                   <Col size='6' className="my-2">
-                    <StatsCard cardIcon={'fas fa-chart-pie'} cardTitle={'% of Distribution'} cardValue={"--"} />
+                    <StatsCard cardIcon={'fas fa-chart-line'} cardTitle={'Total Supply'} cardValue={tokenAddress.totalSupply} />
                   </Col>
                 </Row>
               </Col>

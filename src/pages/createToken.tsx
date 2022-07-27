@@ -1,6 +1,6 @@
 import Navigationbar from '../components/Navigationbar/Navigationbar';
 import BottomBar from '../components/bottomBar/BottomBar';
-import { Title, Desc, DescSpan, H1, H3, Link } from "../components/text/Text";
+import { Title, Desc, DescSpan, H1, H3 } from "../components/text/Text";
 import { FormInput, FormCheckbox, Form } from "../components/form/Form";
 import Button from "../components/button/Button";
 import { useInput } from "rooks";
@@ -13,7 +13,11 @@ import { tokenApiEndpoint } from "../utils/url";
 import { main } from '../utils/constants';
 import { useEffect, useState } from 'react';
 import { getUserSession, setSelectedToken } from '../store/localstorage';
+import { gql, useMutation, useQuery } from '@apollo/client';
+import { Link } from 'react-router-dom'
+import Tokens from '../components/tokens';
 
+const Web3 = require('web3');
 const ethers = require('ethers');
 const contractFile = require('../config/erc20.json');
 
@@ -22,7 +26,44 @@ declare global {
     ethereum: any;
   }
 }
+
+
+const INCREMENT_COUNTER = gql`
+mutation ($chainId:String!,$decimals:String!,$tokenName:String!,$tokenSymbol:String!, $tokenaddress:String!,$totalSupply:String!,$userwallet:String!  ) {
+  insert_tokens(objects: {chainId: $chainId, decimal: $decimals,  tokenName: $tokenName, tokenSymbol: $tokenSymbol,tokenaddress:$tokenaddress,  totalSupply: $totalSupply, userwallet: $userwallet}){
+    returning {
+      id
+    
+    }
+  }
+}
+
+`;
+
+
+
+const FETCH = gql`
+query ($chainId:String!,$userwallet:String!) {
+  tokens(where: {chainId: {_like: $chainId}, userwallet: {_like: $userwallet}}) {
+    userwallet
+    totalSupply
+    tokenaddress
+    chainId
+    decimal
+    id
+    tokenName
+    tokenSymbol
+  }
+}
+`;
+
+
+
 export default function CreateToken(props: any) {
+
+
+
+
   const tokenSymbol = useInput('');
   const tokenSupply = useInput('');
   const tokenName = useInput('');
@@ -33,22 +74,53 @@ export default function CreateToken(props: any) {
   const tokenTradingFeeValue = useInput('');
   const tokenSupportSupplyIncrease = useInput(false);
   const [tokens, setTokens] = useState([]);
+  const [tokenAddress, setTokenAddress] = useState()
+  const [wallet, setWallet] = useState()
+  const [decimal, setDecimal] = useState()
+  const [totalSupply, setTotalSupply] = useState()
+
+
+
+
+
+
+  const [mutateFunction, { data, loading, error }] = useMutation(INCREMENT_COUNTER, {
+    variables: {
+      tokenName: tokenName.value,
+      tokenSymbol: tokenSymbol.value,
+      tokenaddress: tokenAddress,
+      totalSupply: totalSupply,
+      userwallet: wallet,
+      decimals: decimal,
+      chainId: "421611"
+    },
+  });
+
+
+
 
   useEffect(() => {
     let walletData: any;
+    let res: any;
     let sessionData = getUserSession();
     if (sessionData) {
-      walletData = JSON.parse(sessionData)
+      walletData = JSON.parse(sessionData);
+      setWallet(walletData.address)
       getTokensList(walletData.address);
     }
   }, [])
+
+
+
+
 
   const handleSubmit = async (evt: any) => {
     evt.preventDefault();
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     await provider.send("eth_requestAccounts", []);
     const signer = provider.getSigner();
-
+    const { chainId } = await provider.getNetwork()
+    console.log(chainId);
     let name = tokenName.value;
     let symbol = tokenSymbol.value;
     let decimal = Number(tokenDecimal.value);
@@ -59,6 +131,12 @@ export default function CreateToken(props: any) {
     let transactionFeePercentage = Number(tokenTradingFeeValue.value);
     let transactionFeePercentageIdentiier = tokenTradingFee.value === 'on' ? true : false;
 
+    const dec: any = decimal.toString();
+    setDecimal(dec);
+    const ts: any = initialSupply.toString();
+    setTotalSupply(ts);
+
+
     const metadata = contractFile;
     console.log(metadata);
     const factory = new ethers.ContractFactory(metadata.abi, metadata.bytecode, signer)
@@ -66,20 +144,37 @@ export default function CreateToken(props: any) {
     const contract = await factory.deploy(name, symbol, decimal, initialSupply, burnPercentage, burnPercantageIdentifier,
       transactionFeePercentage, transactionFeePercentageIdentiier, mintable);
 
-    contract.deployed();
-    alert("Follow the contract deployment status in metamask");
-  }
 
+
+
+    contract.deployed();
+
+    const add = contract.address;
+    setTokenAddress(add)
+    const addd = await contract.deployTransaction.wait();
+    console.log(addd.blockNumber);
+
+    if (!addd.blockNumber) {
+      console.log('something')
+    } else {
+
+      mutateFunction();
+
+    }
+  }
   const getTokensList = (address: string) => {
     const requestOptions = {
-      method: 'GET',
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-API-Key': main.xApiKey,
         'Access-Control-Allow-Origin': '*'
-      }
+      },
+      body: JSON.stringify({
+        userWallet: address,
+        ChainId: '421611'
+      })
     };
-    fetch(`${tokenApiEndpoint}/${address}/erc20?chain=rinkeby`, requestOptions)
+    fetch(`https://contraxapi.herokuapp.com/fetchOwnToken`, requestOptions)
       .then(response => response.json())
       .then(res => {
         if (res) {
@@ -135,17 +230,18 @@ export default function CreateToken(props: any) {
             </Form>
           </Col>
           <Title className="mt-5" value={'My Token List'} variant={'dark'} />
+          <Tokens />
           {/* List Of Tokens Previously Created By The Logged-in User - Start */}
-          <div className="table-responsive">
+          {/* <div className="table-responsive">
             <table className="table table-hover">
               <thead>
                 <tr className="table-light">
                   <th>#</th>
                   <th>Token Symbol</th>
                   <th>Token Name</th>
-                  <th>Total Supply</th>
+                  <th>Decimal</th>
                   <th>Holders</th>
-                  <th>Balance</th>
+                  <th>Total Supply</th>
                   <th>Operation</th>
                 </tr>
               </thead>
@@ -154,20 +250,23 @@ export default function CreateToken(props: any) {
                   tokens.map((token: any, index) => {
                     return <tr key={index}>
                       <th>{index + 1}</th>
-                      <td>{token.symbol}</td>
-                      <td>{token.name}</td>
+                      <td>{token.tokenSymbol}</td>
+                      <td>{token.tokenName}</td>
+                      <td>{token.Balance}</td>
                       <td>--</td>
-                      <td>--</td>
-                      <td>{token.balance}</td>
+                      <td>{token.totalSupply}</td>
                       <td>
-                        <Link className="btn btn-text p-0" onClick={() => { setSelectedToken(token) }} link="/manage-token">Manage</Link>
+                        <Link className="btn btn-text p-0"  to={{
+                          pathname:"/manage-token",
+                          state:token.tokenAddress
+                        }}>Manage</Link>
                       </td>
                     </tr>
                   })
                 }
               </tbody>
             </table>
-          </div>
+          </div> */}
         </Row>
       </Container>
       {/* List Of Tokens Previously Created By The Logged-in User - End */}

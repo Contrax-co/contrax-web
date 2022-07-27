@@ -10,17 +10,86 @@ import { Modal } from '../components/modal/Modal';
 import * as colors from '../theme/colors';
 import { useEffect, useState } from 'react';
 import { getSelectedToken } from '../store/localstorage';
+import { useLocation } from "react-router-dom";
 
+
+
+import { getUserSession } from '../store/localstorage';
+
+const contractFile = require('../config/erc20.json');
+const Web3 = require('web3');
+const ethers = require('ethers');
+
+
+declare global {
+  interface Window {
+    ethereum: any;
+  }
+}
 export default function ManageToken() {
+
+  let location = useLocation();
+  console.log(location.state);
   let chartDataList = [["Title", "Supply"], ["Your Tokens", 64000000], ["Other Tokens", 36000000]]
-  let any:any = {};
-  const [selectedToken, setSelectedToken] = useState(any);  
+  let any: any = {};
+
+  const [selectedToken, setSelectedToken] = useState(any);
+  const [tokenAddress, setTokenAddress] = useState(any);
+  const [balance, setBalance] = useState(any);
+  const [decimals, setDecimals] = useState(any);
+  const [tokenName, setTokenName] = useState(any);
+  const [tokenSymbol, setTokenSymbol] = useState(any);
+
   useEffect(() => {
-    const data = getSelectedToken();
-    setSelectedToken(JSON.parse(data || ''));
-    console.log(selectedToken);
-  }, []);
-  
+
+    let walletData: any;
+    let res: any;
+    let sessionData = getUserSession();
+    if (sessionData) {
+      walletData = JSON.parse(sessionData)
+      setSelectedToken(walletData)
+    }
+    setTokenAddress(location.state);
+console.log(tokenAddress);
+   
+    },[]);
+
+
+  const get = async (address:String) => {
+
+    try {
+      console.log(address)
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      await provider.send("eth_requestAccounts", []);
+      console.log(provider);
+      const signer = provider.getSigner();
+      console.log(signer)
+      const { chainId } = await provider.getNetwork()
+    console.log(chainId);
+      const metadata = contractFile;
+      const dummyContract = new ethers.Contract(address, metadata.abi, signer);
+      console.log(dummyContract)
+      const decimals = await dummyContract.decimals()
+      console.log(decimals);
+   
+      // // const balance = await dummyContract.balanceOf(selectedToken.address);
+      // // const adjustedBalance = balance / Math.pow(10, decimals)
+      // const TokenName = await dummyContract.name();
+      // const TokenSymbol = await dummyContract.symbol();
+      // // setTokenName(TokenName);
+      // // setBalance(adjustedBalance);
+      // // setDecimals(decimals);
+      // // setTokenSymbol(tokenSymbol)
+      // console.log(TokenName);
+    } catch (e) {
+      console.log(e)
+    }
+
+
+
+
+  }
+
   return (
     <div>
       <Navigationbar />
@@ -37,20 +106,21 @@ export default function ManageToken() {
           <div className="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
             <Row className="mt-4 mb-3">
               <Col size='12'>
-                <H3>Coin Name: </H3><H3 color={colors.primary}>{selectedToken.name}</H3>
+                <H3>Coin Name: {tokenAddress.tokenName}</H3><H3 color={colors.primary}></H3>
+<p><b>Token Address: </b>{tokenAddress.tokenaddress}</p>
               </Col>
             </Row>
             <Row>
               <Col size='8' className="my-2">
                 <Row className="row">
                   <Col size='6' className="my-2">
-                    <StatsCard cardIcon={'fas fa-chart-line'} cardTitle={'Supply'} cardValue={'--'} />
+                    <StatsCard cardIcon={'fas fa-project-diagram'} cardTitle={'Symbol'} cardValue={tokenAddress.tokenSymbol} />
                   </Col>
                   <Col size='6' className="my-2">
-                    <StatsCard cardIcon={'fas fa-wallet'} cardTitle={'Your Balance'} cardValue={selectedToken.balance} />
+                    <StatsCard cardIcon={'fas fa-wallet'} cardTitle={'Decimal'} cardValue={tokenAddress.decimal} />
                   </Col>
                   <Col size='6' className="my-2">
-                    <StatsCard cardIcon={'fas fa-chart-pie'} cardTitle={'% of Distribution'} cardValue={'--'} />
+                    <StatsCard cardIcon={'fas fa-chart-line'} cardTitle={'Total Supply'} cardValue={tokenAddress.totalSupply} />
                   </Col>
                 </Row>
               </Col>

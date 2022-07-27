@@ -128,7 +128,7 @@ console.log(tokenAddress);
                 <PieChart chartData={chartDataList} chartId={'1'} />
               </Col>
             </Row>
-            <Title className="mt-4 mb-3">Token Actions</Title>
+            {/* <Title className="mt-4 mb-3">Token Actions</Title>
             <Row>
               <Col size='4' className="my-2">
                 <Link link='/#' data-bs-toggle="modal" data-bs-target="#SendTokens">
@@ -148,7 +148,7 @@ console.log(tokenAddress);
                   <StatsCard cardIcon={'fas fa-file-invoice-dollar'} cardTitle={'Change Sale Rate'} cardValue={'→'} />
                 </Link>
               </Col>
-            </Row>
+            </Row> */}
 
           </div>
         </div>

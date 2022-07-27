@@ -13,7 +13,7 @@ import { StyledNavLink } from './Navigationbar.styles';
 let web3
 const onboard = Onboard({
   dappId: process.env.REACT_APP_DAPP_ID,  // [String] The API key of Blocknative
-  networkId: 3,  // [Integer] The Ethereum network ID your Dapp uses.
+  networkId: 42161,  // [Integer] The Ethereum network ID your Dapp uses.
   subscriptions: {
     wallet: wallet => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -87,14 +87,17 @@ export default function Navigationbar() {
                   <li className="nav-item">
                     <StyledNavLink className="nav-link" link="/explore-pool">Explore Pool</StyledNavLink>
                   </li>
-                  <li className="nav-item">
+                  {/* <li className="nav-item">
                     <StyledNavLink className="nav-link" link="/create-pool">Create Pool</StyledNavLink>
+                  </li> */}
+                  <li className="nav-item">
+                    <StyledNavLink className="nav-link" link="https://uniswap-eqdyluoz8-muhammad-usman56.vercel.app/#/pool">Create Pool</StyledNavLink>
                   </li>
                 </ul>
                 <ul className="navbar-nav">
                   <li className="nav-item dropdown">
                     <StyledNavLink className="nav-link dropdown-toggle" link="/#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Address: {walletAddress}
+                      Address: {walletAddress.substring(0, 5)}…{walletAddress.substring(walletAddress.length - 4)}
                     </StyledNavLink>
                     <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                       <li><StyledNavLink className="dropdown-item" onClick={logout} href='/#'>Logout</StyledNavLink></li>

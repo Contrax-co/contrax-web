@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react';
 import { getUserSession, setSelectedToken } from '../store/localstorage';
 import { gql, useMutation, useQuery } from '@apollo/client';
 import { Link } from 'react-router-dom'
-
+import LoadingSpinner from "./spinner/spinner";
 const FETCH = gql`
 query MyQuery($chainId:String!,$userwallet:String!) {
     tokens(where: {chainId: {_like: $chainId}, userwallet: {_like: $userwallet}}) {
@@ -34,7 +34,7 @@ export default function Tokens() {
 
     const [wallet, setWallet] = useState()
     const [values, setValues] = useState([]);
-
+    const [isLoading, setIsLoading] = useState(false);
 
     const { data, loading, error } = useQuery(FETCH, {
         variables: {
@@ -45,6 +45,7 @@ export default function Tokens() {
     );
 
     useEffect(() => {
+        setIsLoading(true);
         let walletData: any;
         let res: any;
         let sessionData = getUserSession();
@@ -54,7 +55,8 @@ export default function Tokens() {
             const a = data;
             if (typeof (a) !== 'undefined') {
                 console.log(a.tokens);
-                setValues(a.tokens)
+                setValues(a.tokens);
+                setIsLoading(false) 
             }
 
         }
@@ -80,6 +82,12 @@ export default function Tokens() {
                             <th>Operation</th>
                         </tr>
                     </thead>
+                    {isLoading ? 
+                    <div style={{marginLeft:'50%'}}>
+
+                 
+                    <LoadingSpinner />
+                    </div> : 
                     <tbody>
                         {
                             values.map((token: any, index) => {
@@ -101,6 +109,7 @@ export default function Tokens() {
                             })
                         }
                     </tbody>
+}
                 </table>
             </div>
         </>

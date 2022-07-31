@@ -13,7 +13,7 @@ import { StyledNavLink } from './Navigationbar.styles';
 let web3
 const onboard = Onboard({
   dappId: process.env.REACT_APP_DAPP_ID,  // [String] The API key of Blocknative
-  networkId: 42161,  // [Integer] The Ethereum network ID your Dapp uses.
+  networkId: 42161,  
   subscriptions: {
     wallet: wallet => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars

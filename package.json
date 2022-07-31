@@ -38,6 +38,7 @@
     "reactstrap": "^9.0.0",
     "rooks": "^5.8.0",
     "styled-components": "^5.3.3",
+    "sweetalert": "^2.1.2",
     "typescript": "^4.4.4",
     "web-vitals": "^1.1.2",
     "web3": "^1.6.0"

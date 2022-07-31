@@ -16,6 +16,9 @@ import { getUserSession, setSelectedToken } from '../store/localstorage';
 import { gql, useMutation, useQuery } from '@apollo/client';
 import { Link } from 'react-router-dom'
 import Tokens from '../components/tokens';
+import swal from 'sweetalert';
+
+
 
 const Web3 = require('web3');
 const ethers = require('ethers');
@@ -76,7 +79,7 @@ export default function CreateToken(props: any) {
   const [tokens, setTokens] = useState([]);
   const [tokenAddress, setTokenAddress] = useState()
   const [wallet, setWallet] = useState()
-  const [decimal, setDecimal] = useState()
+  const [decimals, setDecimal] = useState()
   const [totalSupply, setTotalSupply] = useState()
 
 
@@ -91,7 +94,7 @@ export default function CreateToken(props: any) {
       tokenaddress: tokenAddress,
       totalSupply: totalSupply,
       userwallet: wallet,
-      decimals: decimal,
+      decimals: decimals,
       chainId: "421611"
     },
   });
@@ -106,7 +109,7 @@ export default function CreateToken(props: any) {
     if (sessionData) {
       walletData = JSON.parse(sessionData);
       setWallet(walletData.address)
-      getTokensList(walletData.address);
+
     }
   }, [])
 
@@ -131,65 +134,91 @@ export default function CreateToken(props: any) {
     let transactionFeePercentage = Number(tokenTradingFeeValue.value);
     let transactionFeePercentageIdentiier = tokenTradingFee.value === 'on' ? true : false;
 
-    const dec: any = decimal.toString();
-    setDecimal(dec);
-    const ts: any = initialSupply.toString();
-    setTotalSupply(ts);
+    const ldecimal = 1;
+    const hdecimal = 19;
+    const lts = -1;
+    const hts = 99999999999999999
+
+    if (decimal > ldecimal && decimal < hdecimal) {
+      if (symbol.length < 16) {
+        if (initialSupply > lts && initialSupply < hts) {
+          if (name.length < 64) {
 
 
-    const metadata = contractFile;
-    console.log(metadata);
-    const factory = new ethers.ContractFactory(metadata.abi, metadata.bytecode, signer)
-
-    const contract = await factory.deploy(name, symbol, decimal, initialSupply, burnPercentage, burnPercantageIdentifier,
-      transactionFeePercentage, transactionFeePercentageIdentiier, mintable);
+            const dec: any = decimal.toString();
+            setDecimal(dec);
+            const ts: any = initialSupply.toString();
+            setTotalSupply(ts);
 
 
 
 
-    contract.deployed();
+            const metadata = contractFile;
+            console.log(metadata);
+            const factory = new ethers.ContractFactory(metadata.abi, metadata.bytecode, signer)
 
-    const add = contract.address;
-    setTokenAddress(add)
-    const addd = await contract.deployTransaction.wait();
-    console.log(addd.blockNumber);
+            const contract = await factory.deploy(name, symbol, decimal, initialSupply, burnPercentage, burnPercantageIdentifier,
+              transactionFeePercentage, transactionFeePercentageIdentiier, mintable);
+            contract.deployed();
 
-    if (!addd.blockNumber) {
-      console.log('something')
-    } else {
+            const add = contract.address;
+            setTokenAddress(add)
+            const addd = await contract.deployTransaction.wait();
+            console.log(addd.blockNumber);
 
-      mutateFunction();
+            if (!addd.blockNumber) {
+              console.log('something')
+            } else {
+              mutateFunction();
+              swal({
+                title: "Good job!",
+                text: "Token Created",
+                icon: "success",
+                
+              })
+              .then((data) => {
+                window.location.href = '/create-a-token'
+              });
+            }
 
-    }
-  }
-  const getTokensList = (address: string) => {
-    const requestOptions = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      },
-      body: JSON.stringify({
-        userWallet: address,
-        ChainId: '421611'
-      })
-    };
-    fetch(`https://contraxapi.herokuapp.com/fetchOwnToken`, requestOptions)
-      .then(response => response.json())
-      .then(res => {
-        if (res) {
-          console.log(res);
-          setTokens(res)
-          return;
+
+
+          } else {
+            swal("Something Went Wrong", "Please add decimal in 1-64 numbers");
+          }
+        } else {
+          swal("Something Went Wrong", "Intial Supply is out of Range");
         }
-        console.log('no res.data reveived');
-      });
+      }
+      else {
+        swal("Something Went Wrong", "Token Name is above 16 character");
+      }
+    } else {
+      swal("Something Went Wrong", "Please add decimal in 1-18 numbers");
+    }
+
+
+
+
+
   }
+
+
+
+
+
 
   return (
     <>
       <Navigationbar />
+
       <Container className="h-100">
+
+
+
+
+
+
         <Row>
           <Col size='4' >
             <Row height='50px' />
@@ -226,6 +255,9 @@ export default function CreateToken(props: any) {
               </Row>
               <Row className="justify-content-center mx-5 mt-3">
                 <Button width='394px' data-bs-toggle="modal" data-bs-target="#" className="row justify-content-center mt-2 mb-2" type="submit" label={'Create Token'} primary />
+
+
+
               </Row>
             </Form>
           </Col>
@@ -269,6 +301,7 @@ export default function CreateToken(props: any) {
           </div> */}
         </Row>
       </Container>
+
       {/* List Of Tokens Previously Created By The Logged-in User - End */}
       <BottomBar />
 

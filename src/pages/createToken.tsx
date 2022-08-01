@@ -17,7 +17,7 @@ import { gql, useMutation, useQuery } from '@apollo/client';
 import { Link } from 'react-router-dom'
 import Tokens from '../components/tokens';
 import swal from 'sweetalert';
-
+import LoadingSpinner from '../components/spinner/spinner';
 
 
 const Web3 = require('web3');
@@ -81,6 +81,7 @@ export default function CreateToken(props: any) {
   const [wallet, setWallet] = useState()
   const [decimals, setDecimal] = useState()
   const [totalSupply, setTotalSupply] = useState()
+  const [isLoading, setIsLoading] = useState(false);
 
 
 
@@ -119,6 +120,7 @@ export default function CreateToken(props: any) {
 
   const handleSubmit = async (evt: any) => {
     evt.preventDefault();
+    setIsLoading(true);
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     await provider.send("eth_requestAccounts", []);
     const signer = provider.getSigner();
@@ -161,6 +163,8 @@ export default function CreateToken(props: any) {
               transactionFeePercentage, transactionFeePercentageIdentiier, mintable);
             contract.deployed();
 
+
+
             const add = contract.address;
             setTokenAddress(add)
             const addd = await contract.deployTransaction.wait();
@@ -169,16 +173,17 @@ export default function CreateToken(props: any) {
             if (!addd.blockNumber) {
               console.log('something')
             } else {
+              setIsLoading(false);
               mutateFunction();
               swal({
                 title: "Good job!",
                 text: "Token Created",
                 icon: "success",
-                
+
               })
-              .then((data) => {
-                window.location.href = '/create-a-token'
-              });
+                .then((data) => {
+                  window.location.href = '/create-a-token'
+                });
             }
 
 
@@ -253,12 +258,24 @@ export default function CreateToken(props: any) {
                   <FormCheckbox id="exampleCheck1" label='Supports Supply Increase' {...tokenSupportSupplyIncrease} caption='Allows the creator to issue additional tokens after the token creation' />
                 </Col>
               </Row>
-              <Row className="justify-content-center mx-5 mt-3">
-                <Button width='394px' data-bs-toggle="modal" data-bs-target="#" className="row justify-content-center mt-2 mb-2" type="submit" label={'Create Token'} primary />
+              {!isLoading
+                ?
+                <Row className="justify-content-center mx-5 mt-3">
 
 
+                  <Button width='394px' data-bs-toggle="modal" data-bs-target="#" className="row justify-content-center mt-2 mb-2" type="submit" label={'Create Token'} primary />
 
-              </Row>
+
+                </Row>
+                :
+                <Row className="justify-content-center mx-5 mt-3">
+               <div style={{ marginLeft: '100%' }}>
+                <LoadingSpinner/>
+                </div>
+
+                </Row>
+              }
+
             </Form>
           </Col>
           <Title className="mt-5" value={'My Token List'} variant={'dark'} />

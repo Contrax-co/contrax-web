@@ -84,9 +84,10 @@ export default function Tokens() {
                     </thead>
                     {isLoading ? 
                     <div style={{marginLeft:'50%'}}>
-
+<div style={{marginLeft:'700%'}}>
                  
                     <LoadingSpinner />
+                    </div>
                     </div> : 
                     <tbody>
                         {

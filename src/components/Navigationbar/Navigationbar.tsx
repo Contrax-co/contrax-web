@@ -87,11 +87,11 @@ export default function Navigationbar() {
                   <li className="nav-item">
                     <StyledNavLink className="nav-link" link="/explore-pool">Explore Pool</StyledNavLink>
                   </li>
-                  {/* <li className="nav-item">
-                    <StyledNavLink className="nav-link" link="/create-pool">Create Pool</StyledNavLink>
-                  </li> */}
                   <li className="nav-item">
-                    <StyledNavLink className="nav-link" link="https://uniswap-eqdyluoz8-muhammad-usman56.vercel.app/#/pool">Create Pool</StyledNavLink>
+                    <StyledNavLink className="nav-link" link="/compound">Compound</StyledNavLink>
+                  </li>
+                  <li className="nav-item">
+                    <StyledNavLink className="nav-link" link="/create-pool">Create Pool</StyledNavLink>
                   </li>
                 </ul>
                 <ul className="navbar-nav">

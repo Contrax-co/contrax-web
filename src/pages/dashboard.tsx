@@ -26,7 +26,7 @@ export default function Dashboard(props: any) {
         if (sessionData) {
             walletData = JSON.parse(sessionData)
             getTokensList(walletData.address);
-            getNewTokensList(walletData.address)
+         
         }
     }, [final])
 
@@ -74,31 +74,7 @@ export default function Dashboard(props: any) {
 
 
     }
-    const getNewTokensList = (address: string) => {
-        const requestOptions = {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
-          },
-          body: JSON.stringify({
-            userWallet: address,
-            ChainId: '421611'
-          })
-        };
-        fetch(`https://contraxapi.herokuapp.com/fetchOwnToken`, requestOptions)
-          .then(response => response.json())
-          .then(res => {
-            if (res) {
-              console.log(res);
-              setTokens(res)
-              return;
-            }
-            console.log('no res.data reveived');
-          });
-      }
-    
-
+  
 
 
 

@@ -56,7 +56,7 @@ export default function Tokens() {
             if (typeof (a) !== 'undefined') {
                 console.log(a.tokens);
                 setValues(a.tokens);
-                setIsLoading(false) 
+                setIsLoading(false)
             }
 
         }
@@ -82,35 +82,35 @@ export default function Tokens() {
                             <th>Operation</th>
                         </tr>
                     </thead>
-                    {isLoading ? 
-                    <div style={{marginLeft:'50%'}}>
-<div style={{marginLeft:'700%'}}>
-                 
-                    <LoadingSpinner />
-                    </div>
-                    </div> : 
-                    <tbody>
-                        {
-                            values.map((token: any, index) => {
-                                return <tr key={index}>
-                                    <th>{index + 1}</th>
-                                    <td>{token.tokenSymbol}</td>
-                                    <td>{token.tokenName}</td>
-                                    <td>{token.decimal}</td>
+                    {isLoading ?
+                        <div style={{ marginLeft: '50%' }}>
+                            <div style={{ marginLeft: '700%' }}>
 
-                                    <td>{token.totalSupply}</td>
-                                    <td>
-                                        <Link style={{color:'#5ECDDE'}} className="btn btn-text p-0" to={{
-                                            pathname: "/manage-token",
-                                            state: token,
-                                            
-                                        }}>Manage</Link>
-                                    </td>
-                                </tr>
-                            })
-                        }
-                    </tbody>
-}
+                                <LoadingSpinner />
+                            </div>
+                        </div> :
+                        <tbody>
+                            {
+                                values.map((token: any, index) => {
+                                    return <tr key={index}>
+                                        <th>{index + 1}</th>
+                                        <td>{token.tokenSymbol}</td>
+                                        <td>{token.tokenName}</td>
+                                        <td>{token.decimal}</td>
+
+                                        <td>{token.totalSupply}</td>
+                                        <td>
+                                            <Link style={{ color: '#5ECDDE' }} className="btn btn-text p-0" to={{
+                                                pathname: "/manage-token",
+                                                state: token,
+
+                                            }}>Manage</Link>
+                                        </td>
+                                    </tr>
+                                })
+                            }
+                        </tbody>
+                    }
                 </table>
             </div>
         </>

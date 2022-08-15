@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import BottomBar from '../../components/bottomBar/BottomBar'
 import Navigationbar from '../../components/Navigationbar/Navigationbar'
 import BarChart from '../../components/chart/BarChart';
@@ -15,7 +15,7 @@ import * as colors from '../../theme/colors';
 import { Badge } from '../../components/badge/Badge';
 import Icon from '../../components/icon/Icon';
 import ApprovalModal from './components/ApprovalModal';
-
+const axios = require('axios')
 export default function CompoundEarn() {
   const [volume, setVolume] = useState('active')
   const [tvl, setTvl] = useState('')
@@ -23,24 +23,16 @@ export default function CompoundEarn() {
   const [fees, setFees] = useState('')
   const [state, setState] = useState('volume')
 
+
+
   let swapsData = [
     {
       time: "2021/12/03 12:53:51",
-      paidCurrencyMedia: "https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp",
-      receiveCurrencyMedia: "https://cmp.dodoex.io/9kfMyaEhJBOwCKTXWVoPU8yPTdyx9rX7sSu9CYqRuqA/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL3VzZGNfZWU1MmExZWQyYi91c2RjX2VlNTJhMWVkMmIucG5n.webp",
-      price: "USDT - USDC",
+      paidCurrencyMedia: "https://cryptologos.cc/logos/ethereum-eth-logo.png?v=023",
+      receiveCurrencyMedia: "https://cryptologos.cc/logos/multi-collateral-dai-dai-logo.png?v=023",
+      price: "ETH - DAI",
       apy: "0.008%",
-      tvl: "0.48 USDC",
-      deposite: "$50",
-      depositeTokens: "25"
-    },
-    {
-      time: "2021/12/02 20:45:21",
-      paidCurrencyMedia: "https://cmp.dodoex.io/9kfMyaEhJBOwCKTXWVoPU8yPTdyx9rX7sSu9CYqRuqA/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL3VzZGNfZWU1MmExZWQyYi91c2RjX2VlNTJhMWVkMmIucG5n.webp",
-      receiveCurrencyMedia: "https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp",
-      price: "USDC - USDT",
-      apy: "0.008%",
-      tvl: "9.59 USDT",
+      tvl: "0.48",
       deposite: "$50",
       depositeTokens: "25"
     }
@@ -51,23 +43,22 @@ export default function CompoundEarn() {
       <Container className=' mt-4 pt-1'>
         {
           swapsData.map((item, index) => (
+      
             <Row className='compound-card'>
-              <Col size="1">
-                <Image src={item.paidCurrencyMedia} alt='' />
-                <Image src={item.receiveCurrencyMedia} alt='' />
-              </Col>
-              <Col size="2">{item.price}</Col>
-              <Col size="2">
-                APY<br />
+
+             
+               <Col size="2"> {item.price} </Col>
+              <Col size="3">
+              APY<br />
                 {item.apy}
               </Col>
               <Col size="2">
-                TYL<br />
+              tvl <br />
                 {item.tvl}
               </Col>
               <Col size="2">
-                Deposite Amount <br />
-                <b>{item.deposite}</b> {`(${item.depositeTokens} tokens)`}
+                Total Deposit  <br />
+               {item.deposite}
               </Col>
               <Col size="1">
                 <Button size='sm' onClick={() => { }} >Harvest</Button>

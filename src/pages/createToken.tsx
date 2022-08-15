@@ -145,6 +145,7 @@ export default function CreateToken(props: any) {
       if (symbol.length < 16) {
         if (initialSupply > lts && initialSupply < hts) {
           if (name.length < 64) {
+            
 
 
             const dec: any = decimal.toString();
@@ -192,7 +193,7 @@ export default function CreateToken(props: any) {
             swal("Something Went Wrong", "Please add decimal in 1-64 numbers");
           }
         } else {
-          swal("Something Went Wrong", "Intial Supply is out of Range");
+          swal("Something Went Wrong", "Token Supply that has invalid characters");
         }
       }
       else {
@@ -238,7 +239,7 @@ export default function CreateToken(props: any) {
                   <H3>Enter Token Parameters</H3>
                 </Col>
                 <FormInput className="col-lg-6 col-md-6 col-sm-6" caption="1-16 Characters" placeholder='Token Symbol' {...tokenSymbol} />
-                <FormInput className="col-lg-6 col-md-6 col-sm-6" caption="0-99,999,999,999,999,999" placeholder={'Token Supply'} {...tokenSupply} />
+                <FormInput className="col-lg-6 col-md-6 col-sm-6" caption="0-99999999999999999" placeholder={'Token Supply'} {...tokenSupply} />
 
                 <FormInput className="col-lg-6 col-md-6 col-sm-6" caption="1-64 Characters" placeholder={'Token Name'} {...tokenName} />
                 <FormInput className="col-lg-6 col-md-6 col-sm-6" caption="0-18" placeholder={'Decimals'} {...tokenDecimal} />

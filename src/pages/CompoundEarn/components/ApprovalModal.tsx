@@ -29,13 +29,13 @@ const ApprovalModal = ({totalTokens}: Props) => {
       <div className='slider' style={{ paddingLeft: '6%', paddingRight: '6%' }}>
         <Row style={{ flex: 1, textAlign: 'center' }}>
           <Col>
-            <Image style={{ width: 32, height: 32 }} src={"https://cmp.dodoex.io/d_AVO5xIyrJl_fT2ItXkdNeqyNcY_y1Rf4kix1tiMw8/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL1VTRFRfZThiNzFiNWYyOS9VU0RUX2U4YjcxYjVmMjkucG5n.webp"} alt='' />
-            <Image style={{ width: 32, height: 32 }} src={"https://cmp.dodoex.io/9kfMyaEhJBOwCKTXWVoPU8yPTdyx9rX7sSu9CYqRuqA/rs:fit:20:20:0/g:no/aHR0cHM6Ly9jZG4tbWVkaWEuZG9kb2V4LmlvL3VzZGNfZWU1MmExZWQyYi91c2RjX2VlNTJhMWVkMmIucG5n.webp"} alt='' />
+            <Image style={{ width: 32, height: 32 }} src={"https://cryptologos.cc/logos/ethereum-eth-logo.png?v=023"} alt='' />
+            <Image style={{ width: 32, height: 32 }} src={"https://cryptologos.cc/logos/multi-collateral-dai-dai-logo.png?v=023"} alt='' />
           </Col>
         </Row>
         <Row style={{ marginTop: '4%', textAlign: 'center' }}>
           <Col style={{ fontSize: 12, fontWeight: 'bold' }}>
-            USDT - USDC
+            ETH - DAI
           </Col>
         </Row>
         <Row className='compound-card' style={{marginTop: '3%', marginBottom: '8%', paddingTop: 15, paddingBottom: 15}}>

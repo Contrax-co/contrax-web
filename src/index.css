@@ -150,3 +150,138 @@ p{
 .compound-range-slider .rangeslider__fill{
   background: #63CCE0;
 }
+.pool-deatil-table{
+  margin-top: 1rem;
+}
+.pool-deatil-tr th{
+  padding-bottom: 1rem !important;
+  padding-top: 1rem !important;
+}
+
+.pool {
+  max-width: 885px !important;
+}
+.pool-title {
+  font-size: 2.15rem !important;
+  text-align: center;
+}
+
+.create-pool-tokenDropdown {
+  width: 80%;
+  text-align: left;
+  float: left;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.create-pool-title {
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+.create-pool-title h2 {
+  padding-bottom: 16px;
+  padding-top: 16px;
+}
+
+.tokenModal-content {
+  max-height: 350px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.depositeAmount {
+  margin-top: 10%;
+}
+
+.depositeAmount-group {
+  padding: 4px;
+  padding-left: 3%;
+  background-color: #fff;
+  height: 50px;
+  border: 1px solid #CED4DA;
+  border-radius: 4px;
+  margin-bottom: 32px;
+  margin-top: 22px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.depositeAmount-input {
+  border: none;
+  text-align: right;
+  width: 85%;
+  height: 100%;
+  flex: 1,
+}
+
+.depositeAmount-group input:focus{
+  outline: none;
+}
+
+.select-a-token {
+  margin-top: 22px;
+  margin-bottom: 32px;
+  background-color: lightgray;
+  text-align: center;
+  border-radius: 4px;
+  padding: 10px;
+  color: #818182;
+}
+
+.selectedToken-div {
+  width: 110px;
+  border-right: 1px solid #eee;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.price-counter {
+  width: 200px;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid #CED4DA;
+  border-radius: 4px;
+  background-color: #fff;
+  margin-bottom: 22px;
+}
+
+.counter-value {
+  flex: 1;
+  text-align: center;
+}
+
+.lightGray {
+  color: #9CA3AF !important;
+}
+
+.counter-sign {
+  flex: 0.5;
+  text-align: center;
+}
+
+.counter-sign img {
+  margin-top: -3px;
+}
+
+.counter-sign span {
+  border-radius: 50%;
+  padding: 0px 4px;
+  border: 1px solid #63CCE0;
+}
+
+.btnCreatePool {
+  font-size: 16px;
+  color: #fff;
+  width: 100%;
+  margin-left: 2% !important;
+}
+
+.mb-22{
+  margin-bottom: 22px;
+}

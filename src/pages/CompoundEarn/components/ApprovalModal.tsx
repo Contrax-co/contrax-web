@@ -29,13 +29,13 @@ const ApprovalModal = ({totalTokens}: Props) => {
       <div className='slider' style={{ paddingLeft: '6%', paddingRight: '6%' }}>
         <Row style={{ flex: 1, textAlign: 'center' }}>
           <Col>
-            <Image style={{ width: 32, height: 32 }} src={"https://cryptologos.cc/logos/ethereum-eth-logo.png?v=023"} alt='' />
-            <Image style={{ width: 32, height: 32 }} src={"https://cryptologos.cc/logos/multi-collateral-dai-dai-logo.png?v=023"} alt='' />
+            <Image style={{ width: 32, height: 32 }} src={"https://cryptologos.cc/logos/usd-coin-usdc-logo.png?v=002"} alt='' />
+            <Image style={{ width: 32, height: 32 }} src={"https://cryptologos.cc/logos/tether-usdt-logo.png?v=002"} alt='' />
           </Col>
         </Row>
         <Row style={{ marginTop: '4%', textAlign: 'center' }}>
           <Col style={{ fontSize: 12, fontWeight: 'bold' }}>
-            ETH - DAI
+           USDC - Tether
           </Col>
         </Row>
         <Row className='compound-card' style={{marginTop: '3%', marginBottom: '8%', paddingTop: 15, paddingBottom: 15}}>

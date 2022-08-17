@@ -1,0 +1,33 @@
+.button:first-child{
+    background-color: rgb(99, 204, 224);
+    border-radius: 30px;
+    width: 100px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    margin:10px;
+    margin-bottom:20px;
+}
+
+.button{
+    background-color: white;
+    border: 1px solid rgb(99, 204, 224);
+    border-radius: 30px;
+    width: 100px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: rgb(99, 204, 224);
+    font-weight: bold;
+    padding: 10px;
+    margin:10px;
+    margin-bottom:20px;
+
+}
+
+.button:hover{
+    cursor: pointer;
+}

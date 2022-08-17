@@ -1,76 +1,80 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import BottomBar from '../../components/bottomBar/BottomBar'
 import Navigationbar from '../../components/Navigationbar/Navigationbar'
-import BarChart from '../../components/chart/BarChart';
-import LineChart from '../../components/chart/LineChart';
-import Card from '../../components/card/Card';
-import { Title, B1, H2, Link, H3 } from "../../components/text/Text";
-import Button from '../../components/button/Button';
-import PieChart from '../../components/chart/PieChart';
-import { Col, Container, Row } from '../../components/blocks/Blocks';
-import { Image } from '../../components/image/Image';
-import ethIcon from '../images/eth-round-icon.png';
-import usdcIcon from '../images/USDC-round-icon.png';
-import * as colors from '../../theme/colors';
-import { Badge } from '../../components/badge/Badge';
-import Icon from '../../components/icon/Icon';
-import ApprovalModal from './components/ApprovalModal';
-const axios = require('axios')
+import PoolButton from '../../components/PoolButton';
+import './compoundEarn.css';
+
+
 export default function CompoundEarn() {
-  const [volume, setVolume] = useState('active')
-  const [tvl, setTvl] = useState('')
-  const [liquidity, setLiquidity] = useState('')
-  const [fees, setFees] = useState('')
-  const [state, setState] = useState('volume')
+  const [depositWithdraw, setDepositWithdraw] = useState(false);
+  const [pools, setPools] = useState([]);
 
-
-
-  let swapsData = [
-    {
-      time: "2021/12/03 12:53:51",
-      paidCurrencyMedia: "https://cryptologos.cc/logos/ethereum-eth-logo.png?v=023",
-      receiveCurrencyMedia: "https://cryptologos.cc/logos/multi-collateral-dai-dai-logo.png?v=023",
-      price: "ETH - DAI",
-      apy: "0.008%",
-      tvl: "0.48",
-      deposite: "$50",
-      depositeTokens: "25"
+  // fetch the json of the pools and push them into an array for mapping 
+  useEffect(() => {
+    try{
+      const {ethereum} = window; 
+      if(ethereum) {
+        fetch(`http://localhost:3000/api/pools.json`)
+        .then(response => response.json())
+        .then(data => {
+          setPools(data); 
+          console.log("Pools are", data);
+        })
+      }
     }
-  ]
+    catch (error){
+      console.log(error);
+    }
+  }, []);
+
+  const handleClick = () => {
+    setDepositWithdraw(!depositWithdraw);
+  }
+
   return (
     <div>
       <Navigationbar />
-      <Container className=' mt-4 pt-1'>
+      <div className="container">
         {
-          swapsData.map((item, index) => (
-      
-            <Row className='compound-card'>
+          pools.map((pool: any) => (
+            <div className="boundary" key={pool.id} onClick={handleClick}>
+              <div className='pool-info'>
 
-             
-               <Col size="2"> {item.price} </Col>
-              <Col size="3">
-              APY<br />
-                {item.apy}
-              </Col>
-              <Col size="2">
-              tvl <br />
-                {item.tvl}
-              </Col>
-              <Col size="2">
-                Total Deposit  <br />
-               {item.deposite}
-              </Col>
-              <Col size="1">
-                <Button size='sm' onClick={() => { }} >Harvest</Button>
-              </Col>
-              <Col size="1">
-                <Button primary size='sm' data-bs-toggle="modal" data-bs-target="#approvalModal" onClick={() => { }} >Withdrawal</Button>
-              </Col>
-            </Row>
+                    <div className="sub-container">
+                      <p className="pool-name">{pool.name}</p>
+                      <div className="pair">
+                        <img alt={pool.alt1} className="logofirst" src={pool.logo1}/>
+                        <img alt={pool.alt2} className="logo" src={pool.logo2}/>
+                      </div>
+                    </div>
+                  
+                    <div className="sub-container">
+                      <p>APY</p>
+                      <p>{pool.apy}</p>
+                    </div>
+
+                    <div className="sub-container">
+                      <p>TVL</p>
+                      <p>{pool.tvl}</p>
+                    </div>
+
+                    <div className="sub-container">
+                      <p>Total Deposit</p>
+                      <p>{pool.deposit}</p>
+                    </div>
+
+              </div>
+              {depositWithdraw && (
+                <div className="invest">
+                  <PoolButton description="deposit"/> 
+                  <PoolButton description="withdraw"/>
+                </div>
+              )}
+              
+            </div>
           ))
         }
-        <ApprovalModal totalTokens={8.0456345} />
-      </Container>
+      </div>
       <BottomBar />
     </div>
   )

@@ -75,6 +75,7 @@ export default function CompoundEarn() {
           ))
         }
       </div>
+
       <BottomBar />
     </div>
   )

@@ -72,18 +72,14 @@ export default function Navigationbar() {
             {walletAddress !== '' ? (
               <>
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li className="nav-item">
-                    <StyledNavLink className="nav-link active" aria-current="page" link="/">Home</StyledNavLink>
-                  </li>
+                 
                   <li className="nav-item">
                     <StyledNavLink className="nav-link" link="/dashboard">Dashboard</StyledNavLink>
                   </li>
                   <li className="nav-item">
                     <StyledNavLink className="nav-link" link="/create-a-token">Create a Token</StyledNavLink>
                   </li>
-                  <li className="nav-item">
-                    <StyledNavLink className="nav-link" link="/exchange">Exchange</StyledNavLink>
-                  </li>
+                 
                   <li className="nav-item">
                     <StyledNavLink className="nav-link" link="/explore-pool">Explore Pool</StyledNavLink>
                   </li>

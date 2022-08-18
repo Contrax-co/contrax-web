@@ -1,24 +1,32 @@
 [
     {
         "id": 1,
-        "name": "ETH-DAI",
+        "name": "WETH-DAI",
+        "pair1": "WETH",
+        "pair2": "DAI",
         "logo1": "https://cryptologos.cc/logos/ethereum-eth-logo.png?v=023",
         "alt1": "Ethereum logo",
         "logo2": "https://cryptologos.cc/logos/multi-collateral-dai-dai-logo.png?v=023",
         "alt2": "Dai logo",
-        "apy": "",
-        "tvl": 30,
-        "deposit": 50
+        "apy": "56667",
+        "tvl": 30, 
+        "deposit": 50,
+        "rewards": "https://cryptologos.cc/logos/sushiswap-sushi-logo.png?v=023",
+        "rewards_alt": "Sushi logo"
     },
     {
         "id": 2,
-        "name": "ETH-USDC",
+        "name": "WETH-USDC",
+        "pair1": "WETH",
+        "pair2": "USDC",
         "logo1": "https://cryptologos.cc/logos/ethereum-eth-logo.png?v=023",
         "alt1": "Ethereum logo",
         "logo2": "https://cryptologos.cc/logos/usd-coin-usdc-logo.png?v=023",
         "alt2": "Usdc logo",
-        "apy": "",
+        "apy": "-",
         "tvl": 30,
-        "deposit": 50
+        "deposit": 50,
+        "rewards": "https://cryptologos.cc/logos/sushiswap-sushi-logo.png?v=023",
+        "rewards_alt": "Sushi logo"
     }
 ]

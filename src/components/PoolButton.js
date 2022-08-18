@@ -1,9 +1,9 @@
 import React from 'react';
 import './PoolButton.css'
 
-function PoolButton({description}) {
+function PoolButton({description, props}) {
   return (
-    <div className="button">{description}</div>
+    <div className="button" onClick={props}>{description}</div>
   )
 }
 

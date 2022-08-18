@@ -1,0 +1,58 @@
+.liquidity_container{ 
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.liquidity_modal{
+    display: flex;
+    z-index: 200;
+    background-color: white;
+    width: 800px;
+    height: 500px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    position: relative;
+    animation: animate 0.3s;
+}
+
+.single_pool_container{
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+.lp_title {
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.lp_name{
+  font-size: 25px;
+  font-weight: bold;
+  margin-right:20px;
+}
+
+.lp_logo {
+  width:50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+@keyframes animate {
+    from {
+      transform: scale(0.5);
+    }
+    to {
+      transform: scale(1);
+    }
+  }

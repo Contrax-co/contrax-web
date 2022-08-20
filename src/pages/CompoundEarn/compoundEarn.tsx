@@ -38,6 +38,7 @@ export default function CompoundEarn() {
   const grabKeys = (id1:any, id2: any) => {
     setDetailsKey(id1);
     setLiquidityKey(id2);
+
     if(detailsKey != null){
       setModalDetails(true);
     }else if (liquidityKey != null){

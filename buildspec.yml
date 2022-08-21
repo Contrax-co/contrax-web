@@ -6,7 +6,7 @@ phases:
     commands:
       - echo Pre build commands started...
       - echo yarn install started.
-      - yarn   
+      - yarn install --force
       - echo Finished installing packages.
   build:
     commands:

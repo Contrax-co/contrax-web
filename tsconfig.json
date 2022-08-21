@@ -20,8 +20,8 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  linterOptions: {
-    exclude: ['src/**','components/**'],
+  "linterOptions": {
+    "exclude": ["src/**"],
   },
   "include": [
     "src"

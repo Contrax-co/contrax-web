@@ -7,6 +7,7 @@ phases:
       - echo Pre build commands started...
       - echo npm install started.
       - npm install --verbose
+      - npm i protobufjs
       - echo Finished installing packages.
   build:
     commands:

@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import Navigationbar from '../components/Navigationbar/Navigationbar';
 import BottomBar from '../components/bottomBar/BottomBar';
 import { Title, Desc, DescSpan, H1, H3 } from "../components/text/Text";

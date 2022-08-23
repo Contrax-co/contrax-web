@@ -1,0 +1,110 @@
+.detail_container{ 
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.detail_modal{
+    display: flex;
+    z-index: 200;
+    background-color: white;
+    padding: 25px;
+    width: 500px;
+    height: 700px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    position: relative;
+    animation: animate 0.3s;
+}
+
+.amount {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(241, 251, 255);
+  padding: 30px;
+  border-radius: 10px;
+  height: 95%;
+  width: 95%;
+  justify-content: space-between;
+}
+
+
+.staked_bal {
+  color: rgb(184, 181, 181);
+}
+
+.staked_balance {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.withdraw_amount {
+  display: flex;
+  background-color: rgb(240, 245, 247);
+  border: 1px solid rgb(182, 209, 214);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.allWithdraw_tokens{
+  font-size: 12px;
+  background-color: rgb(182, 209, 214);
+  padding:2px;
+  border-radius: 7px;
+  color: rgb(134, 132, 132);
+
+}
+
+.allWithdraw_tokens:hover{
+  cursor: pointer;
+}
+
+.withdraw_name {
+  border-left: 1px solid rgb(182, 209, 214);
+  padding: 7px;
+}
+
+.withdraw_button {
+  background-color: rgb(99, 204, 224);
+  border-radius: 15px;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 5px;
+  padding:17px;
+  bottom: 0;
+}
+
+.withdrawAll_button {
+  background-color: rgb(99, 204, 224);
+  border-radius: 15px;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 5px;
+  padding:17px;
+  bottom: 0;
+}
+
+
+
+@keyframes animate {
+    from {
+      transform: scale(0.5);
+    }
+    to {
+      transform: scale(1);
+    }
+  }

@@ -3,16 +3,16 @@ import BottomBar from '../../components/bottomBar/BottomBar'
 import Navigationbar from '../../components/Navigationbar/Navigationbar'
 import PoolButton from '../../components/PoolButton';
 import AddLiquidity from './components/addLiquidityModal';
-import DetailsModal from './components/detailsModal';
+import DetailsModal from './components/withdrawModal';
 import './compoundEarn.css';
 
 export default function CompoundEarn() {
   const [pools, setPools] = useState([]);
   const [liquidityModal, setLiquidityModal] = useState(false);
-  const [detailsModal, setModalDetails] = useState(false);
-  const [detailsKey, setDetailsKey] = useState(null);
+  const [withdrawModal, setModalWithdraw] = useState(false);
+  const [withdrawKey, setWithdrawKey] = useState(null);
   const [liquidityKey, setLiquidityKey] = useState(null);
-
+  
   // fetch the json of the pools and push them into an array for mapping 
   useEffect(() => {
     try{
@@ -22,7 +22,6 @@ export default function CompoundEarn() {
         .then(response => response.json())
         .then(data => {
           setPools(data); 
-          console.log("Pools are", data);
         })
       }
     }
@@ -32,15 +31,15 @@ export default function CompoundEarn() {
   }, []);
 
   useEffect(() => {
-    grabKeys(detailsKey, liquidityKey);
-  }, [detailsKey,liquidityKey])
+    grabKeys(withdrawKey, liquidityKey);
+  }, [withdrawKey,liquidityKey])
 
   const grabKeys = (id1:any, id2: any) => {
-    setDetailsKey(id1);
+    setWithdrawKey(id1);
     setLiquidityKey(id2);
 
-    if(detailsKey != null){
-      setModalDetails(true);
+    if(withdrawKey != null){
+      setModalWithdraw(true);
     }else if (liquidityKey != null){
       setLiquidityModal(true);
     } 
@@ -80,7 +79,7 @@ export default function CompoundEarn() {
                     </div>
                   
                 <div className="buttons">
-                  <PoolButton props={() => setDetailsKey(detailsKey => detailsKey === pool.id ? null : pool.id)}  description="see details"/> 
+                  <PoolButton props={() => setWithdrawKey(withdrawKey => withdrawKey === pool.id ? null : pool.id)}  description="withdraw"/> 
                   <PoolButton props={() => setLiquidityKey(liquidityKey => liquidityKey === pool.id ? null : pool.id)} description="add liquidity"/>
                 </div>
          
@@ -90,7 +89,7 @@ export default function CompoundEarn() {
         }
       </div>
       {liquidityModal ? <AddLiquidity liquidityKey={liquidityKey} setLiquidityKey={setLiquidityKey} pool={pools} setLiquidityModal={setLiquidityModal}/> : null}
-      {detailsModal ? <DetailsModal detailsKey={detailsKey} setDetailsKey={setDetailsKey} pool={pools} setModalDetails={setModalDetails} /> : null}
+      {withdrawModal ? <DetailsModal withdrawKey={withdrawKey} setWithdrawKey={setWithdrawKey} pool={pools} setModalWithdraw={setModalWithdraw} /> : null}
 
       <BottomBar />
     </div>

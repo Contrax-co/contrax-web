@@ -1,8 +1,9 @@
 import React, {useEffect, useRef, useState} from 'react';
-import { ethers } from "ethers";
 import './addLiquidityModal.css';
+import * as ethers from 'ethers';
 
 function AddLiquidity({setLiquidityModal, liquidityKey, setLiquidityKey, pool}: any) {
+    
     // close the modal when clicking outside the modal.
     const modalRef: any = useRef();
    
@@ -41,9 +42,8 @@ function AddLiquidity({setLiquidityModal, liquidityKey, setLiquidityKey, pool}: 
             setVaultAddr(pool.vault_addr);
             setVaultAbi(pool.vault_abi);
         });
-
-        checkIfWalletIsConnected();
-        
+        checkIfWalletIsConnected(); 
+        getLPTokenBalance();
     })
 
     const closeModal = (e: any) => {
@@ -72,7 +72,6 @@ function AddLiquidity({setLiquidityModal, liquidityKey, setLiquidityKey, pool}: 
                 const account = accounts[0];
                 console.log("Found an authorized account:", account);
                 setCurrentWallet(account); 
-                getLPTokenBalance();
             }
             else {
                 console.log("No authorized account found")
@@ -84,7 +83,7 @@ function AddLiquidity({setLiquidityModal, liquidityKey, setLiquidityKey, pool}: 
     }
 
     /*
-    * Balance of eth that the user has
+    * Balance of lp token that the user has
     */
     const getLPTokenBalance = async() => {
         const {ethereum} = window; 
@@ -114,20 +113,54 @@ function AddLiquidity({setLiquidityModal, liquidityKey, setLiquidityKey, pool}: 
                 const provider = new ethers.providers.Web3Provider(ethereum);
                 const signer = provider.getSigner();
                 const vaultContract = new ethers.Contract(vaultAddr, vaultAbi, signer);
+                
 
                 /*
                 * Execute the actual deposit functionality from smart contract
                 */
+               console.log("The amount to be deposited into vault", depositAmount);
                 const formattedBal = ethers.utils.parseUnits(depositAmount.toString(), 18);
-                const depositTxn = await vaultContract.deposit(formattedBal, {gasLimit:300000});
+                const gasPrice = await provider.getGasPrice();
+                const depositTxn = await vaultContract.deposit(formattedBal, {gasLimit: gasPrice});
                 console.log("Depositing...", depositTxn.hash);
 
-                await depositTxn.wait();
-                console.log("Deposited --", depositTxn.hash);
+                const depositTxnStatus = await depositTxn.wait(1);
+                if (!depositTxnStatus.status) {
+                    console.log("Error depositing into vault");
+                }else{
+                    console.log("Deposited --", depositTxn.hash);
+                }
+                
             }else {
                 console.log("Ethereum object doesn't exist!");
               }
         }catch (error) {
+            console.log(error);
+        }
+    }
+
+    const depositAll = async () => {
+        const {ethereum} = window;
+        try {
+            if(ethereum){
+                const provider = new ethers.providers.Web3Provider(ethereum);
+                const signer = provider.getSigner();
+                const vaultContract = new ethers.Contract(vaultAddr, vaultAbi, signer);
+
+                const gasPrice = await provider.getGasPrice();
+                const depositAllTxn = await vaultContract.depositAll({gasLimit:gasPrice});
+                const depositTxnStatus = await depositAllTxn.wait(1);
+
+                if(!depositTxnStatus.status){
+                    console.log("Error depositing into vault");
+                }else {
+                    console.log("Deposited --", depositAllTxn.hash);
+                }
+            }else {
+                console.log("Ethereum object doesn't exist!");
+            }
+
+        }catch(error){
             console.log(error);
         }
     }
@@ -177,16 +210,23 @@ function AddLiquidity({setLiquidityModal, liquidityKey, setLiquidityKey, pool}: 
                                 ):(
             
                                 <form className="deposit_container" onSubmit={deposit}>
-                                    <div className="user_balance">
-                                        <p className="bal">LP token Balance </p>
-                                        <p>{userLPBalance.toFixed(2)}</p>
+                                    <div>
+                                        <div className="user_balance">
+                                            <p className="bal">LP token Balance </p>
+                                            <p>{userLPBalance.toFixed(2)}</p>
+                                        </div>
+                                        <div className ="deposit_amount">
+                                            <input type="number" placeholder="0.0" className="bal_input" value={depositAmount} onChange={handleChange}/>
+                                            <p onClick={depositTotal} className="all_tokens">MAX</p>
+                                            <p className="name">{poolName}</p>
+                                        </div>
+                                        <p className="get_lp">Get LP Tokens</p>
                                     </div>
-                                    <div className ="deposit_amount">
-                                        <input type="number" placeholder="0.0" className="bal_input" value={depositAmount} onChange={handleChange}/>
-                                        <p onClick={depositTotal} className="all_tokens">MAX</p>
-                                        <p className="name">{poolName}</p>
+                                    <div>
+                                        <p onClick={deposit} className="deposit_button">deposit</p> 
+                                        <p className="depositAll_button" onClick={depositAll}>depositAll</p>
                                     </div>
-                                    <input type="submit" value="deposit" className="deposit_button"/> 
+                              
                                 </form>
                         
                             )}

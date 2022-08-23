@@ -71,6 +71,7 @@
 
 .deposit_withdraw {
   width:100%;
+  height:100%;
   flex:3;
   display: flex;
   align-items:center;
@@ -110,15 +111,24 @@
   color: rgb(184, 181, 181);
 }
 
+.get_lp {
+  color: rgb(133, 132, 132);
+}
+
+.get_lp:hover {
+  color: rgb(184, 181, 181);
+}
+
 
 .deposit_amount {
   display: flex;
   background-color: rgb(240, 245, 247);
   border: 1px solid rgb(182, 209, 214);
   border-radius: 10px;
-  padding: 11px;
+  padding: 20px;
   text-align: center;
   align-items: center;
+  
 }
 
 .deposit_amount > p {
@@ -133,8 +143,11 @@ input {
 
 .deposit_container {
   display: flex;
+  height: 100%;
   flex-direction: column;
   text-align: center;
+  justify-content: space-between;
+  padding: 25px;
 }
 
 .deposit_button {
@@ -144,7 +157,24 @@ input {
   font-size: 17px;
   font-weight: bold;
   margin-top: 5px;
-  padding:7px;
+  padding:17px;
+  bottom: 0;
+  width:100%;
+}
+
+.depositAll_button {
+  background-color: rgb(99, 204, 224);
+  border-radius: 15px;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 5px;
+  padding:17px;
+  bottom: 0;
+}
+
+.depositAll_button:hover {
+  cursor: pointer;
 }
 
 .all_tokens{

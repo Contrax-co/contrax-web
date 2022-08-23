@@ -1,128 +1,96 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import BottomBar from '../../components/bottomBar/BottomBar'
 import Navigationbar from '../../components/Navigationbar/Navigationbar'
-import BarChart from '../../components/chart/BarChart';
-import LineChart from '../../components/chart/LineChart';
-import Card from '../../components/card/Card';
-import { Title, B1, H2, Link, H3 } from "../../components/text/Text";
-import Button from '../../components/button/Button';
-import PieChart from '../../components/chart/PieChart';
-import { Col, Container, Row } from '../../components/blocks/Blocks';
-import { Image } from '../../components/image/Image';
-import ethIcon from '../images/eth-round-icon.png';
-import usdcIcon from '../images/USDC-round-icon.png';
-import * as colors from '../../theme/colors';
-import { Badge } from '../../components/badge/Badge';
-import Icon from '../../components/icon/Icon';
-import ApprovalModal from './components/ApprovalModal';
-import swal from 'sweetalert';
-const axios = require('axios')
+import PoolButton from '../../components/PoolButton';
+import AddLiquidity from './components/addLiquidityModal';
+import DetailsModal from './components/withdrawModal';
+import './compoundEarn.css';
+
 export default function CompoundEarn() {
-  const [volume, setVolume] = useState('active')
-  const [tvl, setTvl] = useState('')
-  const [liquidity, setLiquidity] = useState('')
-  const [fees, setFees] = useState('')
-  const [state, setState] = useState('volume')
-
-
-
-  let swapsData = [
-    {
-      time: "2021/12/03 12:53:51",
-      paidCurrencyMedia: "https://cryptologos.cc/logos/ethereum-eth-logo.png?v=023",
-      receiveCurrencyMedia: "https://cryptologos.cc/logos/multi-collateral-dai-dai-logo.png?v=023",
-      price: "ETH - DAI",
-      apy: "0.008%",
-      tvl: "0.48",
-      deposite: "$50",
-      depositeTokens: "25"
+  const [pools, setPools] = useState([]);
+  const [liquidityModal, setLiquidityModal] = useState(false);
+  const [withdrawModal, setModalWithdraw] = useState(false);
+  const [withdrawKey, setWithdrawKey] = useState(null);
+  const [liquidityKey, setLiquidityKey] = useState(null);
+  
+  // fetch the json of the pools and push them into an array for mapping 
+  useEffect(() => {
+    try{
+      const {ethereum} = window; 
+      if(ethereum) {
+        fetch(`http://localhost:3000/api/pools.json`)
+        .then(response => response.json())
+        .then(data => {
+          setPools(data); 
+        })
+      }
     }
-  ]
-  let usdData = [
-   
-    {
-      time: "2021/12/03 12:53:51",
-      paidCurrencyMedia: "https://cryptologos.cc/logos/usd-coin-usdc-logo.png?v=002",
-      receiveCurrencyMedia: "https://cryptologos.cc/logos/tether-usdt-logo.png?v=002",
-      price: "USDC - Tether",
-      apy: "0.008%",
-      tvl: "0.48",
-      deposite: "$50",
-      depositeTokens: "25"
+    catch (error){
+      console.log(error);
     }
-  ]
+  }, []);
 
+  useEffect(() => {
+    grabKeys(withdrawKey, liquidityKey);
+  }, [withdrawKey,liquidityKey])
 
+  const grabKeys = (id1:any, id2: any) => {
+    setWithdrawKey(id1);
+    setLiquidityKey(id2);
 
+    if(withdrawKey != null){
+      setModalWithdraw(true);
+    }else if (liquidityKey != null){
+      setLiquidityModal(true);
+    } 
+  }
 
   return (
     <div>
       <Navigationbar />
-      <Container className=' mt-4 pt-1'>
+      <div className="pools_list">
         {
-          swapsData.map((item, index) => (
+          pools.map((pool: any) => (
+            <div className="single_pool" key={pool.id}>
 
-            <Row className='compound-card'>
+                    <div className="title_container">
+                      <p className="pool_name">{pool.name}</p>
+                      <div className="pair">
+                        <img alt={pool.alt1} className="logofirst" src={pool.logo1}/>
+                        <img alt={pool.alt2} className="logo" src={pool.logo2}/>
+                      </div>
+                    </div>
 
-              <Col size="2"> <Image style={{ width: '20%', height: '20%' }} src={item.paidCurrencyMedia} /> <Image style={{ width: '20%', height: '20%' }} src={item.receiveCurrencyMedia} />
-              </Col>
-              <Col size="2"> {item.price} </Col>
-              <Col size="2">
-                APY<br />
-                {item.apy}
-              </Col>
-              <Col size="1">
-                tvl <br />
-                {item.tvl}
-              </Col>
-              <Col size="2">
-                Total Deposit  <br />
-                {item.deposite}
-              </Col>
-              <Col size="1">
-                <Button size='sm' onClick={() => {  swal("That functionality not connected ."); }}  >Harvest</Button>
-              </Col>
-              <Col size="2">
-                <Button primary size='sm'  onClick={() => {   swal("That functionality not connected .");}} >Withdrawal</Button>
-              </Col>
-            </Row>
+                    <div className="pool_info">
+                      <div className="container">
+                        <p>TVL</p>
+                        <p>${pool.tvl}</p>
+                      </div>
+
+                      <div className="container">
+                        <p>APY</p>
+                        <p>{pool.apy}</p>
+                      </div>
+
+                      <div className="container">
+                        <p>Rewards</p>
+                        <img alt={pool.rewards_alt} className="rewards" src={pool.rewards}/>
+                      </div>
+                    </div>
+                  
+                <div className="buttons">
+                  <PoolButton props={() => setWithdrawKey(withdrawKey => withdrawKey === pool.id ? null : pool.id)}  description="withdraw"/> 
+                  <PoolButton props={() => setLiquidityKey(liquidityKey => liquidityKey === pool.id ? null : pool.id)} description="add liquidity"/>
+                </div>
+         
+            </div>
+            
           ))
         }
+      </div>
+      {liquidityModal ? <AddLiquidity liquidityKey={liquidityKey} setLiquidityKey={setLiquidityKey} pool={pools} setLiquidityModal={setLiquidityModal}/> : null}
+      {withdrawModal ? <DetailsModal withdrawKey={withdrawKey} setWithdrawKey={setWithdrawKey} pool={pools} setModalWithdraw={setModalWithdraw} /> : null}
 
-{
-          usdData.map((item, index) => (
-
-            <Row className='compound-card'>
-
-              <Col size="2"> <Image style={{ width: '20%', height: '20%' }} src={item.paidCurrencyMedia} /> <Image style={{ width: '20%', height: '20%' }} src={item.receiveCurrencyMedia} />
-              </Col>
-              <Col size="2"> {item.price} </Col>
-              <Col size="2">
-                APY<br />
-                {item.apy}
-              </Col>
-              <Col size="1">
-                tvl <br />
-                {item.tvl}
-              </Col>
-              <Col size="2">
-              
-              </Col>
-              <Col size="1">
-                {/* <Button size='sm' onClick={() => { }} >Harvest</Button> */}
-              </Col>
-              <Col size="2">
-                <Button primary size='sm' data-bs-toggle="modal" data-bs-target="#approvalModal" onClick={() => { }}  >Deposit</Button>
-              </Col>
-            </Row>
-          ))
-        }
-
-
-
-
-        <ApprovalModal totalTokens={8.0456345} />
-      </Container>
       <BottomBar />
     </div>
   )

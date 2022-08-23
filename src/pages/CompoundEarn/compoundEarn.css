@@ -1,0 +1,71 @@
+.pools_list {
+    display: flex;
+    width: 100vw;
+    margin-top:50px;
+}
+
+.single_pool{
+    display: flex;
+    flex-direction: column;
+    width:500px;
+    height: 300px;
+    justify-content: space-around;
+    border: 1px solid rgb(99, 204, 224);
+    border-radius: 20px;
+    margin:30px;
+    background-color: rgb(99, 204, 224);
+}
+
+.title_container {
+    display: flex;
+    width: 100%;
+    justify-content:space-around;
+}
+
+.pool_name {
+    white-space: nowrap;
+    font-size: 25px;
+    font-weight: bold;
+    color:white;
+}
+
+.pair{
+    display: flex;
+}
+
+.logofirst{
+    width:50px;
+    height: 50px;
+    margin-right: -10px;
+}
+
+.logo{
+    width:50px;
+    height: 50px;
+}
+
+.pool_info{
+    display: flex;
+
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container > p {
+    color:white;
+}
+
+.rewards {
+    width:20px;
+}
+
+.buttons{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+

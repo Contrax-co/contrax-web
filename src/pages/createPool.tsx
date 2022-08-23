@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useEffect } from 'react'
 import Navigationbar from '../components/Navigationbar/Navigationbar';
 import BottomBar from '../components/bottomBar/BottomBar';

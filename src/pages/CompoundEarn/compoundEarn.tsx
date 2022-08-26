@@ -5,6 +5,7 @@ import PoolButton from '../../components/PoolButton';
 import AddLiquidity from './components/addLiquidityModal';
 import DetailsModal from './components/withdrawModal';
 import './compoundEarn.css';
+import { getTotalValue } from './addInfo';
 
 export default function CompoundEarn() {
   const [pools, setPools] = useState([]);
@@ -28,6 +29,8 @@ export default function CompoundEarn() {
     catch (error){
       console.log(error);
     }
+
+    // getTotalValue();
   }, []);
 
   useEffect(() => {
@@ -46,37 +49,43 @@ export default function CompoundEarn() {
   }
 
   return (
-    <div>
+    <div className="compound_container">
       <Navigationbar />
       <div className="pools_list">
         {
           pools.map((pool: any) => (
             <div className="single_pool" key={pool.id}>
 
-                    <div className="title_container">
-                      <p className="pool_name">{pool.name}</p>
-                      <div className="pair">
-                        <img alt={pool.alt1} className="logofirst" src={pool.logo1}/>
-                        <img alt={pool.alt2} className="logo" src={pool.logo2}/>
+                  <div className="row_items">
+                      <div className="title_container">
+                        <div className="pair">
+                          <img alt={pool.alt1} className="logofirst" src={pool.logo1}/>
+                          <img alt={pool.alt2} className="logo" src={pool.logo2}/>
+                        </div>
+                        <div>
+                          <p className="pool_name">{pool.name}</p>
+                          <p className="farm_type">SushiSwap</p>
+                        </div>
                       </div>
-                    </div>
 
                     <div className="pool_info">
                       <div className="container">
-                        <p>TVL</p>
+                        <p className="pool_name">TVL</p>
                         <p>${pool.tvl}</p>
                       </div>
 
                       <div className="container">
-                        <p>APY</p>
+                        <p className="pool_name">APY</p>
                         <p>{pool.apy}</p>
                       </div>
 
                       <div className="container">
-                        <p>Rewards</p>
+                        <p className="pool_name">Rewards</p>
                         <img alt={pool.rewards_alt} className="rewards" src={pool.rewards}/>
                       </div>
                     </div>
+                    
+                  </div>
                   
                 <div className="buttons">
                   <PoolButton props={() => setWithdrawKey(withdrawKey => withdrawKey === pool.id ? null : pool.id)}  description="withdraw"/> 

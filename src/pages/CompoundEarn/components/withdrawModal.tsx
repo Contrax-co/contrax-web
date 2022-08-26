@@ -135,37 +135,6 @@ function WithdrawModal({setModalWithdraw, withdrawKey, setWithdrawKey, pool}: an
         }
     }
 
-    const withdrawAll = async() => {
-        const {ethereum} = window;
-        try{
-            if (ethereum){
-                const provider = new ethers.providers.Web3Provider(ethereum);
-                const signer = provider.getSigner();
-                const vaultContract = new ethers.Contract(vaultAddress, vaultAbi, signer);
-
-                /*
-                * Execute the actual withdraw functionality from smart contract
-                */
-                const gasPrice = await provider.getGasPrice();
-                const withdrawTxn = await vaultContract.withdrawAll({gasLimit: gasPrice});
-                console.log("Withdrawing...", withdrawTxn.hash);
-
-                const withdrawTxnStatus = await withdrawTxn.wait(1);
-                if (!withdrawTxnStatus.status) {
-                    console.log("Error withdrawing into vault");
-                }else{
-                   console.log("Withdrawn --", withdrawTxn.hash); 
-                }
-
-            }else{
-                console.log("Ethereum object does not exist!")
-            }
-
-        }catch(error){
-            console.log(error);
-        }
-    }
-
     const handleChange = (e:any) => {
         setWithdrawAmount(e.target.value);
     };
@@ -193,7 +162,6 @@ function WithdrawModal({setModalWithdraw, withdrawKey, setWithdrawKey, pool}: an
 
                     <div>
                         <p onClick={withdraw} className="withdraw_button">withdraw</p> 
-                        <p onClick={withdrawAll} className="withdrawAll_button">withdraw all</p>
                     </div>
   
                    

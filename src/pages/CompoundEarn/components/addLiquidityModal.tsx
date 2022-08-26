@@ -114,13 +114,19 @@ function AddLiquidity({setLiquidityModal, liquidityKey, setLiquidityKey, pool}: 
                 const signer = provider.getSigner();
                 const vaultContract = new ethers.Contract(vaultAddr, vaultAbi, signer);
                 
-
                 /*
                 * Execute the actual deposit functionality from smart contract
                 */
-               console.log("The amount to be deposited into vault", depositAmount);
+                console.log("The amount to be deposited into vault", depositAmount);
                 const formattedBal = ethers.utils.parseUnits(depositAmount.toString(), 18);
                 const gasPrice = await provider.getGasPrice();
+
+                // approve the vault to spend asset
+                const lpContract = new ethers.Contract(lpAddress, lpAbi, signer);
+                await lpContract.approve(vaultAddr, formattedBal);
+
+
+                //the abi of the vault contract needs to be checked 
                 const depositTxn = await vaultContract.deposit(formattedBal, {gasLimit: gasPrice});
                 console.log("Depositing...", depositTxn.hash);
 
@@ -135,32 +141,6 @@ function AddLiquidity({setLiquidityModal, liquidityKey, setLiquidityKey, pool}: 
                 console.log("Ethereum object doesn't exist!");
               }
         }catch (error) {
-            console.log(error);
-        }
-    }
-
-    const depositAll = async () => {
-        const {ethereum} = window;
-        try {
-            if(ethereum){
-                const provider = new ethers.providers.Web3Provider(ethereum);
-                const signer = provider.getSigner();
-                const vaultContract = new ethers.Contract(vaultAddr, vaultAbi, signer);
-
-                const gasPrice = await provider.getGasPrice();
-                const depositAllTxn = await vaultContract.depositAll({gasLimit:gasPrice});
-                const depositTxnStatus = await depositAllTxn.wait(1);
-
-                if(!depositTxnStatus.status){
-                    console.log("Error depositing into vault");
-                }else {
-                    console.log("Deposited --", depositAllTxn.hash);
-                }
-            }else {
-                console.log("Ethereum object doesn't exist!");
-            }
-
-        }catch(error){
             console.log(error);
         }
     }
@@ -201,6 +181,7 @@ function AddLiquidity({setLiquidityModal, liquidityKey, setLiquidityKey, pool}: 
                     <div className="split_info">
                         <div className="leftside">
                             <p>left side info</p>
+                            <div></div>
                         </div>
                         
                         <div className="deposit_withdraw">
@@ -224,7 +205,6 @@ function AddLiquidity({setLiquidityModal, liquidityKey, setLiquidityKey, pool}: 
                                     </div>
                                     <div>
                                         <p onClick={deposit} className="deposit_button">deposit</p> 
-                                        <p className="depositAll_button" onClick={depositAll}>depositAll</p>
                                     </div>
                               
                                 </form>

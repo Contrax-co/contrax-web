@@ -1,50 +1,26 @@
 import React, {useRef, useState, useEffect} from 'react';
+import './Withdraw.css';
 import { ethers } from "ethers";
-import './withdrawModal.css';
 
-function WithdrawModal({setModalWithdraw, withdrawKey, setWithdrawKey, pool}: any) {
+function Withdraw({setModalWithdraw, setWithdrawKey, pool}: any) {
+    const [currentWallet, setCurrentWallet] = useState("");
+    const [withdrawAmount, setWithdrawAmount] = useState(0);
+    const [userVaultBalance, setUserVaultBalance] = useState(0);
+
     // close the modal when clicking outside the modal.
     const modalRef: any = useRef();
 
-    const [currentWallet, setCurrentWallet] = useState("");
-    const [userVaultBalance, setUserVaultBalance] = useState(0);
-    const [withdrawAmount, setWithdrawAmount] = useState(0);
-
-    // gets the specific pool from the JSON file
-    const specificPool = pool.slice(withdrawKey-1, withdrawKey);
-
-    const [poolName, setPoolName] = useState("");
-    const [pair1, setPair1] = useState("");
-    const [pair2, setPair2] = useState("");
-    const [poolLogo1, setPoolLogo1] = useState("");
-    const [poolLogo2, setPoolLogo2] = useState("");
-    const [alt1, setAlt1] = useState("");
-    const [alt2, setAlt2] = useState("");
-    const [lpAddress, setLPAddress] = useState("");
-    const [lpAbi, setLpAbi] = useState([]);
-    const [vaultAddress, setVaultAddress] = useState("");
-    const [vaultAbi, setVaultAbi] = useState([]);
-
     useEffect(() => {
-        specificPool.forEach((pool:any) => {
-            setPoolName(pool.name);
-            setPair1(pool.pair1);
-            setPair2(pool.pair2);
-            setPoolLogo1(pool.logo1);
-            setPoolLogo2(pool.logo2);
-            setAlt1(pool.alt1);
-            setAlt2(pool.alt2);
-
-            setLPAddress(pool.lp_address);
-            setLpAbi(pool.lp_abi);
-            setVaultAddress(pool.vault_addr);
-            setVaultAbi(pool.vault_abi);
-        });
-
         checkIfWalletIsConnected();
         getUserVaultBalance();
-
     })
+
+    const closeModal = (e: any) => {
+        if (e.target === modalRef.current) {
+            setModalWithdraw(false);
+            setWithdrawKey(null);
+        }
+    };
 
     const checkIfWalletIsConnected = async () => {
         try {
@@ -81,7 +57,7 @@ function WithdrawModal({setModalWithdraw, withdrawKey, setWithdrawKey, pool}: an
             if (ethereum) {
                 const provider = new ethers.providers.Web3Provider(ethereum);
                 const signer = provider.getSigner();
-                const vaultContract = new ethers.Contract(vaultAddress, vaultAbi, signer);
+                const vaultContract = new ethers.Contract(pool.vault_addr, pool.vault_abi, signer);
 
                 const balance = await vaultContract.balanceOf(currentWallet);
                 const formattedBal = Number(ethers.utils.formatUnits(balance, 18));
@@ -97,12 +73,6 @@ function WithdrawModal({setModalWithdraw, withdrawKey, setWithdrawKey, pool}: an
         }
     }
 
-    const closeModal = (e: any) => {
-        if (e.target === modalRef.current) {
-            setModalWithdraw(false);
-            setWithdrawKey(null);
-        }
-    };
 
     const withdraw = async() => {
         const {ethereum} = window;
@@ -110,7 +80,7 @@ function WithdrawModal({setModalWithdraw, withdrawKey, setWithdrawKey, pool}: an
             if(ethereum){
                 const provider = new ethers.providers.Web3Provider(ethereum);
                 const signer = provider.getSigner();
-                const vaultContract = new ethers.Contract(vaultAddress, vaultAbi, signer);
+                const vaultContract = new ethers.Contract(pool.vault_addr, pool.vault_abi, signer);
 
                 /*
                 * Execute the actual withdraw functionality from smart contract
@@ -131,37 +101,6 @@ function WithdrawModal({setModalWithdraw, withdrawKey, setWithdrawKey, pool}: an
                 console.log("Ethereum object doesn't exist!");
               }
         }catch (error) {
-            console.log(error);
-        }
-    }
-
-    const withdrawAll = async() => {
-        const {ethereum} = window;
-        try{
-            if (ethereum){
-                const provider = new ethers.providers.Web3Provider(ethereum);
-                const signer = provider.getSigner();
-                const vaultContract = new ethers.Contract(vaultAddress, vaultAbi, signer);
-
-                /*
-                * Execute the actual withdraw functionality from smart contract
-                */
-                const gasPrice = await provider.getGasPrice();
-                const withdrawTxn = await vaultContract.withdrawAll({gasLimit: gasPrice});
-                console.log("Withdrawing...", withdrawTxn.hash);
-
-                const withdrawTxnStatus = await withdrawTxn.wait(1);
-                if (!withdrawTxnStatus.status) {
-                    console.log("Error withdrawing into vault");
-                }else{
-                   console.log("Withdrawn --", withdrawTxn.hash); 
-                }
-
-            }else{
-                console.log("Ethereum object does not exist!")
-            }
-
-        }catch(error){
             console.log(error);
         }
     }
@@ -187,21 +126,19 @@ function WithdrawModal({setModalWithdraw, withdrawKey, setWithdrawKey, pool}: an
                         <div className ="withdraw_amount">
                             <input type="number" placeholder="0.0" className="bal_input" value={withdrawAmount} onChange={handleChange}/>
                             <p onClick={withdrawTotal} className="allWithdraw_tokens">MAX</p>
-                            <p className="withdraw_name">{poolName}</p>
+                            <p className="withdraw_name">{pool.name}</p>
                         </div>
                     </div>
 
                     <div>
                         <p onClick={withdraw} className="withdraw_button">withdraw</p> 
-                        <p onClick={withdrawAll} className="withdrawAll_button">withdraw all</p>
                     </div>
   
                    
                 </form>
-                
             </div>
         </div>
     )
 }
 
-export default WithdrawModal;
+export default Withdraw

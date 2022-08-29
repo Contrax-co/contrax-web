@@ -1,6 +1,5 @@
-import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/home/Home';
 import Dashboard from './pages/dashboard';
 import CreateToken from './pages/createToken';
@@ -9,40 +8,30 @@ import Exchange from './pages/exchange';
 import ExplorePool from './pages/explorePool';
 import CreatePool from './pages/createPool';
 import PoolDetail from './pages/poolDetail';
-import CompoundEarn from './pages/CompoundEarn/compoundEarn';
+import Compound from './pages/CompoundEarn/compound';
 
 function App() {
   return (
     <Router>
-       <Switch>
-            <Route exact path='/'>
-              <Home />
-            </Route>
-            <Route exact path='/dashboard'>
-              <Dashboard />
-            </Route>
-            <Route exact path='/create-a-token'>
-              <CreateToken />
-            </Route>
-            <Route exact path='/manage-token'>
-              <ManageToken />
-            </Route>
-            <Route exact path='/exchange'>
-              <Exchange />
-            </Route>
-            <Route exact path='/explore-pool'>
-              <ExplorePool />
-            </Route>
-            <Route exact path='/create-pool'>
-              <CreatePool />
-            </Route>
-            <Route exact path='/pool-detail'>
-              <PoolDetail />
-            </Route>
-            <Route exact path='/compound'>
-              <CompoundEarn />
-            </Route>
-        </Switch>
+      <Routes>
+        <Route path="/" element={<Home />} />
+
+        <Route path="/dashboard" element={<Dashboard />} />
+
+        <Route path="/create-a-token" element={<CreateToken />} />
+
+        <Route path="/manage-token" element={<ManageToken />} />
+
+        <Route path="/exchange" element={<Exchange />} />
+
+        <Route path="/explore-pool" element={<ExplorePool />} />
+
+        <Route path="/create-pool" element={<CreatePool />} />
+
+        <Route path="/pool-detail" element={<PoolDetail />} />
+
+        <Route path="/compound" element={<Compound />} />
+      </Routes>
     </Router>
   );
 }

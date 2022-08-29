@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
 import Card from '../card/Card';
 import { FormInput } from '../form/Form';
-import Button from '../button/Button'
+import Button from '../button/Button';
 import { Desc } from '../text/Text';
 
 export const StyledSettingCard = styled(Card)((props) => ({
@@ -11,7 +11,7 @@ export const StyledSettingCard = styled(Card)((props) => ({
   height: '100%',
   width: '100%',
   zIndex: 1,
-  flexDirection: 'column'
+  flexDirection: 'column',
 }));
 
 export const StyledSmallInput = styled(FormInput)((props) => ({
@@ -28,4 +28,3 @@ export const StyledInputDesc = styled(Desc)((props) => ({
   marginTop: 13,
   marginLeft: 66,
 }));
-

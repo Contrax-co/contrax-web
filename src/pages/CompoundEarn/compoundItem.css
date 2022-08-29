@@ -1,0 +1,91 @@
+.single_pool {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-top:10px;
+    width:90vw;
+    height: 11vh;
+    justify-content: space-evenly;
+    border: 1px solid rgb(99, 204, 224);
+    border-radius: 20px;
+    margin:7px;
+    background-color: rgb(99, 204, 224);
+}
+
+.row_items{
+    display: flex;
+    flex-direction: row;
+}
+
+.title_container {
+    display: flex;
+    flex: 1;
+    justify-content:space-around;
+}
+
+.pair{
+    display: flex;
+}
+
+.logofirst{
+    width:50px;
+    height: 50px;
+    margin-right: -10px;
+    border: 4px solid rgb(101, 166, 179);
+    border-radius: 999px;
+}
+
+.logo{
+    width:50px;
+    height: 50px;
+    border: 4px solid rgb(101, 166, 179);
+    border-radius: 999px;
+}
+
+.pool_name {
+    white-space: nowrap;
+    font-size: 17px;
+    font-weight: bold;
+    color:white;
+}
+
+.container > .pool_name {
+    font-size: 13px;
+    color: rgb(237, 232, 232);
+}
+
+.container > p {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.farm_type{
+    color:white;
+    font-size:13px;
+}
+
+.pool_info{
+    display: flex;
+    flex:5;
+    justify-content: space-evenly;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container > p {
+    color:white;
+}
+
+.rewards {
+    width:15px;
+}
+
+.buttons{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}

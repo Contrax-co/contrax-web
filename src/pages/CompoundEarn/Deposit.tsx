@@ -1,49 +1,21 @@
-import React, {useEffect, useRef, useState} from 'react';
-import './addLiquidityModal.css';
+import React, {useRef, useState, useEffect} from 'react'; 
 import * as ethers from 'ethers';
+import './Deposit.css';
 
-function AddLiquidity({setLiquidityModal, liquidityKey, setLiquidityKey, pool}: any) {
-    
+function Deposit({setLiquidityModal, setLiquidityKey, pool}: any) {
+    const [tvl, setTVL] = useState(0);
+    const [currentWallet, setCurrentWallet] = useState("");
+
+    const [depositAmount, setDepositAmount] = useState(0);
+    const [userLPBalance, setUserLPBalance] = useState(0);
+
     // close the modal when clicking outside the modal.
     const modalRef: any = useRef();
-   
-    const [currentWallet, setCurrentWallet] = useState("");
-    const [userLPBalance, setUserLPBalance] = useState(0);
-    const [depositAmount, setDepositAmount] = useState(0);
-
-
-    // gets the specific pool from the JSON file
-    const specificPool = pool.slice(liquidityKey-1, liquidityKey);
-
-    const [poolName, setPoolName] = useState("");
-    const [pair1, setPair1] = useState("");
-    const [pair2, setPair2] = useState("");
-    const [poolLogo1, setPoolLogo1] = useState("");
-    const [poolLogo2, setPoolLogo2] = useState("");
-    const [alt1, setAlt1] = useState("");
-    const [alt2, setAlt2] = useState("");
-    const [lpAddress, setLPAddress] = useState("");
-    const [lpAbi, setLpAbi] = useState([]);
-    const [vaultAddr, setVaultAddr] = useState("");
-    const [vaultAbi, setVaultAbi] = useState([]);
 
     useEffect(() => {
-        specificPool.forEach((pool:any) => {
-            setPoolName(pool.name);
-            setPair1(pool.pair1);
-            setPair2(pool.pair2);
-            setPoolLogo1(pool.logo1);
-            setPoolLogo2(pool.logo2);
-            setAlt1(pool.alt1);
-            setAlt2(pool.alt2);
-
-            setLPAddress(pool.lp_address);
-            setLpAbi(pool.lp_abi);
-            setVaultAddr(pool.vault_addr);
-            setVaultAbi(pool.vault_abi);
-        });
-        checkIfWalletIsConnected(); 
+        checkIfWalletIsConnected();
         getLPTokenBalance();
+        getTotalValue();
     })
 
     const closeModal = (e: any) => {
@@ -52,6 +24,7 @@ function AddLiquidity({setLiquidityModal, liquidityKey, setLiquidityKey, pool}: 
             setLiquidityKey(null);
         }
     };
+
 
     const checkIfWalletIsConnected = async () => {
         try {
@@ -90,7 +63,7 @@ function AddLiquidity({setLiquidityModal, liquidityKey, setLiquidityKey, pool}: 
         try {
             if (ethereum) {
                 const provider = new ethers.providers.Web3Provider(ethereum);
-                const lpContract = new ethers.Contract(lpAddress, lpAbi, provider);
+                const lpContract = new ethers.Contract(pool.lp_address, pool.lp_abi, provider);
 
                 const balance = await lpContract.balanceOf(currentWallet);
                 const formattedBal = Number(ethers.utils.formatUnits(balance, 18));
@@ -112,15 +85,21 @@ function AddLiquidity({setLiquidityModal, liquidityKey, setLiquidityKey, pool}: 
             if(ethereum){
                 const provider = new ethers.providers.Web3Provider(ethereum);
                 const signer = provider.getSigner();
-                const vaultContract = new ethers.Contract(vaultAddr, vaultAbi, signer);
+                const vaultContract = new ethers.Contract(pool.vault_addr, pool.vault_abi, signer);
                 
-
                 /*
                 * Execute the actual deposit functionality from smart contract
                 */
-               console.log("The amount to be deposited into vault", depositAmount);
+                console.log("The amount to be deposited into vault", depositAmount);
                 const formattedBal = ethers.utils.parseUnits(depositAmount.toString(), 18);
                 const gasPrice = await provider.getGasPrice();
+
+                // approve the vault to spend asset
+                const lpContract = new ethers.Contract(pool.lp_address, pool.lp_abi, signer);
+                await lpContract.approve(pool.vault_addr, formattedBal);
+
+
+                //the abi of the vault contract needs to be checked 
                 const depositTxn = await vaultContract.deposit(formattedBal, {gasLimit: gasPrice});
                 console.log("Depositing...", depositTxn.hash);
 
@@ -139,28 +118,24 @@ function AddLiquidity({setLiquidityModal, liquidityKey, setLiquidityKey, pool}: 
         }
     }
 
-    const depositAll = async () => {
+    const getTotalValue = async() => {
         const {ethereum} = window;
-        try {
+        try{
             if(ethereum){
-                const provider = new ethers.providers.Web3Provider(ethereum);
-                const signer = provider.getSigner();
-                const vaultContract = new ethers.Contract(vaultAddr, vaultAbi, signer);
+                    const provider = new ethers.providers.Web3Provider(ethereum);
+                    const signer = provider.getSigner();
+                    const vaultContract = new ethers.Contract(pool.vault_addr, pool.vault_abi, signer);
 
-                const gasPrice = await provider.getGasPrice();
-                const depositAllTxn = await vaultContract.depositAll({gasLimit:gasPrice});
-                const depositTxnStatus = await depositAllTxn.wait(1);
+                    const totalValue = await vaultContract.balance();
+                    const formattedBal = Number(ethers.utils.formatUnits(totalValue, 18));
+                    setTVL(formattedBal);
 
-                if(!depositTxnStatus.status){
-                    console.log("Error depositing into vault");
-                }else {
-                    console.log("Deposited --", depositAllTxn.hash);
-                }
-            }else {
+            }
+            else {
                 console.log("Ethereum object doesn't exist!");
             }
-
-        }catch(error){
+    
+        }catch (error) {
             console.log(error);
         }
     }
@@ -174,35 +149,48 @@ function AddLiquidity({setLiquidityModal, liquidityKey, setLiquidityKey, pool}: 
     }
 
 
-
     return (
         <div className="liquidity_container" ref={modalRef} onClick={closeModal}>
             <div className="liquidity_modal">
-             
-                
                 <div className="single_pool_container">
-            
+
                     <div className="lp_title">
-                        <img className="lp_logo" alt={alt1} src={poolLogo1}/>
-                        <p className="lp_name">{pair1}</p>
+                        <img className="lp_logo" alt={pool.alt1} src={pool.logo1}/>
+                        <p className="lp_name">{pool.pair1}</p>
                         <p className="lp_name">/</p>
-                        <img className="lp_logo" alt={alt2} src={poolLogo2}/>
-                        <p className="lp_name">{pair2}</p>
-                    </div>
-
-                    <div className="lp_info">
-                        <p>Liquidity</p>
-
-                        <p>Pool APR</p>
-                        <p>Underlying {pair1}</p>
-                        <p>Underlying {pair2}</p>
+                        <img className="lp_logo" alt={pool.alt2} src={pool.logo2}/>
+                        <p className="lp_name">{pool.pair2}</p>
                     </div>
 
                     <div className="split_info">
                         <div className="leftside">
-                            <p>left side info</p>
+                            <div className="topleft_container">
+                                <div className="topleft_info">
+                                    <p>Liquidity</p>
+                                    {(tvl < 1000) ? (
+                                        <div>
+                                        <p>{"<"}1000</p> 
+                                        </div>
+                                    ):(
+                                        <div>{tvl}</div>
+                                    )}
+
+                                </div>
+
+                                <div className="topleft_info">
+                                    <p>Base APR</p>
+                                    <p></p>
+                                </div>
+
+                                <div className="topleft_info">
+                                    <p>Boosted APR</p>
+                                    <p>-</p>
+                                </div>
+
+                            </div>
+
                         </div>
-                        
+
                         <div className="deposit_withdraw">
                             {/* If there is no current wallet then render this button  */}
                             {!currentWallet ? (
@@ -218,13 +206,12 @@ function AddLiquidity({setLiquidityModal, liquidityKey, setLiquidityKey, pool}: 
                                         <div className ="deposit_amount">
                                             <input type="number" placeholder="0.0" className="bal_input" value={depositAmount} onChange={handleChange}/>
                                             <p onClick={depositTotal} className="all_tokens">MAX</p>
-                                            <p className="name">{poolName}</p>
+                                            <p className="name">{pool.name}</p>
                                         </div>
                                         <p className="get_lp">Get LP Tokens</p>
                                     </div>
                                     <div>
                                         <p onClick={deposit} className="deposit_button">deposit</p> 
-                                        <p className="depositAll_button" onClick={depositAll}>depositAll</p>
                                     </div>
                               
                                 </form>
@@ -233,12 +220,13 @@ function AddLiquidity({setLiquidityModal, liquidityKey, setLiquidityKey, pool}: 
                         </div>
 
                     </div>
+                    
                 </div>
-                
             </div>
-       
+            
         </div>
-    )
-}
 
-export default AddLiquidity;
+        )
+    }
+
+export default Deposit

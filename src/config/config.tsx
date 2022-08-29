@@ -1,2 +1,1 @@
-export enum config {
-}
+export enum config {}

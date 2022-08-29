@@ -13,35 +13,25 @@ import Compound from './pages/CompoundEarn/compound';
 function App() {
   return (
     <Router>
-       <Switch>
-            <Route exact path='/'>
-              <Home />
-            </Route>
-            <Route exact path='/dashboard'>
-              <Dashboard />
-            </Route>
-            <Route exact path='/create-a-token'>
-              <CreateToken />
-            </Route>
-            <Route exact path='/manage-token'>
-              <ManageToken />
-            </Route>
-            <Route exact path='/exchange'>
-              <Exchange />
-            </Route>
-            <Route exact path='/explore-pool'>
-              <ExplorePool />
-            </Route>
-            <Route exact path='/create-pool'>
-              <CreatePool />
-            </Route>
-            <Route exact path='/pool-detail'>
-              <PoolDetail />
-            </Route>
-            <Route exact path='/compound'>
-              <Compound />
-            </Route>
-        </Switch>
+      <Routes>
+        <Route path="/" element={<Home />} />
+
+        <Route path="/dashboard" element={<Dashboard />} />
+
+        <Route path="/create-a-token" element={<CreateToken />} />
+
+        <Route path="/manage-token" element={<ManageToken />} />
+
+        <Route path="/exchange" element={<Exchange />} />
+
+        <Route path="/explore-pool" element={<ExplorePool />} />
+
+        <Route path="/create-pool" element={<CreatePool />} />
+
+        <Route path="/pool-detail" element={<PoolDetail />} />
+
+        <Route path="/compound" element={<Compound />} />
+      </Routes>
     </Router>
   );
 }

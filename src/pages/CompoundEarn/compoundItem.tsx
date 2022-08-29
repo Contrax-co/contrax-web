@@ -4,6 +4,7 @@ import './compoundItem.css';
 import Withdraw from './Withdraw';
 import * as ethers from 'ethers';
 import Deposit from './Deposit';
+import {checkIfWalletIsConnected, getUserVaultBalance, getTotalValue} from './components/connection'; 
 
 function CompoundItem({pool}: any) {
     const [currentWallet, setCurrentWallet] = useState("");
@@ -18,63 +19,12 @@ function CompoundItem({pool}: any) {
 
     useEffect(() => {
           
-        checkIfWalletIsConnected(); 
-        getUserVaultBalance();
+        checkIfWalletIsConnected(setCurrentWallet); 
+        getUserVaultBalance(pool, currentWallet, setUserVaultBalance, userVaultBalance);
         // getLPTokenBalance();
-        getTotalValue();
+        getTotalValue(pool, setTVL);
         grabKeys(withdrawKey, liquidityKey);
     })
-
-    const checkIfWalletIsConnected = async () => {
-        try {
-            const ethereum = window;
-            if(!ethereum) {
-                console.log("Make sure you have metamask!");
-                return;
-            } else {
-                console.log("We have the ethereum object", ethereum);
-            }
-
-            /*
-            * Check if we're authorized to access the user's wallet
-            */
-            const accounts = await window.ethereum.request({method: "eth_accounts"}); 
-
-            if(accounts.length !== 0) {
-                const account = accounts[0];
-                console.log("Found an authorized account:", account);
-                setCurrentWallet(account); 
-            }
-            else {
-                console.log("No authorized account found")
-            }
-        }
-        catch(error) {
-            console.log(error);
-        }
-    }
-
-    const getUserVaultBalance = async() => {
-        const {ethereum} = window; 
-        try {
-            if (ethereum) {
-                const provider = new ethers.providers.Web3Provider(ethereum);
-                const signer = provider.getSigner();
-                const vaultContract = new ethers.Contract(pool.vault_addr, pool.vault_abi, signer);
-
-                const balance = await vaultContract.balanceOf(currentWallet);
-                const formattedBal = Number(ethers.utils.formatUnits(balance, 18));
-                setUserVaultBalance(formattedBal);
-                console.log(`User's balance of the lp token in vault is: ${userVaultBalance}`);
-            }
-            else {
-                console.log("Ethereum object doesn't exist!");
-            }
-        }
-        catch (error){
-            console.log(error);
-        }
-    }
 
 
     const grabKeys = (id1:any, id2: any) => {
@@ -86,27 +36,6 @@ function CompoundItem({pool}: any) {
         }else if (liquidityKey != null){
           setLiquidityModal(true);
         } 
-    }
-
-    const getTotalValue = async() => {
-        const {ethereum} = window;
-        try{
-            if(ethereum){
-                    const provider = new ethers.providers.Web3Provider(ethereum);
-                    const signer = provider.getSigner();
-                    const vaultContract = new ethers.Contract(pool.vault_addr, pool.vault_abi, signer);
-
-                    const totalValue = await vaultContract.balance();
-                    const formattedBal = Number(ethers.utils.formatUnits(totalValue, 18));
-                    setTVL(formattedBal);
-            }
-            else {
-                console.log("Ethereum object doesn't exist!");
-            }
-    
-        }catch (error) {
-            console.log(error);
-        }
     }
 
     return (

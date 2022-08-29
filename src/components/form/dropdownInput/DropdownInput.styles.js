@@ -1,7 +1,6 @@
-
-import styled, {css} from 'styled-components/macro';
+import styled, { css } from 'styled-components/macro';
 import * as colors from '../../../theme/colors';
-import * as typo from "../../../theme/typography";
+import * as typo from '../../../theme/typography';
 import { Desc } from '../../text/Text';
 import Button from '../../button/Button';
 
@@ -10,7 +9,7 @@ const noForwardProps = [];
 export const StyledInput = styled('input', {
   shouldForwardProp: (prop) => !noForwardProps.includes(prop),
 })((props) => ({
-  ...(typo.Title),
+  ...typo.Title,
   textAlign: props.type === 'number' ? 'right' : 'left',
   borderRadius: '0 5px 5px 0',
   border: `1px solid ${colors.inputBorder}`,
@@ -21,7 +20,7 @@ export const StyledInput = styled('input', {
 export const StyledSearch = styled('input', {
   shouldForwardProp: (prop) => !noForwardProps.includes(prop),
 })((props) => ({
-  ...(typo.Title),
+  ...typo.Title,
   border: 'none',
   borderBottom: `1px solid ${colors.inputBorder}`,
   borderRadius: 0,
@@ -30,29 +29,29 @@ export const StyledSearch = styled('input', {
 
 export const Subtitle = styled('small', {
   shouldForwardProp: (prop) => !noForwardProps.includes(prop),
-})((props)=>({
-  ...(typo.PageSubTitle),
+})((props) => ({
+  ...typo.PageSubTitle,
   color: colors.subTitleDark,
   float: 'right',
 }));
 
-export const StyledListBtn = styled.div.attrs(props => {
+export const StyledListBtn = styled.div.attrs((props) => {
   return {
     className: 'dropdown-item',
-  }
-})``
+  };
+})``;
 
-export const ListSubTitle = styled(Desc)((props)=>({
+export const ListSubTitle = styled(Desc)((props) => ({
   float: 'right',
 }));
 
-export const StyledDropBtn = styled(Button).attrs(props =>({
-  className: 'btn btn-primary dropdown-toggle'
+export const StyledDropBtn = styled(Button).attrs((props) => ({
+  className: 'btn btn-primary dropdown-toggle',
 }))`
   border-radius: 4px 0 0 4px;
   padding: 0.25rem;
   border-right: none;
-  ${props => css`
+  ${(props) => css`
     border-color: ${colors.inputBorder};
   `}
-`
+`;

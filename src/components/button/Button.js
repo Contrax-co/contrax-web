@@ -1,5 +1,5 @@
 import { StyledButton } from './Button.styles';
-import uuid from 'react-uuid'
+import uuid from 'react-uuid';
 import * as colors from '../../theme/colors';
 
 export const Button = (props) => {
@@ -43,30 +43,44 @@ Button.defaultProps = {
 };
 
 export const ButtonGroupRadio = (props) => {
-  const {
-    values,
-    name,
-    checked,
-    className,
-    disabled,
-    ...remainingProps
-  } = props;
-  console.log({className});
+  const { values, name, checked, className, disabled, ...remainingProps } =
+    props;
+  console.log({ className });
   return (
-    <div class={className + ' btn-group'} role="group" aria-label="Basic radio toggle button group" {...remainingProps}>
-      {
-        values.map((item) => {
-          const key = uuid();
-          return (
-            <>
-              <input type="radio" class="btn-check" name={name} id={key} autocomplete="off" checked={item === checked} disabled={disabled && disabled.includes(item)} />
-              <label class="btn btn-primary" style={{background: colors.primary, borderColor: colors.primary}} for={key} >{item}</label>
-            </>
-          )
-        })
-      }
+    <div
+      class={className + ' btn-group'}
+      role="group"
+      aria-label="Basic radio toggle button group"
+      {...remainingProps}
+    >
+      {values.map((item) => {
+        const key = uuid();
+        return (
+          <>
+            <input
+              type="radio"
+              class="btn-check"
+              name={name}
+              id={key}
+              autocomplete="off"
+              checked={item === checked}
+              disabled={disabled && disabled.includes(item)}
+            />
+            <label
+              class="btn btn-primary"
+              style={{
+                background: colors.primary,
+                borderColor: colors.primary,
+              }}
+              for={key}
+            >
+              {item}
+            </label>
+          </>
+        );
+      })}
     </div>
-  )
-}
+  );
+};
 
 export default Button;

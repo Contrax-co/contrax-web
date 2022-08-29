@@ -7,7 +7,7 @@ const aliases = (prefix = `src`) => ({
   '@theme': `${prefix}/theme`,
   '@proptypes': `${prefix}/utils/proptypes`,
   '@utils': `${prefix}/utils`,
-  '@fonts': `${prefix}/theme/fonts`,  
+  '@fonts': `${prefix}/theme/fonts`,
 });
 
 module.exports = aliases;

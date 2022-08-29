@@ -16,5 +16,5 @@ export const StyledBtnText = styled(B1)((props) => ({
   '+span': {
     margin: props.iconAlignRight ? '0 0.4rem 0 0' : '0 0 0 0.4rem',
   },
-  ...(TextBtn),
+  ...TextBtn,
 }));

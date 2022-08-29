@@ -1,7 +1,7 @@
 import React from 'react';
 import minus from '../images/minus.svg';
 import plus from '../images/plus.svg';
-import { Image } from "./image/Image";
+import { Image } from './image/Image';
 import { Caption, Desc } from './text/Text';
 
 interface Props {
@@ -12,26 +12,32 @@ interface Props {
   onIncrease: () => void;
 }
 
-const PriceCounter = ({label, subLabel, value, onDecrease, onIncrease}: Props) => {
+const PriceCounter = ({
+  label,
+  subLabel,
+  value,
+  onDecrease,
+  onIncrease,
+}: Props) => {
   return (
-    <div className='price-counter'>
-      <div className='counter-sign'>
+    <div className="price-counter">
+      <div className="counter-sign">
         <span onClick={() => onDecrease()}>
           <Image src={minus} alt="minus" />
         </span>
       </div>
-      <div className='counter-value'>
-        <Caption className='lightGray'>{label}</Caption>
+      <div className="counter-value">
+        <Caption className="lightGray">{label}</Caption>
         <Desc value={value} variant={'dark'} />
-        <Caption className='lightGray'>{subLabel}</Caption>
+        <Caption className="lightGray">{subLabel}</Caption>
       </div>
-      <div className='counter-sign'>
+      <div className="counter-sign">
         <span onClick={() => onIncrease()}>
           <Image src={plus} alt="minus" />
         </span>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default PriceCounter;

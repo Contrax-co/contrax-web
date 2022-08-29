@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro';
-import *  as colors from "../../theme/colors";
+import * as colors from '../../theme/colors';
 
 export const IconWrapper = styled.span((props) => ({
   padding: 7,
@@ -11,5 +11,4 @@ export const IconWrapper = styled.span((props) => ({
   flexDirection: 'row',
   justifyContent: 'space-around',
   alignItems: 'center',
-}
-));
+}));

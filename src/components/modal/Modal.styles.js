@@ -1,27 +1,25 @@
 import styled from 'styled-components/macro';
 import Button from '../button/Button';
 
-
-export const StyledModalContent = styled.div.attrs(props => {
+export const StyledModalContent = styled.div.attrs((props) => {
   return {
-    className: 'modal-content'
-  }
+    className: 'modal-content',
+  };
 })`
   padding: 1.8rem 1.2rem;
   border-radius: 1.25rem;
-`
+`;
 
-export const StyledModalDialog = styled.div.attrs(props => {
+export const StyledModalDialog = styled.div.attrs((props) => {
   return {
-    className: 'modal-dialog modal-dialog-centered'
-  }
-})`
-`
+    className: 'modal-dialog modal-dialog-centered',
+  };
+})``;
 
-export const StyledCrossBtn = styled(Button).attrs(props => {
+export const StyledCrossBtn = styled(Button).attrs((props) => {
   return {
-    className: 'btn-close'
-  }
+    className: 'btn-close',
+  };
 })`
   position: absolute;
   right: 2rem;
@@ -34,6 +32,4 @@ export const StyledCrossBtn = styled(Button).attrs(props => {
   &:focus {
     box-shadow: none;
   }
-`
-
-
+`;

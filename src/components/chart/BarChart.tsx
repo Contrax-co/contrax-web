@@ -1,18 +1,18 @@
-import React from 'react'
-import { Chart } from "react-google-charts";
+import React from 'react';
+import { Chart } from 'react-google-charts';
 import * as colors from '../../theme/colors';
 
 const chartOptions = {
-  title: "",
-  legend: { position: "none" },
+  title: '',
+  legend: { position: 'none' },
   hAxis: { textPosition: 'none' },
   chartArea: {
     left: 0,
     top: 0,
-    width: "100%",
-    height: "80%"
+    width: '100%',
+    height: '80%',
   },
-  fontName: "Roboto",
+  fontName: 'Roboto',
   colors: [colors.accentDark],
 };
 
@@ -28,5 +28,5 @@ export default function BarChart(props: any) {
         options={chartOptions}
       />
     </div>
-  )
+  );
 }

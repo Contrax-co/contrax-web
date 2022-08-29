@@ -1,30 +1,30 @@
-.liquidity_container{ 
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.7);
+.liquidity_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
 }
 
-.liquidity_modal{
-    display: flex;
-    z-index: 200;
-    background-color: white;
-    width: 1200px;
-    height: 700px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 15px;
-    position: relative;
-    animation: animate 0.3s;
+.liquidity_modal {
+  display: flex;
+  z-index: 200;
+  background-color: white;
+  width: 1200px;
+  height: 700px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  position: relative;
+  animation: animate 0.3s;
 }
 
-.single_pool_container{
+.single_pool_container {
   width: 100%;
   height: 100%;
   padding: 20px;
@@ -35,19 +35,19 @@
 
 .lp_title {
   display: flex;
-  justify-content:center;
-  align-items:center;
-  flex:1;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
 }
 
-.lp_name{
+.lp_name {
   font-size: 25px;
   font-weight: bold;
-  margin-right:20px;
+  margin-right: 20px;
 }
 
 .lp_logo {
-  width:50px;
+  width: 50px;
   height: 50px;
   margin-right: 10px;
 }
@@ -55,26 +55,26 @@
 .lp_info {
   display: flex;
   justify-content: space-around;
-  flex:1;
+  flex: 1;
 }
 
-.split_info{
+.split_info {
   display: flex;
   width: 100%;
   height: 100%;
-  padding:15px;
+  padding: 15px;
 }
 
-.leftside{
-  flex:5;
+.leftside {
+  flex: 5;
 }
 
 .deposit_withdraw {
-  width:100%;
-  height:100%;
-  flex:3;
+  width: 100%;
+  height: 100%;
+  flex: 3;
   display: flex;
-  align-items:center;
+  align-items: center;
   justify-content: center;
   background-color: rgb(241, 251, 255);
   border-radius: 15px;
@@ -82,10 +82,10 @@
 
 .connect_wallet {
   width: 60%;
-  background-color:rgb(99, 204, 224);
+  background-color: rgb(99, 204, 224);
   border-radius: 25px;
   padding: 10px;
-  color:white;
+  color: white;
   font-size: 25px;
   font-weight: bold;
   border: 2px solid white;
@@ -101,7 +101,7 @@
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
-.user_balance{
+.user_balance {
   display: flex;
   justify-content: space-between;
   padding: 5px;
@@ -119,7 +119,6 @@
   color: rgb(184, 181, 181);
 }
 
-
 .deposit_amount {
   display: flex;
   background-color: rgb(240, 245, 247);
@@ -128,7 +127,6 @@
   padding: 20px;
   text-align: center;
   align-items: center;
-  
 }
 
 .deposit_amount > p {
@@ -157,9 +155,9 @@ input {
   font-size: 17px;
   font-weight: bold;
   margin-top: 5px;
-  padding:17px;
+  padding: 17px;
   bottom: 0;
-  width:100%;
+  width: 100%;
 }
 
 .depositAll_button {
@@ -169,7 +167,7 @@ input {
   font-size: 17px;
   font-weight: bold;
   margin-top: 5px;
-  padding:17px;
+  padding: 17px;
   bottom: 0;
 }
 
@@ -177,15 +175,15 @@ input {
   cursor: pointer;
 }
 
-.all_tokens{
+.all_tokens {
   font-size: 12px;
   background-color: rgb(182, 209, 214);
-  padding:2px;
+  padding: 2px;
   border-radius: 7px;
   color: rgb(134, 132, 132);
 }
 
-.all_tokens:hover{
+.all_tokens:hover {
   cursor: pointer;
 }
 
@@ -194,22 +192,18 @@ input {
   padding: 2px;
 }
 
-.deposit_button:hover{
+.deposit_button:hover {
   cursor: pointer;
 }
 
-
-
-
-
 @keyframes animate {
-    from {
-      transform: scale(0.5);
-    }
-    to {
-      transform: scale(1);
-    }
+  from {
+    transform: scale(0.5);
   }
+  to {
+    transform: scale(1);
+  }
+}
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

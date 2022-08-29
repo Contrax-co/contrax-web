@@ -47,7 +47,7 @@ export const primaryBtn = {
   hoverColor: '#FFFFFF',
   disabledBackground: 'rgba(31, 31, 31, 0.12)',
   disabledColor: '#818182',
-}
+};
 
 export const secondaryBtn = {
   background: '#FFFFFF',
@@ -57,5 +57,4 @@ export const secondaryBtn = {
   disabledBackground: '#FFFFFF',
   disabledColor: '#818182',
   disabledBorderColor: 'rgba(31, 31, 31, 0.12)',
-}
-
+};

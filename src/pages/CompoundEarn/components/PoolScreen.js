@@ -1,14 +1,13 @@
-import React from "react";
-import Pool from "./Pool";
+import Pool from './Pool';
 
-function PoolScreen({pools}) {
+function PoolScreen({ pools }) {
   return (
     <div>
-        {pools.map((pool) => (
-            <Pool key={pool.id} pool={pool} /> 
-        ))}
+      {pools.map((pool) => (
+        <Pool key={pool.id} pool={pool} />
+      ))}
     </div>
-  )
+  );
 }
 
-export default PoolScreen
+export default PoolScreen;

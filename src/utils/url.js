@@ -1,10 +1,10 @@
-// Base URLs services
+// Base URL Services
 
-// example
+// Example
 const getApiHttpBaseUrl = () => {
   return ``;
 };
 
 export { getApiHttpBaseUrl };
 
-export const tokenApiEndpoint = 'https://deep-index.moralis.io/api/v2'
+export const tokenApiEndpoint = 'https://deep-index.moralis.io/api/v2';

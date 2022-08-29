@@ -9,7 +9,7 @@ import Exchange from './pages/exchange';
 import ExplorePool from './pages/explorePool';
 import CreatePool from './pages/createPool';
 import PoolDetail from './pages/poolDetail';
-import CompoundEarn from './pages/CompoundEarn/compoundEarn';
+import Compound from './pages/CompoundEarn/compound';
 
 function App() {
   return (
@@ -40,7 +40,7 @@ function App() {
               <PoolDetail />
             </Route>
             <Route exact path='/compound'>
-              <CompoundEarn />
+              <Compound />
             </Route>
         </Switch>
     </Router>

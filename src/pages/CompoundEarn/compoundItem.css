@@ -1,31 +1,15 @@
-.compound_container{
-    width: 100vw;
-    height: 100vh;
-}
-
-.pools_list {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-top:10px;
-    align-items: center;
-}
-
 .single_pool {
     display: flex;
     flex-direction: column;
-    width:80vw;
+    padding-left: 20px;
+    padding-top:10px;
+    width:90vw;
     height: 11vh;
     justify-content: space-evenly;
     border: 1px solid rgb(99, 204, 224);
     border-radius: 20px;
     margin:7px;
     background-color: rgb(99, 204, 224);
-}
-
-.farm_type{
-    color:white;
-    font-size:13px;
 }
 
 .row_items{
@@ -39,13 +23,6 @@
     justify-content:space-around;
 }
 
-.pool_name {
-    white-space: nowrap;
-    font-size: 17px;
-    font-weight: bold;
-    color:white;
-}
-
 .pair{
     display: flex;
 }
@@ -55,7 +32,6 @@
     height: 50px;
     margin-right: -10px;
     border: 4px solid rgb(101, 166, 179);
-    padding: 1px;
     border-radius: 999px;
 }
 
@@ -63,14 +39,35 @@
     width:50px;
     height: 50px;
     border: 4px solid rgb(101, 166, 179);
-    padding: 1px;
     border-radius: 999px;
+}
+
+.pool_name {
+    white-space: nowrap;
+    font-size: 17px;
+    font-weight: bold;
+    color:white;
+}
+
+.container > .pool_name {
+    font-size: 13px;
+    color: rgb(237, 232, 232);
+}
+
+.container > p {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.farm_type{
+    color:white;
+    font-size:13px;
 }
 
 .pool_info{
     display: flex;
     flex:5;
-
+    justify-content: space-evenly;
 }
 
 .container{
@@ -92,4 +89,3 @@
     width: 100%;
     justify-content: space-around;
 }
-

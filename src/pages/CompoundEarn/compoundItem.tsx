@@ -21,7 +21,6 @@ function CompoundItem({pool}: any) {
           
         checkIfWalletIsConnected(setCurrentWallet); 
         getUserVaultBalance(pool, currentWallet, setUserVaultBalance, userVaultBalance);
-        // getLPTokenBalance();
         getTotalValue(pool, setTVL);
         grabKeys(withdrawKey, liquidityKey);
     })
@@ -57,7 +56,7 @@ function CompoundItem({pool}: any) {
                         <div className="pool_info">
                             <div className="container">
                                 <p className="pool_name">DEPOSITED</p>
-                                <p>{userVaultBalance}</p>
+                                <p>{userVaultBalance.toFixed(3)}</p>
 
                             </div>
                             

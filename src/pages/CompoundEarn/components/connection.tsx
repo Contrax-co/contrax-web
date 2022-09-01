@@ -118,3 +118,30 @@ export const getUserVaultBalance = async(pool:any, currentWallet:any, setUserVau
         console.log(error);
     }
 }
+
+/**
+ * Gets the balance of the native eth that the user has
+ * @param currentWallet 
+ * @param setEthUserBal 
+ * @param ethUserBal 
+ */
+export const getEthBalance = async(currentWallet:any, setEthUserBal:any, ethUserBal:any) => {
+    const {ethereum} = window;
+    try{
+        if(ethereum){
+            const provider = new ethers.providers.Web3Provider(ethereum);
+
+            const balance = await provider.getBalance(currentWallet);
+            const formattedBal = Number(ethers.utils.formatUnits(balance, 18));
+            setEthUserBal(formattedBal);
+            console.log(`User's balance of the eth token is: ${ethUserBal}`);
+
+        }
+        else{
+            console.log("Ethereum object doesn't exist!");
+        }
+    }
+    catch(error){
+        console.log(error);
+    }
+}

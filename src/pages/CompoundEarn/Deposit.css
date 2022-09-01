@@ -68,6 +68,7 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
+    justify-content: space-between;
 }
 
 .topleft_container{
@@ -114,6 +115,24 @@
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
+.zap_container{
+    background-color: rgb(99, 204, 224);
+    border: 1px solid rgb(99, 204, 224);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px; 
+    text-align: center;
+    width: 90%;
+}
+
+.weth_bal {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
 .deposit_container {
     display: flex;
     height: 100%;
@@ -131,6 +150,18 @@
   
 .bal {
     color: rgb(184, 181, 181);
+}
+
+.weth_deposit_amount{
+    display: flex;
+    background-color: rgb(240, 245, 247);
+    border: 1px solid rgb(182, 209, 214);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+    justify-content:space-between;
+
 }
 
 .deposit_amount {
@@ -154,6 +185,24 @@ input {
     background-color: rgb(240, 245, 247);
 }
 
+.weth_bal_input{
+    flex:10;
+}
+
+.all_weth_tokens{
+    flex:1;
+    font-size: 12px;
+    background-color: rgb(182, 209, 214);
+    padding:2px;
+    border-radius: 7px;
+    color: rgb(134, 132, 132);
+    width: fit-content;
+}
+
+.all_weth_tokens:hover{
+    cursor: pointer;
+}
+
 .all_tokens{
     font-size: 12px;
     background-color: rgb(182, 209, 214);
@@ -163,6 +212,23 @@ input {
   }
   
 .all_tokens:hover{
+    cursor: pointer;
+}
+
+.zap_button {
+    background-color: white;
+    border: 1px solid rgb(99, 204, 224);
+    border-radius: 15px;
+    color: rgb(99, 204, 224);
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: 5px;
+    padding:17px;
+    bottom: 0;
+    width:100%;
+}
+
+.zap_button:hover{
     cursor: pointer;
 }
 

@@ -4,7 +4,6 @@
 /node_modules
 /.pnp
 .pnp.js
-.vscode
 
 # testing
 /coverage
@@ -14,6 +13,7 @@
 buildspec.yml
 
 # misc
+.vscode
 .DS_Store
 .env.local
 .env.development.local

@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import Navigationbar from '../../components/Navigationbar/Navigationbar';
-import BottomBar from '../../components/bottomBar/BottomBar';
 import CompoundItem from './compoundItem';
 import './compound.css';
+import SideBar from './components/SideBar';
 
 function Compound() {
     const [pools, setPools] = useState([]);
@@ -12,7 +11,7 @@ function Compound() {
         try{
         const {ethereum} = window; 
         if(ethereum) {
-            fetch(`https://testing.contrax.finance/api/pools.json`)       //`http://localhost:3000/api/pools.json` or  for when we want it done locally
+            fetch(`https://testing.contrax.finance/api/pools.json`)       //`http://localhost:3000/api/pools.json` or `https://testing.contrax.finance/api/pools.json` for when we want it done locally
             .then(response => response.json())
             .then(data => {
             setPools(data); 
@@ -25,14 +24,22 @@ function Compound() {
     }, []);
 
     return (
-        <div>
-            <Navigationbar />
-                <div className="pools_list">
-                    {pools.map((pool:any) => (
-                        <CompoundItem key={pool.id} pool={pool}/>
-                    ))}
+        <div className="page">
+            <div className="ac_page">
+                <div className="sidebar">
+                    <SideBar />
                 </div>
-            <BottomBar />
+                
+                <div className="farms">
+                    <p>Farms</p>
+                    <div className="pools_list">
+                        {pools.map((pool:any) => (
+                            <CompoundItem key={pool.id} pool={pool}/>
+                        ))}
+                    </div>
+                </div>
+                
+            </div>
         </div>
     )
 }

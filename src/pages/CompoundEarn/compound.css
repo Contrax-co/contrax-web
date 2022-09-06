@@ -1,7 +1,37 @@
+html {background-color: #001428}
+
+.page{
+    background-color: #001428;
+    width:100vw;
+    height:100vh;
+}
+.ac_page{
+    width:100vw;
+    height:100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.sidebar{
+    flex:2;
+}
+
+.farms {
+    flex:10;
+    padding: 30px;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.farms>p{
+    color:white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
 .pools_list {
     display: flex;
     flex-direction: column;
     width: 100%;
     margin-top:10px;
-    align-items: center;
 }

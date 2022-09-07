@@ -7,7 +7,7 @@ import { Col, Container, Row } from '../components/blocks/Blocks';
 import * as colors from '../theme/colors';
 import tokenIcon from '../images/token-icon.svg';
 import { useEffect, useState } from 'react';
-import { getUserSession, setSelectedToken } from '../store/localstorage';
+import { getUserSession } from '../store/localstorage';
 import Tokens from '../components/tokens';
 // import { useInput } from "rooks";
 
@@ -22,7 +22,7 @@ export default function Dashboard(props: any) {
 
   useEffect(() => {
     let walletData: any;
-    let res: any;
+    // let res: any;
     let sessionData = getUserSession();
     if (sessionData) {
       walletData = JSON.parse(sessionData);

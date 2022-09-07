@@ -27,13 +27,11 @@ export default function Footer() {
         </Row>
         <Row className="mt-2 mb-3">
           <Col size="12">
-            <H3 color={colors.whiteText}>
-              Permissionless. Scalable. Community-led DeFi.
-            </H3>
+            <H3 color={colors.whiteText}>Fast. Secure. Permissionless.</H3>
           </Col>
         </Row>
         <Row>
-          <Col size="6">
+          <Col size="12">
             <a href="https://discord.gg/rDdvyeWAtt">
               <Image src={discordLogo} alt="Discord" />
             </a>

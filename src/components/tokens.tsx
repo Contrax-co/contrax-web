@@ -7,8 +7,8 @@
 // import { Col, Container, Row } from './blocks/Blocks';
 // import * as colors from '../theme/colors';
 import { useEffect, useState } from 'react';
-import { getUserSession, setSelectedToken } from '../store/localstorage';
-import { gql, useMutation, useQuery } from '@apollo/client';
+import { getUserSession } from '../store/localstorage';
+import { gql, useQuery } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import LoadingSpinner from './spinner/spinner';
 
@@ -37,7 +37,7 @@ export default function Tokens() {
   const [values, setValues] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const { data, loading, error } = useQuery(FETCH, {
+  const { data } = useQuery(FETCH, {
     variables: {
       chainId: '421611',
       userwallet: wallet,
@@ -47,7 +47,7 @@ export default function Tokens() {
   useEffect(() => {
     setIsLoading(true);
     let walletData: any;
-    let res: any;
+    // let res: any;
     let sessionData = getUserSession();
     if (sessionData) {
       walletData = JSON.parse(sessionData);

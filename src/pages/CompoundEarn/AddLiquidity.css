@@ -1,151 +1,149 @@
-.span{
-    color:rgb(89, 179, 247);
-    font-weight: bold;
-    text-decoration: underline;
+.span {
+  color: rgb(89, 179, 247);
+  font-weight: bold;
+  text-decoration: underline;
 }
 
-.span:hover{
-    cursor: pointer;
+.span:hover {
+  cursor: pointer;
 }
 
-.spinner_container{
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.7)
+.spinner_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
 }
 
-.spinner_object{
-    justify-self: center;
-    align-self: center;
+.spinner_object {
+  justify-self: center;
+  align-self: center;
 }
 
-.whole_tab{
-    display:flex;
-    width:100%;
-    flex-direction: column;
+.whole_tab {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
 }
 
-.liquidity_tab{
-    display: flex;
-    width:100%;
-    margin-top:10px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 30px;
-    justify-content:space-between;
+.liquidity_tab {
+  display: flex;
+  width: 100%;
+  margin-top: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  justify-content: space-between;
 }
 
-.description{
-    flex:2;
-    color: white;
-    font-weight: bold;
-    margin-right: 60px;
+.description {
+  flex: 2;
+  color: white;
+  font-weight: bold;
+  margin-right: 60px;
 }
 
-.description_title{
-    color: rgb(203, 201, 201);
+.description_title {
+  color: rgb(203, 201, 201);
 }
 
-.description_description{
-    font-weight:normal;
-    font-size: 15px;
+.description_description {
+  font-weight: normal;
+  font-size: 15px;
 }
 
-.tab{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    flex:2;
-    color: white;
-    font-weight: bold;
-    border: .5px solid #043b71;
-    padding:20px;
-    border-radius:10px;
-    justify-content:space-between;
-    align-items: center;
+.tab {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 2;
+  color: white;
+  font-weight: bold;
+  border: 0.5px solid #043b71;
+  padding: 20px;
+  border-radius: 10px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .weth_bal {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
-.weth_bal_input{
-    background-color:#001428;
-    border:none;
-    color: white;
+.weth_bal_input {
+  background-color: #001428;
+  border: none;
+  color: white;
 }
 
-.all_weth_tokens{
-    font-size: 12px;
-    background-color: #043b71;
-    padding:2px;
-    padding-left:5px;
-    padding-right:5px;
-    border-radius: 7px;
-    color: white;
-    width: fit-content;
+.all_weth_tokens {
+  font-size: 12px;
+  background-color: #043b71;
+  padding: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 7px;
+  color: white;
+  width: fit-content;
 }
 
-.all_weth_tokens:hover{
-    cursor: pointer;
+.all_weth_tokens:hover {
+  cursor: pointer;
 }
 
-
-.deposit_tab{
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    width: 100%;
+.deposit_tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
-.weth_deposit_amount{
-    flex:2;
-    display: flex;
-    background-color: #001428;
-    border-radius: 10px;
-    padding: 10px;
-    text-align: center;
-    align-items: center;
-    justify-content:space-between;
-    border:none;
-    margin-right:3px;
-
+.weth_deposit_amount {
+  flex: 2;
+  display: flex;
+  background-color: #001428;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  margin-right: 3px;
 }
 
 input {
-    outline: none;
+  outline: none;
 }
 
-.zap_button{
-    background-color: rgb(89, 179, 247);
-    border:none;
-    border-radius: 15px;
-    color: white;
-    font-size: 17px;
-    font-weight: bold;
-    padding:10px; 
-    padding-left:20px;
-    padding-right: 20px;
-    text-align: center;
-    width:fit-content;
-    margin-left:20px;
+.zap_button {
+  background-color: rgb(89, 179, 247);
+  border: none;
+  border-radius: 15px;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  width: fit-content;
+  margin-left: 20px;
 }
 
-.zap_button:hover{
-    cursor: pointer;
+.zap_button:hover {
+  cursor: pointer;
 }
 
-.rightside{
-    flex:1;
+.rightside {
+  flex: 1;
 }
 
 input::-webkit-outer-spin-button,

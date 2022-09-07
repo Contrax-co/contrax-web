@@ -1,91 +1,129 @@
-.single_pool {
-    display: flex;
-    flex-direction: column;
-    padding-left: 20px;
-    padding-top:10px;
-    width:90vw;
-    height: 11vh;
-    justify-content: space-evenly;
-    border: 1px solid rgb(99, 204, 224);
-    border-radius: 20px;
-    margin:7px;
-    background-color: rgb(99, 204, 224);
+.pools {
+  width: 100%;
+  background-color: #012243;
+  border-radius: 20px;
+  margin-bottom: 7px;
 }
 
-.row_items{
-    display: flex;
-    flex-direction: row;
+.pools:hover {
+  background-color: #032a51;
+  cursor: pointer;
+}
+
+.single_pool {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.row_items {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
 }
 
 .title_container {
-    display: flex;
-    flex: 1;
-    justify-content:space-around;
+  display: flex;
+  flex: 2;
 }
 
-.pair{
-    display: flex;
+.pair {
+  display: flex;
 }
 
-.logofirst{
-    width:50px;
-    height: 50px;
-    margin-right: -10px;
-    border: 4px solid rgb(101, 166, 179);
-    border-radius: 999px;
+.pool_title {
+  margin-left: 10px;
 }
 
-.logo{
-    width:50px;
-    height: 50px;
-    border: 4px solid rgb(101, 166, 179);
-    border-radius: 999px;
+.logofirst {
+  width: 50px;
+  height: 50px;
+  margin-right: -10px;
+  border: 4px solid #093156;
+  border-radius: 999px;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #093156;
+  border-radius: 999px;
+}
+
+.rewards_div {
+  display: flex;
+  align-items: center;
+}
+
+.dropdown {
+  color: white;
+  font-size: 21px;
+}
+
+.rewards_image {
+  width: 15px;
+  border-radius: 999px;
+  border: 1px solid black;
+  background-color: black;
 }
 
 .pool_name {
-    white-space: nowrap;
-    font-size: 17px;
-    font-weight: bold;
-    color:white;
+  white-space: nowrap;
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
 }
 
 .container > .pool_name {
-    font-size: 13px;
-    color: rgb(237, 232, 232);
+  font-size: 13px;
+  color: rgb(237, 232, 232);
 }
 
 .container > p {
-    font-size: 15px;
-    font-weight: bold;
+  font-size: 15px;
+  font-weight: bold;
 }
 
-.farm_type{
-    color:white;
-    font-size:13px;
+.farm_type {
+  color: white;
+  font-size: 13px;
+  margin-right: 5px;
 }
 
-.pool_info{
-    display: flex;
-    flex:5;
-    justify-content: space-evenly;
+.pool_info {
+  display: flex;
+  flex: 5;
+  justify-content: space-evenly;
 }
 
-.container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container > p {
-    color:white;
+  color: white;
 }
 
 .rewards {
-    width:15px;
+  width: 15px;
 }
 
-.buttons{
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
+.dropdown_menu {
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-top: 1px solid #043b71;
+}
+
+.drop_buttons {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 10px;
 }

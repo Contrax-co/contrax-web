@@ -1,3 +1,13 @@
+.span {
+  color: rgb(89, 179, 247);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.span:hover {
+  cursor: pointer;
+}
+
 .spinner_container {
   position: fixed;
   top: 0;
@@ -22,7 +32,7 @@
   flex-direction: column;
 }
 
-.detail_container {
+.liquidity_tab {
   display: flex;
   width: 100%;
   margin-top: 10px;
@@ -32,23 +42,23 @@
   justify-content: space-between;
 }
 
-.withdrawal_description {
+.description {
   flex: 2;
   color: white;
   font-weight: bold;
   margin-right: 60px;
 }
 
-.withdrawal_title {
+.description_title {
   color: rgb(203, 201, 201);
 }
 
-.withdrawal_description2 {
+.description_description {
   font-weight: normal;
   font-size: 15px;
 }
 
-.withdraw_tab {
+.tab {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -62,27 +72,41 @@
   align-items: center;
 }
 
-.lp_bal {
+.weth_bal {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-.withdraw_tab {
+.weth_bal_input {
+  background-color: #001428;
+  border: none;
+  color: white;
+}
+
+.all_weth_tokens {
+  font-size: 12px;
+  background-color: #043b71;
+  padding: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 7px;
+  color: white;
+  width: fit-content;
+}
+
+.all_weth_tokens:hover {
+  cursor: pointer;
+}
+
+.deposit_tab {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
 }
 
-.withdraw_tab2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.lp_withdraw_amount {
+.weth_deposit_amount {
   flex: 2;
   display: flex;
   background-color: #001428;
@@ -95,25 +119,8 @@
   margin-right: 3px;
 }
 
-.lp_bal_input {
-  background-color: #001428;
-  border: none;
-  color: white;
-}
-
-.all_LP_tokens {
-  font-size: 12px;
-  background-color: #043b71;
-  padding: 2px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-radius: 7px;
-  color: white;
-  width: fit-content;
-}
-
-.all_LP_tokens:hover {
-  cursor: pointer;
+input {
+  outline: none;
 }
 
 .zap_button {
@@ -133,4 +140,14 @@
 
 .zap_button:hover {
   cursor: pointer;
+}
+
+.rightside {
+  flex: 1;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

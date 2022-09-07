@@ -12,8 +12,8 @@ import * as colors from '../theme/colors';
 import { Image } from '../components/image/Image';
 import createTokenImg from '../images/create-token.png';
 import { useEffect, useState } from 'react';
-import { getUserSession, setSelectedToken } from '../store/localstorage';
-import { gql, useMutation, useQuery } from '@apollo/client';
+import { getUserSession } from '../store/localstorage';
+import { gql, useMutation } from '@apollo/client';
 import Tokens from '../components/tokens';
 import swal from 'sweetalert';
 import LoadingSpinner from '../components/spinner/spinner';
@@ -60,25 +60,25 @@ const INCREMENT_COUNTER = gql`
   }
 `;
 
-const FETCH = gql`
-  query ($chainId: String!, $userwallet: String!) {
-    tokens(
-      where: {
-        chainId: { _like: $chainId }
-        userwallet: { _like: $userwallet }
-      }
-    ) {
-      userwallet
-      totalSupply
-      tokenaddress
-      chainId
-      decimal
-      id
-      tokenName
-      tokenSymbol
-    }
-  }
-`;
+// const FETCH = gql`
+//   query ($chainId: String!, $userwallet: String!) {
+//     tokens(
+//       where: {
+//         chainId: { _like: $chainId }
+//         userwallet: { _like: $userwallet }
+//       }
+//     ) {
+//       userwallet
+//       totalSupply
+//       tokenaddress
+//       chainId
+//       decimal
+//       id
+//       tokenName
+//       tokenSymbol
+//     }
+//   }
+// `;
 
 export default function CreateToken(props: any) {
   const tokenSymbol = useInput('');
@@ -90,31 +90,28 @@ export default function CreateToken(props: any) {
   const tokenTradingFee = useInput(false);
   const tokenTradingFeeValue = useInput('');
   const tokenSupportSupplyIncrease = useInput(false);
-  const [tokens, setTokens] = useState([]);
+  // const [tokens, setTokens] = useState([]);
   const [tokenAddress, setTokenAddress] = useState();
   const [wallet, setWallet] = useState();
   const [decimals, setDecimal] = useState();
   const [totalSupply, setTotalSupply] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
-  const [mutateFunction, { data, loading, error }] = useMutation(
-    INCREMENT_COUNTER,
-    {
-      variables: {
-        tokenName: tokenName.value,
-        tokenSymbol: tokenSymbol.value,
-        tokenaddress: tokenAddress,
-        totalSupply: totalSupply,
-        userwallet: wallet,
-        decimals: decimals,
-        chainId: '421611',
-      },
-    }
-  );
+  const [mutateFunction, { data }] = useMutation(INCREMENT_COUNTER, {
+    variables: {
+      tokenName: tokenName.value,
+      tokenSymbol: tokenSymbol.value,
+      tokenaddress: tokenAddress,
+      totalSupply: totalSupply,
+      userwallet: wallet,
+      decimals: decimals,
+      chainId: '421611',
+    },
+  });
 
   useEffect(() => {
     let walletData: any;
-    let res: any;
+    // let res: any;
     let sessionData = getUserSession();
     if (sessionData) {
       walletData = JSON.parse(sessionData);

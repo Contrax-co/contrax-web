@@ -10,8 +10,7 @@ import { gql, useQuery } from '@apollo/client';
 // import { Image } from './image/Image';
 // import { Desc, DescSpan } from './text/Text';
 // import tokenlogo from '../images/tokenlogo.png';
-
-const url = 'https://gateway.ipfs.io/ipns/tokens.uniswap.org';
+// const url = 'https://gateway.ipfs.io/ipns/tokens.uniswap.org';
 
 const FETCH = gql`
   query MyQuery($chainId: String!, $userwallet: String!) {
@@ -37,7 +36,7 @@ const TokenModal = ({ id, onSelection, standardTokens }: any) => {
   console.log(standardTokens);
   const [tokens, setTokens] = useState([]);
   const [wallet, setWallet] = useState();
-  const { data, loading, error } = useQuery(FETCH, {
+  const { data } = useQuery(FETCH, {
     variables: {
       chainId: '421611',
       userwallet: wallet,
@@ -47,7 +46,7 @@ const TokenModal = ({ id, onSelection, standardTokens }: any) => {
     // Get various currencies from the server
     // console.log(standardTokens[0].tokenName)
     let walletData: any;
-    let res: any;
+    // let res: any;
     let sessionData = getUserSession();
     if (sessionData) {
       walletData = JSON.parse(sessionData);

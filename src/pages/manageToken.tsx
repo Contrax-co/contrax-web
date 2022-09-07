@@ -3,7 +3,7 @@ import Header from '../components/header/Header';
 import StatsCard from '../components/statsCard/StatsCard';
 import BottomBar from '../components/bottomBar/BottomBar';
 import PieChart from '../components/chart/PieChart';
-import { B1, H3, Link, Title } from '../components/text/Text';
+import { B1, H3 } from '../components/text/Text';
 import { Col, Container, Row } from '../components/blocks/Blocks';
 import { FormInput } from '../components/form/Form';
 import { Modal } from '../components/modal/Modal';
@@ -41,7 +41,7 @@ export default function ManageToken() {
 
   useEffect(() => {
     let walletData: any;
-    let res: any;
+    // let res: any;
     let sessionData = getUserSession();
     if (sessionData) {
       walletData = JSON.parse(sessionData);

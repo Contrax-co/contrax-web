@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import PoolButton from '../../components/PoolButton';
 import './compoundItem.css';
 import Withdraw from './Withdraw';

@@ -11,6 +11,11 @@
     border-right: 1px solid #022b55;
 }
 
+.sidebar_bg--light{
+    background-color: #e8eff5;
+    border-right: 1px solid #cfdfea;
+}
+
 .contrax_logo {
     width:13vw;
     margin-left: 20px;

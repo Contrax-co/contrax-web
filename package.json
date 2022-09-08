@@ -45,6 +45,7 @@
     "reactstrap": "^9.1.4",
     "rooks": "^6.4.3",
     "styled-components": "^5.3.5",
+    "sushiswap-api": "^1.1.1",
     "sweetalert": "^2.1.2",
     "typescript": "^4.8.2",
     "web-vitals": "^3.0.0",

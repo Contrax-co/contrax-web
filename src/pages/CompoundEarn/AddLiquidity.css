@@ -49,8 +49,16 @@
     margin-right: 60px;
 }
 
+.description--light{
+    color:black;
+}
+
 .description_title{
     color: rgb(203, 201, 201);
+}
+
+.description_title--light{
+    color: black;
 }
 
 .description_description{
@@ -67,9 +75,16 @@
     font-weight: bold;
     border: .5px solid #043b71;
     padding:20px;
-    border-radius:10px;
+    border-radius:20px;
     justify-content:space-between;
     align-items: center;
+}
+
+
+.tab--light{
+    color:white;
+    background-color: #009aff;
+    border: .5px solid #009aff;
 }
 
 .weth_bal {
@@ -84,6 +99,11 @@
     color: white;
 }
 
+.weth_bal_input--light{
+    color: black;
+    background-color: rgb(231, 240, 247);
+}
+
 .all_weth_tokens{
     font-size: 12px;
     background-color: #043b71;
@@ -93,6 +113,11 @@
     border-radius: 7px;
     color: white;
     width: fit-content;
+}
+
+.all_weth_tokens--light{
+    color: white;
+    background-color: #51b7fa;
 }
 
 .all_weth_tokens:hover{
@@ -118,7 +143,10 @@
     justify-content:space-between;
     border:none;
     margin-right:3px;
+}
 
+.weth_deposit_amount--light{
+    background-color: rgb(231, 240, 247);
 }
 
 input {
@@ -128,7 +156,7 @@ input {
 .zap_button{
     background-color: rgb(89, 179, 247);
     border:none;
-    border-radius: 15px;
+    border-radius: 20px;
     color: white;
     font-size: 17px;
     font-weight: bold;
@@ -138,6 +166,11 @@ input {
     text-align: center;
     width:fit-content;
     margin-left:20px;
+}
+
+.zap_button--light{
+    background-color: white;
+    color: #009aff;
 }
 
 .zap_button:hover{

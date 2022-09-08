@@ -11,10 +11,19 @@
     padding:5px;
 }
 
+
+.sideitems--light{
+    color:#009aff;
+}
+
 .sideitems--selected{
     background-color:#012243;
     border-radius:10px;
     width: 150px;
+}
+
+.sideitems--selected--light{
+    background-color: #009aff;
 }
 
 
@@ -22,8 +31,17 @@
     color: #009aff;
 }
 
+.sideitems--selected--light >div {
+    color: white;
+}
+
 .sideitems:hover > div{
     color: #009aff;
+    cursor: pointer;
+}
+
+.sideitems--light:hover > div {
+    color: rgb(220, 224, 231);
     cursor: pointer;
 }
 
@@ -33,8 +51,16 @@
     font-size: 23px;
 }
 
+.icon--light{
+    color:#009aff;
+}
+
 .icon2{
     color: white;
     margin-right: 5px;
     font-size: 11px;
+}
+
+.icon2--light{
+    color:#009aff;
 }

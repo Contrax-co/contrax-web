@@ -39,10 +39,17 @@
   margin-right: 60px;
 }
 
+.withdrawal_description--light{
+  color:black;
+}
+
 .withdrawal_title{
   color: rgb(203, 201, 201);
 }
 
+.withdrawal_title--light{
+  color:black;
+}
 
 .withdrawal_description2{
   font-weight:normal;
@@ -61,6 +68,13 @@
   border-radius:10px;
   justify-content:space-between;
   align-items: center;
+}
+
+.withdraw_tab--light{
+  color:white;
+  background-color:#009aff;
+  border: .5px solid #009aff;
+  border-radius:20px;
 }
 
 .lp_bal {
@@ -96,10 +110,20 @@
   margin-right:3px;
 }
 
+.lp_withdraw_amount--light{
+  background-color:rgb(231, 240, 247);
+}
+
 .lp_bal_input{
   background-color:#001428;
   border:none;
   color: white;
+}
+
+.lp_bal_input--light{
+  background-color:rgb(231, 240, 247);
+  border:none;
+  color: black;
 }
 
 .all_LP_tokens{
@@ -111,6 +135,11 @@
   border-radius: 7px;
   color: white;
   width: fit-content;
+}
+
+.all_LP_tokens--light{
+  color: white;
+  background-color: #51b7fa;
 }
 
 .all_LP_tokens:hover{
@@ -130,6 +159,11 @@
   text-align: center;
   width:fit-content;
   margin-left:20px;
+}
+
+.zap_button--light{
+  background-color: white;
+  color: #009aff;
 }
 
 .zap_button:hover{

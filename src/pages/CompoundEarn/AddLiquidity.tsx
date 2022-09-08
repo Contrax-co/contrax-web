@@ -6,7 +6,7 @@ import Toggle from './components/Toggle';
 import {SyncLoader} from "react-spinners";
 
 
-function AddLiquidity({pool, platform, rewards}:any) {
+function AddLiquidity({pool, platform, rewards, lightMode}:any) {
     const [loading, setLoading] = useState(false);
 
     const [currentWallet, setCurrentWallet] = useState("");
@@ -22,7 +22,7 @@ function AddLiquidity({pool, platform, rewards}:any) {
         checkIfWalletIsConnected(setCurrentWallet);
         getEthBalance(currentWallet, setEthUserBal, ethUserBal);
         getLPTokenBalance(pool, currentWallet, setLPUserBal, lpUserBal);
-    })
+    }, [currentWallet, ethUserBal, lpUserBal, pool])
 
     const zapIn = async() => {
         const {ethereum} = window;
@@ -92,11 +92,12 @@ function AddLiquidity({pool, platform, rewards}:any) {
                 pool={pool}
                 active={toggleType}
                 onClick={() => setToggleType(!toggleType)}
+                lightMode={lightMode}
             />
 
             <div className="liquidity_tab">
-                <div className="description">
-                    <p className="description_title">Description</p>
+                <div className={`description ${lightMode && "description--light"}`}>
+                    <p className={`description_title ${lightMode && "description_title--light"}`}>Description</p>
                     {toggleType ? (
                         <p className="description_description">This is a {platform} liquidity pool composed of <a href="https://app.sushi.com/legacy/pool?chainId=42161" className="span">{pool.name}</a> tokens. 
                         Your LP tokens are deposited directly into our vaults and then staked in the {platform} protocol 
@@ -109,7 +110,7 @@ function AddLiquidity({pool, platform, rewards}:any) {
                 
                 </div>
                 
-                <div className="tab">
+                <div className={`tab ${lightMode && "tab--light"}`}>
                     {toggleType ? (
                         <div className="weth_bal">
                             <p>{pool.name} balance:</p>
@@ -124,11 +125,11 @@ function AddLiquidity({pool, platform, rewards}:any) {
 
                     {toggleType ? (
                         <div className="deposit_tab">
-                            <div className="weth_deposit_amount">
-                                <input type="number" className="weth_bal_input" placeholder="0.0" value={lpDepositAmount} onChange={handleDepositChange}/>
-                                <p onClick={depositTotalLP} className="all_weth_tokens">MAX</p>
+                            <div className={`weth_deposit_amount ${lightMode && "weth_deposit_amount--light"}`}>
+                                <input type="number" className={`weth_bal_input ${lightMode && "weth_bal_input--light"}`} placeholder="0.0" value={lpDepositAmount} onChange={handleDepositChange}/>
+                                <p onClick={depositTotalLP} className={`all_weth_tokens ${lightMode && "all_weth_tokens--light"}`}>MAX</p>
                             </div>
-                            <div className="zap_button" onClick={() => deposit(pool, lpDepositAmount, setLPDepositAmount, setLoading)}>
+                            <div className={`zap_button ${lightMode && "zap_button--light"}`} onClick={() => deposit(pool, lpDepositAmount, setLPDepositAmount, setLoading)}>
                                 <p>Deposit LP</p>
                             </div>
                             
@@ -137,11 +138,11 @@ function AddLiquidity({pool, platform, rewards}:any) {
                     ): (
 
                         <div className="deposit_tab">
-                            <div className="weth_deposit_amount">
-                                <input type="number" className="weth_bal_input" placeholder="0.0" value={ethZapAmount} onChange={handleZapChange}/>
-                                <p onClick={depositTotalEth} className="all_weth_tokens">MAX</p>
+                            <div className={`weth_deposit_amount ${lightMode && "weth_deposit_amount--light"}`}>
+                                <input type="number" className={`weth_bal_input ${lightMode && "weth_bal_input--light"}`} placeholder="0.0" value={ethZapAmount} onChange={handleZapChange}/>
+                                <p onClick={depositTotalEth} className={`all_weth_tokens ${lightMode && "all_weth_tokens--light"}`}>MAX</p>
                             </div>
-                            <div className="zap_button" onClick={zapIn}>
+                            <div className={`zap_button ${lightMode && "zap_button--light"}`} onClick={zapIn}>
                                 <p>Deposit ETH</p>
                             </div>
                             

@@ -12,11 +12,11 @@ import { Badge } from '../components/badge/Badge';
 const axios = require('axios');
 
 export default function ExplorePool() {
-  let poolChartDataList = [
-    ['TT', 'WETH'],
-    ['11.29M TT-ETH (42%)', 73000],
-    ['11.29M WETH (57%)', 54000],
-  ];
+  // let poolChartDataList = [
+  //   ['TT', 'WETH'],
+  //   ['11.29M TT-ETH (42%)', 73000],
+  //   ['11.29M WETH (57%)', 54000],
+  // ];
 
   const [pools, setPools] = useState<any[]>([]);
 
@@ -63,44 +63,44 @@ export default function ExplorePool() {
     }
   };
 
-  let tableData = [
-    {
-      poolUrl:
-        'https://kovan.etherscan.io/address/0x00568c59aa94fafbdfce81d1e72fc96c8fc4b85c',
-      poolAddress: '0x00568c59aa94fafbdfce81d1e72fc96c8fc4b85c',
-      poolType: 'Public',
-      feeRate: '0.36%',
-      liquidityName1: 'TT',
-      liquidityValue1: 0,
-      liquidityName2: 'WETH',
-      liquidityValue2: 0,
-      volume24H: '678,987',
-    },
-    {
-      poolUrl:
-        'https://kovan.etherscan.io/address/0x75f5d66a7bbb9330a9067c0833ec9b3198b71666',
-      poolAddress: '0x75f5d66a7bbb9330a9067c0833ec9b3198b71666',
-      poolType: 'Public',
-      feeRate: '0.54%',
-      liquidityName1: 'WETH',
-      liquidityValue1: 0,
-      liquidityName2: 'USDC',
-      liquidityValue2: 0,
-      volume24H: '788,334',
-    },
-    {
-      poolUrl:
-        'https://kovan.etherscan.io/address/0x875ba7d9b71aee6580db2d3d5c74021e6af02933',
-      poolAddress: '0x875ba7d9b71aee6580db2d3d5c74021e6af02933',
-      poolType: 'Public',
-      feeRate: '0.24%',
-      liquidityName1: 'USDT',
-      liquidityValue1: 0,
-      liquidityName2: 'DODO',
-      liquidityValue2: 0,
-      volume24H: '48,334',
-    },
-  ];
+  // let tableData = [
+  //   {
+  //     poolUrl:
+  //       'https://kovan.etherscan.io/address/0x00568c59aa94fafbdfce81d1e72fc96c8fc4b85c',
+  //     poolAddress: '0x00568c59aa94fafbdfce81d1e72fc96c8fc4b85c',
+  //     poolType: 'Public',
+  //     feeRate: '0.36%',
+  //     liquidityName1: 'TT',
+  //     liquidityValue1: 0,
+  //     liquidityName2: 'WETH',
+  //     liquidityValue2: 0,
+  //     volume24H: '678,987',
+  //   },
+  //   {
+  //     poolUrl:
+  //       'https://kovan.etherscan.io/address/0x75f5d66a7bbb9330a9067c0833ec9b3198b71666',
+  //     poolAddress: '0x75f5d66a7bbb9330a9067c0833ec9b3198b71666',
+  //     poolType: 'Public',
+  //     feeRate: '0.54%',
+  //     liquidityName1: 'WETH',
+  //     liquidityValue1: 0,
+  //     liquidityName2: 'USDC',
+  //     liquidityValue2: 0,
+  //     volume24H: '788,334',
+  //   },
+  //   {
+  //     poolUrl:
+  //       'https://kovan.etherscan.io/address/0x875ba7d9b71aee6580db2d3d5c74021e6af02933',
+  //     poolAddress: '0x875ba7d9b71aee6580db2d3d5c74021e6af02933',
+  //     poolType: 'Public',
+  //     feeRate: '0.24%',
+  //     liquidityName1: 'USDT',
+  //     liquidityValue1: 0,
+  //     liquidityName2: 'DODO',
+  //     liquidityValue2: 0,
+  //     volume24H: '48,334',
+  //   },
+  // ];
 
   return (
     <div>

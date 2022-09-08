@@ -14,12 +14,12 @@ export default function home() {
       <Banner />
       {/* benefits section */}
       <Row height="72px" />
-      <Container className="">
+      <Container>
         <Row className="d-row justify-content-between">
           <StyledCard className="p-1">
             <H3 color={colors.secondaryMideum}>Built on Arbitrum</H3>
             <Block className="mt-2">
-              <H1 color={colors.accentDark}>Secure & Scalable</H1>
+              <H1 color={colors.accentDark}>Secure &amp; Scalable</H1>
             </Block>
             <Block className="mt-4">
               <B1 className="mb-5">
@@ -27,7 +27,12 @@ export default function home() {
                 computations and data storage off of the main chain.
               </B1>
             </Block>
-            <Button size={'sm'} primary className="mt-4" label="Learn More" />
+            <Button
+              size={'sm'}
+              primary
+              className="mt-4 p-2 px-3"
+              label="Learn More"
+            />
           </StyledCard>
 
           <StyledCard className="p-1">
@@ -37,25 +42,35 @@ export default function home() {
             </Block>
             <Block className="mt-4">
               <B1 className="mb-5">
-                Designed for anyone to use. Create and manage projects on
-                Ethereum and Arbitrum One with no coding necessary.
+                Designed for anyone to use. Create and manage assets and farms
+                on Arbitrum Nitro with no coding necessary.
               </B1>
             </Block>
-            <Button size={'sm'} primary className="mt-4" label="Learn More" />
+            <Button
+              size={'sm'}
+              primary
+              className="mt-4 p-2 px-3"
+              label="Learn More"
+            />
           </StyledCard>
 
           <StyledCard className="p-1">
-            <H3 color={colors.secondaryMideum}>DAO-Controlled</H3>
+            <H3 color={colors.secondaryMideum}>Optimized Yields</H3>
             <Block className="mt-2">
-              <H1 color={colors.accentDark}>Community-Owned</H1>
+              <H1 color={colors.accentDark}>Auto-Compounding</H1>
             </Block>
             <Block className="mt-4">
               <B1 className="mb-5">
-                TRAX token holders can vote on future product updates, features,
-                farming incentives, treasury allocations &amp; more!
+                Deposit assets into our auto-compounding vaults in just a few
+                clicks, then sit back and watch the magic happen!
               </B1>
             </Block>
-            <Button size={'sm'} primary className="mt-4" label="Learn More" />
+            <Button
+              size={'sm'}
+              primary
+              className="mt-4 p-2 px-3"
+              label="Learn More"
+            />
           </StyledCard>
         </Row>
       </Container>

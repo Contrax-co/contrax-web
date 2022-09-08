@@ -14,21 +14,21 @@
     "@craco/craco": "^6.4.5",
     "@ethersproject/hash": "^5.7.0",
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.3.0",
+    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^28.1.8",
-    "@types/node": "^18.7.13",
-    "@types/react": "^18.0.17",
+    "@types/node": "^18.7.15",
+    "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
     "@types/react-query": "^1.2.9",
     "@types/react-rangeslider": "^2.2.4",
-    "@web3-onboard/core": "^2.8.0",
-    "@web3-onboard/injected-wallets": "^2.1.0",
+    "@web3-onboard/core": "^2.8.2",
+    "@web3-onboard/injected-wallets": "^2.2.1",
     "apollo-boost": "^0.4.9",
     "axios": "^0.27.2",
     "big-number": "^2.0.0",
     "bnc-onboard": "^1.39.0",
-    "bootstrap": "^5.2.0",
+    "bootstrap": "^5.2.1",
     "ethers": "^5.7.0",
     "graphql": "^16.6.0",
     "react": "^18.2.0",
@@ -48,7 +48,6 @@
     "sushiswap-api": "^1.1.1",
     "sweetalert": "^2.1.2",
     "typescript": "^4.8.2",
-    "web-vitals": "^3.0.0",
     "web3": "^1.7.5"
   },
   "eslintConfig": {
@@ -70,6 +69,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react-router-dom": "^5.3.3"
+    "@types/react-router-dom": "^5.3.3",
+    "web-vitals": "^3.0.1"
   }
 }

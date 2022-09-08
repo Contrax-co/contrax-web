@@ -48,14 +48,14 @@ const FETCH = gql`
 
 export default function CreatePool() {
   const { ethereum } = window;
-  const currencies = [
-    { title: 'ETH', subTitle: 'Ethereum' },
-    { title: 'BTC', subTitle: 'Bitcoin' },
-    { title: 'USDT', subTitle: 'Tether' },
-    { title: 'SOL', subTitle: 'Solana' },
-    { title: 'ABT', subTitle: 'Arcblock' },
-    { title: 'GTS', subTitle: 'GT STAR' },
-  ];
+  // const currencies = [
+  //   { title: 'ETH', subTitle: 'Ethereum' },
+  //   { title: 'BTC', subTitle: 'Bitcoin' },
+  //   { title: 'USDT', subTitle: 'Tether' },
+  //   { title: 'SOL', subTitle: 'Solana' },
+  //   { title: 'ABT', subTitle: 'Arcblock' },
+  //   { title: 'GTS', subTitle: 'GT STAR' },
+  // ];
 
   const [tokenOne, setTokenOne] = useState<any | null>(null);
   const [tokenTwo, setTokenTwo] = useState<any | null>(null);
@@ -71,7 +71,7 @@ export default function CreatePool() {
   const [wallet, setWallet] = useState();
   const [values, setValues] = useState([]);
 
-  const { data, loading, error } = useQuery(FETCH, {
+  const { data } = useQuery(FETCH, {
     variables: {
       chainId: '421611',
       userwallet: wallet,

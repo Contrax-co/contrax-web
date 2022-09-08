@@ -145,7 +145,7 @@ export default function Navigationbar() {
                       className="nav-link active"
                       aria-current="page"
                     >
-                      Connect Your Wallet To Navigate the Beta
+                      Connect Wallet To Navigate the Beta
                     </StyledNavLink>
                   </li>
                 </ul>

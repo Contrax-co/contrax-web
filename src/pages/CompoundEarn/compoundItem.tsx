@@ -81,8 +81,8 @@ function CompoundItem({pool, lightMode, currentWallet}: any) {
                             </div>
                             
                             <div className={`container ${lightMode && "container--light"}`}>
-                                <p className={`pool_name ${lightMode && "pool_name--light"}`}>COMPOUND APY</p>
-                                <p>{compoundAPY.toFixed(2)}%</p>
+                                <p className={`pool_name ${lightMode && "pool_name--light"}`}>TOTAL APY</p>
+                                <p>{(compoundAPY - poolBaseAPY).toFixed(2)}%</p>
 
                             </div>
 
@@ -96,10 +96,10 @@ function CompoundItem({pool, lightMode, currentWallet}: any) {
                                 
                             </div>
 
-                            <div className={`container ${lightMode && "container--light"}`}>
+                            {/* <div className={`container ${lightMode && "container--light"}`}>
                                 <p className={`pool_name ${lightMode && "pool_name--light"}`}>BASE APY</p>
                                 <p>{poolBaseAPY.toFixed(2)}%</p>
-                            </div>
+                            </div> */}
 
                            
                         </div>

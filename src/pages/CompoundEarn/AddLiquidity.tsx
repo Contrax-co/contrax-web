@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {checkIfWalletIsConnected, wethAddress, getLPTokenBalance, getEthBalance, deposit} from './functions/connection';
+import {wethAddress, getLPTokenBalance, getEthBalance, deposit} from './functions/connection';
 import * as ethers from 'ethers';
 import './AddLiquidity.css';
 import Toggle from './components/Toggle';
@@ -20,7 +20,7 @@ function AddLiquidity({pool, platform, rewards, lightMode, currentWallet}:any) {
     useEffect(() => {
         getEthBalance(currentWallet, setEthUserBal, ethUserBal);
         getLPTokenBalance(pool, currentWallet, setLPUserBal, lpUserBal);
-    }, [currentWallet, ethUserBal, lpUserBal, pool])
+    }, [currentWallet, ethUserBal, lpUserBal, pool]);
 
     const zapIn = async() => {
         const {ethereum} = window;
@@ -107,9 +107,15 @@ function AddLiquidity({pool, platform, rewards, lightMode, currentWallet}:any) {
                     )}
                 
                 </div>
+
                 
                 <div className={`addliquidity_tab ${lightMode && "addliquidity_tab--light"}`}>
-                    {toggleType ? (
+                {currentWallet === '' ? (
+                    <div>connectwallet</div>
+                ):(
+                    <>
+
+                 {toggleType ? (
                         <div className={`addliquidity_weth_bal ${lightMode && "addliquidity_weth_bal--light"}`}>
                             <p>{pool.name} balance:</p>
                             <p>{lpUserBal.toFixed(4)}</p>
@@ -147,6 +153,11 @@ function AddLiquidity({pool, platform, rewards, lightMode, currentWallet}:any) {
                         </div>
                           
                     )}
+
+                        </>
+                    
+                    )}
+                        
 
                 </div>
                 

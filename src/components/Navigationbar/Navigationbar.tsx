@@ -6,9 +6,10 @@ import Web3 from 'web3';
 import { setUserSession } from '../../store/localstorage';
 import logo from '../../images/logo-4x.png';
 import { Image } from '../image/Image';
-import { Link } from '../text/Text';
 import { Container } from '../blocks/Blocks';
 import { StyledNavLink } from './Navigationbar.styles';
+import './Navigation.css';
+import { Link } from 'react-router-dom';
 
 let web3;
 const onboard = Onboard({
@@ -59,8 +60,16 @@ export default function Navigationbar() {
   }
 
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light p-2">
+    <div className="header_container">
+       <img className="contrax_logo" alt="contrax-logo" src={logo} />
+       <Link to="/application" style={{ textDecoration: 'none' }}>
+          <div className="enter_button">
+            <p>Enter App</p>
+          </div>
+       </Link>
+      
+
+      {/* <nav className="navbar navbar-expand-lg navbar-light bg-light p-2">
         <Container>
           <Link className="navbar-brand pt-0" link="/#">
             <Image src={logo} className="main-logo" alt="Contrax" />
@@ -156,7 +165,7 @@ export default function Navigationbar() {
             )}
           </div>
         </Container>
-      </nav>
+      </nav> */}
     </div>
   );
 }

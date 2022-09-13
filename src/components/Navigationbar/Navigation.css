@@ -1,0 +1,25 @@
+.header_container{
+    width:100vw;
+    display: flex;
+    padding: 20px;
+    padding-left: 250px;
+    padding-right: 250px;
+    align-items: center;
+    justify-content:space-between;
+}
+
+.enter_button{
+    background-color: #009aff;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    padding-left:20px;
+    padding-right:20px;
+    border-radius: 15px;
+    height: fit-content;
+}
+
+.enter_button:hover{
+    cursor: pointer;
+    background-color: #32acfe;
+}

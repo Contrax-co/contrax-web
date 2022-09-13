@@ -6,10 +6,9 @@ import Toggle from './components/Toggle';
 import {SyncLoader} from "react-spinners";
 
 
-function AddLiquidity({pool, platform, rewards, lightMode}:any) {
+function AddLiquidity({pool, platform, rewards, lightMode, currentWallet}:any) {
     const [loading, setLoading] = useState(false);
 
-    const [currentWallet, setCurrentWallet] = useState("");
     const [toggleType, setToggleType] = useState(false);
 
     const [ethUserBal, setEthUserBal] = useState(0);
@@ -19,7 +18,6 @@ function AddLiquidity({pool, platform, rewards, lightMode}:any) {
     const [lpDepositAmount, setLPDepositAmount] = useState(0.0);
 
     useEffect(() => {
-        checkIfWalletIsConnected(setCurrentWallet);
         getEthBalance(currentWallet, setEthUserBal, ethUserBal);
         getLPTokenBalance(pool, currentWallet, setLPUserBal, lpUserBal);
     }, [currentWallet, ethUserBal, lpUserBal, pool])
@@ -86,7 +84,7 @@ function AddLiquidity({pool, platform, rewards, lightMode}:any) {
     }
 
     return (
-        <div className="whole_tab">
+        <div className="addliquidity_outsidetab">
 
             <Toggle 
                 pool={pool}
@@ -95,9 +93,9 @@ function AddLiquidity({pool, platform, rewards, lightMode}:any) {
                 lightMode={lightMode}
             />
 
-            <div className="liquidity_tab">
-                <div className={`description ${lightMode && "description--light"}`}>
-                    <p className={`description_title ${lightMode && "description_title--light"}`}>Description</p>
+            <div className="addliquidity_descriptiontab">
+                <div className={`addliquidity_description ${lightMode && "addliquidity_description--light"}`}>
+                    <p className={`addliquidity_description_title ${lightMode && "addliquidity_description_title--light"}`}>Description</p>
                     {toggleType ? (
                         <p className="description_description">This is a {platform} liquidity pool composed of <a href="https://app.sushi.com/legacy/pool?chainId=42161" className="span">{pool.name}</a> tokens. 
                         Your LP tokens are deposited directly into our vaults and then staked in the {platform} protocol 
@@ -110,14 +108,14 @@ function AddLiquidity({pool, platform, rewards, lightMode}:any) {
                 
                 </div>
                 
-                <div className={`tab ${lightMode && "tab--light"}`}>
+                <div className={`addliquidity_tab ${lightMode && "addliquidity_tab--light"}`}>
                     {toggleType ? (
-                        <div className="weth_bal">
+                        <div className={`addliquidity_weth_bal ${lightMode && "addliquidity_weth_bal--light"}`}>
                             <p>{pool.name} balance:</p>
                             <p>{lpUserBal.toFixed(4)}</p>
                         </div>
                     ): (
-                        <div className="weth_bal">
+                        <div className={`addliquidity_weth_bal ${lightMode && "addliquidity_weth_bal--light"}`}>
                             <p>ETH balance:</p>
                             <p>{ethUserBal.toFixed(4)}</p>
                         </div>
@@ -151,10 +149,6 @@ function AddLiquidity({pool, platform, rewards, lightMode}:any) {
                     )}
 
                 </div>
-
-                <div className="rightside">
-                </div>
-                
                 
             </div>
             {loading && (

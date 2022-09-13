@@ -1,40 +1,13 @@
-.span{
-    color:rgb(89, 179, 247);
-    font-weight: bold;
-    text-decoration: underline;
-}
-
-.span:hover{
-    cursor: pointer;
-}
-
-.spinner_container{
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.7)
-}
-
-.spinner_object{
-    justify-self: center;
-    align-self: center;
-}
-
-.whole_tab{
+.addliquidity_outsidetab{
+    width: 100%;
+    height: 100%;
     display:flex;
-    width:100%;
     flex-direction: column;
 }
 
-.liquidity_tab{
+.addliquidity_descriptiontab{
+    width: 100%;
     display: flex;
-    width:100%;
     margin-top:10px;
     padding-left: 30px;
     padding-right: 30px;
@@ -42,22 +15,21 @@
     justify-content:space-between;
 }
 
-.description{
-    flex:2;
-    color: white;
-    font-weight: bold;
+.addliquidity_description{
+    color:white;
+    font:bold;
     margin-right: 60px;
 }
 
-.description--light{
+.addliquidity_description--light{
     color:black;
 }
 
-.description_title{
+.addliquidity_description_title {
     color: rgb(203, 201, 201);
 }
 
-.description_title--light{
+.addliquidity_description_title--light{
     color: black;
 }
 
@@ -66,11 +38,20 @@
     font-size: 15px;
 }
 
-.tab{
+.span{
+    color:#009aff;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.span:hover{
+    cursor: pointer;
+}
+
+.addliquidity_tab{
     display: flex;
     flex-direction: column;
     width: 100%;
-    flex:2;
     color: white;
     font-weight: bold;
     border: .5px solid #043b71;
@@ -80,17 +61,49 @@
     align-items: center;
 }
 
-
-.tab--light{
-    color:white;
-    background-color: #009aff;
-    border: .5px solid #009aff;
+.addliquidity_tab--light{
+    color:#009aff;
+    background-color: white;
+    border: 1px solid #009aff;
 }
 
-.weth_bal {
+
+.addliquidity_weth_bal{
     width: 100%;
     display: flex;
     justify-content: space-between;
+}
+
+.addliquidity_weth_bal > p {
+    color:white;
+}
+
+.addliquidity_weth_bal--light > p{
+    color:rgb(108, 107, 107);
+}
+
+.deposit_tab{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    width: 100%;
+}
+
+.weth_deposit_amount{
+    flex:2;
+    display: flex;
+    background-color: #001428;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content:space-between;
+    border:none;
+    margin-right:3px;
+}
+
+.weth_deposit_amount--light{
+    background-color: rgb(231, 240, 247);
 }
 
 .weth_bal_input{
@@ -124,35 +137,6 @@
     cursor: pointer;
 }
 
-
-.deposit_tab{
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    width: 100%;
-}
-
-.weth_deposit_amount{
-    flex:2;
-    display: flex;
-    background-color: #001428;
-    border-radius: 10px;
-    padding: 10px;
-    text-align: center;
-    align-items: center;
-    justify-content:space-between;
-    border:none;
-    margin-right:3px;
-}
-
-.weth_deposit_amount--light{
-    background-color: rgb(231, 240, 247);
-}
-
-input {
-    outline: none;
-}
-
 .zap_button{
     background-color: rgb(89, 179, 247);
     border:none;
@@ -169,16 +153,37 @@ input {
 }
 
 .zap_button--light{
-    background-color: white;
-    color: #009aff;
+    background-color: #009aff;
+    color: white;
 }
 
 .zap_button:hover{
     cursor: pointer;
 }
 
-.rightside{
-    flex:1;
+.spinner_container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.7)
+}
+
+.spinner_object{
+    justify-self: center;
+    align-self: center;
+}
+
+
+
+
+input {
+    outline: none;
 }
 
 input::-webkit-outer-spin-button,

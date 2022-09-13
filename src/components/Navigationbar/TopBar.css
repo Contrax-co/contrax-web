@@ -1,0 +1,62 @@
+.topbar_placement{
+    padding-right:50px;
+    position: absolute;
+    right: 0;
+}
+
+.connect_wallet{
+    background-color: #009aff;
+    color:white;
+    padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-weight: bold;
+    justify-content: center;
+    width: fit-content;
+    border-radius: 15px;
+}
+
+.connect_wallet:hover{
+    cursor: pointer;
+}
+
+.wallet_address{
+    font-weight: bold;
+    color:white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.wallet_address > p{
+    margin-left: 30px;
+}
+
+.wallet_address--light{
+    color: black;
+}
+
+.ethBal{
+    padding:10px;
+
+}
+
+.connected_wallet{
+    padding:10px;
+    border-radius:10px;
+    display: flex;
+    align-items: center;
+    margin-left:30px;
+}
+
+.connected_wallet > p{
+    margin-right:5px;
+}
+
+.connected_wallet:hover{
+    background-color:#032a51;
+    cursor: pointer;
+}
+
+.connected_wallet--light:hover{
+    background-color: lightgrey;
+}

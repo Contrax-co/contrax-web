@@ -240,3 +240,16 @@ export const withdraw = async(pool:any, withdrawAmount:any, setLoading:any, setL
     }
 }
 
+
+export const compoundAPYCalculator = (poolBaseAPY:any, rewardPoolAPY:any, setCompoundAPY:any) => {
+    const baseAPY = poolBaseAPY / 100; 
+    const rewardAPY = rewardPoolAPY / 100;
+
+    const innerBracket = 1 + (0.8 * (rewardAPY/12));
+    const power = innerBracket **  12;
+    const base = power - 1; 
+
+    const apy = (base + baseAPY) * 100; 
+    setCompoundAPY(apy);
+}
+

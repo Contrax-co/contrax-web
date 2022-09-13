@@ -8,7 +8,7 @@ import Exchange from './pages/exchange';
 import ExplorePool from './pages/explorePool';
 import CreatePool from './pages/createPool';
 import PoolDetail from './pages/poolDetail';
-import Compound from './pages/CompoundEarn/compound';
+import Application from './pages/Application/Application';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
 
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/application" element={<Application />}/>
 
         <Route path="/create-a-token" element={<CreateToken />} />
 
@@ -30,7 +30,6 @@ function App() {
 
         <Route path="/pool-detail" element={<PoolDetail />} />
 
-        <Route path="/compound" element={<Compound />} />
       </Routes>
     </Router>
   );

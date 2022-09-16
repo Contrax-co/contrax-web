@@ -2,11 +2,11 @@ import React, {useState, useEffect} from 'react';
 import PoolButton from '../../components/PoolButton';
 import './compoundItem.css';
 import Withdraw from './Withdraw';
-import {checkIfWalletIsConnected, getUserVaultBalance, getTotalValue, compoundAPYCalculator} from './functions/connection'; 
+import {getUserVaultBalance, getTotalValue, compoundAPYCalculator} from './functions/connection'; 
 import {RiArrowDownSLine, RiArrowUpSLine} from 'react-icons/ri';
 import AddLiquidity from './AddLiquidity';
 
-function CompoundItem({pool, lightMode, currentWallet}: any) {
+function CompoundItem({pool, lightMode, currentWallet, connectWallet}: any) {
     const [tvl, setTVL] = useState(0);
     const [userVaultBalance, setUserVaultBalance] = useState(0);
 
@@ -17,6 +17,8 @@ function CompoundItem({pool, lightMode, currentWallet}: any) {
 
     const [poolBaseAPY, setPoolBaseAPY] = useState(0); 
     const [rewardPoolAPY, setPoolRewardAPY] = useState(0);
+
+    const [showDetails, setShowDetails] = useState(false);
 
     useEffect(() => {
         getUserVaultBalance(pool, currentWallet, setUserVaultBalance, userVaultBalance);
@@ -76,12 +78,13 @@ function CompoundItem({pool, lightMode, currentWallet}: any) {
                         <div className="pool_info">
                             <div className={`container ${lightMode && "container--light"}`}>
                                 <p className={`pool_name ${lightMode && "pool_name--light"}`}>DEPOSITED</p>
-                                <p>{userVaultBalance.toFixed(3)}</p>
+                                {!currentWallet ? <p>-</p>:  <p>{userVaultBalance.toFixed(3)}</p>}
+                               
 
                             </div>
                             
                             <div className={`container ${lightMode && "container--light"}`}>
-                                <p className={`pool_name ${lightMode && "pool_name--light"}`}>TOTAL APY</p>
+                                <p className={`pool_name ${lightMode && "pool_name--light"}`}>COMPOUND APY</p>
                                 <p>{(compoundAPY - poolBaseAPY).toFixed(2)}%</p>
 
                             </div>
@@ -95,11 +98,6 @@ function CompoundItem({pool, lightMode, currentWallet}: any) {
                                 }
                                 
                             </div>
-
-                            {/* <div className={`container ${lightMode && "container--light"}`}>
-                                <p className={`pool_name ${lightMode && "pool_name--light"}`}>BASE APY</p>
-                                <p>{poolBaseAPY.toFixed(2)}%</p>
-                            </div> */}
 
                            
                         </div>
@@ -128,8 +126,33 @@ function CompoundItem({pool, lightMode, currentWallet}: any) {
                                 lightMode={lightMode}
                             /> 
                         </div>
-                        {buttonType === "Add Liquidity" && <AddLiquidity pool={pool} platform={pool.platform} rewards={pool.reward} lightMode={lightMode} currentWallet={currentWallet}/>}
-                        {buttonType === "Withdraw" && <Withdraw pool={pool} lightMode={lightMode}/>}
+                        {buttonType === "Add Liquidity" && 
+                            <AddLiquidity 
+                            pool={pool} 
+                            platform={pool.platform} 
+                            rewards={pool.reward} 
+                            lightMode={lightMode} 
+                            currentWallet={currentWallet} 
+                            baseAPY={poolBaseAPY}
+                            compoundAPY={compoundAPY}
+                            connectWallet={connectWallet}
+                            showDetails={showDetails}
+                            prop1={() => setShowDetails(true)}
+                            prop2={() => setShowDetails(false)}
+                        />}
+                        {buttonType === "Withdraw" && 
+                            <Withdraw 
+                                pool={pool} 
+                                lightMode={lightMode} 
+                                showDetails={showDetails}
+                                prop1={() => setShowDetails(true)}
+                                baseAPY={poolBaseAPY}
+                                compoundAPY={compoundAPY} 
+                                prop2={() => setShowDetails(false)}
+                                connectWallet={connectWallet}
+                                currentWallet={currentWallet}
+                            />
+                        }
                         
                     </div>
                 )}

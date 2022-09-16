@@ -1,15 +1,14 @@
 import React, { useState, useEffect} from 'react';
 import './Withdraw.css';
 import { ethers } from "ethers";
-import {checkIfWalletIsConnected} from './functions/connection';
 import {getUserVaultBalance, wethAddress, withdraw} from './functions/connection';
 import Toggle from './components/Toggle';
+import DetailsMod from './components/showDetailsMod';
 import {SyncLoader} from "react-spinners";
 
-function Withdraw({pool, lightMode}: any) {
+function Withdraw({pool, lightMode, showDetails, prop1, baseAPY, compoundAPY, prop2, connectWallet, currentWallet}: any) {
     const [loading, setLoading] = useState(false);
 
-    const [currentWallet, setCurrentWallet] = useState("");
     const [toggleType, setToggleType] = useState(false);
     const [userVaultBalance, setUserVaultBalance] = useState(0);
 
@@ -17,7 +16,6 @@ function Withdraw({pool, lightMode}: any) {
 
 
     useEffect(() => {
-        checkIfWalletIsConnected(setCurrentWallet);
         getUserVaultBalance(pool, currentWallet, setUserVaultBalance, userVaultBalance);
     }, [pool, currentWallet, userVaultBalance])
 
@@ -99,30 +97,49 @@ function Withdraw({pool, lightMode}: any) {
                 </div>
 
                 <div className={`withdraw_tab ${lightMode && "withdraw_tab--light"}`}>
-                    <div className="lp_bal">
-                        <p>LP balance:</p>
-                        <p>{userVaultBalance.toFixed(4)}</p>
+                    <div className={`inside_toggle ${!currentWallet && "inside_toggle-none"}`}>
+                        <div className={`lp_bal ${lightMode && "lp_bal--light"}`}>
+                            <p>LP balance:</p>
+                            <p>{userVaultBalance.toFixed(4)}</p>
+                        </div>
+
+                        <div className={`withdraw_tab2 ${!currentWallet && "withdraw_tab2-disable"}`}>
+                            <div className={`lp_withdraw_amount ${lightMode && "lp_withdraw_amount--light"}`}>
+                                <input type="number" className={`lp_bal_input ${lightMode && "lp_bal_input--light"}`} placeholder="0.0" value={lpZapAmount} onChange={handleZapChange}/>
+                                <p onClick={withdrawTotal} className={`all_LP_tokens ${lightMode && "all_LP_tokens--light"}`}>MAX</p>
+                            </div>
+                            {toggleType ? (
+                                <div className={`zap_button ${lightMode && "zap_button--light"}`} onClick={() => withdraw(pool, lpZapAmount, setLoading, setLPZapAmount)}>
+                                    <p>Withdraw LP</p>
+                                </div>
+                            ): (
+                                <div className={`zap_button ${lightMode && "zap_button--light"}`} onClick={zapOut}>
+                                    <p>Withdraw ETH</p>
+                                </div>
+                            )}
+                        
+                        </div>
                     </div>
 
-                    <div className="withdraw_tab2">
-                        <div className={`lp_withdraw_amount ${lightMode && "lp_withdraw_amount--light"}`}>
-                            <input type="number" className={`lp_bal_input ${lightMode && "lp_bal_input--light"}`} placeholder="0.0" value={lpZapAmount} onChange={handleZapChange}/>
-                            <p onClick={withdrawTotal} className={`all_LP_tokens ${lightMode && "all_LP_tokens--light"}`}>MAX</p>
+                    {currentWallet ? null : (
+                        <div className={`no_overlay ${!currentWallet && "overlay"}`} onClick={connectWallet}>
+                            <p>connect wallet</p>
                         </div>
-                        {toggleType ? (
-                            <div className={`zap_button ${lightMode && "zap_button--light"}`} onClick={() => withdraw(pool, lpZapAmount, setLoading, setLPZapAmount)}>
-                                <p>Withdraw LP</p>
-                            </div>
-                        ): (
-                            <div className={`zap_button ${lightMode && "zap_button--light"}`} onClick={zapOut}>
-                                <p>Withdraw ETH</p>
-                            </div>
-                        )}
-                      
-                    </div>
+                    )}
 
                 </div>
             </div>
+
+            <DetailsMod
+                lightMode={lightMode}
+                prop1={prop1}
+                showDetails={showDetails}
+                baseAPY={baseAPY}
+                compoundAPY={compoundAPY}
+                prop2={prop2}
+            />
+
+
 
             {loading && (
             <div className="spinner_container">

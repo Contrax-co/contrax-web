@@ -57,6 +57,10 @@
     cursor: pointer;
 }
 
+.connected_wallet--light{
+    background-color: lightblue;
+}
+
 .connected_wallet--light:hover{
     background-color: lightgrey;
 }

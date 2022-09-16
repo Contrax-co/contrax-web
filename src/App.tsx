@@ -1,7 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/home/Home';
-import Dashboard from './pages/dashboard';
 import CreateToken from './pages/createToken';
 import ManageToken from './pages/manageToken';
 import Exchange from './pages/exchange';

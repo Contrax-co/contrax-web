@@ -2,14 +2,14 @@ import React, {useState, useEffect} from 'react'
 import SideBar from '../../components/Navigationbar/SideBar';
 import TopBar from '../../components/Navigationbar/TopBar';
 import Compound from '../CompoundEarn/compound';
-import { checkIfWalletIsConnected, getEthBalance } from '../CompoundEarn/functions/connection';
+import { getEthBalance } from '../CompoundEarn/functions/connection';
 import CreateToken from '../createToken';
 import Dashboard from '../dashboard';
 import Exchange from '../exchange';
 import Onboard from 'bnc-onboard';
 import './Application.css';
 import Web3 from 'web3';
-import { getUserSession, removeUserSession, setUserSession } from '../../store/localstorage';
+import { removeUserSession, setUserSession } from '../../store/localstorage';
 
 const onboard = Onboard({
   dappId: process.env.REACT_APP_DAPP_ID, // [String] The API key of Blocknative
@@ -102,7 +102,7 @@ function Application() {
               />
             </div>
             
-            {menuItem === "Farms" && <Compound lightMode={lightMode} currentWallet={currentWallet}/>}
+            {menuItem === "Farms" && <Compound lightMode={lightMode} currentWallet={currentWallet} connectWallet={connectWallet}/>}
             {menuItem === "Dashboard" && <Dashboard/>}
             {menuItem === "Create token" && <CreateToken/>}
             {menuItem === "Exchange" && <Exchange/>}

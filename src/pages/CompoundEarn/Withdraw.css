@@ -33,7 +33,6 @@
 }
 
 .withdrawal_description{
-  flex:2;
   color: white;
   font-weight: bold;
   margin-right: 60px;
@@ -57,30 +56,43 @@
 }
 
 .withdraw_tab{
-  display: flex;
-  flex-direction: column;
   width: 100%;
-  flex:2;
-  color: white;
-  font-weight: bold;
-  border: .5px solid #043b71;
-  padding:20px;
+  height:100%;
+  border: 0.5px solid #043b71;
   border-radius:10px;
-  justify-content:space-between;
+  display: flex;
   align-items: center;
+  justify-content:center;
+  color:white;
+  font-weight: bold;
 }
 
 .withdraw_tab--light{
-  color:white;
-  background-color:#009aff;
+  color:#009aff;
+  background-color: white;
   border: .5px solid #009aff;
-  border-radius:20px;
+}
+
+.inside_toggle-none{
+  padding: 20px;
+  width: 100%;
+  filter:blur(5px);
+  opacity:0.8;
+}
+
+.inside_toggle{
+  padding: 20px;
+  width: 100%;
 }
 
 .lp_bal {
   width: 100%;
   display: flex;
   justify-content: space-between;
+}
+
+.lp_bal--light > p {
+  color:rgb(108, 107, 107);
 }
 
 .withdraw_tab{
@@ -95,6 +107,10 @@
   justify-content:center;
   align-items:center;
   width: 100%;
+}
+
+.withdraw_tab2-disable{
+  pointer-events: none;
 }
 
 .lp_withdraw_amount{
@@ -168,4 +184,21 @@
 
 .zap_button:hover{
   cursor: pointer;
+}
+
+.no_overlay{
+  display: hide;
+}
+
+.overlay{
+  position:fixed;
+  z-index:100;
+  background-color:#009aff;
+  color:white;
+  padding:15px;
+  border-radius: 15px;
+}
+
+.overlay:hover{
+  cursor:pointer;
 }

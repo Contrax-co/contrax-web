@@ -2,14 +2,14 @@ import React, {useState, useEffect} from 'react';
 import CompoundItem from './compoundItem';
 import './compound.css';
 
-function Compound({lightMode, currentWallet}: any) {
+function Compound({lightMode, currentWallet, connectWallet}: any) {
     const [pools, setPools] = useState([]);
    
     useEffect(() => {
         try{
             const {ethereum} = window; 
             if(ethereum) {
-                fetch(`https://testing.contrax.finance/api/pools.json`)       //`http://localhost:3000/api/pools.json` or `https://testing.contrax.finance/api/pools.json` for when we want it done locally
+                fetch(`http://localhost:3000/api/pools.json`)       //`http://localhost:3000/api/pools.json` or `https://testing.contrax.finance/api/pools.json` for when we want it done locally
                 .then(response => response.json())
                 .then(data => {
                 setPools(data); 
@@ -37,6 +37,7 @@ function Compound({lightMode, currentWallet}: any) {
                         pool={pool}
                         lightMode={lightMode}
                         currentWallet={currentWallet}
+                        connectWallet={connectWallet}
                     />
                 ))}
             </div>

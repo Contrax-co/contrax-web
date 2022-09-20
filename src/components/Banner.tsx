@@ -25,7 +25,7 @@ export default function banner() {
               </H1>
               <Row>
                 <H3 color={colors.secondaryDark} className="mt-3 mb-1">
-                  Maximize rewards and help build the future.
+                  The #1 Source for Real-Yield Farms on Arbitrum
                 </H3>
               </Row>
               <Image

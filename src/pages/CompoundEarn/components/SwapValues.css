@@ -13,6 +13,7 @@
 
 .swap__modal{
     display: flex;
+    flex-direction: column;
     z-index: 200;
     background-color: #012243;
     width: 450px;
@@ -32,6 +33,7 @@
     padding: 20px;
     font-weight: bold;
     justify-content: space-between;
+    align-items: center;
     color: white;
 }
 
@@ -39,6 +41,35 @@
     color: black;
 }
 
-.close:hover{
+.modal__close:hover{
     cursor: pointer;
+}
+
+.exchange__logo{
+    width:40px;
+    margin-right:20px;
+}
+
+.exchange_items{
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+}
+
+.pad_options{
+    display: flex;
+    padding: 10px;
+    align-items:center;
+}
+
+.exchange_items:hover{
+    background-color:rgb(233, 237, 245);
+    cursor: pointer;
+}
+
+.mini{
+    font-weight: normal;
+    font-size: 15px;
+    color: rgb(116, 114, 114);
+    margin-left:10px;
 }

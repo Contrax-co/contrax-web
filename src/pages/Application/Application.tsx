@@ -105,7 +105,7 @@ function Application() {
             {menuItem === "Farms" && <Compound lightMode={lightMode} currentWallet={currentWallet} connectWallet={connectWallet}/>}
             {menuItem === "Dashboard" && <Dashboard/>}
             {menuItem === "Create token" && <CreateToken/>}
-            {menuItem === "Exchange" && <Exchange/>}
+            {menuItem === "Exchange" && <Exchange lightMode={lightMode}/>}
           </div>
 
         </div>

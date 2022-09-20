@@ -14,12 +14,16 @@
 .swap__modal{
     display: flex;
     z-index: 200;
-    background-color: white;
+    background-color: #012243;
     width: 450px;
     height: 700px;
     border-radius: 15px;
     position: relative;
     animation: animate 0.3s;
+}
+
+.swap__modal--light{
+    background-color: white;
 }
 
 .modal__title{
@@ -28,6 +32,11 @@
     padding: 20px;
     font-weight: bold;
     justify-content: space-between;
+    color: white;
+}
+
+.modal__title--light{
+    color: black;
 }
 
 .close:hover{

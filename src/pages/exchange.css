@@ -1,15 +1,28 @@
 .whole__exchange__container{
     width:100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.exchange__header{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
 }
 
 .whole__container__title{
-    font-size:35px;
-    font-weight:700;
+    font-size:34px;
+    font-weight:bold;
     color:white;
 }
 
-.swap__container{   
+.whole__container__title--light{
+    color:black;
+}
+
+.swap__container{  
+    margin-top:50px; 
     display: flex;
     flex-direction: column;
     align-self: center;

@@ -11,7 +11,12 @@ export default function Exchange({lightMode}:any) {
 
   return (
     <div className={`whole__exchange__container`}>
-      <p className="whole__container__title">Exchange</p>
+
+      <div className="exchange__header">
+        <p className={`whole__container__title ${lightMode && "whole__container__title--light"}`}>Exchange</p>
+      </div>
+      
+      
       <div className={`swap__container ${lightMode && "swap__container--light"}`}>
         <p className={`swap_title ${lightMode && "swap_title--light"}`}>Swap</p>
 
@@ -30,6 +35,7 @@ export default function Exchange({lightMode}:any) {
         </div>
 
         <CgArrowsExchangeAltV className={`symbol__exchange ${lightMode && "symbol__exchange--light"}`}/>
+
         <div className={`to ${lightMode && "to--light"}`}>
           <p>To</p>
           <div className={`to__input ${lightMode && "to__input--light"}`}>
@@ -48,9 +54,10 @@ export default function Exchange({lightMode}:any) {
           <p>Enter a amount</p>
         </div>
 
-        {openModal ? <SwapValues setOpenModal={setOpenModal} /> : null}
-
       </div>
+
+      {openModal ? <SwapValues setOpenModal={setOpenModal} /> : null}
+
     </div>
   );
 }

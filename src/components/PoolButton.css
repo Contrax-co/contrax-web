@@ -1,32 +1,43 @@
-.button {
+.button{
   width: 100px;
   width: 100px;
   padding: 7px;
   background-color: #001428;
   color: rgb(151, 151, 151);
   font-weight: bold;
-  margin-bottom: 7px;
+  margin-bottom:7px;
   font-size: 13px;
   text-align: center;
   align-items: center;
   justify-content: center;
 }
 
-.button--selected {
-  color: white;
+.button--light{
+  color: rgb(233, 235, 236);
+  background-color: #75c0f1;
+}
+
+.button--selected{
+  color:white;
   background-color: #000c18;
 }
 
-.button:first-child {
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+.button--selected--light{
+  color:white;
+  background-color: #009aff;
 }
 
-.button:last-child {
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+.button:first-child{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.button:last-child{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .button:hover {
   cursor: pointer;
 }
+

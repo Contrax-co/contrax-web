@@ -210,29 +210,10 @@ export default function CreateToken(props: any) {
 
   return (
     <>
-      <Navigationbar />
-
       <Container className="h-100">
         <Row>
-          <Col size="4">
-            <Row height="50px" />
-            <Row>
-              <H1 color={colors.primary}>No coding required.</H1>
-            </Row>
-            <Row>
-              <H1 color={colors.primary}>
-                Create your own token in just a few clicks!
-              </H1>
-            </Row>
-            <Image
-              src={createTokenImg}
-              alt="create-token"
-              width="416"
-              height="261"
-            />
-          </Col>
           <Col size="8">
-            <Form onSubmit={handleSubmit} className="px-4 py-4 my-5">
+            <Form onSubmit={handleSubmit} className="shadow-sm px-4 py-4 my-5">
               <Row className="row">
                 <Col size="12" className="my-2">
                   <H3>Enter Token Parameters</H3>

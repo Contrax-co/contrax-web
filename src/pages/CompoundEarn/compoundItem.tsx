@@ -1,116 +1,164 @@
-import { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import PoolButton from '../../components/PoolButton';
 import './compoundItem.css';
 import Withdraw from './Withdraw';
-import {
-  checkIfWalletIsConnected,
-  getUserVaultBalance,
-  getTotalValue,
-} from './functions/connection';
-import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
+import {getUserVaultBalance, getTotalValue, compoundAPYCalculator} from './functions/connection'; 
+import {RiArrowDownSLine, RiArrowUpSLine} from 'react-icons/ri';
 import AddLiquidity from './AddLiquidity';
 
-function CompoundItem({ pool }: any) {
-  const [currentWallet, setCurrentWallet] = useState('');
-  const [tvl, setTVL] = useState(0);
-  const [userVaultBalance, setUserVaultBalance] = useState(0);
+function CompoundItem({pool, lightMode, currentWallet, connectWallet}: any) {
+    const [tvl, setTVL] = useState(0);
+    const [userVaultBalance, setUserVaultBalance] = useState(0);
 
-  const [dropdown, setDropDown] = useState(false);
+    const [dropdown, setDropDown] = useState(false);
 
-  const [buttonType, setButtonType] = useState('Add Liquidity');
+    const[buttonType, setButtonType] = useState("Add Liquidity");
+    const [compoundAPY, setCompoundAPY] = useState(0);
 
-  useEffect(() => {
-    checkIfWalletIsConnected(setCurrentWallet);
-    getUserVaultBalance(
-      pool,
-      currentWallet,
-      setUserVaultBalance,
-      userVaultBalance
-    );
-    getTotalValue(pool, setTVL);
-  });
+    const [poolBaseAPY, setPoolBaseAPY] = useState(0); 
+    const [rewardPoolAPY, setPoolRewardAPY] = useState(0);
 
-  const grabKey = () => {
-    setDropDown(!dropdown);
-  };
+    const [showDetails, setShowDetails] = useState(false);
 
-  return (
-    <div className="pools">
-      <div className="single_pool" key={pool.id} onClick={grabKey}>
-        <div className="row_items">
-          <div className="title_container">
-            <div className="pair">
-              <img alt={pool.alt1} className="logofirst" src={pool.logo1} />
-              <img alt={pool.alt2} className="logo" src={pool.logo2} />
-            </div>
-            <div>
-              <div className="pool_title">
-                <p className="pool_name">{pool.name}</p>
-                <div className="rewards_div">
-                  <p className="farm_type">{pool.platform}</p>
-                  <img
-                    alt={pool.rewards_alt}
-                    className="rewards_image"
-                    src={pool.rewards}
-                  />
+    useEffect(() => {
+        getUserVaultBalance(pool, currentWallet, setUserVaultBalance, userVaultBalance);
+        getTotalValue(pool, setTVL);
+    },[tvl, userVaultBalance, currentWallet, pool]);
+
+    useEffect(() => {
+        try{
+            const {ethereum} = window;
+            if(ethereum){
+                fetch("https://yields.llama.fi/pools")
+                .then(response => response.json())
+                .then(data => {
+                    const pools = data.data;
+                    const list = pools.filter((p:any) => {
+                        return p.chain === "Arbitrum" && p.project === "sushiswap" && p.symbol=== pool.name;
+                    });
+                    setPoolBaseAPY(list[0].apyBase);
+                    setPoolRewardAPY(list[0].apyReward);
+                })
+            }
+        }
+        catch (error){
+            console.log(error);
+        }
+        compoundAPYCalculator(poolBaseAPY, rewardPoolAPY, setCompoundAPY);
+
+    }, [pool, poolBaseAPY, rewardPoolAPY]);
+
+    const grabKey = () => {
+        setDropDown(!dropdown);
+    }
+
+    return (
+            <div className={`pools ${lightMode && "pools--light"}`}>
+                <div className="single_pool" key={pool.id} onClick={grabKey}>
+                    <div className="row_items">
+
+                        <div className="title_container">
+                            <div className="pair">
+                                <img alt={pool.alt1} className={`logofirst ${lightMode && "logofirst--light"}`} src={pool.logo1}/>
+                                <img alt={pool.alt2} className={`logo ${lightMode && "logo--light"}`} src={pool.logo2}/>
+                            </div>
+                            <div>
+                            <div className="pool_title">
+                                <p className={`pool_name ${lightMode && "pool_name--light"}`}>{pool.name}</p>
+                                <div className="rewards_div">
+                                    <p className={`farm_type ${lightMode && "farm_type--light"}`}>{pool.platform}</p>
+                                    <img alt={pool.rewards_alt} className="rewards_image" src={pool.rewards}/>
+                                </div>
+                            </div>
+                            
+                           
+                            </div>
+                        </div>
+
+                        <div className="pool_info">
+                            <div className={`container ${lightMode && "container--light"}`}>
+                                <p className={`pool_name ${lightMode && "pool_name--light"}`}>DEPOSITED</p>
+                                {!currentWallet ? <p>-</p>:  <p>{userVaultBalance.toFixed(3)}</p>}
+                               
+
+                            </div>
+                            
+                            <div className={`container ${lightMode && "container--light"}`}>
+                                <p className={`pool_name ${lightMode && "pool_name--light"}`}>COMPOUND APY</p>
+                                <p>{(compoundAPY - poolBaseAPY).toFixed(2)}%</p>
+
+                            </div>
+
+                            <div className={`container ${lightMode && "container--light"}`}>
+                                <p className={`pool_name ${lightMode && "pool_name--light"}`}>LIQUIDITY</p>
+                                {tvl < 1000 ? (
+                                    <p>{"<"} 1000</p>
+                                ):
+                                <p>{tvl}</p>
+                                }
+                                
+                            </div>
+
+                           
+                        </div>
+                        <div className={`dropdown ${lightMode && "dropdown--light"}`}>
+                            {dropdown === false ? <RiArrowDownSLine /> :  <RiArrowUpSLine />}
+                           
+                        </div>
+                        
+                    </div>
+
                 </div>
-              </div>
-            </div>
-          </div>
 
-          <div className="pool_info">
-            <div className="container">
-              <p className="pool_name">DEPOSITED</p>
-              <p>{userVaultBalance.toFixed(3)}</p>
-            </div>
+                {dropdown === false ? null : (
+                    <div className={`dropdown_menu ${lightMode && "dropdown_menu--light"}`}>
+                        <div className="drop_buttons">
+                            <PoolButton 
+                                onClick={(e:any) => setButtonType("Add Liquidity")} 
+                                description="add liquidity"
+                                active={buttonType === "Add Liquidity"}
+                                lightMode={lightMode}
+                            />
+                            <PoolButton 
+                                onClick={(e:any) => setButtonType("Withdraw")}  
+                                description="withdraw"
+                                active={buttonType === "Withdraw"}
+                                lightMode={lightMode}
+                            /> 
+                        </div>
+                        {buttonType === "Add Liquidity" && 
+                            <AddLiquidity 
+                            pool={pool} 
+                            platform={pool.platform} 
+                            rewards={pool.reward} 
+                            lightMode={lightMode} 
+                            currentWallet={currentWallet} 
+                            baseAPY={poolBaseAPY}
+                            compoundAPY={compoundAPY}
+                            connectWallet={connectWallet}
+                            showDetails={showDetails}
+                            prop1={() => setShowDetails(true)}
+                            prop2={() => setShowDetails(false)}
+                        />}
+                        {buttonType === "Withdraw" && 
+                            <Withdraw 
+                                pool={pool} 
+                                lightMode={lightMode} 
+                                showDetails={showDetails}
+                                prop1={() => setShowDetails(true)}
+                                baseAPY={poolBaseAPY}
+                                compoundAPY={compoundAPY} 
+                                prop2={() => setShowDetails(false)}
+                                connectWallet={connectWallet}
+                                currentWallet={currentWallet}
+                            />
+                        }
+                        
+                    </div>
+                )}
 
-            <div className="container">
-              <p className="pool_name">COMPOUND APY</p>
-              <p>-</p>
             </div>
-
-            <div className="container">
-              <p className="pool_name">LIQUIDITY</p>
-              {tvl < 1000 ? <p>{'<'} 1000</p> : <p>{tvl}</p>}
-            </div>
-
-            <div className="container">
-              <p className="pool_name">APY</p>
-              <p>{pool.apy}</p>
-            </div>
-          </div>
-          <div className="dropdown">
-            {dropdown === false ? <RiArrowDownSLine /> : <RiArrowUpSLine />}
-          </div>
-        </div>
-      </div>
-
-      {dropdown === false ? null : (
-        <div className="dropdown_menu">
-          <div className="drop_buttons">
-            <PoolButton
-              onClick={(e: any) => setButtonType('Add Liquidity')}
-              description="add liquidity"
-              active={buttonType === 'Add Liquidity'}
-            />
-            <PoolButton
-              onClick={(e: any) => setButtonType('Withdraw')}
-              description="withdraw"
-              active={buttonType === 'Withdraw'}
-            />
-          </div>
-          {buttonType === 'Add Liquidity' && (
-            <AddLiquidity
-              pool={pool}
-              platform={pool.platform}
-              rewards={pool.reward}
-            />
-          )}
-          {buttonType === 'Withdraw' && <Withdraw pool={pool} />}
-        </div>
-      )}
-    </div>
-  );
+    )
 }
 
 export default CompoundItem;

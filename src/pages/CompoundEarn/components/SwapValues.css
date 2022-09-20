@@ -1,0 +1,44 @@
+.modal__container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.swap__modal{
+    display: flex;
+    z-index: 200;
+    background-color: #012243;
+    width: 450px;
+    height: 700px;
+    border-radius: 15px;
+    position: relative;
+    animation: animate 0.3s;
+}
+
+.swap__modal--light{
+    background-color: white;
+}
+
+.modal__title{
+    width: 100%;
+    display: flex;
+    padding: 20px;
+    font-weight: bold;
+    justify-content: space-between;
+    color: white;
+}
+
+.modal__title--light{
+    color: black;
+}
+
+.close:hover{
+    cursor: pointer;
+}

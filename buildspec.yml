@@ -4,14 +4,13 @@ phases:
   pre_build:
     commands:
       - echo Pre build commands started...
-      - echo npm install started.
-      - npm install --verbose
-      - npm i protobufjs
+      - echo yarn install started.
+      - yarn
       - echo Finished installing packages.
   build:
     commands:
       - echo Generating build directory for react.
-      - npm run build --ignore-ts-errors
+      - yarn build
       - echo Finished generating build directory.
 
   post_build:

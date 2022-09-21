@@ -60,11 +60,20 @@
     display: flex;
     padding: 10px;
     align-items:center;
+    color:white;
+}
+
+.pad_options--light{
+    color:black;
 }
 
 .exchange_items:hover{
-    background-color:rgb(233, 237, 245);
+    background-color: #032a51;
     cursor: pointer;
+}
+
+.exchange_items--light:hover{
+    background-color:rgb(233, 237, 245);
 }
 
 .mini{
@@ -73,3 +82,12 @@
     color: rgb(116, 114, 114);
     margin-left:10px;
 }
+
+.modal__close{
+    color: white;
+}
+
+.modal__close--light{
+    color: black;
+}
+

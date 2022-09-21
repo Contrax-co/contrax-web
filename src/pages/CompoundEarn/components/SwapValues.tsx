@@ -1,8 +1,8 @@
-import React, {useRef} from 'react';
+import React, {useRef, useEffect, useState} from 'react';
 import {GrClose} from 'react-icons/gr';
 import './SwapValues.css';
 
-function SwapValues({setOpenModal, lightMode}:any) {
+function SwapValues({tokens, setOpenModal, lightMode}:any) {
 
     // close the modal when clicking outside the modal.
     const modalRef: any = useRef();
@@ -18,57 +18,20 @@ function SwapValues({setOpenModal, lightMode}:any) {
         <div className={`swap__modal ${lightMode && "swap__modal--light"}`}>
             <div className={`modal__title ${lightMode && "modal__title--light"}`}>
                 <p>Select a token</p>
-                <div className={`modal__close`} onClick={() => setOpenModal(false)}>
-                    <GrClose />
-                </div>
-                
+                <GrClose className={`modal__close ${lightMode && "modal__close--light"}`} onClick={() => setOpenModal(false)}/>
             </div>
 
             <div>
-                <div className="exchange_items">
-                    <div className="pad_options">
-                        <img alt="WETH logo" className="exchange__logo" src="https://cryptologos.cc/logos/ethereum-eth-logo.png?v=023"/> 
-                        <p>WETH</p>
-                        <p className="mini">Wrapped Ether</p>
+                {tokens.map((token:any) => (
+                    <div key={token.id} className={`exchange_items ${lightMode && "exchange_items--light"}`}>
+                        <div className={`pad_options ${lightMode && "pad_options--light"}`}>
+                            <img alt={token.token_alt} className="exchange__logo" src={token.token_logo}/> 
+                            <p>{token.token_name}</p>
+                            <p className="mini">{token.token_sub}</p>
+                        </div>
                     </div>
-                    
-                    
-                </div>
 
-
-                <div className="exchange_items">
-                    <div className="pad_options">
-                        <img alt="USDC logo" className="exchange__logo" src="https://cryptologos.cc/logos/usd-coin-usdc-logo.png?v=023"/> 
-                        <p>USDC</p>
-                        <p className="mini">USD Coin</p>
-                    </div>
-                </div>
-
-
-                <div className="exchange_items">
-                    <div className="pad_options">
-                        <img alt="Dai Logo" className="exchange__logo" src="https://cryptologos.cc/logos/multi-collateral-dai-dai-logo.png?v=023"/> 
-                        <p>DAI</p>
-                        <p className="mini">DAI Stablecoin</p>
-                    </div>
-                </div>
-
-
-                <div className="exchange_items">
-                    <div className="pad_options">
-                        <img alt="USDT Logo" className="exchange__logo" src="https://cryptologos.cc/logos/tether-usdt-logo.png?v=023"/>
-                        <p>USDT</p>
-                        <p className="mini">Tether Token</p>
-                    </div>
-                </div>
-
-                <div className="exchange_items">
-                    <div className="pad_options">
-                        <img alt="USDT Logo" className="exchange__logo"  src="https://cryptologos.cc/logos/sushiswap-sushi-logo.png?v=023"/>
-                        <p>SUSHI</p>
-                        <p className="mini">SushiToken</p>
-                    </div>
-                </div>
+                ))}
             </div>
            
             

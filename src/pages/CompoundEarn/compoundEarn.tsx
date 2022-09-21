@@ -49,6 +49,7 @@ export default function CompoundEarn() {
   return (
     <div>
       <Navigationbar />
+
       <div className="pools_list">
         {
           pools.map((pool: any) => (

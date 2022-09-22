@@ -9,7 +9,8 @@ import Exchange from '../exchange';
 import Onboard from 'bnc-onboard';
 import './Application.css';
 import Web3 from 'web3';
-import { removeUserSession, setUserSession } from '../../store/localstorage';
+import { setUserSession } from '../../store/localstorage';
+import LogoutPage from '../Logout/LogoutPage';
 
 const onboard = Onboard({
   dappId: process.env.REACT_APP_DAPP_ID, // [String] The API key of Blocknative
@@ -26,6 +27,7 @@ function Application() {
   const [ethUserBal, setUserEthBal] = useState(0); 
   const [lightMode, setLightMode] = useState(true); 
   const[menuItem, setMenuItem] = useState("Dashboard"); 
+  const [logoutInfo, setLogout] = useState(false);
 
   useEffect(() => {
     getEthBalance(currentWallet, setUserEthBal, ethUserBal); 
@@ -70,11 +72,6 @@ function Application() {
     }
   }
 
-  function logout() {
-    removeUserSession();
-    setCurrentWallet('');
-  }
-
   const toggleLight = () => {
       setLightMode(!lightMode);
   }
@@ -98,7 +95,8 @@ function Application() {
                 ethBal={ethUserBal}
                 walletAddress={currentWallet}
                 connectWallet={connectWallet}
-                logout={logout}
+                logout={() => setLogout(true)}
+                account={currentWallet}
               />
             </div>
             
@@ -109,6 +107,8 @@ function Application() {
           </div>
 
         </div>
+
+      {logoutInfo ? <LogoutPage setLogout={setLogout} lightMode={lightMode} account={currentWallet} setCurrentWallet={setCurrentWallet} /> : null}
 
       </div>
     

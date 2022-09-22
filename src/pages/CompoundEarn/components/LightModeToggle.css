@@ -1,8 +1,8 @@
 .togglelight_container{
     display:flex;
     align-items:center;
-    padding-bottom: 10px;
     padding-left: 30px;
+    margin-right: 10px;
 }
 
 .lighttoggle:hover{

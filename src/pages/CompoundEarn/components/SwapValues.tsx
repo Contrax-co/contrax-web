@@ -1,4 +1,5 @@
 import React, {useRef, useEffect, useState} from 'react';
+import {CgClose} from 'react-icons/cg';
 import {GrClose} from 'react-icons/gr';
 import './SwapValues.css';
 
@@ -18,7 +19,7 @@ function SwapValues({tokens, setOpenModal, lightMode}:any) {
         <div className={`swap__modal ${lightMode && "swap__modal--light"}`}>
             <div className={`modal__title ${lightMode && "modal__title--light"}`}>
                 <p>Select a token</p>
-                <GrClose className={`modal__close ${lightMode && "modal__close--light"}`} onClick={() => setOpenModal(false)}/>
+                <CgClose className={`modal__close ${lightMode && "modal__close--light"}`} onClick={() => setOpenModal(false)}/>
             </div>
 
             <div>

@@ -1,13 +1,19 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Jazzicon, { jsNumberForAddress } from 'react-jazzicon';
+import LightModeToggle from '../../pages/CompoundEarn/components/LightModeToggle';
 import './TopBar.css';
 
 
-function TopBar({lightMode, ethBal, walletAddress, connectWallet, logout, account}:any) {
+function TopBar({lightMode, walletAddress, connectWallet, logout, account, ...props}:any) {
 
 
   return (
     <div className="topbar_placement">
+        <LightModeToggle
+            onClick={props.onClick} 
+            lightMode={lightMode}
+        />
+
         {walletAddress ?(
             <div className={`wallet_address ${lightMode && "wallet_address--light"}`}>
                 <div className={`ethBal ${lightMode && "ethBal--light"}`}>

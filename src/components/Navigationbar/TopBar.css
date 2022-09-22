@@ -1,4 +1,6 @@
 .topbar_placement{
+    display:flex;
+    align-items:center;
     padding-right:50px;
     position: absolute;
     right: 0;
@@ -22,7 +24,6 @@
 }
 
 .wallet_address{
-    display: flex;
     align-items: center;
     font-weight: bold;
     color:white;

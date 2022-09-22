@@ -97,6 +97,7 @@ function Application() {
                 connectWallet={connectWallet}
                 logout={() => setLogout(true)}
                 account={currentWallet}
+                onClick={toggleLight}
               />
             </div>
             

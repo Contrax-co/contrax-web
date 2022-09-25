@@ -13,6 +13,7 @@
 buildspec.yml
 
 # misc
+.env
 .vscode
 .DS_Store
 .env.local

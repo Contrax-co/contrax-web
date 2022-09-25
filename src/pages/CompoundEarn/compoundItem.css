@@ -77,8 +77,10 @@
 
 
 .dropdown{
+    width:15px;
     color:white;
     font-size:21px;
+    align-self:center;
 }
 
 .dropdown--light{
@@ -94,29 +96,36 @@
 
 .pool_name {
     white-space: nowrap;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: bold;
-    color:white;
+    color: rgb(237, 232, 232);
+}
+
+.pool_name__apy {
+    font-size:17px;
+    font-weight:700;
+    color: rgb(237, 232, 232);
+    margin-left: 10px;
+}
+
+.pool_name__apy--light {
+    color: black;
 }
 
 .pool_name--light{
     color: black;
 }
 
-.container > .pool_name {
-    font-size: 13px;
-    color: rgb(237, 232, 232);
+.tvlLP {
+    color: lightgrey;
+    font-size:13px;
+    font-weight: 600;
 }
 
-.container--light > .pool_name--light{
-    color: black;
+.tvlLP--light{
+    color:#8798ad;
 }
 
-
-.container > p {
-    font-size: 15px;
-    font-weight: bold;
-}
 
 .farm_type{
     color:white;
@@ -141,12 +150,12 @@
     align-items: center;
 }
 
-.container > p {
-    color:white;
-}
-
-.container--light > p{
-    color: black;
+.container__apy {
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center
 }
 
 .rewards {

@@ -31,6 +31,31 @@
     color:#009aff;
 }
 
+.farm__title {
+    display: flex;
+    font-size:13px;
+    font-weight: bold;
+    justify-content: space-between;
+    padding-left:30px;
+    padding-right:30px;
+    color:white;
+}
+
+.farm__title--light {
+    color:black;
+}
+
+.farm__asset{
+    flex:2;
+}
+
+.farm__second__title{
+    flex: 5;
+    display: flex;
+    justify-content: space-around;
+}
+
+
 .pools_list {
     display: flex;
     flex-direction: column;

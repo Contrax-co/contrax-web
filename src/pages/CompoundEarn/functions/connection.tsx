@@ -1,4 +1,5 @@
 import * as ethers from 'ethers';
+import Web3 from 'web3';
 
 export const wethAddress="0x82aF49447D8a07e3bd95BD0d56f35241523fBab1";
 
@@ -240,7 +241,12 @@ export const withdraw = async(pool:any, withdrawAmount:any, setLoading:any, setL
     }
 }
 
-
+/**
+ * Calculates compound APY
+ * @param poolBaseAPY 
+ * @param rewardPoolAPY 
+ * @param setCompoundAPY 
+ */
 export const compoundAPYCalculator = (poolBaseAPY:any, rewardPoolAPY:any, setCompoundAPY:any) => {
     const baseAPY = poolBaseAPY / 100; 
     const rewardAPY = rewardPoolAPY / 100;
@@ -251,5 +257,51 @@ export const compoundAPYCalculator = (poolBaseAPY:any, rewardPoolAPY:any, setCom
 
     const apy = (base + baseAPY) * 100; 
     setCompoundAPY(apy);
+}
+
+/**
+ * Gets the total supply of the lp token
+ * @param pool 
+ * @param setTotalSupply 
+ */
+export const calculateTotalSupply = async(pool:any, setTotalSupply:any) => {
+    const {ethereum} = window;
+    try{
+        if(ethereum){
+            const provider = new ethers.providers.Web3Provider(ethereum);
+            const lpContract = new ethers.Contract(pool.lp_address, pool.lp_abi, provider);
+
+            const supply = await lpContract.totalSupply();
+            const formattedBal = Number(ethers.utils.formatUnits(supply, 18));
+            setTotalSupply(formattedBal);      
+            
+            console.log(`total supply of lp tokens is ${formattedBal}`)
+
+        }else {
+            console.log("Ethereum object doesn't exist!");
+        }
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
+
+export const calculateTotalVaultSupply = async (poolUsdValue:any, totalSupply:any, setOurTVL:any, tvl:any) => {
+    const ourTVL = (poolUsdValue/totalSupply) * tvl; 
+    setOurTVL(ourTVL); 
+}
+
+export const calculateUserUSDValue = async (poolUsdValue:any, totalSupply:any, setUserTVL:any, userVaultBalance:any) => {
+    const ourTVL = (poolUsdValue/totalSupply) * userVaultBalance; 
+    setUserTVL(ourTVL); 
+}
+
+export const queryAccount = async (setPoolQueryAddress: any) => {
+    const web3 = new Web3(window.ethereum);
+    const accounts = await web3.eth.getAccounts();
+    const address = accounts[0];
+
+    setPoolQueryAddress(address);
 }
 

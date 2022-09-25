@@ -71,6 +71,25 @@
     color:#8798ad;
 }
 
+.logout__copy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:white;
+}
+
+.logout__copy:hover{
+    cursor: pointer;
+}
+
+.logout__copy--light{
+    color:black;
+}
+
+.logout__copy--light:hover{
+    cursor: pointer;
+}
+
 .logout__arbiscan:hover{
     cursor: pointer;
     color:white;
@@ -91,7 +110,7 @@
 
 .logout__button{
     margin-top:40px;
-    background-color: rgb(89, 179, 247);
+    background-color: #7cc4eb;
     color:white;
     font-weight:700;
     font-size:17px;
@@ -105,5 +124,5 @@
 
 .logout__button:hover{
     cursor: pointer;
-    background-color: #009aff;
+    background-color: #68b4c9;
 }

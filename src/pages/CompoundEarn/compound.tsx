@@ -28,6 +28,17 @@ function Compound({lightMode, currentWallet, connectWallet}: any) {
             <div className={`farm_header ${lightMode && "farm_header--light"}`}>
                 <p>Farms</p> 
             </div>
+
+            <div className={`farm__title ${lightMode && "farm__title--light"}`}>
+                <p className={`farm__asset`}>ASSET</p>
+                <div className={`farm__second__title`}>
+                    <p>APY</p>
+                    <p>LIQUIDITY</p>
+                    <p>DEPOSITED</p>
+                    <p>EARNED</p>
+                </div>
+              
+            </div>
             
             
             <div className="pools_list">

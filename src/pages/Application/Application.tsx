@@ -22,11 +22,12 @@ const onboard = Onboard({
   },
 });
 
+
 function Application() {
   const [currentWallet, setCurrentWallet] = useState('');
   const [ethUserBal, setUserEthBal] = useState(0); 
   const [lightMode, setLightMode] = useState(true); 
-  const[menuItem, setMenuItem] = useState("Dashboard"); 
+  const [menuItem, setMenuItem] = useState("Dashboard"); 
   const [logoutInfo, setLogout] = useState(false);
 
   useEffect(() => {
@@ -52,12 +53,14 @@ function Application() {
       window.localStorage.setItem('lightMode', JSON.stringify(lightMode));
       window.localStorage.setItem('menuItem', JSON.stringify(menuItem));
       window.localStorage.setItem('currentWallet', JSON.stringify(currentWallet));
+
   }, [lightMode, menuItem, currentWallet]);
 
   const connectWallet = async () => {
     const walletSelected = await onboard.walletSelect();
     if (walletSelected) {
         const readyToTransact = await onboard.walletCheck();
+        
         if (readyToTransact) {
             const currentState = await onboard.getState();
             setUserSession({
@@ -101,7 +104,13 @@ function Application() {
               />
             </div>
             
-            {menuItem === "Farms" && <Compound lightMode={lightMode} currentWallet={currentWallet} connectWallet={connectWallet}/>}
+            {menuItem === "Farms" && 
+              <Compound 
+                lightMode={lightMode} 
+                currentWallet={currentWallet} 
+                connectWallet={connectWallet} 
+              />
+            }
             {menuItem === "Dashboard" && <Dashboard/>}
             {menuItem === "Create token" && <CreateToken/>}
             {menuItem === "Exchange" && <Exchange lightMode={lightMode}/>}

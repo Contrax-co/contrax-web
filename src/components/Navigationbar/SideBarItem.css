@@ -33,7 +33,7 @@
 }
 
 .sideitems--selected--light >div {
-    color: black;
+    color: #61cddf;
 }
 
 .sideitems:hover > div{

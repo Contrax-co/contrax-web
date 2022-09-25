@@ -14,7 +14,7 @@
 
 .button--light{
   color: rgb(233, 235, 236);
-  background-color: #75c0f1;
+  background-color: #68b4c9;
 }
 
 .button--selected{
@@ -24,7 +24,7 @@
 
 .button--selected--light{
   color:white;
-  background-color: #009aff;
+  background-color: #7cc4eb;
 }
 
 .button:first-child{

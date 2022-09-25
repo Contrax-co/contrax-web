@@ -163,7 +163,7 @@
 
 .all_weth_tokens--light{
     color: white;
-    background-color: #51b7fa;
+    background-color: #61cddf;
 }
 
 .all_weth_tokens:hover{
@@ -186,7 +186,7 @@
 }
 
 .zap_button--light{
-    background-color: #009aff;
+    background-color: #61cddf;
     color: white;
 }
 

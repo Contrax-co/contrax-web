@@ -286,14 +286,27 @@ export const calculateTotalSupply = async(pool:any, setTotalSupply:any) => {
     }
 }
 
-
+/**
+ * Caluculates total vault supply
+ * @param poolUsdValue 
+ * @param totalSupply 
+ * @param setOurTVL 
+ * @param tvl 
+ */
 export const calculateTotalVaultSupply = async (poolUsdValue:any, totalSupply:any, setOurTVL:any, tvl:any) => {
     const ourTVL = (poolUsdValue/totalSupply) * tvl; 
     setOurTVL(ourTVL); 
 }
 
-export const calculateUserUSDValue = async (poolUsdValue:any, totalSupply:any, setUserTVL:any, userVaultBalance:any) => {
-    const ourTVL = (poolUsdValue/totalSupply) * userVaultBalance; 
+/**
+ * Calculates tvl of the user
+ * @param poolUsdValue 
+ * @param totalSupply 
+ * @param setUserTVL 
+ * @param initialDeposit 
+ */
+export const calculateUserUSDValue = async (poolUsdValue:any, totalSupply:any, setUserTVL:any, initialDeposit:any) => {
+    const ourTVL = (poolUsdValue/totalSupply) * initialDeposit; 
     setUserTVL(ourTVL); 
 }
 
@@ -304,4 +317,36 @@ export const queryAccount = async (setPoolQueryAddress: any) => {
 
     setPoolQueryAddress(address);
 }
+
+export const calculateEarnedUSD = async(poolUsdValue:any, totalSupply:any, earned:any, setEarnedUSD:any) => {
+    const earnedTVL = (poolUsdValue/totalSupply) * earned;
+    setEarnedUSD(earnedTVL);
+}
+
+export const earnedDeposit = async(pool:any, currentWallet:any, data:any, setInitialDeposit:any, setEarned:any ) => {
+    const {ethereum} = window;
+    try{
+        if(ethereum){
+            const provider = new ethers.providers.Web3Provider(ethereum);
+            const signer = provider.getSigner();
+            const vaultContract = new ethers.Contract(pool.vault_addr, pool.vault_abi, signer);
+
+            const balance = await vaultContract.balanceOf(currentWallet);
+            const formattedBal = Number(ethers.utils.formatUnits(balance, 18));
+
+            const initial = data[`_${pool.lp_address}_by_pk`]["depositedLP"];
+            setInitialDeposit(Number(initial));
+            setEarned(formattedBal - initial); 
+
+        }
+        console.log("Ethereum object doesn't exist!")
+
+    }
+    catch (error){
+        console.log(error);
+    }
+
+}
+
+
 

@@ -5,10 +5,13 @@ import './AddLiquidity.css';
 import Toggle from './components/Toggle';
 import DetailsMod from './components/showDetailsMod';
 import {SyncLoader} from "react-spinners";
+import { useMutation } from '@apollo/client'; 
+import { ADD_WALLET } from './functions/mutations';
+
 
 
 function AddLiquidity({pool, platform, rewards, lightMode, currentWallet, baseAPY, compoundAPY, connectWallet, showDetails, prop1, prop2}:any) {
-    const [loading, setLoading] = useState(false);
+    const [isloading, setLoading] = useState(false);
 
     const [toggleType, setToggleType] = useState(false);
 
@@ -17,6 +20,10 @@ function AddLiquidity({pool, platform, rewards, lightMode, currentWallet, baseAP
 
     const [ethZapAmount, setEthZapAmount] = useState(0.0);
     const [lpDepositAmount, setLPDepositAmount] = useState(0.0);
+
+    const queriedDepositAmount = lpDepositAmount * 0.80; 
+
+    const [addTodo, {data, loading, error}] = useMutation(ADD_WALLET(pool.lp_address, currentWallet, queriedDepositAmount));
 
     useEffect(() => {
         getEthBalance(currentWallet, setEthUserBal, ethUserBal);
@@ -172,9 +179,9 @@ function AddLiquidity({pool, platform, rewards, lightMode, currentWallet, baseAP
                 prop2={prop2}
             />
 
-            {loading && (
+            {isloading && (
             <div className="spinner_container">
-                <SyncLoader loading={loading} className="spinner_object" color="#36d7b7"/>
+                <SyncLoader loading={isloading} className="spinner_object" color="#36d7b7"/>
             </div>
             )}  
           

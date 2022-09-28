@@ -9,7 +9,7 @@ import Exchange from '../exchange';
 import Onboard from 'bnc-onboard';
 import './Application.css';
 import Web3 from 'web3';
-import { setUserSession } from '../../store/localstorage';
+import { getUserSession, setUserSession } from '../../store/localstorage';
 import LogoutPage from '../Logout/LogoutPage';
 
 const onboard = Onboard({
@@ -31,30 +31,33 @@ function Application() {
   const [logoutInfo, setLogout] = useState(false);
 
   useEffect(() => {
-    getEthBalance(currentWallet, setUserEthBal, ethUserBal); 
+    getEthBalance(currentWallet, setUserEthBal, ethUserBal);
+    
+    let walletData: any;
+    let tempData = getUserSession();
+    if (tempData) {
+      walletData = JSON.parse(tempData)
+      setCurrentWallet(walletData.address);
+    }
   }, [currentWallet, ethUserBal]);
 
   useEffect(() => {
       const data = window.localStorage.getItem('lightMode');
       const data2 = window.localStorage.getItem('menuItem');
-      const data3 = window.localStorage.getItem('currentWallet'); 
+
       if(data != null){
           setLightMode(JSON.parse(data));
       }
       if(data2 != null){
         setMenuItem(JSON.parse(data2));
       }
-      if(data3 != null){
-        setCurrentWallet(JSON.parse(data3));
-      }
   }, []);
 
   useEffect(() => {
       window.localStorage.setItem('lightMode', JSON.stringify(lightMode));
       window.localStorage.setItem('menuItem', JSON.stringify(menuItem));
-      window.localStorage.setItem('currentWallet', JSON.stringify(currentWallet));
-
-  }, [lightMode, menuItem, currentWallet]);
+    
+  }, [lightMode, menuItem]);
 
   const connectWallet = async () => {
     const walletSelected = await onboard.walletSelect();

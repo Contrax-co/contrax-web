@@ -26,12 +26,12 @@ export const ADD_WALLET = (pool:any, userWallet:any, depositedLP:any) => gql`
     }
 `;
 
-export const UPDATE_WALLET = (pool:any, userWallet:any, depositAmount:any) => gql`
-    mutation MyMutation {
-        update__${pool.lp_address}_by_pk(pk_columns: {
-            userWallet: "${userWallet}"}, 
-            _set: {depositedLP: ${depositAmount}}){
-                depositedLP
+export const UPDATE_WALLET = (pool:any) => gql`
+    mutation MyMutation ($userWallet: String, $depositedLP: Float) {
+        update__${pool.lp_address}(where: {userWallet: {_eq: $userWallet}}, _set: {depositedLP: $depositedLP}) {
+            returning {
+              depositedLP
             }
+          }
     }
 `; 

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {wethAddress, getLPTokenBalance, getEthBalance, deposit} from './functions/connection';
+import {wethAddress, getLPTokenBalance, getEthBalance, deposit, existingAmount} from './functions/connection';
 import * as ethers from 'ethers';
 import './AddLiquidity.css';
 import Toggle from './components/Toggle';
@@ -19,17 +19,26 @@ function AddLiquidity({pool, platform, rewards, lightMode, currentWallet, baseAP
     const [lpUserBal, setLPUserBal] = useState(0);
 
     const [ethZapAmount, setEthZapAmount] = useState(0.0);
-    const [lpDepositAmount, setLPDepositAmount] = useState(0.0);
+    const [lpDepositAmount, setLPDepositAmount] = useState(0.0); 
 
-    const [queriedDepositAmount, setQueriedDepositAmount] = useState(0.0); 
+    const [addWallet] = useMutation(ADD_WALLET(pool, currentWallet, lpDepositAmount));
 
-    const [addWallet] = useMutation(ADD_WALLET(pool, currentWallet, queriedDepositAmount));
-    const [updateWallet] = useMutation(UPDATE_WALLET(pool, currentWallet, queriedDepositAmount));
+    const [amountInQuery, setAmountInQuery] = useState(0.0);
+    const [updateWallet] = useMutation(UPDATE_WALLET(pool), {
+        variables: {
+            userWallet: currentWallet,
+            depositedLP: amountInQuery
+        }
+    });
+
+    
    
     useEffect(() => {
         getEthBalance(currentWallet, setEthUserBal, ethUserBal);
+        existingAmount(data, pool, setAmountInQuery, lpDepositAmount)
         getLPTokenBalance(pool, currentWallet, setLPUserBal, lpUserBal);
-    }, [currentWallet, ethUserBal, lpUserBal, pool]);
+
+    }, [currentWallet, ethUserBal, lpUserBal, pool, data]);
 
     const zapIn = async() => {
         const {ethereum} = window;
@@ -82,7 +91,6 @@ function AddLiquidity({pool, platform, rewards, lightMode, currentWallet, baseAP
 
     const handleDepositChange = (e:any) => {
         setLPDepositAmount(e.target.value);
-        setQueriedDepositAmount((e.target.value)*0.8);
     }
 
     const depositTotalEth = () => {
@@ -141,7 +149,7 @@ function AddLiquidity({pool, platform, rewards, lightMode, currentWallet, baseAP
                                         <input type="number" className={`weth_bal_input ${lightMode && "weth_bal_input--light"}`} placeholder="0.0" value={lpDepositAmount} onChange={handleDepositChange}/>
                                         <p onClick={depositTotalLP} className={`all_weth_tokens ${lightMode && "all_weth_tokens--light"}`}>MAX</p>
                                     </div>
-                                    <div className={`zap_button ${lightMode && "zap_button--light"}`} onClick={() => deposit(pool, lpDepositAmount, setLPDepositAmount, setLoading, data, addWallet, updateWallet)}>
+                                    <div className={`zap_button ${lightMode && "zap_button--light"}`} onClick={() => deposit(pool, lpDepositAmount, setLPDepositAmount, setLoading, data, addWallet, updateWallet, currentWallet)}>
                                         <p>Deposit LP</p>
                                     </div>
                                     

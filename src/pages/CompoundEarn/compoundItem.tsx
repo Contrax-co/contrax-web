@@ -40,11 +40,12 @@ function CompoundItem({pool, lightMode, currentWallet, connectWallet}: any) {
 
     const [earnedUSD, setEarnedUSD] = useState(0); 
 
+
     useEffect(() => {
         getUserVaultBalance(pool, currentWallet, setUserVaultBalance, userVaultBalance);
         getTotalValue(pool, setTVL);
 
-        console.log(`the data being pulled if the wallet is incorrect is ${JSON.stringify(data)}`)
+        console.log(`The amount that the wallet has in the table is ${JSON.stringify(data)}`); 
         
     },[tvl, userVaultBalance, currentWallet, pool, data]);
 
@@ -216,7 +217,7 @@ function CompoundItem({pool, lightMode, currentWallet, connectWallet}: any) {
                             showDetails={showDetails}
                             prop1={() => setShowDetails(true)}
                             prop2={() => setShowDetails(false)}
-                            data ={data}
+                            data ={data}                            
                         />}
                         {buttonType === "Withdraw" && 
                             <Withdraw 

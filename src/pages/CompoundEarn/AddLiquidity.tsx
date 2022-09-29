@@ -38,7 +38,7 @@ function AddLiquidity({pool, platform, rewards, lightMode, currentWallet, baseAP
         existingAmount(data, pool, setAmountInQuery, lpDepositAmount)
         getLPTokenBalance(pool, currentWallet, setLPUserBal, lpUserBal);
 
-    }, [currentWallet, ethUserBal, lpUserBal, pool, data]);
+    }, [currentWallet, ethUserBal, lpUserBal, pool, data, lpDepositAmount]);
 
     const zapIn = async() => {
         const {ethereum} = window;

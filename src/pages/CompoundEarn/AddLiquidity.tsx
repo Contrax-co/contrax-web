@@ -21,9 +21,15 @@ function AddLiquidity({pool, platform, rewards, lightMode, currentWallet, baseAP
     const [ethZapAmount, setEthZapAmount] = useState(0.0);
     const [lpDepositAmount, setLPDepositAmount] = useState(0.0); 
 
-    const [addWallet] = useMutation(ADD_WALLET(pool, currentWallet, lpDepositAmount));
+    const [addWallet] = useMutation(ADD_WALLET(pool), {
+        variables: {
+            userWallet: currentWallet,
+            depositedLP: lpDepositAmount
+        }
+    });
 
     const [amountInQuery, setAmountInQuery] = useState(0.0);
+
     const [updateWallet] = useMutation(UPDATE_WALLET(pool), {
         variables: {
             userWallet: currentWallet,

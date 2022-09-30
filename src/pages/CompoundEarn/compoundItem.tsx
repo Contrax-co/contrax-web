@@ -14,7 +14,11 @@ import { POOLQUERY } from './functions/mutations';
 
 
 function CompoundItem({pool, lightMode, currentWallet, connectWallet}: any) {
-    const { data, loading, error } = useQuery(POOLQUERY(pool, currentWallet));
+    const { data, loading, error } = useQuery(POOLQUERY(pool), {
+        variables: {
+            userWallet: currentWallet,
+        }
+    });
 
     const [initialDeposit, setInitialDeposit] = useState(0);
 

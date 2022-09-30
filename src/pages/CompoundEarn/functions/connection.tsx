@@ -413,7 +413,8 @@ export const earnedDeposit = async(pool:any, currentWallet:any, data:any, setIni
 
 export const existingAmount = (data:any, pool:any, setAmountInQuery:any, lpDepositAmount:any) => {
     const amount = data[`_${pool.lp_address}_by_pk`]["depositedLP"];
-    setAmountInQuery(Number(amount) + lpDepositAmount); 
+    const number = (amount.add(lpDepositAmount)); 
+    console.log(`the vlaue being passed into the query is ${number}`)
 }
 
 

@@ -6,7 +6,7 @@ import {BsCheckCircle} from 'react-icons/bs';
 import './LogoutPage.css';
 import { removeUserSession } from '../../store/localstorage';
 
-function LogoutPage({lightMode, setLogout, account, setCurrentWallet}: any) {
+function LogoutPage({lightMode, setLogout, account, setCurrentWallet, onboard}: any) {
     const [copied, setCopied] = useState(false);
 
     // close the modal when clicking outside the modal.
@@ -22,6 +22,7 @@ function LogoutPage({lightMode, setLogout, account, setCurrentWallet}: any) {
         removeUserSession();
         setCurrentWallet('');
         setLogout(false);
+        onboard.walletReset();
       }
     
     const copyToClipboard = () => {

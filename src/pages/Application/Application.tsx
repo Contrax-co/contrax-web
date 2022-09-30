@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react'
 import SideBar from '../../components/Navigationbar/SideBar';
 import TopBar from '../../components/Navigationbar/TopBar';
 import Compound from '../CompoundEarn/compound';
-import { getEthBalance } from '../CompoundEarn/functions/connection';
 import CreateToken from '../createToken';
 import Dashboard from '../dashboard';
 import Exchange from '../exchange';
@@ -24,22 +23,23 @@ const onboard = Onboard({
 
 
 function Application() {
-  const [currentWallet, setCurrentWallet] = useState('');
-  const [ethUserBal, setUserEthBal] = useState(0); 
-  const [lightMode, setLightMode] = useState(true); 
+
   const [menuItem, setMenuItem] = useState("Dashboard"); 
+  const [networkId, setNetworkId] = useState(0); 
+  const [currentWallet, setCurrentWallet] = useState('');
+  const [lightMode, setLightMode] = useState(true); 
+  
   const [logoutInfo, setLogout] = useState(false);
 
-  useEffect(() => {
-    getEthBalance(currentWallet, setUserEthBal, ethUserBal);
-    
+  useEffect(() => {    
     let walletData: any;
     let tempData = getUserSession();
     if (tempData) {
       walletData = JSON.parse(tempData)
       setCurrentWallet(walletData.address);
+      setNetworkId(walletData.appNetworkId);
     }
-  }, [currentWallet, ethUserBal]);
+  }, []);
 
   useEffect(() => {
       const data = window.localStorage.getItem('lightMode');
@@ -74,6 +74,7 @@ function Application() {
                 network: currentState.network,
             });
             setCurrentWallet(currentState.address);
+            setNetworkId(currentState.appNetworkId);
         }
     }
   }
@@ -87,7 +88,6 @@ function Application() {
         <div className="ac_page">
           <div className="sidebar">
             <SideBar
-              onClick={toggleLight}
               lightMode={lightMode}
               menuItem = {menuItem}
               setMenuItem={setMenuItem}
@@ -98,12 +98,12 @@ function Application() {
             <div className="topbar">
               <TopBar 
                 lightMode={lightMode}
-                ethBal={ethUserBal}
-                walletAddress={currentWallet}
+                currentWallet={currentWallet}
                 connectWallet={connectWallet}
                 logout={() => setLogout(true)}
                 account={currentWallet}
                 onClick={toggleLight}
+                networkId = {networkId}
               />
             </div>
             
@@ -121,7 +121,7 @@ function Application() {
 
         </div>
 
-      {logoutInfo ? <LogoutPage setLogout={setLogout} lightMode={lightMode} account={currentWallet} setCurrentWallet={setCurrentWallet} /> : null}
+      {logoutInfo ? <LogoutPage setLogout={setLogout} lightMode={lightMode} account={currentWallet} setCurrentWallet={setCurrentWallet} onboard={onboard}/> : null}
 
       </div>
     

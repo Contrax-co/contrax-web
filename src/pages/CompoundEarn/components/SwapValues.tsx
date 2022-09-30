@@ -1,8 +1,9 @@
-import React, {useRef} from 'react';
+import React, {useRef, useEffect, useState} from 'react';
+import {CgClose} from 'react-icons/cg';
 import {GrClose} from 'react-icons/gr';
 import './SwapValues.css';
 
-function SwapValues({setOpenModal, lightMode}:any) {
+function SwapValues({tokens, setOpenModal, lightMode}:any) {
 
     // close the modal when clicking outside the modal.
     const modalRef: any = useRef();
@@ -18,7 +19,22 @@ function SwapValues({setOpenModal, lightMode}:any) {
         <div className={`swap__modal ${lightMode && "swap__modal--light"}`}>
             <div className={`modal__title ${lightMode && "modal__title--light"}`}>
                 <p>Select a token</p>
+                <CgClose className={`modal__close ${lightMode && "modal__close--light"}`} onClick={() => setOpenModal(false)}/>
             </div>
+
+            <div>
+                {tokens.map((token:any) => (
+                    <div key={token.id} className={`exchange_items ${lightMode && "exchange_items--light"}`}>
+                        <div className={`pad_options ${lightMode && "pad_options--light"}`}>
+                            <img alt={token.token_alt} className="exchange__logo" src={token.token_logo}/> 
+                            <p>{token.token_name}</p>
+                            <p className="mini">{token.token_sub}</p>
+                        </div>
+                    </div>
+
+                ))}
+            </div>
+           
             
         </div>
         

@@ -4,20 +4,11 @@ import BottomBar from '../components/bottomBar/BottomBar';
 import { B1, Link, Title } from '../components/text/Text';
 import { Container, Row } from '../components/blocks/Blocks';
 import { Badge } from '../components/badge/Badge';
-
-// import PieChart from '../components/chart/PieChart';
-// import duckIcon from '../images/yellowDuck.svg'
-// import { Image } from '../components/image/Image';
+// import Pool from './CompoundEarn/components/Pool';
 
 const axios = require('axios');
 
 export default function ExplorePool() {
-  // let poolChartDataList = [
-  //   ['TT', 'WETH'],
-  //   ['11.29M TT-ETH (42%)', 73000],
-  //   ['11.29M WETH (57%)', 54000],
-  // ];
-
   const [pools, setPools] = useState<any[]>([]);
 
   useEffect(() => {

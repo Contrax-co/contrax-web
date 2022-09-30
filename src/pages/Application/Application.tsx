@@ -1,118 +1,164 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react';
 import SideBar from '../../components/Navigationbar/SideBar';
 import TopBar from '../../components/Navigationbar/TopBar';
 import Compound from '../CompoundEarn/compound';
-import { getEthBalance } from '../CompoundEarn/functions/connection';
 import CreateToken from '../createToken';
 import Dashboard from '../dashboard';
 import Exchange from '../exchange';
 import Onboard from 'bnc-onboard';
 import './Application.css';
 import Web3 from 'web3';
-import { removeUserSession, setUserSession } from '../../store/localstorage';
+import {
+  getUserSession,
+  removeUserSession,
+  setUserSession,
+} from '../../store/localstorage';
+import LogoutPage from '../Logout/LogoutPage';
+
+const ethers = require('ethers');
 
 const onboard = Onboard({
   dappId: process.env.REACT_APP_DAPP_ID, // [String] The API key of Blocknative
   networkId: 42161,
   subscriptions: {
     wallet: (wallet) => {
-        new Web3(wallet.provider);
+      new Web3(wallet.provider);
     },
   },
 });
 
 function Application() {
+  const [menuItem, setMenuItem] = useState('Dashboard');
+  const [networkId, setNetworkId] = useState(0);
   const [currentWallet, setCurrentWallet] = useState('');
-  const [ethUserBal, setUserEthBal] = useState(0); 
-  const [lightMode, setLightMode] = useState(true); 
-  const[menuItem, setMenuItem] = useState("Dashboard"); 
+  const [lightMode, setLightMode] = useState(true);
+
+  const [logoutInfo, setLogout] = useState(false);
 
   useEffect(() => {
-    getEthBalance(currentWallet, setUserEthBal, ethUserBal); 
-  }, [currentWallet, ethUserBal]);
+    chainid();
+    if (typeof window.ethereum !== 'undefined') {
+      console.log('MetaMask is installed!');
+    } else {
+      console.log('MetaMask is not installed!');
+      removeUserSession();
+      setCurrentWallet('');
+    }
+  });
 
   useEffect(() => {
-      const data = window.localStorage.getItem('lightMode');
-      const data2 = window.localStorage.getItem('menuItem');
-      const data3 = window.localStorage.getItem('currentWallet'); 
-      if(data != null){
-          setLightMode(JSON.parse(data));
-      }
-      if(data2 != null){
-        setMenuItem(JSON.parse(data2));
-      }
-      if(data3 != null){
-        setCurrentWallet(JSON.parse(data3));
-      }
+    let walletData: any;
+    let tempData = getUserSession();
+    if (tempData) {
+      walletData = JSON.parse(tempData);
+      setCurrentWallet(walletData.address);
+      setNetworkId(walletData.appNetworkId);
+    }
   }, []);
 
   useEffect(() => {
-      window.localStorage.setItem('lightMode', JSON.stringify(lightMode));
-      window.localStorage.setItem('menuItem', JSON.stringify(menuItem));
-      window.localStorage.setItem('currentWallet', JSON.stringify(currentWallet));
-  }, [lightMode, menuItem, currentWallet]);
+    const data = window.localStorage.getItem('lightMode');
+    const data2 = window.localStorage.getItem('menuItem');
+
+    if (data != null) {
+      setLightMode(JSON.parse(data));
+    }
+    if (data2 != null) {
+      setMenuItem(JSON.parse(data2));
+    }
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem('lightMode', JSON.stringify(lightMode));
+    window.localStorage.setItem('menuItem', JSON.stringify(menuItem));
+  }, [lightMode, menuItem]);
+
+  async function chainid() {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    await provider.send('eth_requestAccounts', []);
+    const signer = provider.getSigner();
+    const { chainId } = await provider.getNetwork();
+    console.log(chainId);
+    if (chainId === 42161) {
+      console.log('ok');
+    } else {
+      removeUserSession();
+      setCurrentWallet('');
+    }
+  }
 
   const connectWallet = async () => {
     const walletSelected = await onboard.walletSelect();
     if (walletSelected) {
-        const readyToTransact = await onboard.walletCheck();
-        if (readyToTransact) {
-            const currentState = await onboard.getState();
-            setUserSession({
-                address: currentState.address,
-                appNetworkId: currentState.appNetworkId,
-                balance: currentState.balance,
-                mobileDevice: currentState.mobileDevice,
-                network: currentState.network,
-            });
-            setCurrentWallet(currentState.address);
-        }
-    }
-  }
+      const readyToTransact = await onboard.walletCheck();
 
-  function logout() {
-    removeUserSession();
-    setCurrentWallet('');
-  }
+      if (readyToTransact) {
+        const currentState = await onboard.getState();
+        setUserSession({
+          address: currentState.address,
+          appNetworkId: currentState.appNetworkId,
+          balance: currentState.balance,
+          mobileDevice: currentState.mobileDevice,
+          network: currentState.network,
+        });
+        setCurrentWallet(currentState.address);
+        setNetworkId(currentState.appNetworkId);
+      }
+    }
+  };
 
   const toggleLight = () => {
-      setLightMode(!lightMode);
-  }
+    setLightMode(!lightMode);
+  };
 
   return (
-      <div className={`page ${lightMode && "page--light"}`}>
-        <div className="ac_page">
-          <div className="sidebar">
-            <SideBar
-              onClick={toggleLight}
+    <div className={`page ${lightMode && 'page--light'}`}>
+      <div className="ac_page">
+        <div className="sidebar">
+          <SideBar
+            lightMode={lightMode}
+            menuItem={menuItem}
+            setMenuItem={setMenuItem}
+          />
+        </div>
+
+        <div className={`rightside ${lightMode && 'rightside--light'}`}>
+          <div className="topbar">
+            <TopBar
               lightMode={lightMode}
-              menuItem = {menuItem}
-              setMenuItem={setMenuItem}
+              currentWallet={currentWallet}
+              connectWallet={connectWallet}
+              logout={() => setLogout(true)}
+              account={currentWallet}
+              onClick={toggleLight}
+              networkId={networkId}
             />
           </div>
 
-          <div className={`rightside ${lightMode && "rightside--light"}`}>
-            <div className="topbar">
-              <TopBar 
-                lightMode={lightMode}
-                ethBal={ethUserBal}
-                walletAddress={currentWallet}
-                connectWallet={connectWallet}
-                logout={logout}
-              />
-            </div>
-            
-            {menuItem === "Farms" && <Compound lightMode={lightMode} currentWallet={currentWallet} connectWallet={connectWallet}/>}
-            {menuItem === "Dashboard" && <Dashboard/>}
-            {menuItem === "Create token" && <CreateToken/>}
-            {menuItem === "Exchange" && <Exchange lightMode={lightMode}/>}
-          </div>
-
+          {menuItem === 'Farms' && (
+            <Compound
+              lightMode={lightMode}
+              currentWallet={currentWallet}
+              connectWallet={connectWallet}
+            />
+          )}
+          {menuItem === 'Dashboard' && <Dashboard />}
+          {menuItem === 'Create token' && <CreateToken />}
+          {menuItem === 'Exchange' && <Exchange lightMode={lightMode} />}
         </div>
-
       </div>
-    
-  )
+
+      {logoutInfo ? (
+        <LogoutPage
+          setLogout={setLogout}
+          lightMode={lightMode}
+          account={currentWallet}
+          setCurrentWallet={setCurrentWallet}
+          onboard={onboard}
+        />
+      ) : null}
+    </div>
+  );
 }
 
-export default Application
+export default Application;

@@ -8,9 +8,8 @@ import {HiDocumentText} from 'react-icons/hi';
 import {AiOutlineExport} from 'react-icons/ai';
 import {MdSpaceDashboard} from 'react-icons/md';
 import {FaExchangeAlt} from 'react-icons/fa';
-import LightModeToggle from '../../pages/CompoundEarn/components/LightModeToggle';
 
-function SideBar({lightMode, menuItem, setMenuItem, ...props}:any) {
+function SideBar({lightMode, menuItem, setMenuItem}:any) {
 
   return (
     <div className={`sidebar_bg ${lightMode && "sidebar_bg--light"}`}>
@@ -20,7 +19,7 @@ function SideBar({lightMode, menuItem, setMenuItem, ...props}:any) {
             <SideBarItem
                 title="Dashboard"
                 icon={<MdSpaceDashboard />}
-                onClick={(e:any) => setMenuItem("Dashboard")}
+                onClick={() => setMenuItem("Dashboard")}
                 active={menuItem ==="Dashboard"}
                 lightMode={lightMode}
             />
@@ -28,7 +27,7 @@ function SideBar({lightMode, menuItem, setMenuItem, ...props}:any) {
             <SideBarItem 
                 title="Farms" 
                 icon={<GiFarmTractor/>} 
-                onClick={(e:any) => setMenuItem("Farms")}
+                onClick={() => setMenuItem("Farms")}
                 active={menuItem ==="Farms"}
                 lightMode={lightMode}
             />
@@ -37,7 +36,7 @@ function SideBar({lightMode, menuItem, setMenuItem, ...props}:any) {
             <SideBarItem
                 title="Exchange"
                 icon={<FaExchangeAlt />}
-                onClick={(e:any) => setMenuItem("Exchange")}
+                onClick={() => setMenuItem("Exchange")}
                 active={menuItem ==="Exchange"}
                 lightMode={lightMode}
             />
@@ -45,7 +44,7 @@ function SideBar({lightMode, menuItem, setMenuItem, ...props}:any) {
             <SideBarItem
                 title="Create token"
                 icon={<GiToken />}
-                onClick={(e:any) => setMenuItem("Create token")}
+                onClick={() => setMenuItem("Create token")}
                 active={menuItem ==="Create token"}
                 lightMode={lightMode}
             />
@@ -60,11 +59,6 @@ function SideBar({lightMode, menuItem, setMenuItem, ...props}:any) {
                 lightMode={lightMode}
             />
         </div>
-
-        <LightModeToggle
-            onClick={props.onClick} 
-            lightMode={lightMode}
-        />
  
     </div>
   )

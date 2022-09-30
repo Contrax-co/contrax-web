@@ -1,12 +1,30 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {CgArrowsExchangeAltV} from 'react-icons/cg';
 import {HiChevronDown} from 'react-icons/hi';
 import SwapValues from './CompoundEarn/components/SwapValues';
 import './exchange.css';
 
 export default function Exchange({lightMode}:any) {
-
+  const [tokensForSwap, setTokensForSwap] = useState([]);
+  const [swapTokensFrom, setSwapTokensFrom] = useState("Ether");
+  const [swapTokensTo, setSwapTokensTo] = useState("Sushi");
   const [openModal, setOpenModal] = useState(false);
+
+  useEffect(() => {
+    try{
+        const {ethereum} = window; 
+        if(ethereum) {
+            fetch(`http://localhost:3000/api/poolswap.json`)       //`http://localhost:3000/api/poolswap.json` or `https://testing.contrax.finance/api/poolswap.json` for when we want it done locally
+            .then(response => response.json())
+            .then(data => {
+            setTokensForSwap(data); 
+            })
+        }
+    }
+    catch (error){
+        console.log(error);
+    }
+}, []);
 
 
   return (
@@ -27,7 +45,7 @@ export default function Exchange({lightMode}:any) {
             <input type="number" placeholder="0.0" className={`from__amount ${lightMode && "from__amount--light"}`}/>
             <div className={`dropdown__from ${lightMode && "dropdown__from--light"}`} onClick={() => setOpenModal(true)}>
               <img className={`swap__logo`} alt="ETH token" src="https://cryptologos.cc/logos/ethereum-eth-logo.png?v=023"/>
-              <p>ETH</p>
+              <p>{}</p>
               <HiChevronDown />
             </div>
           </div>
@@ -43,7 +61,7 @@ export default function Exchange({lightMode}:any) {
 
             <div className={`dropdown__to ${lightMode && "dropdown__to--light"}`} onClick={() => setOpenModal(true)}>
               <img className={`swap__logo`} alt="ETH token" src="https://cryptologos.cc/logos/ethereum-eth-logo.png?v=023"/>
-              <p>ETH</p>
+              <p>{swapTokensTo}</p>
               <HiChevronDown />
             </div>
 
@@ -56,7 +74,7 @@ export default function Exchange({lightMode}:any) {
 
       </div>
 
-      {openModal ? <SwapValues setOpenModal={setOpenModal} lightMode={lightMode}/> : null}
+      {openModal ? <SwapValues tokens={tokensForSwap} setOpenModal={setOpenModal} lightMode={lightMode}/> : null}
 
     </div>
   );

@@ -1,0 +1,45 @@
+[
+    {
+        "id": 1,
+        "token_name": "ETH",
+        "token_sub": "Ether", 
+        "token_alt": "ETH logo",
+        "token_logo": "https://cryptologos.cc/logos/ethereum-eth-logo.png?v=023" 
+    },
+    {
+        "id": 2,
+        "token_name": "WETH",
+        "token_sub": "Wrapped Ether", 
+        "token_alt": "WETH logo",
+        "token_logo": "https://cryptologos.cc/logos/ethereum-eth-logo.png?v=023"
+    },
+    {
+        "id": 3,
+        "token_name": "USDC",
+        "token_sub": "USD Coin", 
+        "token_alt": "USDC logo",
+        "token_logo": "https://cryptologos.cc/logos/usd-coin-usdc-logo.png?v=023"
+    },
+    {
+        "id": 4, 
+        "token_name": "DAI",
+        "token_sub": "DAI Stablecoin", 
+        "token_alt": "DAI logo",
+        "token_logo": "https://cryptologos.cc/logos/multi-collateral-dai-dai-logo.png?v=023"
+    },
+    {
+        "id": 5,
+        "token_name": "USDT",
+        "token_sub": "Tether Token", 
+        "token_alt": "USDT logo",
+        "token_logo": "https://cryptologos.cc/logos/tether-usdt-logo.png?v=023"
+    },
+    {
+        "id": 6,
+        "token_name": "Sushi",
+        "token_sub": "SushiToken", 
+        "token_alt": "SUSHI logo",
+        "token_logo": "https://cryptologos.cc/logos/sushiswap-sushi-logo.png?v=023"
+    }
+
+]

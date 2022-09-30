@@ -1,6 +1,5 @@
 // @ts-nocheck
 
-import Navigationbar from '../components/Navigationbar/Navigationbar';
 import BottomBar from '../components/bottomBar/BottomBar';
 import { Title, Desc, DescSpan, H1, H3 } from '../components/text/Text';
 import { FormInput, FormCheckbox, Form } from '../components/form/Form';
@@ -8,19 +7,12 @@ import Button from '../components/button/Button';
 import { useInput } from 'rooks';
 import { Col, Container, Row } from '../components/blocks/Blocks';
 import { Modal } from '../components/modal/Modal';
-import * as colors from '../theme/colors';
-import { Image } from '../components/image/Image';
-import createTokenImg from '../images/create-token.png';
 import { useEffect, useState } from 'react';
 import { getUserSession } from '../store/localstorage';
 import { gql, useMutation } from '@apollo/client';
 import Tokens from '../components/tokens';
 import swal from 'sweetalert';
 import LoadingSpinner from '../components/spinner/spinner';
-
-// import { tokenApiEndpoint } from "../utils/url";
-// import { main } from '../utils/constants';
-// import { Link } from 'react-router-dom'
 
 const Web3 = require('web3');
 const ethers = require('ethers');
@@ -121,7 +113,6 @@ export default function CreateToken(props: any) {
 
   const handleSubmit = async (evt: any) => {
     evt.preventDefault();
-    setIsLoading(true);
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     await provider.send('eth_requestAccounts', []);
     const signer = provider.getSigner();
@@ -147,6 +138,7 @@ export default function CreateToken(props: any) {
       if (symbol.length < 16) {
         if (initialSupply > lts && initialSupply < hts) {
           if (name.length < 64) {
+            setIsLoading(true);
             const dec: any = decimal.toString();
             setDecimal(dec);
             const ts: any = initialSupply.toString();
@@ -192,19 +184,22 @@ export default function CreateToken(props: any) {
               });
             }
           } else {
-            swal('Something Went Wrong', 'Please add decimal in 1-64 numbers');
+            swal('Something went wrong', 'Please add decimal in 1-64 numbers');
           }
         } else {
           swal(
-            'Something Went Wrong',
-            'Token Supply that has invalid characters'
+            'Something went wrong',
+            'Token Supply decimal input is out of range'
           );
         }
       } else {
-        swal('Something Went Wrong', 'Token Name is above 16 character');
+        swal('Something went wrong', 'Token Name is above 16 character');
       }
     } else {
-      swal('Something Went Wrong', 'Please add decimal in 1-18 numbers');
+      swal(
+        'Something went wrong',
+        'Please do not enter any decimal points in the Decimal Field and make sure the number is between 1 and 18'
+      );
     }
   };
 
@@ -226,6 +221,7 @@ export default function CreateToken(props: any) {
                 />
                 <FormInput
                   className="col-lg-6 col-md-6 col-sm-6"
+                  type="number"
                   caption="0-99999999999999999"
                   placeholder={'Token Supply'}
                   {...tokenSupply}
@@ -239,6 +235,7 @@ export default function CreateToken(props: any) {
                 />
                 <FormInput
                   className="col-lg-6 col-md-6 col-sm-6"
+                  type="number"
                   caption="0-18"
                   placeholder={'Decimals'}
                   {...tokenDecimal}
@@ -257,6 +254,7 @@ export default function CreateToken(props: any) {
                 </Col>
                 <FormInput
                   className="col-lg-2 col-md-2 col-sm-2 my-2 mt-5"
+                  type="number"
                   placeholder="0%"
                   id="burnPercent"
                   name="burnPercent"
@@ -272,6 +270,7 @@ export default function CreateToken(props: any) {
                 </Col>
                 <FormInput
                   className="col-lg-2 col-md-2 col-sm-2 my-2 mt-4"
+                  type="number"
                   placeholder="0%"
                   id="tradingFeePercent"
                   name="tradingFeePercent"

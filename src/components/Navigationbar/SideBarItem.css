@@ -13,7 +13,7 @@
 
 
 .sideitems--light{
-    color:#009aff;
+    color:#8798ad;
 }
 
 .sideitems--selected{
@@ -23,7 +23,8 @@
 }
 
 .sideitems--selected--light{
-    background-color: #009aff;
+    background-color: white;
+    border: 1px solid #d9d9d9;
 }
 
 
@@ -32,7 +33,7 @@
 }
 
 .sideitems--selected--light >div {
-    color: white;
+    color: #61cddf;
 }
 
 .sideitems:hover > div{
@@ -41,7 +42,7 @@
 }
 
 .sideitems--light:hover > div {
-    color: rgb(220, 224, 231);
+    color: black;
     cursor: pointer;
 }
 
@@ -52,7 +53,7 @@
 }
 
 .icon--light{
-    color:#009aff;
+    color:#8798ad;
 }
 
 .icon2{
@@ -62,5 +63,5 @@
 }
 
 .icon2--light{
-    color:#009aff;
+    color:#8798ad;
 }

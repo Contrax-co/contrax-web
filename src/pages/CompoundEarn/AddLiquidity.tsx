@@ -1,14 +1,17 @@
 import React, {useState, useEffect} from 'react';
-import {wethAddress, getLPTokenBalance, getEthBalance, deposit} from './functions/connection';
+import {wethAddress, getLPTokenBalance, getEthBalance, deposit, existingAmount} from './functions/connection';
 import * as ethers from 'ethers';
 import './AddLiquidity.css';
 import Toggle from './components/Toggle';
 import DetailsMod from './components/showDetailsMod';
 import {SyncLoader} from "react-spinners";
+import { useMutation } from '@apollo/client'; 
+import { ADD_WALLET, UPDATE_WALLET } from './functions/mutations';
 
 
-function AddLiquidity({pool, platform, rewards, lightMode, currentWallet, baseAPY, compoundAPY, connectWallet, showDetails, prop1, prop2}:any) {
-    const [loading, setLoading] = useState(false);
+
+function AddLiquidity({pool, platform, rewards, lightMode, currentWallet, baseAPY, compoundAPY, connectWallet, showDetails, data, prop1, prop2}:any) {
+    const [isloading, setLoading] = useState(false);
 
     const [toggleType, setToggleType] = useState(false);
 
@@ -16,12 +19,32 @@ function AddLiquidity({pool, platform, rewards, lightMode, currentWallet, baseAP
     const [lpUserBal, setLPUserBal] = useState(0);
 
     const [ethZapAmount, setEthZapAmount] = useState(0.0);
-    const [lpDepositAmount, setLPDepositAmount] = useState(0.0);
+    const [lpDepositAmount, setLPDepositAmount] = useState(0.0); 
 
+    const [addWallet] = useMutation(ADD_WALLET(pool), {
+        variables: {
+            userWallet: currentWallet,
+            depositedLP: lpDepositAmount
+        }
+    });
+
+    const [amountInQuery, setAmountInQuery] = useState(0.0);
+
+    const [updateWallet] = useMutation(UPDATE_WALLET(pool), {
+        variables: {
+            userWallet: currentWallet,
+            depositedLP: amountInQuery
+        }
+    });
+
+    
+   
     useEffect(() => {
         getEthBalance(currentWallet, setEthUserBal, ethUserBal);
+        existingAmount(data, pool, setAmountInQuery, lpDepositAmount)
         getLPTokenBalance(pool, currentWallet, setLPUserBal, lpUserBal);
-    }, [currentWallet, ethUserBal, lpUserBal, pool]);
+
+    }, [currentWallet, ethUserBal, lpUserBal, pool, data, lpDepositAmount]);
 
     const zapIn = async() => {
         const {ethereum} = window;
@@ -132,7 +155,7 @@ function AddLiquidity({pool, platform, rewards, lightMode, currentWallet, baseAP
                                         <input type="number" className={`weth_bal_input ${lightMode && "weth_bal_input--light"}`} placeholder="0.0" value={lpDepositAmount} onChange={handleDepositChange}/>
                                         <p onClick={depositTotalLP} className={`all_weth_tokens ${lightMode && "all_weth_tokens--light"}`}>MAX</p>
                                     </div>
-                                    <div className={`zap_button ${lightMode && "zap_button--light"}`} onClick={() => deposit(pool, lpDepositAmount, setLPDepositAmount, setLoading)}>
+                                    <div className={`zap_button ${lightMode && "zap_button--light"}`} onClick={() => deposit(pool, lpDepositAmount, setLPDepositAmount, setLoading, data, addWallet, updateWallet, currentWallet)}>
                                         <p>Deposit LP</p>
                                     </div>
                                     
@@ -172,9 +195,9 @@ function AddLiquidity({pool, platform, rewards, lightMode, currentWallet, baseAP
                 prop2={prop2}
             />
 
-            {loading && (
+            {isloading && (
             <div className="spinner_container">
-                <SyncLoader loading={loading} className="spinner_object" color="#36d7b7"/>
+                <SyncLoader loading={isloading} className="spinner_object" color="#36d7b7"/>
             </div>
             )}  
           

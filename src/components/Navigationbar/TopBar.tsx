@@ -1,26 +1,41 @@
 import React from 'react';
-import {IoIosWallet} from 'react-icons/io';
+import Jazzicon, { jsNumberForAddress } from 'react-jazzicon';
+import LightModeToggle from '../../pages/CompoundEarn/components/LightModeToggle';
 import './TopBar.css';
 
-function TopBar({lightMode, ethBal, walletAddress, connectWallet, logout}:any) {
+
+function TopBar({lightMode, currentWallet, connectWallet, logout, account, networkId, ...props}:any) {
+
 
   return (
     <div className="topbar_placement">
-        {walletAddress ?(
-            <div className={`wallet_address ${lightMode && "wallet_address--light"}`} onClick={logout}>
-                <div className="ethBal">
-                    <p>{ethBal.toFixed(3)} ETH</p>
-                </div>
+        <LightModeToggle
+            onClick={props.onClick} 
+            lightMode={lightMode}
+        />
+
+        {currentWallet ? (
+            <div className={`wallet_address ${lightMode && "wallet_address--light"}`}>
+                {networkId === 42161 ? (
+                    <div className={`ethBal ${lightMode && "ethBal--light"}`}>
+                        <p>Arbitrum</p>
+                    </div>
+                ): (
+                    <div className={`wrongNetwork ${lightMode && "wrongNetwork--light"}`}>
+                        <p>Wrong network!</p>
+                    </div>
+                )}
+             
                 
-                <div className={`connected_wallet ${lightMode && "connected_wallet--light"}`}>
-                    <p>{walletAddress.substring(0,6)}...{walletAddress.substring(walletAddress.length - 5)}</p>
-                    <IoIosWallet /> 
+                <div className={`connected_wallet ${lightMode && "connected_wallet--light"}`} onClick={logout}>
+                    <p className="address">{currentWallet.substring(0,6)}...{currentWallet.substring(currentWallet.length - 5)}</p>
+                    <Jazzicon diameter={30} seed={jsNumberForAddress(account)}/>
                 </div>
                 
             </div>
         ) : (
-            <div className="connect_wallet" onClick={connectWallet}>
-                connect wallet
+            <div className={`connect_wallet`} onClick={connectWallet}>
+                connect to wallet
             </div>
         )}
         

@@ -1,11 +1,13 @@
 .topbar_placement{
+    display:flex;
+    align-items:center;
     padding-right:50px;
     position: absolute;
     right: 0;
 }
 
 .connect_wallet{
-    background-color: #009aff;
+    background-color: rgb(89, 179, 247);
     color:white;
     padding: 10px;
     padding-left: 25px;
@@ -18,9 +20,11 @@
 
 .connect_wallet:hover{
     cursor: pointer;
+    background-color:#009aff;
 }
 
 .wallet_address{
+    align-items: center;
     font-weight: bold;
     color:white;
     display: flex;
@@ -36,16 +40,43 @@
 }
 
 .ethBal{
-    padding:10px;
+    padding:5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 400;
+    color: #009aff;
+    background-color:#032a51;
+    border-radius:20px;
+}
 
+.wrongNetwork{
+    padding:5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 400;
+    color: #f55858;
+    background-color:#ffdcdc;
+    border-radius:20px;
+}
+
+.ethBal--light{
+    color: #009aff;
+    background-color:#dcf2ff;
+}
+
+.wrongNetwork--light{
+    color: #f55858;
+    background-color:#ffdcdc;
 }
 
 .connected_wallet{
     padding:10px;
-    border-radius:10px;
+    border-radius:20px;
     display: flex;
     align-items: center;
     margin-left:30px;
+    background-color: #012243;
+    border: 1px solid #032a51;
 }
 
 .connected_wallet > p{
@@ -58,9 +89,18 @@
 }
 
 .connected_wallet--light{
-    background-color: lightblue;
+    background-color: rgb(246, 246, 246);
+    border: 1px solid #d9d9d9;
 }
 
 .connected_wallet--light:hover{
-    background-color: lightgrey;
+    background-color: white;
+}
+
+.wallet {
+    font-size:30px;
+}
+
+.address{
+    font-weight: 400;
 }

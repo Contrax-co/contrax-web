@@ -16,13 +16,7 @@ import TokenModal1 from '../components/TokenModal1';
 import abi from '../config/sushiswap.json';
 import ercabi from '../config/erc20.json';
 import factory from '../config/factory.json';
-
-// import * as colors from '../theme/colors';
-// import DropdownInput from '../components/form/dropdownInput/DropdownInput';
-// import StatsCard from '../components/statsCard/StatsCard';
-// import { Image } from '../components/image/Image';
-// import PriceCounter from '../components/PriceCounter';
-// import tokenlogo from '../images/tokenlogo.png';
+import Pools from '../components/pools';
 
 const axios = require('axios');
 
@@ -93,24 +87,37 @@ export default function CreatePool() {
     }
   });
 
+  const StableTOKEN = [
+    {
+      id: '0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8',
+      name: 'USDC',
+      symbol: 'USDC',
+    },
+    {
+      id: '0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9',
+      name: 'USDT',
+      symbol: 'USDT',
+    },
+    {
+      id: '0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1',
+      name: 'DAI',
+      symbol: 'DAI',
+    },
+    {
+      id: '0x82aF49447D8a07e3bd95BD0d56f35241523fBab1',
+      name: 'WETH',
+      symbol: 'WETH',
+    },
+    {
+      id: '0x9D575a9bF57a5e24a99D29724B86ca021A2b0435',
+      name: 'ETH',
+      symbol: 'ETH',
+    },
+  ];
+
   const getApiDetails = async () => {
     try {
-      const result = await axios.post(
-        'https://api.thegraph.com/subgraphs/name/sushiswap/arbitrum-exchange',
-        {
-          query: `
-        {
-          tokens{
-            id
-            name
-            symbol
-          }
-        }
-        `,
-        }
-      );
-      // console.log(result.data.data.tokens)
-      setDTokens(result.data.data.tokens);
+      setDTokens(StableTOKEN);
       console.log(dtoken);
     } catch (error) {
       console.error(error);
@@ -362,6 +369,7 @@ export default function CreatePool() {
             </Form>
           </Col>
         </Row>
+        <Pools />
       </Container>
       <BottomBar />
       <TokenModal

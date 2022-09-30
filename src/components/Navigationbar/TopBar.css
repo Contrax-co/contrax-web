@@ -49,9 +49,24 @@
     border-radius:20px;
 }
 
+.wrongNetwork{
+    padding:5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 400;
+    color: #f55858;
+    background-color:#ffdcdc;
+    border-radius:20px;
+}
+
 .ethBal--light{
     color: #009aff;
     background-color:#dcf2ff;
+}
+
+.wrongNetwork--light{
+    color: #f55858;
+    background-color:#ffdcdc;
 }
 
 .connected_wallet{

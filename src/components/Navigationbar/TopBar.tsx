@@ -4,7 +4,7 @@ import LightModeToggle from '../../pages/CompoundEarn/components/LightModeToggle
 import './TopBar.css';
 
 
-function TopBar({lightMode, walletAddress, connectWallet, logout, account, ...props}:any) {
+function TopBar({lightMode, currentWallet, connectWallet, logout, account, networkId, ...props}:any) {
 
 
   return (
@@ -14,14 +14,21 @@ function TopBar({lightMode, walletAddress, connectWallet, logout, account, ...pr
             lightMode={lightMode}
         />
 
-        {walletAddress ?(
+        {currentWallet ? (
             <div className={`wallet_address ${lightMode && "wallet_address--light"}`}>
-                <div className={`ethBal ${lightMode && "ethBal--light"}`}>
-                    <p>Arbitrum</p>
-                </div>
+                {networkId === 42161 ? (
+                    <div className={`ethBal ${lightMode && "ethBal--light"}`}>
+                        <p>Arbitrum</p>
+                    </div>
+                ): (
+                    <div className={`wrongNetwork ${lightMode && "wrongNetwork--light"}`}>
+                        <p>Wrong network!</p>
+                    </div>
+                )}
+             
                 
                 <div className={`connected_wallet ${lightMode && "connected_wallet--light"}`} onClick={logout}>
-                    <p className="address">{walletAddress.substring(0,6)}...{walletAddress.substring(walletAddress.length - 5)}</p>
+                    <p className="address">{currentWallet.substring(0,6)}...{currentWallet.substring(currentWallet.length - 5)}</p>
                     <Jazzicon diameter={30} seed={jsNumberForAddress(account)}/>
                 </div>
                 

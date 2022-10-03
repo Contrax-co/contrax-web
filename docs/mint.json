@@ -1,0 +1,89 @@
+{
+  "name": "Contrax",
+  "logo": {
+    "light": "/images/contrax-light.svg",
+    "dark": "/images/contrax-dark.svg"
+  },
+  "favicon": "/images/favicon.png",
+  "colors": {
+    "primary": "#78C5EB",
+    "light": "#47D6D2",
+    "dark": "#3B7A86",
+    "ultraLight": "#F1FAFC",
+    "ultraDark": "#0F3E47"
+  },
+  "topbarLinks": [
+    {
+      "name": "Home",
+      "url": "https://contrax.finance"
+    },
+    {
+      "name": "Blog",
+      "url": "https://contraxfi.medium.com/contrax-the-dapp-token-and-dao-explained-8c8d5a9b7e9d"
+    },
+    {
+      "name": "About",
+      "url": "https://contraxfi.medium.com/contrax-the-dapp-token-and-dao-explained-8c8d5a9b7e9d"
+    }
+  ],
+  "anchors": [
+    {
+      "name": "Blog",
+      "icon": "newspaper",
+      "url": "https://contrax.finance/about"
+    },
+    {
+      "name": "Community",
+      "icon": "discord",
+      "color": "#7289da",
+      "url": "https://discord.gg/rDdvyeWAtt"
+    },
+    {
+      "name": "Github",
+      "icon": "github",
+      "color": "#333",
+      "url": "https://github.com/Contrax-co"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Welcome",
+      "pages": ["introduction"]
+    },
+    {
+      "group": "Contrax DApp",
+      "pages": [
+        "contrax-dapp/dapp-intro",
+        "contrax-dapp/architecture",
+        "contrax-dapp/dapp-faq"
+      ]
+    },
+    {
+      "group": "Proposed Contrax DAO",
+      "pages": [
+        "contrax-dao/dao-intro",
+        "contrax-dao/dao-voting",
+        "contrax-dao/dao-faq"
+      ]
+    },
+    {
+      "group": "Proposed Trax Token",
+      "pages": [
+        "trax-token/introduction",
+        "trax-token/token-uses",
+        "trax-token/token-faq"
+      ]
+    }
+  ],
+  "classes": {
+    "logo": "min-h-[2.5rem]",
+    "anchors": "group-hover:bg-gradient-to-tr from-[#78C5EB] to-[#47D6D2]",
+    "activeAnchors": "bg-gradient-to-tr"
+  },
+  "footerSocials": {
+    "twitter": "https://twitter.com/Contrax_Finance",
+    "linkedin": "https://www.linkedin.com/company/actioner/",
+    "discord": "https://discord.com/invite/rDdvyeWAtt",
+    "telegram": "https://t.me/Contrax"
+  }
+}

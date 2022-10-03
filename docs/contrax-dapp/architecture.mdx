@@ -1,0 +1,46 @@
+---
+title: "Architecture"
+description: "A brief overview of the high level components of the Contrax architecture"
+---
+
+![Architecture](/images/contrax-dapp/architecture.png)
+
+**Contrax.finance:** The domain for the Contrax web dApp where users generate
+requests from.
+
+**Route 53:** The cloud DNS which holds the domain name and directs the request
+to Cloudfront.
+
+**Cloudfront:** The AWS component for securely and quickly delivering the
+correct services.
+
+**S3 Buckets:** Contains the React code of the web dApp which is retrieved by
+Cloudfront.
+
+**API Gateway:** Called by Cloudfront for any backend requests, which knows the
+subnet to call within the cloud.
+
+**NAT Gateway:** The only gateway that can call the private subnet which
+contains the lambdas to interact with the blockchain
+
+**Backend lambda builder & Contract builder:** Server-less requests for specific
+tasks on the blockchain which only get executed when called.
+
+**Code build/deploy**: As commits to the production branch happens, the code is
+built and deployed to the necessary buckets.
+
+**Blockchain:** The EVM chains which the lambdas will interact with to deploy
+and execute smart contracts.**Dynamo DB:** The private database for the web
+dApp. It is only for mapping useful information to enhance the UX experience.
+
+**Cloudwatch:** Monitors the AWS architecture and ensures all components are
+working as expected.
+
+**Dashboard:** Provides a way to interact with Cloudwatch and request status
+logs.
+
+**GitHub:** The public codebase and entry-point for code into the Contrax
+application.
+
+**Developers:** Changes can be suggested by anyone, but are reviewed, approved,
+and merged by the active developers of Contrax.

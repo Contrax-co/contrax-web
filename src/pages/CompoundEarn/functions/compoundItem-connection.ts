@@ -1,6 +1,4 @@
 import * as ethers from 'ethers';
-import web3 from 'web3';
-
 
 export const response = async (address:any, setPrices:any) => {
     await fetch(`https://api.coingecko.com/api/v3/simple/token_price/arbitrum-one?contract_addresses=${address}&vs_currencies=usd`)

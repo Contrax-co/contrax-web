@@ -1,38 +1,34 @@
 import * as ethers from 'ethers';
 
-export const response = async (address:any, setPrices:any) => {
-    // const url = "https://api.coingecko.com/api/v3/simple/token_price/arbitrum-one?contract_addresses=" + address + "&vs_currencies=usd";
-    // // var headers = {}
+// export const response = async (address:any, setPrices:any) => {
+//     const url = "https://api.coingecko.com/api/v3/simple/token_price/arbitrum-one?contract_addresses=" + address + "&vs_currencies=usd";
+//     // var headers = {}
 
-    // fetch(url, {
-    //     method: "GET",
-    //     headers: { 'Content-Type': 'application/json'}
-    // })
-    // .then((response) => {
-    //     if(!response.ok){
-    //         throw new Error("Error occurred when trying to fetch")
-    //     }
-    //     return response.json(); 
-    // })
-    // .then(data => {
-    //     const prices = JSON.stringify(data);
-    //     const parse = JSON.parse(prices);
+//     fetch(url, {
+//         method: "GET",
+//         mode: 'no-cors', 
+//         headers: { 'Content-Type': 'application/json'}
+//     })
+//     .then((response) => response.json())
+//     .then(data => {
+//         const prices = JSON.stringify(data);
+//         const parse = JSON.parse(prices);
 
-    //     const price = parse[`${address}`]["usd"]; 
+//         const price = parse[`${address}`]["usd"]; 
 
-    //     setPrices(Number(price));
-    // })
-    // await fetch(`https://api.coingecko.com/api/v3/simple/token_price/arbitrum-one?contract_addresses=${address}&vs_currencies=usd`)
-    // .then(response => response.json())
-    // .then(data => {
-    //     const prices = JSON.stringify(data);
-    //     const parse = JSON.parse(prices);
+//         setPrices(Number(price));
+//     })
+//     // await fetch(`https://api.coingecko.com/api/v3/simple/token_price/arbitrum-one?contract_addresses=${address}&vs_currencies=usd`)
+//     // .then(response => response.json())
+//     // .then(data => {
+//     //     const prices = JSON.stringify(data);
+//     //     const parse = JSON.parse(prices);
 
-    //     const price = parse[`${address}`]["usd"]; 
+//     //     const price = parse[`${address}`]["usd"]; 
 
-    //     setPrices(Number(price));
-    // })
-} 
+//     //     setPrices(Number(price));
+//     // })
+// } 
 
 export const tokensFromContract = async(pool:any, prices1:any, prices2:any, setSingleValue:any) => {
     const {ethereum} = window; 

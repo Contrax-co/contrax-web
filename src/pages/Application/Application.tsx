@@ -138,7 +138,7 @@ function Application() {
               connectWallet={connectWallet}
             />
           )}
-          {menuItem === 'Dashboard' && <Dashboard />}
+          {menuItem === 'Dashboard' && <Dashboard lightMode={lightMode} />}
           {menuItem === 'Create token' && <CreateToken />}
           {menuItem === 'Create pool' && <CreatePool />}
           {menuItem === 'Exchange' && <Exchange lightMode={lightMode} />}

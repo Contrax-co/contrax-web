@@ -133,7 +133,7 @@ function CompoundItem({pool, lightMode, currentWallet, connectWallet}: any) {
 
                             <div className={`container ${lightMode && "container--light"}`}>
                                 <p className={`pool_name ${lightMode && "pool_name--light"}`}>
-                                    {(totalLiquidity * singleValue).toLocaleString('en-US', {
+                                    {(totalLiquidity * 100).toLocaleString('en-US', {
                                     style: 'currency',
                                     currency: 'USD',
                                     })}
@@ -147,7 +147,7 @@ function CompoundItem({pool, lightMode, currentWallet, connectWallet}: any) {
         
                             <div className={`container ${lightMode && "container--light"}`}>
                                 <p className={`pool_name ${lightMode && "pool_name--light"}`}>
-                                    {(singleValue * userDeposit).toLocaleString('en-US', {
+                                    {(100 * userDeposit).toLocaleString('en-US', {
                                     style: 'currency',
                                     currency: 'USD',
                                     })}

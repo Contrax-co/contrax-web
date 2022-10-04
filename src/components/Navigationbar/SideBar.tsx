@@ -49,6 +49,14 @@ function SideBar({lightMode, menuItem, setMenuItem}:any) {
                 lightMode={lightMode}
             />
 
+            <SideBarItem
+                title="Create pool"
+                icon={<GiToken />}
+                onClick={() => setMenuItem("Create pool")}
+                active={menuItem ==="Create pool"}
+                lightMode={lightMode}
+            />
+
            
             <SideBarItem 
                 title="Docs"

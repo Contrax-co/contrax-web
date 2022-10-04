@@ -153,17 +153,53 @@ export const getEthBalance = async(currentWallet:any, setEthUserBal:any, ethUser
  * @param pool 
  * @param depositAmount 
  */
-export const deposit = (pool:any, depositAmount:any, setLPDepositAmount:any, setLoading:any, data:any, addWallet: any, updateWallet:any, currentWallet:any) => {
+export const deposit = async(pool:any, depositAmount:any, setLPDepositAmount:any, setLoading:any) => {
     
-    console.log(`the value of the query info is ${data[`_${pool.lp_address}_by_pk`]}`);
+    const {ethereum} = window;
+    setLoading(true);
+    try{
+        if(ethereum){
+            const provider = new ethers.providers.Web3Provider(ethereum);
+            const signer = provider.getSigner();
+            const vaultContract = new ethers.Contract(pool.vault_addr, pool.vault_abi, signer);
+            
+            /*
+            * Execute the actual deposit functionality from smart contract
+            */
+            console.log("The amount to be deposited into vault", depositAmount);
+            const formattedBal = ethers.utils.parseUnits(depositAmount.toString(), 18);
 
-    if(data[`_${pool.lp_address}_by_pk`] === null) {
-        // insert new wallet into our table and update it's depositLP value... 
-        depositWithoutWalletInQuery(pool, depositAmount, setLPDepositAmount, setLoading, addWallet, currentWallet);    
+            // approve the vault to spend asset
+            const lpContract = new ethers.Contract(pool.lp_address, pool.lp_abi, signer);
+            await lpContract.approve(pool.vault_addr, formattedBal);
 
-    }else {
-        // update the depositLP value 
-        depositWithWalletInQuery(pool, depositAmount, setLPDepositAmount, setLoading, updateWallet, currentWallet); 
+            // const gasEstimated:any = await vaultContract.estimateGas.deposit(formattedBal);
+            // const gasMargin = gasEstimated * 1.1;
+
+
+            // //the abi of the vault contract needs to be checked 
+            // const depositTxn = await vaultContract.deposit(formattedBal, {gasLimit: Math.ceil(gasMargin)});
+            const gasPrice = await provider.getGasPrice();
+            const depositTxn = await vaultContract.deposit(formattedBal, {gasLimit: gasPrice});
+            console.log("Depositing...", depositTxn.hash);
+
+            const depositTxnStatus = await depositTxn.wait(1);
+            if (!depositTxnStatus.status) {
+                console.log("Error depositing into vault");
+            }else{
+                console.log("Deposited --", depositTxn.hash);
+                setLPDepositAmount(0.0);
+               
+            }
+            
+        }else {
+            console.log("Ethereum object doesn't exist!");
+          }
+    }catch (error) {
+        console.log(error);
+    }
+    finally {
+        setLoading(false);
     }
 
 }
@@ -218,7 +254,7 @@ const depositWithoutWalletInQuery = async(pool:any, depositAmount:any, setLPDepo
     }
 }
 
-export const depositWithWalletInQuery = async(pool:any, depositAmount:any, setLPDepositAmount:any, setLoading:any, updateWallet:any, currentWallet:any) => {
+export const depositWithWalletInQuery = async(pool:any, depositAmount:any, setLPDepositAmount:any, setLoading:any, currentWallet:any) => {
     const {ethereum} = window;
     setLoading(true);
     try{
@@ -252,7 +288,6 @@ export const depositWithWalletInQuery = async(pool:any, depositAmount:any, setLP
                 console.log("Error depositing into vault");
             }else{
                 console.log("Deposited --", depositTxn.hash);
-                updateWallet(); 
                 setLPDepositAmount(0.0);
                 
             }

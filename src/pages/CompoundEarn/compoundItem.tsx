@@ -11,14 +11,20 @@ import {RiArrowDownSLine, RiArrowUpSLine} from 'react-icons/ri';
 import AddLiquidity from './AddLiquidity';
 import { useQuery } from '@apollo/client';
 import { POOLQUERY } from './functions/mutations';
+import { prices } from './protocols/sushiswap';
+
+import { calculateUserDeposit, response, tokensFromContract } from './functions/compoundItem-connection';
 
 
 function CompoundItem({pool, lightMode, currentWallet, connectWallet}: any) {
-    const { data, loading, error } = useQuery(POOLQUERY(pool), {
-        variables: {
-            userWallet: currentWallet,
-        }
-    });
+
+
+    const [priceData, setPriceData] = useState([]);
+    // const { data, loading, error } = useQuery(POOLQUERY(pool), {
+    //     variables: {
+    //         userWallet: currentWallet,
+    //     }
+    // });
 
     const [initialDeposit, setInitialDeposit] = useState(0);
 
@@ -44,14 +50,29 @@ function CompoundItem({pool, lightMode, currentWallet, connectWallet}: any) {
 
     const [earnedUSD, setEarnedUSD] = useState(0); 
 
+    const[userDeposit, setUserDeposit] = useState(0);
+    const[prices1, setPrices1] = useState(0);
+    const[prices2, setPrices2] = useState(0);
+
+    const[userDepositUSD, setUserDepositUSD] = useState(0);
+    const[singleValue, setSingleValue] = useState(0);
+
+
+
+
+    useEffect(() => {
+        calculateUserDeposit({pool, currentWallet, setUserDeposit});
+        response(pool.token1, setPrices1); 
+        response(pool.token2, setPrices2); 
+        tokensFromContract(pool, prices1, prices2, setSingleValue); 
+
+    }, [pool, currentWallet, prices1, prices2]);
 
     useEffect(() => {
         getUserVaultBalance(pool, currentWallet, setUserVaultBalance, userVaultBalance);
         getTotalValue(pool, setTVL);
-
-        console.log(`The amount that the wallet has in the table is ${JSON.stringify(data)}`); 
         
-    },[tvl, userVaultBalance, currentWallet, pool, data]);
+    },[tvl, userVaultBalance, currentWallet, pool]);
 
     useEffect(() => {
         try{
@@ -84,11 +105,11 @@ function CompoundItem({pool, lightMode, currentWallet, connectWallet}: any) {
     }, [pool, poolBaseAPY, rewardPoolAPY, poolUsdValue, totalSupply, tvl]);
 
     useEffect(() => {
-        earnedDeposit(pool, currentWallet, data, setInitialDeposit, setEarned)
+        //earnedDeposit(pool, currentWallet, data, setInitialDeposit, setEarned)
         calculateUserUSDValue(poolUsdValue, totalSupply, setUserTVL, initialDeposit);
         calculateEarnedUSD(poolUsdValue, totalSupply, earned, setEarnedUSD); 
 
-    }, [pool, currentWallet, data, poolUsdValue, totalSupply, initialDeposit, earned])
+    }, [pool, currentWallet, poolUsdValue, totalSupply, initialDeposit, earned])
 
 
 
@@ -120,66 +141,38 @@ function CompoundItem({pool, lightMode, currentWallet, connectWallet}: any) {
 
                         <div className="pool_info">
                             <div className={`container__apy ${lightMode && "container__apy--light"}`}>
-                                <p className={`pool_name__apy ${lightMode && "pool_name__apy--light"}`}>{(compoundAPY).toFixed(2)}%</p>
+                                <p className={`pool_name__apy ${lightMode && "pool_name__apy--light"}`}>-</p>
                             </div>
 
                             <div className={`container ${lightMode && "container--light"}`}>
                                 <p className={`pool_name ${lightMode && "pool_name--light"}`}>
-                                    {ourTVL.toLocaleString('en-US', {
+                                    -
+                                </p>
+                               
+                                <p className={`tvlLP ${lightMode && "tvlLP--light"}`}>-</p>
+                                
+                            </div>
+                            
+                            {/* How much the user has deposited */}
+        
+                            <div className={`container ${lightMode && "container--light"}`}>
+                                <p className={`pool_name ${lightMode && "pool_name--light"}`}>
+                                    {(singleValue * userDeposit).toLocaleString('en-US', {
                                     style: 'currency',
                                     currency: 'USD',
                                     })}
                                 </p>
-                               
-                                <p className={`tvlLP ${lightMode && "tvlLP--light"}`}>{tvl.toFixed(4)} Tokens</p>
-                                
+                                <p className={`tvlLP ${lightMode && "tvlLP--light"}`}>{userDeposit.toFixed(5)} Tokens</p>
                             </div>
+                        
+                           
                             
-                            {currentWallet ? (
-                                <div className={`container ${lightMode && "container--light"}`}>
-                                    <p className={`pool_name ${lightMode && "pool_name--light"}`}>
-                                        {userTVL.toLocaleString('en-US', {
-                                        style: 'currency',
-                                        currency: 'USD',
-                                        })}
-                                    </p>
-                                    <p className={`tvlLP ${lightMode && "tvlLP--light"}`}>{initialDeposit.toFixed(4)} Tokens</p>
-                                </div>
-                            ):(
-                                <div className={`container ${lightMode && "container--light"}`}>
-                                    <p className={`pool_name ${lightMode && "pool_name--light"}`}>
-                                        -
-                                    </p>
-                                    <p className={`tvlLP ${lightMode && "tvlLP--light"}`}>-</p>
-                                </div>
-                            )}
                     
-                            {currentWallet ? (
-                                <div className={`container ${lightMode && "container--light"}`}>
-                                    {loading ? (
-                                        <p className={`pool_name ${lightMode && "pool_name--light"}`}>-</p>
-                                    ): error ? (
-                                        <p className={`pool_name ${lightMode && "pool_name--light"}`}>Error</p>
-                                    ):(
-                                    <div className={`container ${lightMode && "container--light"}`}>
-                                        <p className={`pool_name ${lightMode && "pool_name--light"}`}>
-                                            {earnedUSD.toLocaleString('en-US', {
-                                            style: 'currency',
-                                            currency: 'USD',
-                                            })}
-                                        </p>
-                                        <p className={`tvlLP ${lightMode && "tvlLP--light"}`}>{earned.toFixed(4)} Tokens</p>
-                                    </div>
-                                    )}
-                                    
-                                </div>
-
-                            ) : (
-                                <div className={`container ${lightMode && "container--light"}`}>
-                                    <p className={`pool_name ${lightMode && "pool_name--light"}`}>-</p>
-                                    <p className={`tvlLP ${lightMode && "tvlLP--light"}`}> - </p>
-                                </div>
-                            )}
+                            <div className={`container ${lightMode && "container--light"}`}>
+                                <p className={`pool_name ${lightMode && "pool_name--light"}`}>-</p>
+                                <p className={`tvlLP ${lightMode && "tvlLP--light"}`}> - </p>
+                            </div>
+                        
                                 
                            
                         </div>
@@ -220,8 +213,7 @@ function CompoundItem({pool, lightMode, currentWallet, connectWallet}: any) {
                             connectWallet={connectWallet}
                             showDetails={showDetails}
                             prop1={() => setShowDetails(true)}
-                            prop2={() => setShowDetails(false)}
-                            data ={data}                            
+                            prop2={() => setShowDetails(false)}                          
                         />}
                         {buttonType === "Withdraw" && 
                             <Withdraw 

@@ -13,7 +13,7 @@ import { useQuery } from '@apollo/client';
 import { POOLQUERY } from './functions/mutations';
 import { prices } from './protocols/sushiswap';
 
-import { calculateUserDeposit, response, tokensFromContract } from './functions/compoundItem-connection';
+import { calculateUserDeposit, getCurrentLiquidity, response, tokensFromContract } from './functions/compoundItem-connection';
 
 
 function CompoundItem({pool, lightMode, currentWallet, connectWallet}: any) {
@@ -57,6 +57,8 @@ function CompoundItem({pool, lightMode, currentWallet, connectWallet}: any) {
     const[userDepositUSD, setUserDepositUSD] = useState(0);
     const[singleValue, setSingleValue] = useState(0);
 
+    const [totalLiquidity, setTotalLiquidity] = useState(0);
+
 
 
 
@@ -65,8 +67,10 @@ function CompoundItem({pool, lightMode, currentWallet, connectWallet}: any) {
         response(pool.token1, setPrices1); 
         response(pool.token2, setPrices2); 
         tokensFromContract(pool, prices1, prices2, setSingleValue); 
+        getCurrentLiquidity(pool, setTotalLiquidity);
 
     }, [pool, currentWallet, prices1, prices2]);
+
 
     useEffect(() => {
         getUserVaultBalance(pool, currentWallet, setUserVaultBalance, userVaultBalance);
@@ -158,10 +162,13 @@ function CompoundItem({pool, lightMode, currentWallet, connectWallet}: any) {
 
                             <div className={`container ${lightMode && "container--light"}`}>
                                 <p className={`pool_name ${lightMode && "pool_name--light"}`}>
-                                    -
+                                    {(totalLiquidity * singleValue).toLocaleString('en-US', {
+                                    style: 'currency',
+                                    currency: 'USD',
+                                    })}
                                 </p>
                                
-                                <p className={`tvlLP ${lightMode && "tvlLP--light"}`}>-</p>
+                                <p className={`tvlLP ${lightMode && "tvlLP--light"}`}>{totalLiquidity.toFixed(5)} Tokens</p>
                                 
                             </div>
                             

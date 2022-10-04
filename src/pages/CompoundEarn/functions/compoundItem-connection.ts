@@ -2,12 +2,11 @@ import * as ethers from 'ethers';
 
 export const response = async (address:any, setPrices:any) => {
     const url = "https://api.coingecko.com/api/v3/simple/token_price/arbitrum-one?contract_addresses=" + address + "&vs_currencies=usd";
-    var headers = {}
+    // var headers = {}
 
     fetch(url, {
-        method: "GET",
-        mode: 'cors',
-        headers: headers
+        method: "POST",
+        headers: { 'Content-Type': 'application/json'}
     })
     .then((response) => {
         if(!response.ok){
@@ -57,6 +56,30 @@ export const tokensFromContract = async(pool:any, prices1:any, prices2:any, setS
         }
         else{
             console.log("Ethereum object doesn't exist!'")
+        }
+
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
+export const getCurrentLiquidity = async(pool:any, setTotalLiquidity:any) => {
+    const {ethereum} = window; 
+    try{
+        if(ethereum){
+            const provider = new ethers.providers.Web3Provider(ethereum);
+            const signer = provider.getSigner();
+            const vaultContract =  new ethers.Contract(pool.vault_addr, pool.vault_abi, signer); 
+
+            const _supply = await vaultContract.totalSupply(); 
+            const supply = Number(ethers.utils.formatUnits(_supply, 18)); 
+
+            setTotalLiquidity(supply); 
+
+        }
+        else{
+            console.log("Ethereum object doesn't exist!"); 
         }
 
     }

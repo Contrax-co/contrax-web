@@ -2,6 +2,11 @@
     background-color: #001428;
     width:100vw;
     height:100vh;
+    top: 0;
+    bottom:0;
+    position:fixed;
+    overflow-y:scroll;
+    overflow-x:hidden;
 }
 
 .page--light{

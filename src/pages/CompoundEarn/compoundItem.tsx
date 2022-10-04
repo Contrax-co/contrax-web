@@ -13,7 +13,7 @@ import { useQuery } from '@apollo/client';
 import { POOLQUERY } from './functions/mutations';
 import { prices } from './protocols/sushiswap';
 
-import { calculateUserDeposit, getCurrentLiquidity, response, tokensFromContract } from './functions/compoundItem-connection';
+import { calculateUserDeposit, getCurrentLiquidity, tokensFromContract } from './functions/compoundItem-connection';
 
 
 function CompoundItem({pool, lightMode, currentWallet, connectWallet}: any) {
@@ -64,12 +64,12 @@ function CompoundItem({pool, lightMode, currentWallet, connectWallet}: any) {
 
     useEffect(() => {
         calculateUserDeposit({pool, currentWallet, setUserDeposit});
-        response(pool.token1, setPrices1); 
-        response(pool.token2, setPrices2); 
+        // response(pool.token1, setPrices1); 
+        // response(pool.token2, setPrices2); 
         tokensFromContract(pool, prices1, prices2, setSingleValue); 
         getCurrentLiquidity(pool, setTotalLiquidity);
 
-    }, [pool, currentWallet, prices1, prices2]);
+    }, [pool, currentWallet, prices1, prices2, totalLiquidity, userDeposit]);
 
 
     useEffect(() => {
@@ -78,35 +78,6 @@ function CompoundItem({pool, lightMode, currentWallet, connectWallet}: any) {
         
     },[tvl, userVaultBalance, currentWallet, pool]);
 
-    useEffect(() => {
-        try{
-            const {ethereum} = window;
-            if(ethereum){
-                fetch("https://yields.llama.fi/pools")
-                .then(response => response.json())
-                .then(data => {
-                    const pools = data.data;
-                    const list = pools.filter((p:any) => {
-                        return p.chain === "Arbitrum";
-                    });
-                    // console.log(`data returned from defi is ${JSON.stringify(list)}`)
-                    // setPoolBaseAPY(list[0].apyBase);
-                    // setPoolRewardAPY(list[0].apyReward);
-                    //setPoolUsdValue(list[0].tvlUsd); 
-                    setPoolBaseAPY(21.69);
-                    setPoolRewardAPY(3.90);
-                    setPoolUsdValue(172810); 
-                })
-            }
-        }
-        catch (error){
-            console.log(error);
-        }
-        compoundAPYCalculator(poolBaseAPY, rewardPoolAPY, setCompoundAPY);
-        calculateTotalSupply(pool, setTotalSupply);
-        calculateTotalVaultSupply(poolUsdValue, totalSupply, setOurTVL, tvl); 
-
-    }, [pool, poolBaseAPY, rewardPoolAPY, poolUsdValue, totalSupply, tvl]);
 
     useEffect(() => {
         //earnedDeposit(pool, currentWallet, data, setInitialDeposit, setEarned)

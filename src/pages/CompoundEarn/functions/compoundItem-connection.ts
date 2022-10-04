@@ -49,23 +49,9 @@ export const tokensFromContract = async(pool:any, prices1:any, prices2:any, setS
             const reserve0 = Number(ethers.utils.formatUnits(_reserve0, 18));
             const reserve1 = Number(ethers.utils.formatUnits(_reserve1, 18));
 
-            console.log(`the number of eth is ${reserve0}`);
-            console.log(`the number of other token is ${reserve1}`)
-
             const value0 = reserve0 * prices1; 
             const value1 = reserve1 * prices2;
 
-            console.log(`the value of eth in the lp is ${value0.toLocaleString('en-US', {
-                style: 'currency',
-                currency: 'USD',
-                })}}`)
-
-            console.log(`the value of stable coin in the lp is ${value1.toLocaleString('en-US', {
-                style: 'currency',
-                currency: 'USD',
-                })}}`)
-
-            
             const singleValue = (value0+value1)/totalSupply;
             setSingleValue(singleValue); 
         }

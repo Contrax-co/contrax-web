@@ -1,8 +1,20 @@
 import * as ethers from 'ethers';
 
 export const response = async (address:any, setPrices:any) => {
-    await fetch(`https://api.coingecko.com/api/v3/simple/token_price/arbitrum-one?contract_addresses=${address}&vs_currencies=usd`)
-    .then(response => response.json())
+    const url = "https://api.coingecko.com/api/v3/simple/token_price/arbitrum-one?contract_addresses=" + address + "&vs_currencies=usd";
+    var headers = {}
+
+    fetch(url, {
+        method: "GET",
+        mode: 'cors',
+        headers: headers
+    })
+    .then((response) => {
+        if(!response.ok){
+            throw new Error("Error occurred when trying to fetch")
+        }
+        return response.json(); 
+    })
     .then(data => {
         const prices = JSON.stringify(data);
         const parse = JSON.parse(prices);
@@ -11,6 +23,16 @@ export const response = async (address:any, setPrices:any) => {
 
         setPrices(Number(price));
     })
+    // await fetch(`https://api.coingecko.com/api/v3/simple/token_price/arbitrum-one?contract_addresses=${address}&vs_currencies=usd`)
+    // .then(response => response.json())
+    // .then(data => {
+    //     const prices = JSON.stringify(data);
+    //     const parse = JSON.parse(prices);
+
+    //     const price = parse[`${address}`]["usd"]; 
+
+    //     setPrices(Number(price));
+    // })
 } 
 
 export const tokensFromContract = async(pool:any, prices1:any, prices2:any, setSingleValue:any) => {
@@ -19,6 +41,9 @@ export const tokensFromContract = async(pool:any, prices1:any, prices2:any, setS
         if(ethereum){
             const provider = new ethers.providers.Web3Provider(ethereum); 
             const lpContract = new ethers.Contract(pool.lp_address, pool.lp_abi, provider);
+
+            const _totalSupply = await lpContract.totalSupply();
+            const totalSupply = Number(ethers.utils.formatUnits(_totalSupply, 18));
 
             const[_reserve0, _reserve1, ] = await lpContract.getReserves(); 
             const reserve0 = Number(ethers.utils.formatUnits(_reserve0, 18));
@@ -30,9 +55,19 @@ export const tokensFromContract = async(pool:any, prices1:any, prices2:any, setS
             const value0 = reserve0 * prices1; 
             const value1 = reserve1 * prices2;
 
-            console.log(`the value of the things are ${value0+value1}`)
+            console.log(`the value of eth in the lp is ${value0.toLocaleString('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                })}}`)
 
-            setSingleValue(value0+value1); 
+            console.log(`the value of stable coin in the lp is ${value1.toLocaleString('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                })}}`)
+
+            
+            const singleValue = (value0+value1)/totalSupply;
+            setSingleValue(singleValue); 
         }
         else{
             console.log("Ethereum object doesn't exist!'")
@@ -44,9 +79,6 @@ export const tokensFromContract = async(pool:any, prices1:any, prices2:any, setS
     }
 }
 
-const usdValue = () => {
-
-}
 
 export const calculateUserDeposit = async ({pool, currentWallet, setUserDeposit}:any ) => {
     const {ethereum} = window; 

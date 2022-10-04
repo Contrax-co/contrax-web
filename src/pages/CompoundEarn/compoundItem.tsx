@@ -140,9 +140,21 @@ function CompoundItem({pool, lightMode, currentWallet, connectWallet}: any) {
                         </div>
 
                         <div className="pool_info">
-                            <div className={`container__apy ${lightMode && "container__apy--light"}`}>
-                                <p className={`pool_name__apy ${lightMode && "pool_name__apy--light"}`}>-</p>
-                            </div>
+                            {pool.name === "WETH-DAI" ? (
+                                <div className={`container__apy ${lightMode && "container__apy--light"}`}>
+                                    <p className={`pool_name__apy ${lightMode && "pool_name__apy--light"}`}>39.56%</p>
+                                </div>
+                            ): pool.name === "WETH-USDC" ? (
+                                <div className={`container__apy ${lightMode && "container__apy--light"}`}>
+                                    <p className={`pool_name__apy ${lightMode && "pool_name__apy--light"}`}>12.77%</p>
+                                </div>
+
+                            ): (
+                                <div className={`container__apy ${lightMode && "container__apy--light"}`}>
+                                    <p className={`pool_name__apy ${lightMode && "pool_name__apy--light"}`}>27.40%</p>
+                                </div>
+                            )}
+                           
 
                             <div className={`container ${lightMode && "container--light"}`}>
                                 <p className={`pool_name ${lightMode && "pool_name--light"}`}>

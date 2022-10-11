@@ -45,7 +45,7 @@ export default function Exchange({lightMode}:any) {
             <input type="number" placeholder="0.0" className={`from__amount ${lightMode && "from__amount--light"}`}/>
             <div className={`dropdown__from ${lightMode && "dropdown__from--light"}`} onClick={() => setOpenModal(true)}>
               <img className={`swap__logo`} alt="ETH token" src="https://cryptologos.cc/logos/ethereum-eth-logo.png?v=023"/>
-              <p>{}</p>
+              <p>ETH</p>
               <HiChevronDown />
             </div>
           </div>
@@ -60,7 +60,7 @@ export default function Exchange({lightMode}:any) {
             <input type="number" placeholder="0.0" className={`to__amount ${lightMode && "to__amount--light"}`}/>
 
             <div className={`dropdown__to ${lightMode && "dropdown__to--light"}`} onClick={() => setOpenModal(true)}>
-              <img className={`swap__logo`} alt="ETH token" src="https://cryptologos.cc/logos/ethereum-eth-logo.png?v=023"/>
+              <img className={`swap__logo`} alt="Sushi token" src="https://cryptologos.cc/logos/sushiswap-sushi-logo.png?v=023"/>
               <p>{swapTokensTo}</p>
               <HiChevronDown />
             </div>

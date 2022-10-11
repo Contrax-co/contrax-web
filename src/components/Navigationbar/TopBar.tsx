@@ -1,6 +1,5 @@
 import React from 'react';
 import Jazzicon, { jsNumberForAddress } from 'react-jazzicon';
-import LightModeToggle from '../../pages/CompoundEarn/components/LightModeToggle';
 import './TopBar.css';
 
 
@@ -9,10 +8,6 @@ function TopBar({lightMode, currentWallet, connectWallet, logout, account, netwo
 
   return (
     <div className="topbar_placement">
-        <LightModeToggle
-            onClick={props.onClick} 
-            lightMode={lightMode}
-        />
 
         {currentWallet ? (
             <div className={`wallet_address ${lightMode && "wallet_address--light"}`}>

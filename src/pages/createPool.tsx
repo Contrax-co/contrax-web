@@ -206,7 +206,6 @@ export default function CreatePool() {
   }
   return (
     <>
-      <Navigationbar />
       <Container className="h-100 pool">
         <Row>
           <Col size="12" className="pt-5">

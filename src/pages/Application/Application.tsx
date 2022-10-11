@@ -14,6 +14,7 @@ import {
   setUserSession,
 } from '../../store/localstorage';
 import LogoutPage from '../Logout/LogoutPage';
+import CreatePool from '../createPool';
 
 const ethers = require('ethers');
 
@@ -44,7 +45,7 @@ function Application() {
       removeUserSession();
       setCurrentWallet('');
     }
-  });
+  }, []);
 
   useEffect(() => {
     let walletData: any;
@@ -76,14 +77,9 @@ function Application() {
   async function chainid() {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     await provider.send('eth_requestAccounts', []);
-    const signer = provider.getSigner();
     const { chainId } = await provider.getNetwork();
-    console.log(chainId);
-    if (chainId === 42161) {
-      console.log('ok');
-    } else {
-      removeUserSession();
-      setCurrentWallet('');
+    if (chainId !== 42161) {
+      setNetworkId(chainId);
     }
   }
 
@@ -119,6 +115,7 @@ function Application() {
             lightMode={lightMode}
             menuItem={menuItem}
             setMenuItem={setMenuItem}
+            onClick={toggleLight}
           />
         </div>
 
@@ -130,7 +127,6 @@ function Application() {
               connectWallet={connectWallet}
               logout={() => setLogout(true)}
               account={currentWallet}
-              onClick={toggleLight}
               networkId={networkId}
             />
           </div>
@@ -142,8 +138,9 @@ function Application() {
               connectWallet={connectWallet}
             />
           )}
-          {menuItem === 'Dashboard' && <Dashboard />}
+          {menuItem === 'Dashboard' && <Dashboard lightMode={lightMode} />}
           {menuItem === 'Create token' && <CreateToken />}
+          {menuItem === 'Create pool' && <CreatePool />}
           {menuItem === 'Exchange' && <Exchange lightMode={lightMode} />}
         </div>
       </div>

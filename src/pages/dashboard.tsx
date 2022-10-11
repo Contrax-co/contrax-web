@@ -1,13 +1,13 @@
 import React from 'react';
 import './dashboard.css';
 
-export default function Dashboard(props: any) {
+export default function Dashboard({lightMode, props}: any) {
 
   return (
     <div className="dashboard">
       <div className="dashboard_header">
-        <p className="dashboard_title">Contrax Finance</p>
-        <p className="dashboard_description">Contrax autocompounds your rewards to boost your investments.</p>
+        <p className={`dashboard_title ${lightMode && "dashboard_title--light"}`}>Contrax Finance</p>
+        <p className={`dashboard_description ${lightMode && "dashboard_description--light"}`}>Contrax autocompounds your rewards to boost your investments.</p>
       </div>
       
       <div className="panels">
@@ -33,7 +33,7 @@ export default function Dashboard(props: any) {
 
       </div>
 
-      <p className="farms_title">Joined Farms</p>
+      <p className={`farms_title ${lightMode && "farms_title--light"}`}>Joined Farms</p>
     
       
     </div>

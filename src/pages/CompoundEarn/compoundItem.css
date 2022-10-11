@@ -1,5 +1,6 @@
 .pools{
     width: 100%;
+    height: 100%;
     background-color:#012243; 
     border-radius: 20px;
     margin-bottom: 7px;
@@ -24,6 +25,7 @@
     display: flex;
     flex-direction: column;
     width:100%;
+    height: 100%;
     justify-content: space-evenly;
 }
 

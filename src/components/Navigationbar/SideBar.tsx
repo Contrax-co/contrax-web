@@ -8,8 +8,9 @@ import {HiDocumentText} from 'react-icons/hi';
 import {AiOutlineExport} from 'react-icons/ai';
 import {MdSpaceDashboard} from 'react-icons/md';
 import {FaExchangeAlt} from 'react-icons/fa';
+import LightModeToggle from '../../pages/CompoundEarn/components/LightModeToggle';
 
-function SideBar({lightMode, menuItem, setMenuItem}:any) {
+function SideBar({lightMode, menuItem, setMenuItem, ...props}:any) {
 
   return (
     <div className={`sidebar_bg ${lightMode && "sidebar_bg--light"}`}>
@@ -67,6 +68,11 @@ function SideBar({lightMode, menuItem, setMenuItem}:any) {
                 lightMode={lightMode}
             />
         </div>
+
+        <LightModeToggle
+            onClick={props.onClick} 
+            lightMode={lightMode}
+        />
  
     </div>
   )

@@ -2,33 +2,15 @@ import React, {useState, useEffect} from 'react';
 import PoolButton from '../../components/PoolButton';
 import './compoundItem.css';
 import Withdraw from './Withdraw';
-import {getUserVaultBalance, getTotalValue, 
-        compoundAPYCalculator, calculateTotalSupply, 
-        calculateTotalVaultSupply, calculateUserUSDValue, 
-        calculateEarnedUSD, earnedDeposit
-} from './functions/connection'; 
+import {getUserVaultBalance, getTotalValue} from './functions/connection'; 
 import {RiArrowDownSLine, RiArrowUpSLine} from 'react-icons/ri';
 import AddLiquidity from './AddLiquidity';
-import { useQuery } from '@apollo/client';
-import { POOLQUERY } from './functions/mutations';
-import { prices } from './protocols/sushiswap';
 
-import { calculateUserDeposit, getCurrentLiquidity, tokensFromContract } from './functions/compoundItem-connection';
+
+import { calculateSushiApyArbitrum, calculateUserDeposit, getCurrentLiquidity, response, tokensFromContract } from './functions/compoundItem-connection';
 
 
 function CompoundItem({pool, lightMode, currentWallet, connectWallet}: any) {
-
-
-    const [priceData, setPriceData] = useState([]);
-    // const { data, loading, error } = useQuery(POOLQUERY(pool), {
-    //     variables: {
-    //         userWallet: currentWallet,
-    //     }
-    // });
-
-    const [initialDeposit, setInitialDeposit] = useState(0);
-
-
     const [tvl, setTVL] = useState(0);
     const [userVaultBalance, setUserVaultBalance] = useState(0);
 
@@ -40,15 +22,8 @@ function CompoundItem({pool, lightMode, currentWallet, connectWallet}: any) {
     const [poolBaseAPY, setPoolBaseAPY] = useState(0); 
     const [rewardPoolAPY, setPoolRewardAPY] = useState(0);
 
-    const[poolUsdValue, setPoolUsdValue] = useState(0);
-    const[totalSupply, setTotalSupply] = useState(0);
-    const [ourTVL, setOurTVL] = useState(0);
-    const [userTVL, setUserTVL] = useState(0);
 
-    const [earned, setEarned] = useState(0);
     const [showDetails, setShowDetails] = useState(false);
-
-    const [earnedUSD, setEarnedUSD] = useState(0); 
 
     const[userDeposit, setUserDeposit] = useState(0);
     const[prices1, setPrices1] = useState(0);
@@ -56,20 +31,22 @@ function CompoundItem({pool, lightMode, currentWallet, connectWallet}: any) {
 
     const[userDepositUSD, setUserDepositUSD] = useState(0);
     const[singleValue, setSingleValue] = useState(0);
+    const[sushiPrice, setSushiPrice] = useState(0);
 
     const [totalLiquidity, setTotalLiquidity] = useState(0);
-
-
+    const [apy, setAPY] = useState(0);
 
 
     useEffect(() => {
         calculateUserDeposit({pool, currentWallet, setUserDeposit});
-        // response(pool.token1, setPrices1); 
-        // response(pool.token2, setPrices2); 
+        response(pool.token1, setPrices1); 
+        response(pool.token2, setPrices2); 
+        response(pool.reward_address, setSushiPrice); 
+        calculateSushiApyArbitrum(pool, singleValue, sushiPrice, setAPY)
         tokensFromContract(pool, prices1, prices2, setSingleValue); 
         getCurrentLiquidity(pool, setTotalLiquidity);
 
-    }, [pool, currentWallet, prices1, prices2, totalLiquidity, userDeposit]);
+    }, [pool, currentWallet, prices1, prices2, totalLiquidity, userDeposit, singleValue, sushiPrice]);
 
 
     useEffect(() => {
@@ -77,15 +54,6 @@ function CompoundItem({pool, lightMode, currentWallet, connectWallet}: any) {
         getTotalValue(pool, setTVL);
         
     },[tvl, userVaultBalance, currentWallet, pool]);
-
-
-    useEffect(() => {
-        //earnedDeposit(pool, currentWallet, data, setInitialDeposit, setEarned)
-        calculateUserUSDValue(poolUsdValue, totalSupply, setUserTVL, initialDeposit);
-        calculateEarnedUSD(poolUsdValue, totalSupply, earned, setEarnedUSD); 
-
-    }, [pool, currentWallet, poolUsdValue, totalSupply, initialDeposit, earned])
-
 
 
     const grabKey = () => {
@@ -115,25 +83,13 @@ function CompoundItem({pool, lightMode, currentWallet, connectWallet}: any) {
                         </div>
 
                         <div className="pool_info">
-                            {pool.name === "WETH-DAI" ? (
                                 <div className={`container__apy ${lightMode && "container__apy--light"}`}>
-                                    <p className={`pool_name__apy ${lightMode && "pool_name__apy--light"}`}>39.56%</p>
+                                    <p className={`pool_name__apy ${lightMode && "pool_name__apy--light"}`}>{apy}</p>
                                 </div>
-                            ): pool.name === "WETH-USDC" ? (
-                                <div className={`container__apy ${lightMode && "container__apy--light"}`}>
-                                    <p className={`pool_name__apy ${lightMode && "pool_name__apy--light"}`}>12.77%</p>
-                                </div>
-
-                            ): (
-                                <div className={`container__apy ${lightMode && "container__apy--light"}`}>
-                                    <p className={`pool_name__apy ${lightMode && "pool_name__apy--light"}`}>27.40%</p>
-                                </div>
-                            )}
-                           
 
                             <div className={`container ${lightMode && "container--light"}`}>
                                 <p className={`pool_name ${lightMode && "pool_name--light"}`}>
-                                    {(totalLiquidity * 100).toLocaleString('en-US', {
+                                    {(totalLiquidity * singleValue).toLocaleString('en-US', {
                                     style: 'currency',
                                     currency: 'USD',
                                     })}
@@ -147,7 +103,7 @@ function CompoundItem({pool, lightMode, currentWallet, connectWallet}: any) {
         
                             <div className={`container ${lightMode && "container--light"}`}>
                                 <p className={`pool_name ${lightMode && "pool_name--light"}`}>
-                                    {(100 * userDeposit).toLocaleString('en-US', {
+                                    {(singleValue * userDeposit).toLocaleString('en-US', {
                                     style: 'currency',
                                     currency: 'USD',
                                     })}

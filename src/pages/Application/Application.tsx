@@ -115,6 +115,7 @@ function Application() {
             lightMode={lightMode}
             menuItem={menuItem}
             setMenuItem={setMenuItem}
+            onClick={toggleLight}
           />
         </div>
 
@@ -126,7 +127,6 @@ function Application() {
               connectWallet={connectWallet}
               logout={() => setLogout(true)}
               account={currentWallet}
-              onClick={toggleLight}
               networkId={networkId}
             />
           </div>

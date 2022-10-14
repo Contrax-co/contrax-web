@@ -10,6 +10,8 @@ import { Modal } from './modal/Modal';
 import { Desc, DescSpan } from './text/Text';
 import tokenlogo from '../images/tokenlogo.png'
 import { gql, useMutation, useQuery } from '@apollo/client';
+import { ethers } from 'ethers';
+import abi from ".././config/erc20.json";
 const url = 'https://gateway.ipfs.io/ipns/tokens.uniswap.org';
 const FETCH = gql`
 query MyQuery($chainId:String!,$userwallet:String!) {
@@ -28,9 +30,15 @@ query MyQuery($chainId:String!,$userwallet:String!) {
 `;
 const TokenModal1 = ({ id, onSelection, standardTokens }: any) => {
   console.log(standardTokens)
+  const { ethereum } = window;
   const [tokens, setTokens] = useState([]);
   const [wallet, setWallet] = useState()
+  const [search, setSearch] = useState<any[]>([])
   const [values, setValues] = useState([]);
+  const [balance,setBalance]=  useState<any>()
+  const [name,setName]=  useState<any>()
+  const [symbol,setSymbol]= useState<any>()
+  const [div,setDiv]=  useState(false);
   const { data, loading, error } = useQuery(FETCH, {
     variables: {
       chainId: "421611",
@@ -38,33 +46,6 @@ const TokenModal1 = ({ id, onSelection, standardTokens }: any) => {
     },
   }
   );
-  const StableTOKEN = [
-    {
-      "id":"0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
-      "name":"USDC",
-      "symbol":"USDC"
-    },
-    {
-      "id":"0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
-      "name":"USDT",
-      "symbol":"USDT"
-    },
-    {
-      "id":"0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
-      "name":"DAI",
-      "symbol":"DAI"
-    },
-    {
-      "id":"0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
-      "name":"WETH",
-      "symbol":"WETH"
-    },
-    {
-      "id":"0x9D575a9bF57a5e24a99D29724B86ca021A2b0435",
-      "name":"ETH",
-      "symbol":"ETH"
-    }
-  ]
   useEffect(() => {
     // Get various currencies from the server
     // console.log(standardTokens[0].tokenName)
@@ -74,14 +55,50 @@ const TokenModal1 = ({ id, onSelection, standardTokens }: any) => {
     if (sessionData) {
       walletData = JSON.parse(sessionData);
       setWallet(walletData.address)
-  
       setTokens(standardTokens)
-      // console.log(tokens);
-     
+      console.log(tokens)
     }
 
   });
 
+
+  async function getInputValue  (event:any){
+
+    // show the user input value to console
+    const userValue = event.target.value;
+  
+    console.log(userValue);
+    try {
+      const contractAddress = userValue;
+    const contractABI = abi;
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        const dummyContract = new ethers.Contract(contractAddress, contractABI.abi, signer);
+        const balanceOf = await dummyContract.balanceOf(wallet);
+        const balance = ethers.utils.formatEther( balanceOf )
+        const name = await dummyContract.name();
+        const symbol = await dummyContract.symbol();
+        console.log(balance,name,symbol);
+        if(balance == '' && name == '' && symbol ==''){
+  
+        }else{
+  //        setBalance(balance);
+  //        setName(name);
+  // setSymbol(symbol);
+  const a = [{
+    tokenaddress: userValue,
+    name:name,
+    symbol:symbol
+  }]
+  setSearch(a);
+  setDiv(true)
+        }
+    } catch (error) {
+      
+    }
+  
+  };
+  
 
 
   return (
@@ -91,7 +108,30 @@ const TokenModal1 = ({ id, onSelection, standardTokens }: any) => {
     >
       <Row className="my-2">
         <Col size='12' className="mb-1">
-          <FormInput name='searchCurrency' caption='' placeholder='Search' />
+        <FormInput
+           onChange={getInputValue}
+   
+          name='searchCurrency' caption='' placeholder='Search' />
+          {div == true ?
+          <div className='tokenModal-content'>
+
+          {search.map((item: any, index: any) => {
+            console.log(item)
+            return (
+              <Row className='my-4' data-bs-dismiss="modal" onClick={() => { onSelection(item) }}>
+
+                <Col size='11'>
+                  <StyledListBtn
+                    className="dropdown-item"
+                    data-bs-dismiss="modal" >
+                    {item.name}
+                  </StyledListBtn>
+                </Col>
+              </Row>
+            )
+          })}
+        </div> :
+        
           <div className='tokenModal-content'>
 
             {tokens.map((item: any, index: any) => {
@@ -107,10 +147,11 @@ const TokenModal1 = ({ id, onSelection, standardTokens }: any) => {
                     </StyledListBtn>
                   </Col>
                 </Row>
-              )
-            })}
-          </div>
-        </Col>
+            )
+          })}
+        </div>
+          }
+          </Col>
       </Row>
     </Modal>
   )

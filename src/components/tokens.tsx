@@ -91,6 +91,7 @@ export default function Tokens() {
                         </div> :
                         <tbody>
                             {
+                                values.length ?
                                 values.map((token: any, index) => {
                                     return <tr key={index}>
                                         <th>{index + 1}</th>
@@ -107,8 +108,18 @@ export default function Tokens() {
                                             }}>Manage</Link>
                                         </td>
                                     </tr>
-                                })
-                            }
+                                }): 
+                               <tr>
+                                <td></td>
+                                <td> </td>
+                                <td style={{textAlign:'center'}}>  <p >There is No Token. Please Create a token </p></td>
+                                <td></td>
+                                <td></td>
+                               </tr>
+                             
+
+                              
+}
                         </tbody>
                     }
                 </table>

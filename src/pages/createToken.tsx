@@ -122,7 +122,7 @@ export default function CreateToken(props: any) {
 
   const handleSubmit = async (evt: any) => {
     evt.preventDefault();
-    setIsLoading(true);
+    
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     await provider.send("eth_requestAccounts", []);
     const signer = provider.getSigner();
@@ -149,7 +149,7 @@ export default function CreateToken(props: any) {
           if (name.length < 64) {
             
 
-
+            setIsLoading(true);
             const dec: any = decimal.toString();
             setDecimal(dec);
             const ts: any = initialSupply.toString();
@@ -195,14 +195,14 @@ export default function CreateToken(props: any) {
             swal("Something Went Wrong", "Please add decimal in 1-64 numbers");
           }
         } else {
-          swal("Something Went Wrong", "Token Supply that has invalid characters");
+          swal("Something Went Wrong", "Token Supply Decimal input is out of range");
         }
       }
       else {
         swal("Something Went Wrong", "Token Name is above 16 character");
       }
     } else {
-      swal("Something Went Wrong", "Please add decimal in 1-18 numbers");
+      swal("Something Went Wrong", "Please do not enter any decimal points in the Decimal Field and make sure the number is between 1 and 18 ");
     }
 
 
@@ -240,23 +240,23 @@ export default function CreateToken(props: any) {
                 <Col size='12' className="my-2">
                   <H3>Enter Token Parameters</H3>
                 </Col>
-                <FormInput className="col-lg-6 col-md-6 col-sm-6" caption="1-16 Characters" placeholder='Token Symbol' {...tokenSymbol} />
-                <FormInput className="col-lg-6 col-md-6 col-sm-6" caption="0-99999999999999999" placeholder={'Token Supply'} {...tokenSupply} />
+                <FormInput className="col-lg-6 col-md-6 col-sm-6"  caption="1-16 Characters" placeholder='Token Symbol' {...tokenSymbol} />
+                <FormInput className="col-lg-6 col-md-6 col-sm-6" type="number" caption="0-99999999999999999" placeholder={'Token Supply'} {...tokenSupply} />
 
                 <FormInput className="col-lg-6 col-md-6 col-sm-6" caption="1-64 Characters" placeholder={'Token Name'} {...tokenName} />
-                <FormInput className="col-lg-6 col-md-6 col-sm-6" caption="0-18" placeholder={'Decimals'} {...tokenDecimal} />
+                <FormInput className="col-lg-6 col-md-6 col-sm-6"  type="number" caption="0-18" placeholder={'Decimals'} {...tokenDecimal} />
 
                 <Col size='12' className="mt-3 mb-2">
                   <H3>Special Features</H3>
                 </Col>
                 <Col className="col-lg-10 col-md-10 col-sm-10 my-2">
-                  <FormCheckbox className='col-lg-10 col-md-10 col-sm-10 my-2' label='Burn' {...tokenBurn} caption='A percentage of tokens will be sent to the burn address for each on-chain transfer' />
+                  <FormCheckbox className='col-lg-10 col-md-10 col-sm-10 my-2'  label='Burn' {...tokenBurn} caption='A percentage of tokens will be sent to the burn address for each on-chain transfer' />
                 </Col>
-                <FormInput className="col-lg-2 col-md-2 col-sm-2 my-2 mt-5" placeholder="0%" id="burnPercent" name="burnPercent" {...tokenBurnValue} />
+                <FormInput className="col-lg-2 col-md-2 col-sm-2 my-2 mt-5" type="number" placeholder="0%" id="burnPercent" name="burnPercent" {...tokenBurnValue} />
                 <Col className="col-lg-10 col-md-10 col-sm-10 my-2">
                   <FormCheckbox id="exampleCheck1" label='Trading Fees' {...tokenTradingFee} caption='A percentage of tokens will be sent to the creators address for each on-chain transfer' />
                 </Col>
-                <FormInput className="col-lg-2 col-md-2 col-sm-2 my-2 mt-4" placeholder="0%" id="tradingFeePercent" name="tradingFeePercent" {...tokenTradingFeeValue} />
+                <FormInput className="col-lg-2 col-md-2 col-sm-2 my-2 mt-4" type="number" placeholder="0%" id="tradingFeePercent" name="tradingFeePercent" {...tokenTradingFeeValue} />
                 <Col size='12' className="my-2">
                   <FormCheckbox id="exampleCheck1" label='Supports Supply Increase' {...tokenSupportSupplyIncrease} caption='Allows the creator to issue additional tokens after the token creation' />
                 </Col>

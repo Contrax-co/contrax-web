@@ -7,7 +7,10 @@ import duckIcon from '../images/yellowDuck.svg'
 import { Container, Row } from '../components/blocks/Blocks';
 import { Image } from '../components/image/Image';
 import { Badge } from '../components/badge/Badge';
+
+import Pool from './CompoundEarn/components/Pool';
 const axios = require('axios')
+
 export default function ExplorePool() {
     let poolChartDataList = [["TT", "WETH"], ["11.29M TT-ETH (42%)", 73000], ["11.29M WETH (57%)", 54000]]
     const [pools, setPools] = useState<any[]>([])
@@ -97,9 +100,10 @@ export default function ExplorePool() {
         <div>
             <Navigationbar />
             <Container className="container h-100">
+       
             <Title className="mt-5" value={'Explore Pools'} variant={'dark'} />
           <div className="table-responsive">
-            {/* Explore Pool Table - Start */}
+               {/* Explore Pool Table - Start */}
             <table className="table table-hover">
                 <thead>
                 <tr className="table-light">

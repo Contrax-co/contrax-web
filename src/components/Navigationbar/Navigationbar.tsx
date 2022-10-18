@@ -9,7 +9,7 @@ import { Image } from '../image/Image';
 import { Link } from '../text/Text';
 import { Container } from '../blocks/Blocks';
 import { StyledNavLink } from './Navigationbar.styles';
-
+const ethers = require('ethers');
 let web3
 const onboard = Onboard({
   dappId: process.env.REACT_APP_DAPP_ID,  // [String] The API key of Blocknative
@@ -25,7 +25,25 @@ const onboard = Onboard({
 export default function Navigationbar() {
   const [walletAddress, setWalletAddress] = useState('');
 
+
+
+
+
   useEffect(() => {
+chainid();
+    if (typeof window.ethereum !== 'undefined') {
+      console.log('MetaMask is installed!');
+     
+     
+    }else{
+      console.log('MetaMask is not installed!');
+      removeUserSession();
+      setWalletAddress('');
+      
+    }
+
+
+
     let walletData: any;
     let tempData = getUserSession();
     if (tempData) {
@@ -39,7 +57,19 @@ export default function Navigationbar() {
     setWalletAddress('');
     window.location.href = "/"
   }
-
+async function chainid(){
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  await provider.send("eth_requestAccounts", []);
+  const signer = provider.getSigner();
+  const { chainId } = await provider.getNetwork()
+  console.log(chainId);
+  if(chainId === 42161){
+console.log('ok')
+  }else{
+    removeUserSession();
+    setWalletAddress('');
+  }
+}
   async function ConnectWallet() {
     const walletSelected = await onboard.walletSelect();
     if (walletSelected) {

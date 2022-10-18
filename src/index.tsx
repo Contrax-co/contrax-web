@@ -8,10 +8,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
 const client = new ApolloClient({
-  uri: 'https://on-magpie-83.hasura.app/v1/graphql',
+  uri: 'https://contrax-db.hasura.app/v1/graphql',
   headers:{
     'content-type':'application/json',
-    'x-hasura-admin-secret':"gAc2ipSymzLFzkskT1bwK673roTbvCfyeE66j9iw44jRsaFT6I7BKJMe9oPHHK9N"
+    'x-hasura-admin-secret':`${process.env.REACT_APP_HASHURA_API_KEY}`
   },
   cache: new InMemoryCache(),
 });

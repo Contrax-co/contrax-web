@@ -1,45 +1,69 @@
 import Button from '../button/Button';
-import { H3, H2, Link } from "../text/Text";
-
-import banner1 from "../../images/banner-1.png";
-import ethereum from "../../images/ethereum-4x.png";
-import arbiscan from "../../images/arbiscan-4x.png";
-import uniswap from "../../images/uniswap-4x.png";
-import { Image } from '../image/Image';
-import { Col, Container, Row } from '../blocks/Blocks';
+import { H3, H2, H1 } from '../text/Text';
 import * as colors from '../../theme/colors';
-import { StyledH1 } from './Banner.styles';
+import { Col, Container, Row } from '../blocks/Blocks';
+import './Banner.css';
 
-export default function banner() {
+import { Image } from '../image/Image';
+import banner1 from '../../images/banner-1.png';
+import arbitrum from '../../images/arbitrum_grayscaled.png';
+import arbiscan from '../../images/arbiscan_grayscaled.png';
+import sushiswap from '../../images/sushiswap_grayscaled.png';
 
-
+export default function Banner() {
   return (
     <div style={{ background: colors.pageBgLight, paddingBottom: '1rem' }}>
       <header className="masthead home-background">
-        <Container className="h-100" >
+        <Container className="h-100">
           <Row>
-            <Col size='7' className="my-auto">
-              <p className={'mt-4 mb-2'} ><H2 color={colors.secondaryMideum} >Tokens. Pools. Farms.</H2></p>
-              <StyledH1 color={colors.primary} size='4.5rem' lineHeight='5rem'>Fast. Secure. <br />Permissionless.</StyledH1>
-              <Row><H3 color={colors.secondaryDark} className='mt-3 mb-1'>
-              No-code dev tools & auto-compounding vaults on Arbitrum
-              </H3></Row>
-              <Image src={ethereum} className='mr-4 mt-3' width='94' height='42' alt='ethereum' />
-              <Image src={arbiscan} className='mr-4 mt-3' width='144' height='29' alt='arbiscan' />
-              <Image src={uniswap} className='mr-4 mt-3' width='112' height='24' alt='uniswap' />
-              <Row className='' >
+            <Col size="7" className="my-auto">
+              <p className={'mt-4 mb-2'}>
+                <H2 color={colors.secondaryMideum}>Automated DeFi Tools</H2>
+              </p>
+              <H1 color={colors.primary} size="4.5rem" lineHeight="5rem">
+                Fast. Secure. <br />
+                Permissionless.
+              </H1>
+              <Row>
+                <H3 color={colors.secondaryDark} className="mt-3 mb-1">
+                  The #1 Source for Real-Yield Farms on Arbitrum
+                </H3>
               </Row>
-              {/* <Button size='sm' className='mb-3 mt-3' primary label={'Explore Docs'} /> */}
-              <Link link="https://contrax.gitbook.io/contrax-docs/"><Button className='mb-3 mt-3' size='sm' primary label={'Explore Docs'} /></Link> 
-              &nbsp; &nbsp;
-              <Link link="https://gleam.io/plWUe/5-contrax-nfts-giveaway" target="_blank" rel="noreferrer noopener"><Button className='mb-3 mt-3' size='sm' primary label={'NFT Giveway'} /></Link>
+              <Image
+                src={arbitrum}
+                className="mr-4 mt-3"
+                width="140"
+                height="27"
+                alt="Arbitrum"
+              />
+              <Image
+                src={sushiswap}
+                className="mr-4 mt-3"
+                width="125"
+                height="22"
+                alt="Sushiswap"
+              />
+              <Image
+                src={arbiscan}
+                className="mr-4 mt-3"
+                width="140"
+                height="27"
+                alt="Arbiscan"
+              />
+              <Row className=""></Row>
+              <Button
+                size="sm"
+                className="mb-3 mt-4 p-3 px-4"
+                primary
+                label={'Explore Docs'}
+              />
             </Col>
-            <Col size='5' className='pt-4'>
-              <Image src={banner1} alt='banner' className='mt-1  d-none d-md-block' />
+            <Col size="5" className="pt-4">
+              <Image src={banner1} alt="banner" className="mt-1 hero-img" />
             </Col>
           </Row>
         </Container>
       </header>
     </div>
-  )
+  );
 }

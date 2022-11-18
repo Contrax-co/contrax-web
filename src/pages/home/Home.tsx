@@ -18,7 +18,7 @@ export default function home() {
       <Container>
         <Row className="d-row justify-content-between">
           <StyledCard className="p-1">
-            <H3 color={colors.secondaryMideum}>Built on Arbitrum</H3>
+            <H3 color={colors.secondaryMedium}>Built on Arbitrum</H3>
             <Block className="mt-2">
               <H1 color={colors.accentDark}>Secure &amp; Scalable</H1>
             </Block>
@@ -31,13 +31,13 @@ export default function home() {
             <Button
               size={'sm'}
               primary
-              className="mt-4 p-2 px-3"
+              className="mt-4 p-2 px-3 radius-change"
               label="Learn More"
             />
           </StyledCard>
 
           <StyledCard className="p-1">
-            <H3 color={colors.secondaryMideum}>No-code Design</H3>
+            <H3 color={colors.secondaryMedium}>No-code Design</H3>
             <Block className="mt-2">
               <H1 color={colors.accentDark}>Highly Accessible</H1>
             </Block>
@@ -50,26 +50,26 @@ export default function home() {
             <Button
               size={'sm'}
               primary
-              className="mt-4 p-2 px-3"
+              className="mt-4 p-2 px-3 radius-change"
               label="Learn More"
             />
           </StyledCard>
 
           <StyledCard className="p-1">
-            <H3 color={colors.secondaryMideum}>Optimized Yields</H3>
+            <H3 color={colors.secondaryMedium}>Automated Tools</H3>
             <Block className="mt-2">
-              <H1 color={colors.accentDark}>Auto-Compounding</H1>
+              <H1 color={colors.accentDark}>Optimized Yields</H1>
             </Block>
             <Block className="mt-4">
               <B1 className="mb-5">
-                Deposit assets into our auto-compounding vaults in just a few
-                clicks, then sit back and watch the magic happen!
+                Deposit a single asset into an auto-compounding vault with just
+                a few clicks, then sit back and watch the magic happen!
               </B1>
             </Block>
             <Button
               size={'sm'}
               primary
-              className="mt-4 p-2 px-3"
+              className="mt-4 p-2 px-3 radius-change"
               label="Learn More"
             />
           </StyledCard>

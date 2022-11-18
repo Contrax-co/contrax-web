@@ -1,7 +1,19 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 
-import { StyledPageTitle, StyledTitle, StyledPageSubTitle, StyledDesc, StyledDescSpan, StyledLink, StyledText, StyledB1, StyledH1, StyledH2, StyledH3, StyledCaption } from './Text.styles';
+import {
+  StyledPageTitle,
+  StyledTitle,
+  StyledPageSubTitle,
+  StyledDesc,
+  StyledDescSpan,
+  StyledLink,
+  StyledText,
+  StyledB1,
+  StyledH1,
+  StyledH2,
+  StyledH3,
+  StyledCaption,
+} from './Text.styles';
 
 const propTypes = {
   small: PropTypes.bool,
@@ -13,13 +25,7 @@ const propTypes = {
 };
 
 export const PageTitle = (props) => {
-  const {
-    variant,
-    value,
-    onClick,
-    children,
-    ...remainingProps
-  } = props;
+  const { variant, value, onClick, children, ...remainingProps } = props;
 
   return (
     <StyledPageTitle
@@ -36,13 +42,7 @@ PageTitle.prototype = propTypes;
 PageTitle.defaultProps = { variant: 'dark' };
 
 export const PageSubTitle = (props) => {
-  const {
-    variant,
-    value,
-    onClick,
-    children,
-    ...remainingProps
-  } = props;
+  const { variant, value, onClick, children, ...remainingProps } = props;
 
   return (
     <StyledPageSubTitle
@@ -58,13 +58,7 @@ PageSubTitle.prototype = propTypes;
 PageSubTitle.defaultProps = { variant: 'dark' };
 
 export const Title = (props) => {
-  const {
-    variant,
-    value,
-    onClick,
-    children,
-    ...remainingProps
-  } = props;
+  const { variant, value, onClick, children, ...remainingProps } = props;
 
   return (
     <StyledTitle
@@ -80,13 +74,7 @@ Title.prototype = propTypes;
 Title.defaultProps = { variant: 'dark' };
 
 export const Desc = (props) => {
-  const {
-    variant,
-    value,
-    onClick,
-    children,
-    ...remainingProps
-  } = props;
+  const { variant, value, onClick, children, ...remainingProps } = props;
 
   return (
     <StyledDesc
@@ -102,13 +90,7 @@ Desc.prototype = propTypes;
 Desc.defaultProps = { variant: 'dark' };
 
 export const DescSpan = (props) => {
-  const {
-    variant,
-    value,
-    onClick,
-    children,
-    ...remainingProps
-  } = props;
+  const { variant, value, onClick, children, ...remainingProps } = props;
 
   return (
     <StyledDescSpan
@@ -124,14 +106,7 @@ DescSpan.prototype = propTypes;
 DescSpan.defaultProps = { variant: 'dark' };
 
 export const Link = (props) => {
-  const {
-    variant,
-    text,
-    link,
-    onClick,
-    children,
-    ...remainingProps
-  } = props;
+  const { variant, text, link, onClick, children, ...remainingProps } = props;
 
   return (
     <StyledLink
@@ -148,13 +123,7 @@ Link.prototype = propTypes;
 Link.defaultProps = { variant: 'dark' };
 
 export const Text = (props) => {
-  const {
-    variant,
-    value,
-    onClick,
-    children,
-    ...remainingProps
-  } = props;
+  const { variant, value, onClick, children, ...remainingProps } = props;
 
   return (
     <StyledText
@@ -172,14 +141,10 @@ Text.defaultProps = { variant: 'dark' };
 // new design
 
 export const B1 = (props) => {
-  const {
-    variant,
-    children,
-    ...remainingProps
-  } = props;
+  const { variant, children, ...remainingProps } = props;
 
   return (
-    <StyledB1 variant={variant} {...remainingProps} >
+    <StyledB1 variant={variant} {...remainingProps}>
       {props.value || children}
     </StyledB1>
   );
@@ -188,14 +153,10 @@ B1.prototype = propTypes;
 B1.defaultProps = { variant: 'dark' };
 
 export const H1 = (props) => {
-  const {
-    variant,
-    children,
-    ...remainingProps
-  } = props;
+  const { variant, children, ...remainingProps } = props;
 
   return (
-    <StyledH1 variant={variant} {...remainingProps} >
+    <StyledH1 variant={variant} {...remainingProps}>
       {children}
     </StyledH1>
   );
@@ -205,14 +166,10 @@ H1.prototype = propTypes;
 H1.defaultProps = { variant: 'dark' };
 
 export const H2 = (props) => {
-  const {
-    variant,
-    children,
-    ...remainingProps
-  } = props;
+  const { variant, children, ...remainingProps } = props;
 
   return (
-    <StyledH2 variant={variant} {...remainingProps} >
+    <StyledH2 variant={variant} {...remainingProps}>
       {children}
     </StyledH2>
   );
@@ -221,14 +178,10 @@ H2.prototype = propTypes;
 H2.defaultProps = { variant: 'dark' };
 
 export const H3 = (props) => {
-  const {
-    variant,
-    children,
-    ...remainingProps
-  } = props;
+  const { variant, children, ...remainingProps } = props;
 
   return (
-    <StyledH3 variant={variant} {...remainingProps} >
+    <StyledH3 variant={variant} {...remainingProps}>
       {children}
     </StyledH3>
   );
@@ -237,14 +190,10 @@ H3.prototype = propTypes;
 H3.defaultProps = { variant: 'dark' };
 
 export const Caption = (props) => {
-  const {
-    variant,
-    children,
-    ...remainingProps
-  } = props;
+  const { variant, children, ...remainingProps } = props;
 
   return (
-    <StyledCaption variant={variant} {...remainingProps} >
+    <StyledCaption variant={variant} {...remainingProps}>
       {children}
     </StyledCaption>
   );

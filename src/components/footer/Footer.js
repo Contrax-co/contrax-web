@@ -18,20 +18,18 @@ export default function Footer() {
     <div className="footer">
       <Row height="72px" />
       <StyledBox color={colors.accentDark}>
-        <Row className="row">
-          <Col size="6">
-            <StyledImage src={footerLogo} width="239px" alt="contrax logo" />
+        <Row className="row text-center">
+          <Col size="100%">
+            <StyledImage src={footerLogo} width="239px" alt="Contrax logo" />
           </Col>
         </Row>
-        <Row className="mt-2 mb-3">
-          <Col size="12">
-            <H3 color={colors.whiteText}>
-              Permissionless. Scalable. Community-led DeFi.
-            </H3>
+        <Row className="mt-2 mb-3 text-center">
+          <Col size="100%">
+            <H3 color={colors.whiteText}>Let Your Crypto Work For You</H3>
           </Col>
         </Row>
-        <Row>
-          <Col size="6">
+        <Row className="text-center">
+          <Col size="100%">
             <a href="https://discord.gg/rDdvyeWAtt">
               <Image src={discordLogo} alt="Discord" />
             </a>

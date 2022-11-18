@@ -2,10 +2,15 @@
   width: 100vw;
   display: flex;
   padding: 20px;
-  padding-left: 170px;
-  padding-right: 170px;
+  padding-left: 70px;
+  padding-right: 70px;
   align-items: center;
   justify-content: space-between;
+}
+
+.contrax_logo {
+  width: 13vw;
+  margin-bottom: 20px;
 }
 
 .enter_button {
@@ -22,4 +27,18 @@
 .enter_button:hover {
   cursor: pointer;
   background-color: #32acfe;
+}
+
+/* Remove the inactive-btn & text-shrink classes (along with their
+associated elements in Navigation.tsx) once the beta is live */
+.inactive-btn {
+  opacity: 0.6;
+  pointer-events: none;
+  padding-top: 7px;
+}
+
+.text-shrink {
+  font-size: 0.7rem;
+  line-height: 0.5rem;
+  padding-bottom: 3px;
 }

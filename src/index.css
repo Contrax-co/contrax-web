@@ -1,3 +1,8 @@
+/* Leave "outline all" here for spacing/responsiveness tweaking */
+/* * {
+  outline: 1px solid red;
+} */
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -25,7 +30,7 @@ img.main-logo {
   background-repeat: no-repeat;
 }
 
-.home-image{
+.home-image {
   min-height: 430px;
   max-height: 530px;
   background-position: center;
@@ -45,41 +50,43 @@ img.main-logo {
 }
 
 .dashboard-background {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)), url('./images/dashboard-banner.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),
+    url('./images/dashboard-banner.png');
 }
 
-.bottombar-design{
+.bottombar-design {
   background-color: transparent;
   padding-top: 20px !important;
   padding-bottom: 20px !important;
   margin-top: 30px !important;
 }
-@media (min-width:992px) { /* laptops and desktops */ 
-  .borderRight{
+@media (min-width: 992px) {
+  /* laptops and desktops */
+  .borderRight {
     border-right: 1px solid #2b2b2b;
     height: 250px;
   }
-} 
+}
 
-p{
+p {
   margin-top: 0;
   margin-bottom: 0rem !important;
 }
 
 .inlineDisplay {
   white-space: nowrap;
-  display:inline  
+  display: inline;
 }
 
 .brand-logo {
   width: 140px !important;
   margin-top: 20px !important;
 }
-.text-right{
+.text-right {
   text-align: end;
 }
 
-.chartColumn{
+.chartColumn {
   width: 30%;
 }
 .dropdown-input .dropdown {
@@ -95,11 +102,12 @@ p{
 .dropdown-input .dropdown-menu.show {
   width: 100%;
 }
-.dropdown-input input:focus-visible, .dropdown-input button:focus {
+.dropdown-input input:focus-visible,
+.dropdown-input button:focus {
   outline: none;
   box-shadow: none;
 }
-.card{
+.card {
   width: 100%;
 }
 .faround {
@@ -108,12 +116,12 @@ p{
   box-shadow: 0px 0px 6px #888;
   padding: 0.4em 0.4em;
 }
-.navbar{
+.navbar {
   padding-top: 2px !important;
 }
-.mr-4{
+.mr-4 {
   margin-right: 1.5rem;
 }
-.ml-4{
+.ml-4 {
   margin-left: 1.5rem;
 }

@@ -6,5 +6,5 @@ import { Link } from '../text/Text';
 export const StyledNavLink = styled(Link)((props) => ({
   ...typo.BtnText,
   fontWeight: 600,
-  color: `${colors.secondaryMideum} !important`,
+  color: `${colors.secondaryMedium} !important`,
 }));

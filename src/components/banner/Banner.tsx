@@ -2,6 +2,7 @@ import Button from '../button/Button';
 import { H3, H2, H1 } from '../text/Text';
 import * as colors from '../../theme/colors';
 import { Col, Container, Row } from '../blocks/Blocks';
+import { Link } from 'react-router-dom';
 import './Banner.css';
 
 import { Image } from '../image/Image';
@@ -18,15 +19,20 @@ export default function Banner() {
           <Row>
             <Col size="7" className="my-auto">
               <p className={'mt-4 mb-2'}>
-                <H2 color={colors.secondaryMideum}>Automated DeFi Tools</H2>
+                <H2 color={colors.secondaryMedium}>
+                  Open-Source. Permissionless.
+                </H2>
               </p>
-              <H1 color={colors.primary} size="4.5rem" lineHeight="5rem">
-                Fast. Secure. <br />
-                Permissionless.
+              <H1 color={colors.primary} size="4.4rem" lineHeight="4.7rem">
+                Let Your Crypto Work For You
               </H1>
               <Row>
-                <H3 color={colors.secondaryDark} className="mt-3 mb-1">
-                  The #1 Source for Real-Yield Farms on Arbitrum
+                <H3
+                  color={colors.secondaryDark}
+                  size="1.55rem"
+                  className="mt-3 mb-1"
+                >
+                  Auto-compounding vaults for "real yield" assets
                 </H3>
               </Row>
               <Image
@@ -53,13 +59,28 @@ export default function Banner() {
               <Row className=""></Row>
               <Button
                 size="sm"
-                className="mb-3 mt-4 p-3 px-4"
+                className="mx-2 mb-3 mt-4 p-3 px-4 radius-change"
                 primary
                 label={'Explore Docs'}
+                onClick={() =>
+                  window.open('https://docs.contrax.finance/', '_blank')
+                }
               />
+              <Link to="/about">
+                <Button
+                  size="sm"
+                  className="mx-2 mb-3 mt-4 p-3 px-4 radius-change"
+                  primary
+                  label={'About Us'}
+                />
+              </Link>
             </Col>
-            <Col size="5" className="pt-4">
-              <Image src={banner1} alt="banner" className="mt-1 hero-img" />
+            <Col size="5" className="pt-5">
+              <Image
+                src={banner1}
+                alt="banner"
+                className="mt-3 pt-4 hero-img"
+              />
             </Col>
           </Row>
         </Container>

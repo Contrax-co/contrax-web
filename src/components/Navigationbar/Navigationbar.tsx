@@ -5,14 +5,16 @@ import { Link } from 'react-router-dom';
 export default function Navigationbar() {
   return (
     <div className="header_container">
-      <Link to="/" style={{ textDecoration: 'none' }}>
+      <Link to="/">
         <img className="contrax_logo" alt="contrax-logo" src={logo} />
       </Link>
-      <Link to="/application" style={{ textDecoration: 'none' }}>
-        <div className="enter_button">
-          <p>Enter App</p>
-        </div>
-      </Link>
+      {/* TODO - Re-add link to 'Enter App' once beta is ready */}
+      {/* <Link to="/application"> */}
+      <div className="enter_button inactive-btn text-center">
+        <p>Enter App</p>
+        <p className="text-shrink">(Coming Soon)</p>
+      </div>
+      {/* </Link> */}
     </div>
   );
 }

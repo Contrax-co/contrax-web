@@ -19,18 +19,18 @@
     },
     {
       "name": "Blog",
-      "url": "https://contraxfi.medium.com/contrax-the-dapp-token-and-dao-explained-8c8d5a9b7e9d"
+      "url": "https://contraxfi.medium.com/"
     },
     {
       "name": "About",
-      "url": "https://contraxfi.medium.com/contrax-the-dapp-token-and-dao-explained-8c8d5a9b7e9d"
+      "url": "https://contrax.finance/about"
     }
   ],
   "anchors": [
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://contrax.finance/about"
+      "url": "https://contraxfi.medium.com/"
     },
     {
       "name": "Community",
@@ -59,6 +59,12 @@
         "contrax-dapp/create-tokens",
         "contrax-dapp/create-pools",
         "contrax-dapp/dapp-faq"
+      ]
+    },
+    {
+      "group": "FAQ",
+      "pages": [
+        "FAQ/dapp-faq"
       ]
     }
   ],

@@ -53,25 +53,12 @@
     {
       "group": "Contrax DApp",
       "pages": [
-        "contrax-dapp/dapp-intro",
-        "contrax-dapp/architecture",
+        "contrax-dapp/dashboard",
+        "contrax-dapp/farms",
+        "contrax-dapp/zap-in-trade",
+        "contrax-dapp/create-tokens",
+        "contrax-dapp/create-pools",
         "contrax-dapp/dapp-faq"
-      ]
-    },
-    {
-      "group": "Proposed Contrax DAO",
-      "pages": [
-        "contrax-dao/dao-intro",
-        "contrax-dao/dao-voting",
-        "contrax-dao/dao-faq"
-      ]
-    },
-    {
-      "group": "Proposed Trax Token",
-      "pages": [
-        "trax-token/introduction",
-        "trax-token/token-uses",
-        "trax-token/token-faq"
       ]
     }
   ],
